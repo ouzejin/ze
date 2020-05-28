@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-05-28T08:48:42.888278+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-05-28T08:48:42.888558+00:00</updated><author><name>AlanDecode</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-05-28T09:23:16.575808+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/typography/</id><title>Hello World!</title><updated>2020-05-28T09:23:16.576040+00:00</updated><author><name>AlanDecode</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -78,7 +78,7 @@
 &lt;/table&gt;
 &lt;h2&gt;Link Card&lt;/h2&gt;
 &lt;div class="links"&gt;
-&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/软考软件设计师笔记/</id><title>软考软件设计师笔记</title><updated>2020-05-28T08:48:42.888529+00:00</updated><author><name>patrick</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;一.计算机系统知识&lt;/h1&gt;
+&lt;a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item"&gt;                 &lt;div class="board-thumb"&gt;&lt;img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&amp;r=G&amp;d="&gt;&lt;/div&gt;                 &lt;div class="board-title"&gt;AlanDecode&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;hr&gt;&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li id="fn_1"&gt;Home page for AlanDecode &lt;a no-style href="#fn_ref_1"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content><link href="/archives/typography/" rel="alternate"/><published>2019-12-18T16:50:00+08:06</published></entry><entry><id>/archives/软考软件设计师笔记/</id><title>软考软件设计师笔记</title><updated>2020-05-28T09:23:16.576011+00:00</updated><author><name>patrick</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;一.计算机系统知识&lt;/h1&gt;
 &lt;h2&gt;1.1原码反码补码移码&lt;/h2&gt;
 &lt;p&gt;正数时&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;原=反=补&lt;/p&gt;
@@ -1693,7 +1693,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><link href="/archives/软考软件设计师笔记/" rel="alternate"/><published>2020-04-05T23:01:04+08:06</published></entry><entry><id>/archives/修改Host以访问Github/</id><title>修改Host以访问Github</title><updated>2020-05-28T08:48:42.888499+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>
+</content><link href="/archives/软考软件设计师笔记/" rel="alternate"/><published>2020-04-05T23:01:04+08:06</published></entry><entry><id>/archives/修改Host以访问Github/</id><title>修改Host以访问Github</title><updated>2020-05-28T09:23:16.575979+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>
 &lt;pre&gt;&lt;code&gt;# Github
 192.30.253.113 github.com
 151.101.185.194 github.global.ssl.fastly.net
@@ -1710,7 +1710,7 @@
 185.199.108.153 pages.github.com  
 34.196.237.103 classroom.github.com&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后cmd用&lt;code&gt;ipconfig/flushdns&lt;/code&gt;刷新&lt;/p&gt;
-</content><link href="/archives/修改Host以访问Github/" rel="alternate"/><published>2020-04-16T23:46:17+08:06</published></entry><entry><id>/archives/Hadoop伪分布式配置/</id><title>Hadoop伪分布式配置</title><updated>2020-05-28T08:48:42.888447+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1.准备&lt;/h1&gt;
+</content><link href="/archives/修改Host以访问Github/" rel="alternate"/><published>2020-04-16T23:46:17+08:06</published></entry><entry><id>/archives/Hadoop伪分布式配置/</id><title>Hadoop伪分布式配置</title><updated>2020-05-28T09:23:16.575943+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1.准备&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ol&gt;
 &lt;li&gt;java&lt;/li&gt;
 &lt;li&gt;Hadoop,&lt;a href="http://mirror.bit.edu.cn/apache/hadoop/common/"&gt;镜像下载地址&lt;/a&gt;&lt;/li&gt;
@@ -1827,7 +1827,7 @@ hadoop version
 &lt;p&gt;&lt;img src="../images/Hadoop/pi结果.png" style="zoom:200%;" /&gt;&lt;/p&gt;
 &lt;h1&gt;4.参考&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://dblab.xmu.edu.cn/blog/install-hadoop/"&gt;厦门大学大数据实验室Hadoop配置&lt;/a&gt;&lt;/p&gt;
-</content><link href="/archives/Hadoop伪分布式配置/" rel="alternate"/><published>2020-05-02T18:59:32+08:06</published></entry><entry><id>/archives/Import-excel-to-mysql/</id><title>Import excel to mysql</title><updated>2020-05-28T08:48:42.888370+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
+</content><link href="/archives/Hadoop伪分布式配置/" rel="alternate"/><published>2020-05-02T18:59:32+08:06</published></entry><entry><id>/archives/Import-excel-to-mysql/</id><title>Import excel to mysql</title><updated>2020-05-28T09:23:16.575881+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;1.准备&lt;/h2&gt;
 &lt;h3&gt;1.1添加所需要的的依赖&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- excel需要的包--&amp;gt;&lt;/span&gt;
@@ -1865,178 +1865,159 @@ mysql表
 
 目录图如下
 
-&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/&gt;&lt;/div&gt;
-## 2.核心代码
+&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/&gt;&lt;/div&gt;&lt;h2&gt;2.核心代码&lt;/h2&gt;
+&lt;h3&gt;2.1创建能处理excel转换为&lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;的方法&lt;/h3&gt;
+&lt;p&gt;创建&lt;code&gt;ExcelForList&lt;/code&gt;类并创建&lt;code&gt;ExcelForList&lt;/code&gt;方法用于处理excel表各个记录并返回&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;com.example.demo.excelUtils&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-### 2.1创建能处理excel转换为`List&lt;Object&gt;`的方法
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.example.demo.entity.Course&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.example.demo.dao.CourseDao&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.example.demo.service.CourseService&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.hssf.usermodel.HSSFWorkbook&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.ss.usermodel.Cell&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.ss.usermodel.Row&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.ss.usermodel.Sheet&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.ss.usermodel.Workbook&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.poi.xssf.usermodel.XSSFWorkbook&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.springframework.stereotype.Service&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.springframework.web.multipart.MultipartFile&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-创建`ExcelForList`类并创建`ExcelForList`方法用于处理excel表各个记录并返回
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;javax.annotation.Resource&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.beans.PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.io.InputStream&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.lang.reflect.Field&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.lang.reflect.Method&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.ArrayList&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.List&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ExcelForList&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;ExcelForList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MultipartFile&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Class&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&amp;gt;&lt;/span&gt;  &lt;span class="n"&gt;beanclazz&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Boolean&lt;/span&gt; &lt;span class="n"&gt;titleExist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;Workbook&lt;/span&gt; &lt;span class="n"&gt;wb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// IO流读取文件&lt;/span&gt;
+            &lt;span class="n"&gt;InputStream&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInputStream&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="c1"&gt;// 创建文档&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;xls&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;wb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HSSFWorkbook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
+                &lt;span class="n"&gt;wb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XSSFWorkbook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;错误！---------------------文件不含xls或xlsx！-----------------&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt;  &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="c1"&gt;// 得到第一张工作表&lt;/span&gt;
+            &lt;span class="n"&gt;Sheet&lt;/span&gt; &lt;span class="n"&gt;sheet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getSheetAt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;titleExist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="c1"&gt;// 行的遍历&lt;/span&gt;
+            &lt;span class="c1"&gt;//excels是从0开是的，getLastRowNum是获取最后一行的行数&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;sheet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getLastRowNum&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="c1"&gt;// 得到行&lt;/span&gt;
+                &lt;span class="n"&gt;Row&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sheet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getRow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="c1"&gt;// 单元格的遍历&lt;/span&gt;
+                &lt;span class="c1"&gt;// 实例化对象&lt;/span&gt;
+                &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;beanclazz&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;newInstance&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
-```java
-package com.example.demo.excelUtils;
+                &lt;span class="n"&gt;Field&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;beanclazz&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getDeclaredFields&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Field&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;fieldName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                    &lt;span class="n"&gt;PropertyDescriptor&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fieldName&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;beanclazz&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                    &lt;span class="n"&gt;Method&lt;/span&gt; &lt;span class="n"&gt;getMethod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getWriteMethod&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                    &lt;span class="n"&gt;Cell&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getCell&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+                        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getCellType&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
-import com.example.demo.entity.Course;
-import com.example.demo.dao.CourseDao;
-import com.example.demo.service.CourseService;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+                        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CELL_TYPE_BOOLEAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                            &lt;span class="c1"&gt;// 返回布尔类型的值&lt;/span&gt;
+                            &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getBooleanCellValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                            &lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                            &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                            &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CELL_TYPE_NUMERIC&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                            &lt;span class="c1"&gt;// 返回数值类型的值&lt;/span&gt;
+                            &lt;span class="n"&gt;Double&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getNumericCellValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                            &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;intValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                            &lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+                        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CELL_TYPE_STRING&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                            &lt;span class="c1"&gt;// 返回字符串类型的值&lt;/span&gt;
+                            &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getStringCellValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                            &lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+                        &lt;span class="p"&gt;}&lt;/span&gt;
 
-import javax.annotation.Resource;
-import java.beans.PropertyDescriptor;
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-public class ExcelForList {
-    public static List&lt;Object&gt; ExcelForList(MultipartFile file, Class&lt;?&gt;  beanclazz, Boolean titleExist, String excelType) {
-        List&lt;Object&gt; list = new ArrayList&lt;Object&gt;();
-        Workbook wb;
-        try {
-            // IO流读取文件
-            InputStream input = file.getInputStream();
-            // 创建文档
-            if(excelType.equals("xls")) {
-                wb = new HSSFWorkbook(input);
-            } else if(excelType.equals("xlsx")){
-                wb = new XSSFWorkbook(input);
-            }else{
-                System.out.println("错误！---------------------文件不含xls或xlsx！-----------------");
-                return  null;
-            }
-            // 得到第一张工作表
-            Sheet sheet = wb.getSheetAt(0);
-            int i;
-            if (titleExist) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            // 行的遍历
-            //excels是从0开是的，getLastRowNum是获取最后一行的行数
-            for (; i &lt;= sheet.getLastRowNum(); i++) {
-                // 得到行
-                Row row = sheet.getRow(i);
-                // 单元格的遍历
-                // 实例化对象
-                Object object = beanclazz.newInstance();
+                    &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                    &lt;span class="p"&gt;}&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+                &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
 
-                Field[] fields = beanclazz.getDeclaredFields();
-                int j = 0;
-                for (Field field : fields) {
-                    String fieldName = field.getName();
-                    PropertyDescriptor pd = new PropertyDescriptor(fieldName, beanclazz);
-                    Method getMethod = pd.getWriteMethod();
-                    Cell cell = row.getCell(j++);
-                    try{
-                        int type = cell.getCellType();
+        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
 
-                        if (type == cell.CELL_TYPE_BOOLEAN) {
-                            // 返回布尔类型的值
-                            boolean value = cell.getBooleanCellValue();
-                            getMethod.invoke(object, value);
-                            System.out.println(object);
-                            System.out.println(value);
-                        } else if (type == cell.CELL_TYPE_NUMERIC) {
-                            // 返回数值类型的值
-                            Double d = cell.getNumericCellValue();
-                            int value = d.intValue();
-                            getMethod.invoke(object, new Integer(value));
-                        } else if (type == cell.CELL_TYPE_STRING) {
-                            // 返回字符串类型的值
-                            String value = cell.getStringCellValue();
-                            getMethod.invoke(object, new String(value));
-                        }
-
-                    }catch (Exception e) {
-                        System.out.println("");
-                    }
-                }
-                list.add(object);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return list;
-    }
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
 
 
-}
-```
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2.1创建接口&lt;/h3&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;获取到文件&lt;/li&gt;
+&lt;li&gt;调用上述方法获取到object的List&lt;/li&gt;
+&lt;li&gt;循环List转换为一个个course对象再插入到数据库中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;//    导入excel到数据库&lt;/span&gt;
+&lt;span class="nd"&gt;@RequestMapping&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/import&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RequestMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;POST&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;produces&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;application/json;charset=UTF-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt;  &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="nf"&gt;imporCourse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nd"&gt;@RequestParam&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;excelFile&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;MultipartFile&lt;/span&gt; &lt;span class="n"&gt;excelFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HttpSession&lt;/span&gt; &lt;span class="n"&gt;httpSession&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;IOException&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;InputStream&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;excelFile&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInputStream&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;fileOriginalName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;excelFile&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getOriginalFilename&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;excelFile&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fileOriginalName&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;substring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fileOriginalName&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;indexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
+        &lt;span class="c1"&gt;//记录插入多条记录到了数据库；&lt;/span&gt;
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;importSuccessNum&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;importAllNum&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;importSuccess&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;in:::&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;fileOriginalName:::&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;fileOriginalName&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;fileName:::&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;excelType:::&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;forlist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ExcelForList&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;ExcelForList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;excelFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Course&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;excelType&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;forlist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;//            在这里对每个Object转换为course对象&lt;/span&gt;
+            &lt;span class="n"&gt;Course&lt;/span&gt; &lt;span class="n"&gt;course&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Course&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;importAllNum&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;importSuccess&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;courseService&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;importExcel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;course&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;importSuccess&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="n"&gt;importSuccessNum&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-### 2.1创建接口
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;httpSession&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;importAllNum&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;importAllNum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;httpSession&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;importSuccessNum&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;importSuccessNum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&gt; - 获取到文件
-&gt; - 调用上述方法获取到object的List
-&gt; - 循环List转换为一个个course对象再插入到数据库中
-
-
-
-```java
-//    导入excel到数据库
-@RequestMapping(value="/import",method = RequestMethod.POST,produces = { "application/json;charset=UTF-8"})
-    public  String imporCourse(@RequestParam("excelFile") MultipartFile excelFile, HttpSession httpSession) throws IOException {
-        InputStream in =excelFile.getInputStream();
-        String fileOriginalName=excelFile.getOriginalFilename();
-        String fileName=excelFile.getName();
-        String excelType=fileOriginalName.substring(fileOriginalName.indexOf(".")+1);
-
-        //记录插入多条记录到了数据库；
-        int importSuccessNum=0;
-        int importAllNum=0;
-        boolean importSuccess;
-
-        System.out.println("in:::"+in);
-        System.out.println("fileOriginalName:::"+fileOriginalName);
-        System.out.println("fileName:::"+fileName);
-        System.out.println("excelType:::"+excelType);
-        List&lt;Object&gt; forlist= ExcelForList.ExcelForList(excelFile,Course.class,true,excelType);
-        for (Object object: forlist) {
-//            在这里对每个Object转换为course对象
-            Course course=(Course) object;
-            importAllNum++;
-            importSuccess=courseService.importExcel(course);
-            if(importSuccess)
-                importSuccessNum++;
-
-        }
-        httpSession.setAttribute("importAllNum",importAllNum);
-        httpSession.setAttribute("importSuccessNum",importSuccessNum);
-
-        if(importSuccessNum&gt;0)
-            return "success!"+"应处理"+importAllNum+"条,已成功处理"+importSuccessNum+"条！";
-        else{
-            return "error!";
-        }
-```
-
-
-
-## 3.Console
-
-### 3.1POSTMAN
-
-调用接口http://localhost:8886/course/import
-
-method="POST"
-
-&gt; - HEADERS中添加KEY:`Content-Type`,VALUE:`multipart/form-data`
-&gt; - BODY中选择类型为`form-data`并上传文件
-
-&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/&gt;&lt;/div&gt;
-### 3.2MYSQL
-
-&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/&gt;&lt;/div&gt;
-### 3.3IDEA
-
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;importSuccessNum&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;success!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;应处理&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;importAllNum&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;条,已成功处理&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;importSuccessNum&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;条！&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;error!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3.Console&lt;/h2&gt;
+&lt;h3&gt;3.1POSTMAN&lt;/h3&gt;
+&lt;p&gt;调用接口&lt;a href="http://localhost:8886/course/import"&gt;http://localhost:8886/course/import&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;method="POST"&lt;/p&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;HEADERS中添加KEY:&lt;code&gt;Content-Type&lt;/code&gt;,VALUE:&lt;code&gt;multipart/form-data&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;BODY中选择类型为&lt;code&gt;form-data&lt;/code&gt;并上传文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/&gt;&lt;/div&gt;&lt;h3&gt;3.2MYSQL&lt;/h3&gt;
+&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/&gt;&lt;/div&gt;&lt;h3&gt;3.3IDEA&lt;/h3&gt;
 &lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/&gt;&lt;/div&gt;&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/&gt;&lt;/div&gt;</content><link href="/archives/Import-excel-to-mysql/" rel="alternate"/><published>2020-05-28T12:35:00+08:06</published></entry></feed>

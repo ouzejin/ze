@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/84b13f917dec421b71c01b81d690eda4.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/c96518a6e252533d80c111598e1c425a.json"
         }
     </script>
     <script>
@@ -171,180 +171,161 @@ mysql表
 
 目录图如下
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div>
-## 2.核心代码
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div><h2>2.核心代码</h2>
+<h3>2.1创建能处理excel转换为<code>List&lt;Object&gt;</code>的方法</h3>
+<p>创建<code>ExcelForList</code>类并创建<code>ExcelForList</code>方法用于处理excel表各个记录并返回</p>
+<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.excelUtils</span><span class="p">;</span>
 
-### 2.1创建能处理excel转换为`List<Object>`的方法
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.Course</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.dao.CourseDao</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.service.CourseService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.hssf.usermodel.HSSFWorkbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Cell</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Row</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Sheet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Workbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.xssf.usermodel.XSSFWorkbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.multipart.MultipartFile</span><span class="p">;</span>
 
-创建`ExcelForList`类并创建`ExcelForList`方法用于处理excel表各个记录并返回
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.beans.PropertyDescriptor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExcelForList</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="nf">ExcelForList</span><span class="p">(</span><span class="n">MultipartFile</span> <span class="n">file</span><span class="p">,</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span>  <span class="n">beanclazz</span><span class="p">,</span> <span class="n">Boolean</span> <span class="n">titleExist</span><span class="p">,</span> <span class="n">String</span> <span class="n">excelType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">Workbook</span> <span class="n">wb</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// IO流读取文件</span>
+            <span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+            <span class="c1">// 创建文档</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">excelType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;xls&quot;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HSSFWorkbook</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">excelType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;xlsx&quot;</span><span class="p">)){</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XSSFWorkbook</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;错误！---------------------文件不含xls或xlsx！-----------------&quot;</span><span class="p">);</span>
+                <span class="k">return</span>  <span class="kc">null</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// 得到第一张工作表</span>
+            <span class="n">Sheet</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="na">getSheetAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">titleExist</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// 行的遍历</span>
+            <span class="c1">//excels是从0开是的，getLastRowNum是获取最后一行的行数</span>
+            <span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sheet</span><span class="p">.</span><span class="na">getLastRowNum</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 得到行</span>
+                <span class="n">Row</span> <span class="n">row</span> <span class="o">=</span> <span class="n">sheet</span><span class="p">.</span><span class="na">getRow</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                <span class="c1">// 单元格的遍历</span>
+                <span class="c1">// 实例化对象</span>
+                <span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="n">beanclazz</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
 
-```java
-package com.example.demo.excelUtils;
+                <span class="n">Field</span><span class="o">[]</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">beanclazz</span><span class="p">.</span><span class="na">getDeclaredFields</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">Field</span> <span class="n">field</span> <span class="p">:</span> <span class="n">fields</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">String</span> <span class="n">fieldName</span> <span class="o">=</span> <span class="n">field</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+                    <span class="n">PropertyDescriptor</span> <span class="n">pd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PropertyDescriptor</span><span class="p">(</span><span class="n">fieldName</span><span class="p">,</span> <span class="n">beanclazz</span><span class="p">);</span>
+                    <span class="n">Method</span> <span class="n">getMethod</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="na">getWriteMethod</span><span class="p">();</span>
+                    <span class="n">Cell</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">row</span><span class="p">.</span><span class="na">getCell</span><span class="p">(</span><span class="n">j</span><span class="o">++</span><span class="p">);</span>
+                    <span class="k">try</span><span class="p">{</span>
+                        <span class="kt">int</span> <span class="n">type</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getCellType</span><span class="p">();</span>
 
-import com.example.demo.entity.Course;
-import com.example.demo.dao.CourseDao;
-import com.example.demo.service.CourseService;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+                        <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_BOOLEAN</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回布尔类型的值</span>
+                            <span class="kt">boolean</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getBooleanCellValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_NUMERIC</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回数值类型的值</span>
+                            <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getNumericCellValue</span><span class="p">();</span>
+                            <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_STRING</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回字符串类型的值</span>
+                            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getStringCellValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+                        <span class="p">}</span>
 
-import javax.annotation.Resource;
-import java.beans.PropertyDescriptor;
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-public class ExcelForList {
-    public static List<Object> ExcelForList(MultipartFile file, Class<?>  beanclazz, Boolean titleExist, String excelType) {
-        List<Object> list = new ArrayList<Object>();
-        Workbook wb;
-        try {
-            // IO流读取文件
-            InputStream input = file.getInputStream();
-            // 创建文档
-            if(excelType.equals("xls")) {
-                wb = new HSSFWorkbook(input);
-            } else if(excelType.equals("xlsx")){
-                wb = new XSSFWorkbook(input);
-            }else{
-                System.out.println("错误！---------------------文件不含xls或xlsx！-----------------");
-                return  null;
-            }
-            // 得到第一张工作表
-            Sheet sheet = wb.getSheetAt(0);
-            int i;
-            if (titleExist) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            // 行的遍历
-            //excels是从0开是的，getLastRowNum是获取最后一行的行数
-            for (; i <= sheet.getLastRowNum(); i++) {
-                // 得到行
-                Row row = sheet.getRow(i);
-                // 单元格的遍历
-                // 实例化对象
-                Object object = beanclazz.newInstance();
+                    <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+            <span class="p">}</span>
 
-                Field[] fields = beanclazz.getDeclaredFields();
-                int j = 0;
-                for (Field field : fields) {
-                    String fieldName = field.getName();
-                    PropertyDescriptor pd = new PropertyDescriptor(fieldName, beanclazz);
-                    Method getMethod = pd.getWriteMethod();
-                    Cell cell = row.getCell(j++);
-                    try{
-                        int type = cell.getCellType();
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+        <span class="p">}</span>
 
-                        if (type == cell.CELL_TYPE_BOOLEAN) {
-                            // 返回布尔类型的值
-                            boolean value = cell.getBooleanCellValue();
-                            getMethod.invoke(object, value);
-                            System.out.println(object);
-                            System.out.println(value);
-                        } else if (type == cell.CELL_TYPE_NUMERIC) {
-                            // 返回数值类型的值
-                            Double d = cell.getNumericCellValue();
-                            int value = d.intValue();
-                            getMethod.invoke(object, new Integer(value));
-                        } else if (type == cell.CELL_TYPE_STRING) {
-                            // 返回字符串类型的值
-                            String value = cell.getStringCellValue();
-                            getMethod.invoke(object, new String(value));
-                        }
-
-                    }catch (Exception e) {
-                        System.out.println("");
-                    }
-                }
-                list.add(object);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return list;
-    }
+        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+    <span class="p">}</span>
 
 
-}
-```
+<span class="p">}</span>
+</pre></div>
+<h3>2.1创建接口</h3>
+<blockquote><ul>
+<li>获取到文件</li>
+<li>调用上述方法获取到object的List</li>
+<li>循环List转换为一个个course对象再插入到数据库中</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="c1">//    导入excel到数据库</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/import&quot;</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">,</span><span class="n">produces</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;application/json;charset=UTF-8&quot;</span><span class="p">})</span>
+    <span class="kd">public</span>  <span class="n">String</span> <span class="nf">imporCourse</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;excelFile&quot;</span><span class="p">)</span> <span class="n">MultipartFile</span> <span class="n">excelFile</span><span class="p">,</span> <span class="n">HttpSession</span> <span class="n">httpSession</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">fileOriginalName</span><span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getOriginalFilename</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">fileName</span><span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">excelType</span><span class="o">=</span><span class="n">fileOriginalName</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">fileOriginalName</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
 
+        <span class="c1">//记录插入多条记录到了数据库；</span>
+        <span class="kt">int</span> <span class="n">importSuccessNum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">importAllNum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">importSuccess</span><span class="p">;</span>
 
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;in:::&quot;</span><span class="o">+</span><span class="n">in</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fileOriginalName:::&quot;</span><span class="o">+</span><span class="n">fileOriginalName</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fileName:::&quot;</span><span class="o">+</span><span class="n">fileName</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;excelType:::&quot;</span><span class="o">+</span><span class="n">excelType</span><span class="p">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">forlist</span><span class="o">=</span> <span class="n">ExcelForList</span><span class="p">.</span><span class="na">ExcelForList</span><span class="p">(</span><span class="n">excelFile</span><span class="p">,</span><span class="n">Course</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="kc">true</span><span class="p">,</span><span class="n">excelType</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">object</span><span class="p">:</span> <span class="n">forlist</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//            在这里对每个Object转换为course对象</span>
+            <span class="n">Course</span> <span class="n">course</span><span class="o">=</span><span class="p">(</span><span class="n">Course</span><span class="p">)</span> <span class="n">object</span><span class="p">;</span>
+            <span class="n">importAllNum</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">importSuccess</span><span class="o">=</span><span class="n">courseService</span><span class="p">.</span><span class="na">importExcel</span><span class="p">(</span><span class="n">course</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">importSuccess</span><span class="p">)</span>
+                <span class="n">importSuccessNum</span><span class="o">++</span><span class="p">;</span>
 
-### 2.1创建接口
+        <span class="p">}</span>
+        <span class="n">httpSession</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;importAllNum&quot;</span><span class="p">,</span><span class="n">importAllNum</span><span class="p">);</span>
+        <span class="n">httpSession</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;importSuccessNum&quot;</span><span class="p">,</span><span class="n">importSuccessNum</span><span class="p">);</span>
 
-> - 获取到文件
-> - 调用上述方法获取到object的List
-> - 循环List转换为一个个course对象再插入到数据库中
-
-
-
-```java
-//    导入excel到数据库
-@RequestMapping(value="/import",method = RequestMethod.POST,produces = { "application/json;charset=UTF-8"})
-    public  String imporCourse(@RequestParam("excelFile") MultipartFile excelFile, HttpSession httpSession) throws IOException {
-        InputStream in =excelFile.getInputStream();
-        String fileOriginalName=excelFile.getOriginalFilename();
-        String fileName=excelFile.getName();
-        String excelType=fileOriginalName.substring(fileOriginalName.indexOf(".")+1);
-
-        //记录插入多条记录到了数据库；
-        int importSuccessNum=0;
-        int importAllNum=0;
-        boolean importSuccess;
-
-        System.out.println("in:::"+in);
-        System.out.println("fileOriginalName:::"+fileOriginalName);
-        System.out.println("fileName:::"+fileName);
-        System.out.println("excelType:::"+excelType);
-        List<Object> forlist= ExcelForList.ExcelForList(excelFile,Course.class,true,excelType);
-        for (Object object: forlist) {
-//            在这里对每个Object转换为course对象
-            Course course=(Course) object;
-            importAllNum++;
-            importSuccess=courseService.importExcel(course);
-            if(importSuccess)
-                importSuccessNum++;
-
-        }
-        httpSession.setAttribute("importAllNum",importAllNum);
-        httpSession.setAttribute("importSuccessNum",importSuccessNum);
-
-        if(importSuccessNum>0)
-            return "success!"+"应处理"+importAllNum+"条,已成功处理"+importSuccessNum+"条！";
-        else{
-            return "error!";
-        }
-```
-
-
-
-## 3.Console
-
-### 3.1POSTMAN
-
-调用接口http://localhost:8886/course/import
-
-method="POST"
-
-> - HEADERS中添加KEY:`Content-Type`,VALUE:`multipart/form-data`
-> - BODY中选择类型为`form-data`并上传文件
-
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div>
-### 3.2MYSQL
-
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div>
-### 3.3IDEA
-
+        <span class="k">if</span><span class="p">(</span><span class="n">importSuccessNum</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s">&quot;success!&quot;</span><span class="o">+</span><span class="s">&quot;应处理&quot;</span><span class="o">+</span><span class="n">importAllNum</span><span class="o">+</span><span class="s">&quot;条,已成功处理&quot;</span><span class="o">+</span><span class="n">importSuccessNum</span><span class="o">+</span><span class="s">&quot;条！&quot;</span><span class="p">;</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;error!&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+</pre></div>
+<h2>3.Console</h2>
+<h3>3.1POSTMAN</h3>
+<p>调用接口<a href="http://localhost:8886/course/import">http://localhost:8886/course/import</a></p>
+<p>method="POST"</p>
+<blockquote><ul>
+<li>HEADERS中添加KEY:<code>Content-Type</code>,VALUE:<code>multipart/form-data</code></li>
+<li>BODY中选择类型为<code>form-data</code>并上传文件</li>
+</ul>
+</blockquote>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div><h3>3.2MYSQL</h3>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div><h3>3.3IDEA</h3>
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/></div><div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/></div></article>
     </section>
 
