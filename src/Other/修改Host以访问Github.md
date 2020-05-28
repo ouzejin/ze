@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: 修改Host以访问Github
 slug: 修改Host以访问Github
 date: 2020/04/16 23:46:17
