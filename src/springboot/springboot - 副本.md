@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: import excel to mysql2
 slug: import-excel-to-mysql2
 date: 2020-05-28 12:35
