@@ -18,7 +18,7 @@ template="Kepler"
 
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "lifealsoisgg/wiki.lifeisgg.online@gh-pages"
+    "repo": "lifealsoisgg/wiki@gh-pages"
 }
 
 
