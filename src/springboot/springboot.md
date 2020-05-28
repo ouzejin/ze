@@ -6,9 +6,9 @@ date: 2020-05-28 12:35
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - springboot
+  - Springboot
 tags: 
-  - springboot
+  - Springboot
 excerpt: import excel to mysql in springboot
 ---
 
@@ -60,13 +60,11 @@ mysql表
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div>
 
-
 ### 1.3在IDEA使用easycode插件对此表使用生成MVC
 
 目录图如下
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div>
-
 
 ## 2.核心代码
 
@@ -237,11 +235,9 @@ method="POST"
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div>
 
-
 ### 3.2MYSQL
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div>
-
 
 ### 3.3IDEA
 

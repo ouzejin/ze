@@ -6,9 +6,9 @@ date: 2020-05-28 12:35
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - springboot
+  - Springboot
 tags: 
-  - springboot
+  - Springboot
 excerpt: import excel to mysql in springboot
 ---
 
@@ -55,11 +55,11 @@ Github:[import excel to mysql](https://github.com/LifeAlsoIsGG/MyPractice-Neusof
 
 excel表
 
-![](https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg)
+
 
 mysql表
 
-![](https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg)
+
 
 
 
