@@ -26,7 +26,7 @@ Github:[import excel to mysql](https://github.com/LifeAlsoIsGG/MyPractice-Neusof
 
 `215`
 
-
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div>
 
 
 
