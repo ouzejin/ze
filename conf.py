@@ -18,7 +18,7 @@ template="Kepler"
 
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "lifealsoisgg/wiki@gh-pages"
+    "repo": "lifealsoisgg/Wiki@gh-pages"
 }
 
 
@@ -89,8 +89,11 @@ social_links = [
 head_addon = r'''
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/logo.png" type="images/x-ico" />
 '''
 
-footer_addon = ''
+footer_addon = r'''
+<p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
+'''
 
 body_addon = ''

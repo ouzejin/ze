@@ -6,9 +6,9 @@ date: 2020-05-28 12:35
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - Springboot
+  - springboot
 tags: 
-  - Springboot
+  - springboot
 excerpt: import excel to mysql in springboot
 ---
 

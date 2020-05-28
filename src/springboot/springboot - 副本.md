@@ -1,14 +1,14 @@
 ---
 layout: post
-title: import excel to mysql
-slug: import-excel-to-mysql
+title: import excel to mysql2
+slug: import-excel-to-mysql2
 date: 2020-05-28 12:35
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - Springboot
+  - springboot
 tags: 
-  - Springboot
+  - springboot
 excerpt: import excel to mysql in springboot
 ---
 
@@ -55,10 +55,12 @@ Github:[import excel to mysql](https://github.com/LifeAlsoIsGG/MyPractice-Neusof
 
 excel表
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg"/></div>
+![](https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg)
+
 mysql表
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div>
+![](https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg)
+
 
 
 ### 1.3在IDEA使用easycode插件对此表使用生成MVC
@@ -66,7 +68,6 @@ mysql表
 目录图如下
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div>
-
 
 ## 2.核心代码
 
@@ -235,15 +236,11 @@ method="POST"
 > - HEADERS中添加KEY:`Content-Type`,VALUE:`multipart/form-data`
 > - BODY中选择类型为`form-data`并上传文件
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div>
 
 
 ### 3.2MYSQL
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div>
 
 
 ### 3.3IDEA
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/></div>
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/></div>
