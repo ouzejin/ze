@@ -8,36 +8,50 @@ source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
 archives_page_size = 20
-template = {
-    "name": "Galileo",
-    "type": "local",
-    "path": "../Galileo"
-}
+# template = {
+#     "name": "Galileo",
+#     "type": "local",
+#     "path": "../Galileo"
+# }
+
+template="Kepler"
+
 enable_jsdelivr = {
-    "enabled": False,
-    "repo": ""
+    "enabled": True,
+    "repo": "lifealsoisgg/wiki.lifeisgg.online@gh-pages"
 }
 
+
 # 站点设置
-site_name = "wiki"
+site_name = "LifeAlsoIsGG-wiki"
 site_logo = "${static_prefix}logo.png"
 site_build_date = "2019-12-18T16:51+08:00"
-author = "熊猫小A"
-email = "hi@imalan.cn"
-author_homepage = "https://www.imalan.cn"
-description = "只坚持一种正义。我的正义。"
-key_words = ['Maverick', '熊猫小A', 'Galileo', 'blog']
+author = "LifeAlsoIsGG"
+email = "1138312802@qq.com"
+author_homepage = "https://blog.lifeisgg.online"
+description = "Do not go gentle in that good night"
+key_words = ['Maverick', 'LifeAlsoIsGG', 'Galileo', 'blog']
 language = 'zh-CN'
 external_links = [
     {
-        "name": "Maverick",
-        "url": "https://github.com/AlanDecode/Maverick",
+        "name": "Blog",
+        "url": "https://blog.lifeisgg.online",
         "brief": "🏄‍ Go My Own Way."
     },
     {
-        "name": "三無計劃",
-        "url": "https://www.imalan.cn",
-        "brief": "熊猫小A的主页。"
+        "name": "Photos",
+        "url": "https://photo.lifeisgg.online",
+        "brief": "相册。"
+    },
+    {
+        "name": "GitHub",
+        "url": "https://github.com/LifeAlsoIsGG",
+        "brief": "GitHub。"
+    },
+    {
+        "name": "Twitter",
+        "url": "https://twitter.com/LifeAlsoIsGG",
+        "brief": "Twitter。"
     }
 ]
 nav = [
@@ -61,19 +75,15 @@ nav = [
 social_links = [
     {
         "name": "Twitter",
-        "url": "https://twitter.com/AlanDecode",
+        "url": "https://twitter.com/LifeAlsoIsGG",
         "icon": "gi gi-twitter"
     },
     {
         "name": "GitHub",
-        "url": "https://github.com/AlanDecode",
+        "url": "https://github.com/LifeAlsoIsGG",
         "icon": "gi gi-github"
-    },
-    {
-        "name": "Weibo",
-        "url": "https://weibo.com/5245109677/",
-        "icon": "gi gi-weibo"
     }
+   
 ]
 
 head_addon = r'''
