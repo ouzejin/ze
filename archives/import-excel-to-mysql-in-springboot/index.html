@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,blog" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Kepler" />
+    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/72254ca6e3b46b6a87a37a318942a087.json"
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+                document.body.classList.add('safari')
+            }else{
+                document.body.classList.remove('safari')
+            }
+        });
+    </script>
+    
+<title>import excel to mysql in springboot - LifeAlsoIsGG-Wiki</title>
+<meta name="author" content="LifeAlsoIsGG" />
+<meta name="description" content="import excel to mysql in springboot" />
+<meta property="og:title" content="import excel to mysql in springboot - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="import excel to mysql in springboot" />
+<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/import-excel-to-mysql-in-springboot/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-05-28T12:35:00-00.00" />
+<meta name="twitter:title" content="import excel to mysql in springboot - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="import excel to mysql in springboot" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+    </head>
+    
+    <body class="content">
+        <header>
+            <div class="container">
+                <section>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/logo.png">LifeAlsoIsGG-Wiki</a>
+                </section>
+                <section>
+                    <nav>
+                        <ul>
+                            
+                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                            
+                                <li><a href="https://photo.lifeisgg.online" target="_blank">Photos</a></li>
+                            
+                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                            
+                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+    
+                <section>
+                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
+                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
+                    <button class="search-form-input"><i class="fa fa-search"></i></button>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <div id="pjax-container" class="container">
+                <aside id="navbar" class="no-scrollbar">
+                    
+                    <section class="sidebar-nav">
+                        
+                            <div class="None" ><span><a href="/">首页</a></span></div>
+                        
+                            <div class="None" ><span><a href="/archives/">归档</a></span></div>
+                        
+                            <div class="None" ><span><a href="/about/">关于</a></span></div>
+                        
+                    </section>
+                    
+                    <section>
+                        
+    <div class="open "><span><a href="/category/springboot/">springboot</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/import-excel-to-mysql-in-springboot/">import excel to mysql in springboot</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div><div class=" "><span><a href="/category/默认分类/">默认分类</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/my-first-awesome-post/">我的第一篇文章</a></li><li class=""><a href="/archives/my-second-awesome-post/">我的第二篇文章</a></li></ul></div>
+
+                    </section>
+                    <section hidden class="sidebar-external-link">
+                        
+                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://photo.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                    </section>
+                    <section class="maverick">
+                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
+                    </section>
+                </aside>
+                <div id="content-wrapper">
+                    <div id="content">
+    <section>
+        <h1 class="post-title">import excel to mysql in springboot</h1>
+        <p class="post-meta">
+            <time>May 28 2020</time>
+            <span class="tags">
+                
+                <span>
+                    <a href="/tag/springboot/">#springboot</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><h2>1.准备</h2>
+<h3>1.1添加所需要的的依赖</h3>
+<div class="highlight"><pre><span></span><span class="c">&lt;!-- excel需要的包--&gt;</span>
+<span class="c">&lt;!-- https://mvnrepository.com/artifact/org.apache.poi/poi --&gt;</span>
+<span class="c">&lt;!--文件上传组件--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>commons-fileupload<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>commons-fileupload<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.3.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>commons-io<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>commons-io<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.5<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!--读取excel文件--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.poi<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>poi<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.17<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.poi<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>poi-ooxml<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.17<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+<h3>1.2根据excel的字段添加对应字段的表</h3>
+<p>excel表</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg"/></div><p>mysql表</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div><h3>1.3在IDEA使用easycode插件对此表使用生成MVC</h3>
+<p>目录图如下</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div><h2>2.核心代码</h2>
+<h3>2.1创建能处理excel转换为<code>List&lt;Object&gt;</code>的方法</h3>
+<p>创建<code>ExcelForList</code>类并创建<code>ExcelForList</code>方法用于处理excel表各个记录并返回</p>
+<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.excelUtils</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.Course</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.dao.CourseDao</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.service.CourseService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.hssf.usermodel.HSSFWorkbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Cell</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Row</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Sheet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.ss.usermodel.Workbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.poi.xssf.usermodel.XSSFWorkbook</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.multipart.MultipartFile</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.beans.PropertyDescriptor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExcelForList</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="nf">ExcelForList</span><span class="p">(</span><span class="n">MultipartFile</span> <span class="n">file</span><span class="p">,</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span>  <span class="n">beanclazz</span><span class="p">,</span> <span class="n">Boolean</span> <span class="n">titleExist</span><span class="p">,</span> <span class="n">String</span> <span class="n">excelType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">Workbook</span> <span class="n">wb</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// IO流读取文件</span>
+            <span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+            <span class="c1">// 创建文档</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">excelType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;xls&quot;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HSSFWorkbook</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">excelType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;xlsx&quot;</span><span class="p">)){</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XSSFWorkbook</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;错误！---------------------文件不含xls或xlsx！-----------------&quot;</span><span class="p">);</span>
+                <span class="k">return</span>  <span class="kc">null</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// 得到第一张工作表</span>
+            <span class="n">Sheet</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="na">getSheetAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">titleExist</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// 行的遍历</span>
+            <span class="c1">//excels是从0开是的，getLastRowNum是获取最后一行的行数</span>
+            <span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sheet</span><span class="p">.</span><span class="na">getLastRowNum</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 得到行</span>
+                <span class="n">Row</span> <span class="n">row</span> <span class="o">=</span> <span class="n">sheet</span><span class="p">.</span><span class="na">getRow</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                <span class="c1">// 单元格的遍历</span>
+                <span class="c1">// 实例化对象</span>
+                <span class="n">Object</span> <span class="n">object</span> <span class="o">=</span> <span class="n">beanclazz</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
+
+                <span class="n">Field</span><span class="o">[]</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">beanclazz</span><span class="p">.</span><span class="na">getDeclaredFields</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">Field</span> <span class="n">field</span> <span class="p">:</span> <span class="n">fields</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">String</span> <span class="n">fieldName</span> <span class="o">=</span> <span class="n">field</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+                    <span class="n">PropertyDescriptor</span> <span class="n">pd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PropertyDescriptor</span><span class="p">(</span><span class="n">fieldName</span><span class="p">,</span> <span class="n">beanclazz</span><span class="p">);</span>
+                    <span class="n">Method</span> <span class="n">getMethod</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="na">getWriteMethod</span><span class="p">();</span>
+                    <span class="n">Cell</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">row</span><span class="p">.</span><span class="na">getCell</span><span class="p">(</span><span class="n">j</span><span class="o">++</span><span class="p">);</span>
+                    <span class="k">try</span><span class="p">{</span>
+                        <span class="kt">int</span> <span class="n">type</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getCellType</span><span class="p">();</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_BOOLEAN</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回布尔类型的值</span>
+                            <span class="kt">boolean</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getBooleanCellValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_NUMERIC</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回数值类型的值</span>
+                            <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getNumericCellValue</span><span class="p">();</span>
+                            <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">cell</span><span class="p">.</span><span class="na">CELL_TYPE_STRING</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="c1">// 返回字符串类型的值</span>
+                            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="na">getStringCellValue</span><span class="p">();</span>
+                            <span class="n">getMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+                        <span class="p">}</span>
+
+                    <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</pre></div>
+<h3>2.1创建接口</h3>
+<blockquote><ul>
+<li>获取到文件</li>
+<li>调用上述方法获取到List<Object></li>
+<li>循环List<Object>转换为一个个course对象再插入到数据库中</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="c1">//    导入excel到数据库</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/import&quot;</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">,</span><span class="n">produces</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;application/json;charset=UTF-8&quot;</span><span class="p">})</span>
+    <span class="kd">public</span>  <span class="n">String</span> <span class="nf">imporCourse</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;excelFile&quot;</span><span class="p">)</span> <span class="n">MultipartFile</span> <span class="n">excelFile</span><span class="p">,</span> <span class="n">HttpSession</span> <span class="n">httpSession</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">fileOriginalName</span><span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getOriginalFilename</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">fileName</span><span class="o">=</span><span class="n">excelFile</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">excelType</span><span class="o">=</span><span class="n">fileOriginalName</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">fileOriginalName</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="c1">//记录插入多条记录到了数据库；</span>
+        <span class="kt">int</span> <span class="n">importSuccessNum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">importAllNum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">importSuccess</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;in:::&quot;</span><span class="o">+</span><span class="n">in</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fileOriginalName:::&quot;</span><span class="o">+</span><span class="n">fileOriginalName</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fileName:::&quot;</span><span class="o">+</span><span class="n">fileName</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;excelType:::&quot;</span><span class="o">+</span><span class="n">excelType</span><span class="p">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">forlist</span><span class="o">=</span> <span class="n">ExcelForList</span><span class="p">.</span><span class="na">ExcelForList</span><span class="p">(</span><span class="n">excelFile</span><span class="p">,</span><span class="n">Course</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="kc">true</span><span class="p">,</span><span class="n">excelType</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">object</span><span class="p">:</span> <span class="n">forlist</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//            在这里对每个Object转换为course对象</span>
+            <span class="n">Course</span> <span class="n">course</span><span class="o">=</span><span class="p">(</span><span class="n">Course</span><span class="p">)</span> <span class="n">object</span><span class="p">;</span>
+            <span class="n">importAllNum</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">importSuccess</span><span class="o">=</span><span class="n">courseService</span><span class="p">.</span><span class="na">importExcel</span><span class="p">(</span><span class="n">course</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">importSuccess</span><span class="p">)</span>
+                <span class="n">importSuccessNum</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="p">}</span>
+        <span class="n">httpSession</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;importAllNum&quot;</span><span class="p">,</span><span class="n">importAllNum</span><span class="p">);</span>
+        <span class="n">httpSession</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;importSuccessNum&quot;</span><span class="p">,</span><span class="n">importSuccessNum</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">importSuccessNum</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s">&quot;success!&quot;</span><span class="o">+</span><span class="s">&quot;应处理&quot;</span><span class="o">+</span><span class="n">importAllNum</span><span class="o">+</span><span class="s">&quot;条,已成功处理&quot;</span><span class="o">+</span><span class="n">importSuccessNum</span><span class="o">+</span><span class="s">&quot;条！&quot;</span><span class="p">;</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;error!&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+</pre></div>
+<h2>3.Console</h2>
+<h3>3.1POSTMAN</h3>
+<p>调用接口<a href="http://localhost:8886/course/import">http://localhost:8886/course/import</a></p>
+<p>method="POST"</p>
+<blockquote><ul>
+<li>HEADERS中添加KEY:<code>Content-Type</code>,VALUE:<code>multipart/form-data</code></li>
+<li>BODY中选择类型为<code>form-data</code>并上传文件</li>
+</ul>
+</blockquote>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div><h3>3.2MYSQL</h3>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div><h3>3.3IDEA</h3>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/></div><p><div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/>&lt;/div</p>
+</article>
+    </section>
+
+    
+    <section id="content-pager">
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/typography/">
+                    <time>December 18 2019</time>
+                    <span>Hello World!</span>
+                </a>
+            </div>
+        
+    </section>
+    
+
+    
+
+    <script>
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
+    </script>
+</div>
+                    <footer>
+                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        
+    
+
+                        
+                    </footer>
+                </div>
+                
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
+
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script>
+            function ExSearchCall(item){
+                if (item && item.length) {
+                    $('.ins-close').click(); // 关闭搜索框
+                    $('input.ins-search-input').val(''); // 清空
+                    let url = item.attr('data-url'); // 获取目标页面 URL
+                    $.pjax({url: url, 
+                        container: '#pjax-container',
+                        fragment: '#pjax-container',
+                        timeout: 8000, }); // 发起一次 PJAX 请求
+                }
+            }
+        </script>
+
+        <!--Valine-->
+        
+
+        <!--ExSearch-->
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        
+        <!--katex-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/katex.min.js"></script>
+        <script>
+        mathOpts = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+        
+    </body>
+</html>
