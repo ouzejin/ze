@@ -177,8 +177,8 @@ public class ExcelForList {
 ### 2.1创建接口
 
 > - 获取到文件
-> - 调用上述方法获取到List<Object>
-> - 循环List<Object>转换为一个个course对象再插入到数据库中
+> - 调用上述方法获取到object的List
+> - 循环List转换为一个个course对象再插入到数据库中
 
 
 
