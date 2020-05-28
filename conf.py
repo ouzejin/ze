@@ -3,7 +3,7 @@
 """
 
 # For Maverick
-site_prefix = "/Blog-With-GitHub-Boilerplate/"
+site_prefix = "/"
 source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
@@ -18,12 +18,12 @@ template="Kepler"
 
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "lifealsoisgg/Blog-With-GitHub-Boilerplate@gh-pages"
+    "repo": "lifealsoisgg/wiki.lifeisgg.online@gh-pages"
 }
 
 
 # 站点设置
-site_name = "LifeAlsoIsGG-wiki"
+site_name = "LifeAlsoIsGG-Wiki"
 site_logo = "${static_prefix}logo.png"
 site_build_date = "2019-12-18T16:51+08:00"
 author = "LifeAlsoIsGG"
