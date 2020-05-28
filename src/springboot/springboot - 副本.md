@@ -67,7 +67,7 @@ mysql表
 
 目录图如下
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div>
+
 
 ## 2.核心代码
 
