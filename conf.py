@@ -24,7 +24,7 @@ enable_jsdelivr = {
 
 # 站点设置
 site_name = "LifeAlsoIsGG-Wiki"
-site_logo = "${static_prefix}logo.png"
+site_logo = "${static_prefix}avatar.png"
 site_build_date = "2019-12-18T16:51+08:00"
 author = "LifeAlsoIsGG"
 email = "1138312802@qq.com"
@@ -89,7 +89,7 @@ social_links = [
 head_addon = r'''
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/logo.png" type="images/x-ico" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" type="images/x-ico" />
 '''
 
 footer_addon = r'''
