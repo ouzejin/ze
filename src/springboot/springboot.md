@@ -242,4 +242,7 @@ method="POST"
 ### 3.3IDEA
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/></div>
+
+
+
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/></div>
