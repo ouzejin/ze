@@ -59,6 +59,8 @@ excel表
 mysql表
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div>
+
+
 ### 1.3在IDEA使用easycode插件对此表使用生成MVC
 
 目录图如下
