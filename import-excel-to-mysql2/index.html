@@ -32,19 +32,20 @@
         });
     </script>
     
-<title>LifeAlsoIsGG-Wiki</title>
+<title>import excel to mysql2 - LifeAlsoIsGG-Wiki</title>
 <meta name="author" content="LifeAlsoIsGG" />
-<meta name="description" content="Do not go gentle in that good night" />
-<meta property="og:title" content="LifeAlsoIsGG-Wiki" />
-<meta property="og:description" content="Do not go gentle in that good night" />
+<meta name="description" content="import excel to mysql in springboot" />
+<meta property="og:title" content="import excel to mysql2 - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="import excel to mysql in springboot" />
 <meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/" />
-<meta property="og:image" content="LifeAlsoIsGG-Wiki" />
-<meta name="twitter:title" content="LifeAlsoIsGG-Wiki" />
-<meta name="twitter:description" content="Do not go gentle in that good night" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/import-excel-to-mysql2/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-05-28T12:35:00-00.00" />
+<meta name="twitter:title" content="import excel to mysql2 - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="import excel to mysql in springboot" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" />
+<meta name="twitter:image" content="" />
 
 
     
@@ -54,7 +55,7 @@
 
     </head>
     
-    <body class="archive">
+    <body class="content">
         <header>
             <div class="container">
                 <section>
@@ -90,7 +91,7 @@
                     
                     <section class="sidebar-nav">
                         
-                            <div class="current" ><span><a href="/">首页</a></span></div>
+                            <div class="None" ><span><a href="/">首页</a></span></div>
                         
                             <div class="None" ><span><a href="/archives/">归档</a></span></div>
                         
@@ -120,70 +121,74 @@
                 </aside>
                 <div id="content-wrapper">
                     <div id="content">
-
     <section>
-        <h1 class="page-title">RECENT POSTS</h1>
-        <div id="content-list">
-            
-            <section class="card-list">
+        <h1 class="post-title">import excel to mysql2</h1>
+        <p class="post-meta">
+            <time>May 28 2020</time>
+            <span class="tags">
                 
-                    <a class="card" href="/archives/import-excel-to-mysql/">
-                        <time>May 28 2020</time>
-                        <span>import excel to mysql</span>
-                    </a>
+                <span>
+                    <a href="/tag/Springboot/">#Springboot</a>
+                </span>
                 
-                    <a class="card" href="/archives/Hadoop伪分布式配置/">
-                        <time>May 02 2020</time>
-                        <span>Hadoop伪分布式配置</span>
-                    </a>
-                
-                    <a class="card" href="/archives/软考软件设计师笔记/">
-                        <time>April 05 2020</time>
-                        <span>软考软件设计师笔记</span>
-                    </a>
-                
-                    <a class="card" href="/archives/typography/">
-                        <time>December 18 2019</time>
-                        <span>Hello World!</span>
-                    </a>
-                
-                    <a class="card" href="/archives/my-first-awesome-post/">
-                        <time>December 17 2019</time>
-                        <span>我的第一篇文章</span>
-                    </a>
-                
-                    <a class="card" href="/archives/my-second-awesome-post/">
-                        <time>December 17 2019</time>
-                        <span>我的第二篇文章</span>
-                    </a>
-                
-            </section>
-        </div>
+            </span>
+        </p>
+        <article class="yue"><p>Github:<a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel">import excel to mysql</a></p>
+<h2>1.准备</h2>
+<h3>1.1添加所需要的的依赖</h3>
+<h3>1.2根据excel的字段添加对应字段的表</h3>
+<p>excel表</p>
+<p>mysql表</p>
+<h3>1.3在IDEA使用easycode插件对此表使用生成MVC</h3>
+<p>目录图如下</p>
+<h2>2.核心代码</h2>
+<h3>2.1创建能处理excel转换为<code>List&lt;Object&gt;</code>的方法</h3>
+<p>创建<code>ExcelForList</code>类并创建<code>ExcelForList</code>方法用于处理excel表各个记录并返回</p>
+<h3>2.1创建接口</h3>
+<blockquote><ul>
+<li>获取到文件</li>
+<li>调用上述方法获取到List<Object></li>
+<li>循环List<Object>转换为一个个course对象再插入到数据库中</li>
+</ul>
+</blockquote>
+<h2>3.Console</h2>
+<h3>3.1POSTMAN</h3>
+<p>调用接口<a href="http://localhost:8886/course/import">http://localhost:8886/course/import</a></p>
+<p>method="POST"</p>
+<blockquote><ul>
+<li>HEADERS中添加KEY:<code>Content-Type</code>,VALUE:<code>multipart/form-data</code></li>
+<li>BODY中选择类型为<code>form-data</code>并上传文件</li>
+</ul>
+</blockquote>
+<h3>3.2MYSQL</h3>
+<h3>3.3IDEA</h3>
+</article>
     </section>
 
     
-    <section id="content-pager">
-        
-        
-    </section>
 
+    
 
     <script>
-        document.body.classList.add('archive');
-        document.body.classList.remove('content');
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
     </script>
-
 </div>
                     <footer>
                         <span>Copyright © 2020 LifeAlsoIsGG</span>
                         
+    
+
                         <span class="addon">
 <p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
 </span>
                     </footer>
                 </div>
                 
-<aside id="toc-container" class="no-scrollbar no-bg"></aside>
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
 
             </div>
         </main>

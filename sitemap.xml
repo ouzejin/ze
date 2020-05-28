@@ -5,6 +5,20 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	
 
 <url>
+    <loc>/import-excel-to-mysql2/</loc>
+    <lastmod>2020-05-28</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>/修改Host以访问Github/</loc>
+    <lastmod>2020-04-16</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
     <loc>/about/</loc>
     <lastmod>2017-06-28</lastmod>
     <changefreq>always</changefreq>
@@ -19,8 +33,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/import-excel-to-mysql2/</loc>
-    <lastmod>2020-05-28</lastmod>
+    <loc>/archives/Hadoop伪分布式配置/</loc>
+    <lastmod>2020-05-02</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/软考软件设计师笔记/</loc>
+    <lastmod>2020-04-05</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
