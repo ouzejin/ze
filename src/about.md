@@ -33,7 +33,7 @@ LOL退役选手
 
 Blog:[LifeAlsoIsGG's Blog](https://blog.lifeisgg.online/)
 
-Photos:[LifeAlsoIsGG's Photos](https://photo.lifeisgg.online/)
+Photos:[LifeAlsoIsGG's Photos](https://photos.lifeisgg.online/)
 
 ## Contact
 
