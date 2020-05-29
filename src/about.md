@@ -23,6 +23,12 @@ LOL退役选手
 
 这里是我的个人Wiki，通过 GitHub 管理与构建。
 
+
+
+<div align=center><img src=images/about.jpg/></div>
+
+
+
 ## Links
 
 Blog:[LifeAlsoIsGG's Blog](https://blog.lifeisgg.online/)
