@@ -25,7 +25,7 @@ LOL退役选手
 
 
 
-<div align=center><img src=images/about.jpg/></div>
+![](images/about.jpg)
 
 
 
