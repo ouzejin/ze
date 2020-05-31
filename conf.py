@@ -21,6 +21,13 @@ enable_jsdelivr = {
     "repo": "lifealsoisgg/Wiki@gh-pages"
 }
 
+valine = {
+    "enable": True,
+    "el": '#vcomments',
+    "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz",
+    "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv",
+}
+
 
 # 站点设置
 site_name = "LifeAlsoIsGG-Wiki"
@@ -30,7 +37,7 @@ author = "LifeAlsoIsGG"
 email = "1138312802@qq.com"
 author_homepage = "https://blog.lifeisgg.online"
 description = "Do not go gentle in that good night"
-key_words = ['Maverick', 'LifeAlsoIsGG', 'Galileo', 'blog']
+key_words = ['Maverick', 'LifeAlsoIsGG', 'Galileo', 'wiki']
 language = 'zh-CN'
 external_links = [
     {
