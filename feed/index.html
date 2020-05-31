@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 31 May 2020 15:37:20 +0806</lastBuildDate><pubDate>Sun, 31 May 2020 15:37:20 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 31 May 2020 15:54:43 +0806</lastBuildDate><pubDate>Sun, 31 May 2020 15:54:43 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -2112,10 +2112,9 @@ sudo yum-config-manager --add-repo http://mirrors.aliyun.com/dockerce/linux/cent
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo systemctl daemon-reload
 sudo systemctl restart docker
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;参考Reference&lt;/h1&gt;
+&lt;h1&gt;4.参考Reference&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://www.runoob.com/docker/centos-docker-install.html"&gt;CentOs Docker Install&lt;/a&gt;&lt;/p&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Dock-deployment/</guid><pubDate>Sun, 31 May 2020 15:39:08 +0806</pubDate></item><item><title>Docker:Install software</title><link>/archives/Docker:Install software/</link><description>&lt;p&gt;安装软件示例&lt;/p&gt;
-&lt;h1&gt;概念&lt;/h1&gt;
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Dock-deployment/</guid><pubDate>Sun, 31 May 2020 15:39:08 +0806</pubDate></item><item><title>Docker:Install software</title><link>/archives/Docker:Install software/</link><description>&lt;h1&gt;概念&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;镜像：相当于java中的类,镜像由一层层只读层堆在一起&lt;/li&gt;
 &lt;li&gt;容器：镜像只读层+读写层，运行态容器为由一个可读写的文件系统「静态容器」+ 隔离的进程空间和其中的进程构成(可以理解为&lt;code&gt;虚拟机中的虚拟机&lt;/code&gt;)&lt;/li&gt;
@@ -2130,11 +2129,11 @@ sudo systemctl restart docker
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker ps -a
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1513" data-height="65" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/dae8d39c3e494ba2b5fe646d62f00c52.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;1安装Mysql&lt;/h1&gt;
-&lt;h2&gt;1.1下载mysql5.7的docker镜像&lt;/h2&gt;
+&lt;h1&gt;安装Mysql&lt;/h1&gt;
+&lt;h2&gt;下载mysql5.7的docker镜像&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker pull mysql:5.7
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;1.2使⽤docker命令启动容器&lt;/h2&gt;
+&lt;h2&gt;使⽤docker命令启动容器&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir /mydata/mysql5.7 &lt;span class="c1"&gt;#先在根目录创建容器来存放mysql相关&lt;/span&gt;
 &lt;span class="c1"&gt;#将容器的3306端口映射到主机的3307接口，适合主机的3306接口被主机Mysql占用情况下&lt;/span&gt;
 docker run -p &lt;span class="m"&gt;3307&lt;/span&gt;:3306 --name mysql5.7 &lt;span class="se"&gt;\&lt;/span&gt;
@@ -2154,25 +2153,25 @@ docker run -p &lt;span class="m"&gt;3307&lt;/span&gt;:3306 --name mysql5.7 &lt;s
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="725" data-height="171" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/afd28bdbc95cc613e30d856fcda80a92.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;1.3进⼊运⾏mysql的docker容器&lt;/h2&gt;
+&lt;h2&gt;进⼊运⾏mysql的docker容器&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker &lt;span class="nb"&gt;exec&lt;/span&gt; -it mysql5.7 /bin/bash
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="791" data-height="43" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/2e883507e0e999f615a6368c2ee2651d.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;1.4使⽤Mysql命令打开客户端&lt;/h2&gt;
+&lt;h2&gt;使⽤Mysql命令打开客户端&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mysql -uroot -proot
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="807" data-height="482" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5d3d179b50cccf42cd9c1c519172669f.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;1.5测试连接&lt;/h2&gt;
+&lt;h2&gt;测试连接&lt;/h2&gt;
 &lt;p&gt;使用Navicat连接工具&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="689" data-height="819" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/42191969f7588605ca79d85f9f0d2389.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;连接成功&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="280" data-height="147" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bbcaa3bbe8d7f8ac6a1b194b6dc944a9.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;2安装Nginx&lt;/h1&gt;
-&lt;h2&gt;2.1下载Nginx1.10的docker镜像&lt;/h2&gt;
+&lt;h1&gt;安装Nginx&lt;/h1&gt;
+&lt;h2&gt;下载Nginx1.10的docker镜像&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker pull nginx:1.10
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2.2从容器中拷⻉Nginx配置&lt;/h2&gt;
-&lt;h3&gt;2.2.1先运⾏⼀次容器（为了拷⻉配置⽂件）&lt;/h3&gt;
+&lt;h2&gt;从容器中拷⻉Nginx配置&lt;/h2&gt;
+&lt;h3&gt;先运⾏⼀次容器（为了拷⻉配置⽂件）&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker run -p &lt;span class="m"&gt;80&lt;/span&gt;:80 --name nginx &lt;span class="se"&gt;\&lt;/span&gt;
 -v /mydata/nginx/html:/usr/share/nginx/html &lt;span class="se"&gt;\&lt;/span&gt;
 -v /mydata/nginx/logs:/var/log/nginx &lt;span class="se"&gt;\&lt;/span&gt;
@@ -2180,14 +2179,14 @@ docker run -p &lt;span class="m"&gt;3307&lt;/span&gt;:3306 --name mysql5.7 &lt;s
 &lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;&lt;p&gt;注：加了 -d 参数默认不会进⼊容器，想要进⼊容器需要使⽤指令 &lt;code&gt;docker exec&lt;/code&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;2.2.2将容器内的配置⽂件拷⻉到指定⽬录&lt;/h3&gt;
+&lt;h3&gt;将容器内的配置⽂件拷⻉到指定⽬录&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker container cp nginx:/etc/nginx /mydata/nginx/
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;2.2.3修改⽂件名称&lt;/h3&gt;
+&lt;h3&gt;修改⽂件名称&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /mydata/nginx 
 mv nginx conf
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;2.2.4终⽌并删除容器&lt;/h3&gt;
+&lt;h3&gt;终⽌并删除容器&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker stop nginx 
 docker rm nginx
 &lt;/pre&gt;&lt;/div&gt;
