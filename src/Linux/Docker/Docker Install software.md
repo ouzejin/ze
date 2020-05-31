@@ -24,6 +24,24 @@ tags:
 
 ![](..\..\images\Docker install software\image&container.png)
 
+## 查看镜像
+
+```shell
+docker images
+```
+
+![](..\..\images\Docker install software\镜像.jpg)
+
+
+
+## 查看容器
+
+```shell
+docker ps -a
+```
+
+![](..\..\images\Docker install software\容器.jpg)
+
 
 
 # 1安装Mysql
@@ -69,7 +87,7 @@ docker exec -it mysql5.7 /bin/bash
 
 
 
-<img src="..\..\images\Docker install software\进入容器.jpg" style="zoom:200%;" />
+![](..\..\images\Docker install software\进入容器.jpg)
 
 
 
@@ -81,7 +99,7 @@ mysql -uroot -proot
 
 
 
-<img src="..\..\images\Docker install software\进入mysql.jpg" style="zoom:200%;" />
+![](..\..\images\Docker install software\进入mysql.jpg)
 
 
 
