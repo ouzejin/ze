@@ -55,17 +55,24 @@ Github:[import excel to mysql](https://github.com/LifeAlsoIsGG/MyPractice-Neusof
 
 excel表
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/excel字段.jpg"/></div>
+![](../../src/images/Import excel to mysql/excel字段.jpg)
+
+
+
 mysql表
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql字段表.jpg"/></div>
+![](../../src/images/Import excel to mysql/mysql字段表.jpg)
+
+
 
 
 ### 1.3在IDEA使用easycode插件对此表使用生成MVC
 
 目录图如下
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/目录.jpg"/></div>
+![](../../src/images/Import excel to mysql/目录.jpg)
+
+
 
 
 ## 2.核心代码
@@ -237,17 +244,21 @@ method="POST"
 
 
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/postman.jpg"/></div>
+![](../../src/images/Import excel to mysql/postman.jpg)
+
 
 
 ### 3.2MYSQL
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/mysql插入后.jpg"/></div>
+![](../../src/images/Import excel to mysql/mysql插入后.jpg)
+
 
 
 ### 3.3IDEA
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-1.jpg"/></div>
+![](../../src/images/Import excel to mysql/IDEA-1.jpg)
+
+![](../../src/images/Import excel to mysql/IDEA-2.jpg)
 
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyPractice-Neusoft/import-Excel/images/IDEA-2.jpg"/></div>
+
