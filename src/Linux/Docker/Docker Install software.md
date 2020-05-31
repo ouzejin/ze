@@ -13,7 +13,7 @@ tags:
   - Docker
 ---
 
-安装软件示例
+
 
 # 概念
 
@@ -44,15 +44,15 @@ docker ps -a
 
 
 
-# 1安装Mysql
+# 安装Mysql
 
-## 1.1下载mysql5.7的docker镜像
+## 下载mysql5.7的docker镜像
 
 ```shell
 docker pull mysql:5.7
 ```
 
-## 1.2使⽤docker命令启动容器
+## 使⽤docker命令启动容器
 
 ```shell
 mkdir /mydata/mysql5.7 #先在根目录创建容器来存放mysql相关
@@ -79,7 +79,7 @@ docker run -p 3307:3306 --name mysql5.7 \
 
 
 
-## 1.3进⼊运⾏mysql的docker容器
+## 进⼊运⾏mysql的docker容器
 
 ```shell
 docker exec -it mysql5.7 /bin/bash
@@ -91,7 +91,7 @@ docker exec -it mysql5.7 /bin/bash
 
 
 
-## 1.4使⽤Mysql命令打开客户端
+## 使⽤Mysql命令打开客户端
 
 ```shell
 mysql -uroot -proot
@@ -103,7 +103,7 @@ mysql -uroot -proot
 
 
 
-## 1.5测试连接
+## 测试连接
 
 使用Navicat连接工具
 
@@ -119,9 +119,9 @@ mysql -uroot -proot
 
 
 
-# 2安装Nginx
+# 安装Nginx
 
-## 2.1下载Nginx1.10的docker镜像
+## 下载Nginx1.10的docker镜像
 
 ```shell
 docker pull nginx:1.10
@@ -129,9 +129,9 @@ docker pull nginx:1.10
 
 
 
-## 2.2从容器中拷⻉Nginx配置
+## 从容器中拷⻉Nginx配置
 
-### 2.2.1先运⾏⼀次容器（为了拷⻉配置⽂件）
+### 先运⾏⼀次容器（为了拷⻉配置⽂件）
 
 ```shell
 docker run -p 80:80 --name nginx \
@@ -144,7 +144,7 @@ docker run -p 80:80 --name nginx \
 
 
 
-### 2.2.2将容器内的配置⽂件拷⻉到指定⽬录
+### 将容器内的配置⽂件拷⻉到指定⽬录
 
 ```shell
 docker container cp nginx:/etc/nginx /mydata/nginx/
@@ -152,7 +152,7 @@ docker container cp nginx:/etc/nginx /mydata/nginx/
 
 
 
-### 2.2.3修改⽂件名称
+### 修改⽂件名称
 
 ```shell
 cd /mydata/nginx 
@@ -161,7 +161,7 @@ mv nginx conf
 
 
 
-### 2.2.4终⽌并删除容器
+### 终⽌并删除容器
 
 ```shell
 docker stop nginx 

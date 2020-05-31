@@ -26,6 +26,9 @@ valine = {
     "el": '#vcomments',
     "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz",
     "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv",
+    "visitor": True,
+    "recordIP": True,
+    "placeholder": "还请不吝赐教"
 }
 
 
