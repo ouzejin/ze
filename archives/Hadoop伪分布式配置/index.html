@@ -149,7 +149,7 @@
 <div class="highlight"><pre><span></span>ssh localhost
 </pre></div>
 <p>然后用输入yes登录</p>
-<p><figure><img data-width="-1" data-height="-1" src="../images/Hadoop/ssh登录.png" alt="" /></figure></p>
+<p><figure><img data-width="726" data-height="82" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/986b379dca96c032fcfdd287e484936a.png" alt="" /></figure></p>
 <p>生成无密码登录：</p>
 <div class="highlight"><pre><span></span><span class="nb">exit</span>                       <span class="c1"># 退出刚才的 ssh localhost</span>
 <span class="nb">cd</span> ~/.ssh/      <span class="c1"># 若没有该目录，请先执行一次ssh localhost</span>
@@ -233,21 +233,21 @@ hadoop version
 </pre></div>
 <h1>3.检验</h1>
 <p>输入==jps==查看进程状态，如下则说明成功</p>
-<p><figure><img data-width="-1" data-height="-1" src="../images/Hadoop/jps查看.png" alt="" /></figure></p>
+<p><figure><img data-width="410" data-height="90" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/99a78e5dc3d82aee8e68568bef45ff8f.png" alt="" /></figure></p>
 <p>然后进入网址</p>
 <ol>
 <li><p><a href="http://localhost:50070">http://localhost:50070</a></p>
-<p><img src="../images/Hadoop/50070.png" style="zoom:200%;" /></p>
+<p><figure><img data-width="1680" data-height="907" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8885e976ab47c0f6d88caffc7a5f0bec.png" alt="" /></figure></p>
 </li>
 <li><p><a href="http://localhost:18088">http://localhost:18088</a></p>
-<p><img src="../images/Hadoop/18088.png" style="zoom:200%;" /></p>
+<p><figure><img data-width="1672" data-height="903" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/367e6eede0e6761b16ec8a9f019dbe96.png" alt="" /></figure></p>
 </li>
 </ol>
 <p>运算实例：执行jar包计算圆周率</p>
 <div class="highlight"><pre><span></span>hadoop jar /usr/local/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar pi  <span class="m">10</span>  <span class="m">10</span>
 </pre></div>
 <p>第一个10是运行10次map任务，第二个10是每个map任务投掷次数，可以改变，可得到不同的近似pi值</p>
-<p><img src="../images/Hadoop/pi结果.png" style="zoom:200%;" /></p>
+<p><figure><img data-width="1678" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e93272b1e116dc6bbeed902c98e6e4f7.png" alt="" /></figure></p>
 <h1>4.参考</h1>
 <p><a href="http://dblab.xmu.edu.cn/blog/install-hadoop/">厦门大学大数据实验室Hadoop配置</a></p>
 </article>
