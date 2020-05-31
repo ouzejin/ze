@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 31 May 2020 07:43:00 +0806</lastBuildDate><pubDate>Sun, 31 May 2020 07:43:00 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 31 May 2020 08:05:25 +0806</lastBuildDate><pubDate>Sun, 31 May 2020 08:05:25 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -2022,5 +2022,18 @@ hadoop version
 &lt;h3&gt;3.3IDEA&lt;/h3&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="505" data-height="133" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f7c1a1bce7bae99990920365cd46f807.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1911" data-height="857" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/83dce82ba475e407841c238f794f36cd.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Import-excel-to-mysql/</guid><pubDate>Thu, 28 May 2020 12:35:00 +0806</pubDate></item><item><title>Dock deployment</title><link>/archives/Dock-deployment/</link><description>&lt;p&gt;Dock部署&lt;/p&gt;
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Import-excel-to-mysql/</guid><pubDate>Thu, 28 May 2020 12:35:00 +0806</pubDate></item><item><title>Docker deployment</title><link>/archives/Dock-deployment/</link><description>&lt;p&gt;环境&lt;/p&gt;
+&lt;p&gt;CentOs 7&lt;/p&gt;
+&lt;h1&gt;1.卸载旧版本&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum remove docker &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-client &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-client-latest &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-common &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-latest &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-latest-logrotate &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-logrotate &lt;span class="se"&gt;\&lt;/span&gt;
+ docker-engine
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;参考Reference&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://www.runoob.com/docker/centos-docker-install.html"&gt;CentOs Docker Install&lt;/a&gt;&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Dock-deployment/</guid><pubDate>Sun, 31 May 2020 15:39:08 +0806</pubDate></item></channel></rss>
