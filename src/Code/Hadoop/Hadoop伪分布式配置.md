@@ -42,7 +42,7 @@ ssh localhost
 
 然后用输入yes登录
 
-![](../images/Hadoop/ssh登录.png)
+![](../../images/Hadoop/ssh登录.png)
 
 生成无密码登录：
 
@@ -189,17 +189,17 @@ start-all.sh
 
 输入==jps==查看进程状态，如下则说明成功
 
-![](../images/Hadoop/jps查看.png)
+![](../../images/Hadoop/jps查看.png)
 
 然后进入网址
 
 1. http://localhost:50070
 
-   <img src="../images/Hadoop/50070.png" style="zoom:200%;" />
+   ![](../../images/Hadoop/50070.png)
 
 2. http://localhost:18088
 
-   <img src="../images/Hadoop/18088.png" style="zoom:200%;" />
+   ![](../../images/Hadoop/18088.png)
 
 
 
@@ -211,7 +211,7 @@ hadoop jar /usr/local/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-examp
 
 第一个10是运行10次map任务，第二个10是每个map任务投掷次数，可以改变，可得到不同的近似pi值
 
-<img src="../images/Hadoop/pi结果.png" style="zoom:200%;" />
+![](../../images/Hadoop/pi结果.png)
 
 
 
