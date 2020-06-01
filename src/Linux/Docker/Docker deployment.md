@@ -59,8 +59,13 @@ docker import http://example.com/exampleimage.tgz example/imagerepo
 #10.删除容器
 docker rm -f 容器名称/id
 
-#11.启动docker
-systemctl start docker
+#11.启动&停止docker
+service docker start#启动docker
+service docker stop#停止docker
+service docker restart#重启docker
+
+#12.开机自启动docker
+systemctl enable docker
 
 ```
 

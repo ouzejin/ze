@@ -67,6 +67,7 @@ docker run -p 3307:3306 --name mysql5.7 \
 
 参数说明 
 
+> - --restart=always：容器自启动
 > - -p 3307:3306：将容器的3306端⼝映射到主机的3307端⼝        
 > - -v /mydata/mysql/conf:/etc/mysql：将配置⽂件夹挂在到主机
 > - -v /mydata/mysql/log:/var/log/mysql：将⽇志⽂件夹挂载到主机
@@ -124,7 +125,7 @@ mysql -uroot -proot
 ## 下载Nginx1.10的docker镜像
 
 ```shell
-docker pull nginx:1.10
+docker pull nginx:1.18
 ```
 
 
@@ -134,10 +135,10 @@ docker pull nginx:1.10
 ### 先运⾏⼀次容器（为了拷⻉配置⽂件）
 
 ```shell
-docker run -p 80:80 --name nginx \
--v /mydata/nginx/html:/usr/share/nginx/html \
--v /mydata/nginx/logs:/var/log/nginx \
--d nginx:1.10
+docker run -p 81:80 --name nginx1.18 \
+-v /mydata/nginx1.18/html:/usr/share/nginx1.18/html \
+-v /mydata/nginx1.18/logs:/var/log/nginx1.18 \
+-d nginx:1.18
 ```
 
 > 注：加了 -d 参数默认不会进⼊容器，想要进⼊容器需要使⽤指令 `docker exec`。
@@ -147,7 +148,7 @@ docker run -p 80:80 --name nginx \
 ### 将容器内的配置⽂件拷⻉到指定⽬录
 
 ```shell
-docker container cp nginx:/etc/nginx /mydata/nginx/
+docker container cp nginx1.18:/etc/nginx /mydata/nginx1.18/
 ```
 
 
@@ -155,7 +156,7 @@ docker container cp nginx:/etc/nginx /mydata/nginx/
 ### 修改⽂件名称
 
 ```shell
-cd /mydata/nginx 
+cd /mydata/nginx1.18 
 mv nginx conf
 ```
 
@@ -164,7 +165,24 @@ mv nginx conf
 ### 终⽌并删除容器
 
 ```shell
-docker stop nginx 
-docker rm nginx
+docker stop nginx1.18
+docker rm nginx1.18
 ```
 
+
+
+### 再次使⽤docker命令启动
+
+```shell
+docker run -p 81:80 --name nginx1.18 \
+-v /mydata/nginx1.18/html:/usr/share/nginx1.18/html \
+-v /mydata/nginx1.18/logs:/var/log/nginx1.18 \
+-v /mydata/nginx1.18/conf:/etc/nginx1.18 \
+-d nginx:1.18
+```
+
+
+
+### 启动成功
+
+![](..\..\images\Docker install software\nginx启动成功.jpg)
