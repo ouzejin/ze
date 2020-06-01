@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Mon, 01 Jun 2020 06:42:43 +0806</lastBuildDate><pubDate>Mon, 01 Jun 2020 06:42:43 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Mon, 01 Jun 2020 06:59:38 +0806</lastBuildDate><pubDate>Mon, 01 Jun 2020 06:59:38 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -2027,30 +2027,43 @@ hadoop version
 &lt;h1&gt;1.Docker常用命令&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#0.搜索收藏数不⼩于10的镜像&lt;/span&gt;
 docker search -s &lt;span class="m"&gt;10&lt;/span&gt; 名称
+
 &lt;span class="c1"&gt;#1.下载镜像&lt;/span&gt;
 docker pull 名称:tag
+
 &lt;span class="c1"&gt;#2.查看下载的镜像&lt;/span&gt;
 docker images&lt;span class="p"&gt;;&lt;/span&gt;
+
 &lt;span class="c1"&gt;#3.查看正在运⾏的容器&lt;/span&gt;
 docker ps
+
 &lt;span class="c1"&gt;#4.查看所有容器&lt;/span&gt;
 docker ps -a
+
 &lt;span class="c1"&gt;#5.运⾏容器&lt;/span&gt;
 docker start/restart 容器名称/id
+
 &lt;span class="c1"&gt;#6.停⽌容器&lt;/span&gt;
 docker stop 容器名称/id
+
 &lt;span class="c1"&gt;#7.在使⽤ -d 参数时，容器启动后会进⼊后台。此时想要进⼊容器，可以通过以下指令进⼊&lt;/span&gt;
 docker attach 容器名称/id &lt;span class="c1"&gt;#不推荐使⽤，因为退出时会导致容器的停⽌&lt;/span&gt;
 docker &lt;span class="nb"&gt;exec&lt;/span&gt; -it 容器名称/id /bin/bash &lt;span class="c1"&gt;#在进⼊容器后可使⽤linux命令，退出使⽤exit&lt;/span&gt;
+
 &lt;span class="c1"&gt;#8.导出&lt;/span&gt;
 docker &lt;span class="nb"&gt;export&lt;/span&gt; 容器名称/id &amp;gt; 名称.tar
+
 &lt;span class="c1"&gt;#9.导⼊，可以使⽤ docker import 从容器快照⽂件中再导⼊为镜像，以下实例将快照⽂件指定&lt;/span&gt;
 路径的tar 导⼊到镜像 test/test:v1:
 cat tar路径 &lt;span class="p"&gt;|&lt;/span&gt; docker import - test/test:v1
 &lt;span class="c1"&gt;#也可以通过指定 URL 或者某个⽬录来导⼊&lt;/span&gt;
 docker import http://example.com/exampleimage.tgz example/imagerepo
+
 &lt;span class="c1"&gt;#10.删除容器&lt;/span&gt;
 docker rm -f 容器名称/id
+
+&lt;span class="c1"&gt;#11.启动docker&lt;/span&gt;
+systemctl start docker
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;2.卸载旧版本&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum remove docker &lt;span class="se"&gt;\&lt;/span&gt;
@@ -2114,7 +2127,7 @@ sudo systemctl restart docker
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;4.参考Reference&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://www.runoob.com/docker/centos-docker-install.html"&gt;CentOs Docker Install&lt;/a&gt;&lt;/p&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Docker-deployment/</guid><pubDate>Sun, 31 May 2020 15:39:08 +0806</pubDate></item><item><title>Docker:Install software</title><link>/archives/Docker:Install software/</link><description>&lt;h1&gt;概念&lt;/h1&gt;
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Docker-deployment/</guid><pubDate>Sun, 31 May 2020 15:39:08 +0806</pubDate></item><item><title>Docker:Install software</title><link>/archives/Docker:Install-software/</link><description>&lt;h1&gt;概念&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;镜像：相当于java中的类,镜像由一层层只读层堆在一起&lt;/li&gt;
 &lt;li&gt;容器：镜像只读层+读写层，运行态容器为由一个可读写的文件系统「静态容器」+ 隔离的进程空间和其中的进程构成(可以理解为&lt;code&gt;虚拟机中的虚拟机&lt;/code&gt;)&lt;/li&gt;
@@ -2190,4 +2203,4 @@ mv nginx conf
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker stop nginx 
 docker rm nginx
 &lt;/pre&gt;&lt;/div&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Docker:Install software/</guid><pubDate>Sun, 31 May 2020 20:47:14 +0806</pubDate></item></channel></rss>
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Docker:Install-software/</guid><pubDate>Sun, 31 May 2020 20:47:14 +0806</pubDate></item></channel></rss>

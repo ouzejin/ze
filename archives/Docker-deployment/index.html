@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/aa4f947b5e78ec77fa785b6026020a25.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/e30baac0fee5c8f08d54a7fe7bbdcf76.json"
         }
     </script>
     <script>
@@ -101,7 +101,7 @@
                     
                     <section>
                         
-    <div class="open "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><div class="open "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install software/">Docker:Install software</a></li><li class="current"><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Springboot/">Springboot</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Import-excel-to-mysql/">Import excel to mysql</a></li></ul></div><div class=" "><span><a href="/category/Code/">Code</a><button class="toggle_sidebar fa"></button></span><ul><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
+    <div class="open "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><div class="open "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install-software/">Docker:Install software</a></li><li class="current"><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Springboot/">Springboot</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Import-excel-to-mysql/">Import excel to mysql</a></li></ul></div><div class=" "><span><a href="/category/Code/">Code</a><button class="toggle_sidebar fa"></button></span><ul><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
 
                     </section>
                     <section hidden class="sidebar-external-link">
@@ -142,30 +142,43 @@
 <h1>1.Docker常用命令</h1>
 <div class="highlight"><pre><span></span><span class="c1">#0.搜索收藏数不⼩于10的镜像</span>
 docker search -s <span class="m">10</span> 名称
+
 <span class="c1">#1.下载镜像</span>
 docker pull 名称:tag
+
 <span class="c1">#2.查看下载的镜像</span>
 docker images<span class="p">;</span>
+
 <span class="c1">#3.查看正在运⾏的容器</span>
 docker ps
+
 <span class="c1">#4.查看所有容器</span>
 docker ps -a
+
 <span class="c1">#5.运⾏容器</span>
 docker start/restart 容器名称/id
+
 <span class="c1">#6.停⽌容器</span>
 docker stop 容器名称/id
+
 <span class="c1">#7.在使⽤ -d 参数时，容器启动后会进⼊后台。此时想要进⼊容器，可以通过以下指令进⼊</span>
 docker attach 容器名称/id <span class="c1">#不推荐使⽤，因为退出时会导致容器的停⽌</span>
 docker <span class="nb">exec</span> -it 容器名称/id /bin/bash <span class="c1">#在进⼊容器后可使⽤linux命令，退出使⽤exit</span>
+
 <span class="c1">#8.导出</span>
 docker <span class="nb">export</span> 容器名称/id &gt; 名称.tar
+
 <span class="c1">#9.导⼊，可以使⽤ docker import 从容器快照⽂件中再导⼊为镜像，以下实例将快照⽂件指定</span>
 路径的tar 导⼊到镜像 test/test:v1:
 cat tar路径 <span class="p">|</span> docker import - test/test:v1
 <span class="c1">#也可以通过指定 URL 或者某个⽬录来导⼊</span>
 docker import http://example.com/exampleimage.tgz example/imagerepo
+
 <span class="c1">#10.删除容器</span>
 docker rm -f 容器名称/id
+
+<span class="c1">#11.启动docker</span>
+systemctl start docker
 </pre></div>
 <h1>2.卸载旧版本</h1>
 <div class="highlight"><pre><span></span>sudo yum remove docker <span class="se">\</span>
@@ -236,7 +249,7 @@ sudo systemctl restart docker
     <section id="content-pager">
         
             <div class="next">
-                <a class="card" href="/archives/Docker:Install software/">
+                <a class="card" href="/archives/Docker:Install-software/">
                     <time>May 31 2020</time>
                     <span>Docker:Install software</span>
                 </a>
