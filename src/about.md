@@ -17,13 +17,13 @@ tags:
 本科就读
 后端狗
 健身小白，篮球蔡鸡
-喜欢电音，复古电音
+喜欢电音丶复古电音，
 LOL退役选手
 [/notice]
 
 这里是我的个人Wiki，通过 GitHub 管理与构建。
 
-
+![](images/about2.jpg)
 
 ![](images/about.jpg)
 
