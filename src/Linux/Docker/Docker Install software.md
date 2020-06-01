@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Docker:Install software
-slug: Docker:Install software
+slug: Docker:Install-software
 date: 2020/05/31 20:47:14
 status: publish
 author: LifeAlsoIsGG
