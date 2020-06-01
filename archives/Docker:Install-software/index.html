@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/e30baac0fee5c8f08d54a7fe7bbdcf76.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/840c945a69e45c9549eebd159aa47c68.json"
         }
     </script>
     <script>
@@ -168,6 +168,7 @@ docker run -p <span class="m">3307</span>:3306 --name mysql5.7 <span class="se">
 </pre></div>
 <p>参数说明</p>
 <blockquote><ul>
+<li>--restart=always：容器自启动</li>
 <li>-p 3307:3306：将容器的3306端⼝映射到主机的3307端⼝        </li>
 <li>-v /mydata/mysql/conf:/etc/mysql：将配置⽂件夹挂在到主机</li>
 <li>-v /mydata/mysql/log:/var/log/mysql：将⽇志⽂件夹挂载到主机</li>
@@ -191,28 +192,37 @@ docker run -p <span class="m">3307</span>:3306 --name mysql5.7 <span class="se">
 <p><figure><img data-width="280" data-height="147" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bbcaa3bbe8d7f8ac6a1b194b6dc944a9.jpg" alt="" /></figure></p>
 <h1>安装Nginx</h1>
 <h2>下载Nginx1.10的docker镜像</h2>
-<div class="highlight"><pre><span></span>docker pull nginx:1.10
+<div class="highlight"><pre><span></span>docker pull nginx:1.18
 </pre></div>
 <h2>从容器中拷⻉Nginx配置</h2>
 <h3>先运⾏⼀次容器（为了拷⻉配置⽂件）</h3>
-<div class="highlight"><pre><span></span>docker run -p <span class="m">80</span>:80 --name nginx <span class="se">\</span>
--v /mydata/nginx/html:/usr/share/nginx/html <span class="se">\</span>
--v /mydata/nginx/logs:/var/log/nginx <span class="se">\</span>
--d nginx:1.10
+<div class="highlight"><pre><span></span>docker run -p <span class="m">81</span>:80 --name nginx1.18 <span class="se">\</span>
+-v /mydata/nginx1.18/html:/usr/share/nginx1.18/html <span class="se">\</span>
+-v /mydata/nginx1.18/logs:/var/log/nginx1.18 <span class="se">\</span>
+-d nginx:1.18
 </pre></div>
 <blockquote><p>注：加了 -d 参数默认不会进⼊容器，想要进⼊容器需要使⽤指令 <code>docker exec</code>。</p>
 </blockquote>
 <h3>将容器内的配置⽂件拷⻉到指定⽬录</h3>
-<div class="highlight"><pre><span></span>docker container cp nginx:/etc/nginx /mydata/nginx/
+<div class="highlight"><pre><span></span>docker container cp nginx1.18:/etc/nginx /mydata/nginx1.18/
 </pre></div>
 <h3>修改⽂件名称</h3>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> /mydata/nginx 
+<div class="highlight"><pre><span></span><span class="nb">cd</span> /mydata/nginx1.18 
 mv nginx conf
 </pre></div>
 <h3>终⽌并删除容器</h3>
-<div class="highlight"><pre><span></span>docker stop nginx 
-docker rm nginx
+<div class="highlight"><pre><span></span>docker stop nginx1.18
+docker rm nginx1.18
 </pre></div>
+<h3>再次使⽤docker命令启动</h3>
+<div class="highlight"><pre><span></span>docker run -p <span class="m">81</span>:80 --name nginx1.18 <span class="se">\</span>
+-v /mydata/nginx1.18/html:/usr/share/nginx1.18/html <span class="se">\</span>
+-v /mydata/nginx1.18/logs:/var/log/nginx1.18 <span class="se">\</span>
+-v /mydata/nginx1.18/conf:/etc/nginx1.18 <span class="se">\</span>
+-d nginx:1.18
+</pre></div>
+<h3>启动成功</h3>
+<p><figure><img data-width="1714" data-height="360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ed494a48b4197ec5459cf7265dec6043.jpg" alt="" /></figure></p>
 </article>
     </section>
 
