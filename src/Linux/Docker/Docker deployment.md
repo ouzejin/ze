@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Docker deployment
-slug: Dock-deployment
+slug: Docker-deployment
 date: 2020/05/31 15:39:08
 status: publish
 author: LifeAlsoIsGG
@@ -16,6 +16,8 @@ tags:
 环境
 
 CentOs 7
+
+
 
 # 1.Docker常用命令
 
@@ -63,6 +65,8 @@ sudo yum remove docker \
  docker-logrotate \
  docker-engine
 ```
+
+
 
 # 3.安装 Docker Engine-Community
 
@@ -144,7 +148,7 @@ vim /etc/docker/daemon.json
 
 推荐使⽤阿⾥云加速，参考教程https://help.aliyun.com/document_detail/60750.html
 
-### 更改后重启服务
+更改后重启服务:
 
 ```shell
 sudo systemctl daemon-reload
