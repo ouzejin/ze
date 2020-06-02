@@ -23,9 +23,11 @@ LOL退役选手
 
 这里是我的个人Wiki，通过 GitHub 管理与构建。
 
-![](images/about2.jpg)
 
-![](images/about.jpg)
+
+<div align=center>  <table><tr>    
+  <img width="50%" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/04e82f5c1049220fbcdd6de58ed6a580.jpg"/>    
+  <img width="50%" src=https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9144bbc6ae7fc545444e803132a5dd7a.jpg/>    </tr></table></div>
 
 
 
