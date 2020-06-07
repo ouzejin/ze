@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/认识SpringCloud/</loc>
+    <lastmod>2020-06-07</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/xshell connect to Centos7 in VMware/</loc>
     <lastmod>2020-06-06</lastmod>
     <changefreq>always</changefreq>

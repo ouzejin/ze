@@ -1,0 +1,748 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,wiki" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Kepler" />
+    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b56a869881de69c65dce826936ca8691.json"
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+                document.body.classList.add('safari')
+            }else{
+                document.body.classList.remove('safari')
+            }
+        });
+    </script>
+    
+<title>认识SpringCloud - LifeAlsoIsGG-Wiki</title>
+<meta name="author" content="LifeAlsoIsGG" />
+<meta name="description" content="SpringCloud课程" />
+<meta property="og:title" content="认识SpringCloud - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="SpringCloud课程" />
+<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/认识SpringCloud/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-06-07T17:00:47-00.00" />
+<meta name="twitter:title" content="认识SpringCloud - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="SpringCloud课程" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" type="images/x-ico" />
+
+    </head>
+    
+    <body class="content">
+        <header>
+            <div class="container">
+                <section>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png">LifeAlsoIsGG-Wiki</a>
+                </section>
+                <section>
+                    <nav>
+                        <ul>
+                            
+                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                            
+                                <li><a href="https://photos.lifeisgg.online" target="_blank">Photos</a></li>
+                            
+                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                            
+                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+    
+                <section>
+                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
+                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
+                    <button class="search-form-input"><i class="fa fa-search"></i></button>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <div id="pjax-container" class="container">
+                <aside id="navbar" class="no-scrollbar">
+                    
+                    <section class="sidebar-nav">
+                        
+                            <div class="None" ><span><a href="/">Home</a></span></div>
+                        
+                            <div class="None" ><span><a href="/archives/">Archives</a></span></div>
+                        
+                            <div class="None" ><span><a href="/about/">About</a></span></div>
+                        
+                            <div class="None" ><span><a href="/MyProject/">MyProject</a></span></div>
+                        
+                    </section>
+                    
+                    <section>
+                        
+    <div class="open "><span><a href="/category/SpringBoot/">SpringBoot</a><button class="toggle_sidebar fa"></button></span><ul><div class="open "><span><a href="/category/SpringCloud/">SpringCloud</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/认识SpringCloud/">认识SpringCloud</a></li></ul></div><li class=""><a href="/archives/Import-excel-to-mysql/">Import excel to mysql</a></li></ul></div><div class=" "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/xshell connect to Centos7 in VMware/">用xshell连接虚拟机中的Centos7</a></li><div class=" "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install-software/">Docker:Install software</a></li><li class=""><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Code/">Code</a><button class="toggle_sidebar fa"></button></span><ul><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
+
+                    </section>
+                    <section hidden class="sidebar-external-link">
+                        
+                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://photos.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                    </section>
+                    <section class="maverick">
+                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
+                    </section>
+                </aside>
+                <div id="content-wrapper">
+                    <div id="content">
+    <section>
+        <h1 class="post-title">认识SpringCloud</h1>
+        <p class="post-meta">
+            <time>June 07 2020</time>
+            <span class="tags">
+                
+                <span>
+                    <a href="/tag/SpringBoot/">#SpringBoot</a>
+                </span>
+                
+                <span>
+                    <a href="/tag/SpringCloud/">#SpringCloud</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><h1>SpringCloud课程</h1>
+<h2>一、微服务和微服务架构</h2>
+<h3>1.什么是微服务</h3>
+<blockquote><p><a href="https://martinfowler.com/articles/microservices.html，提出者原文">https://martinfowler.com/articles/microservices.html，提出者原文</a></p>
+<p>维基百科上给出的定义是：微服务（Microservices）是一种软件开发技术，是面向服务的架构（Service-Oriented  Architecture，SOA）的变体，微服务架构将应用程序组成一系列松散耦合的服务集合。在微服务体系结构中，服务是细粒度的，协议是轻量级的。</p>
+<p>传统开发模式下，绝大部分的 Web 应用都是采用单体架构的风格来进行构建的，这意味着 Web  应用是作为单个可部署的软件制品进行交付的，所有的接口、业务逻辑、持久层都被打包在一个 Web  应用中，并且部署在一台服务器上。这种开发模式会带来诸多不便，大多数情况下，一个应用程序是交由多个团队来协同开发的，每个开发团队负责各自不同的模块，并且会有自己的定制组件来服务对应的客户。</p>
+<p>问题就出在这里，随着应用程序的规模和复杂度不断增长，多个团队协同开发一个单体应用程序会变得越来越困难、越来越复杂，假设某个团队需要修改接口，那么其他团队与之对应的代码也需要修改，同时整个应用程序都需要重新构建、测试、部署。</p>
+<p>微服务架构就是为了解决上述问题而生的，它的本质在于分布式、去中心化。简单理解就是分解应用程序的功能，把一个大型服务拆分成很多小服务，使它们完全彼此独立，并且可以相互通信，拆分之后的微服务架构如下图所示。</p>
+<p><figure><img data-width="640" data-height="460" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9a708c7e78d17f28a48e770557fbc6ff.jpeg" alt="img" /><figcaption>img</figcaption></figure></p>
+</blockquote>
+<p>​   <strong>简单点说，微服务化的核心就是将传统的一站式应用，根据业务拆分成一个一个的服务，彻底地去耦合，每一个微服务提供单个业务功能的服务，一个服务做一件事情，从技术角度看就是一种小而独立的处理过程，类似进程的概念，能够自行单独启动或销毁，拥有自己独立的数据库。</strong></p>
+<h3>2.什么是微服务架构</h3>
+<blockquote><p><a href="https://www.jianshu.com/p/bf3484efa709?utm_source=oschina-app">https://www.jianshu.com/p/bf3484efa709?utm_source=oschina-app</a></p>
+</blockquote>
+<h3>3.微服务架构的4个核心问题</h3>
+<blockquote><p>1、服务很多，客户端该怎么访问？</p>
+<p>2、这么多服务？服务之间如何通信</p>
+<p>3、这么多服务？如何治理？</p>
+<p>4、服务挂了怎么办？</p>
+</blockquote>
+<h3>4.微服务的优缺点</h3>
+<h4>优点</h4>
+<ul>
+<li>每个服务足够内聚，足够小，代码容易理解，这样能聚焦一个指定的业务功能或业务需求；</li>
+<li>开发简单，开发效率提高，一个服务可能就是专一的只干一件事；</li>
+<li>微服务能够被小团队单独开发，这个小团队是2~5人的开发人员组成；</li>
+<li>微服务是松耦合的，是有功能意义的服务，无论是在开发阶段或部署阶段都是独立的；</li>
+<li>微服务能使用不同的语言开发；</li>
+<li>易于和第三方集成，微服务允许容易且灵活的方式集成自动部署，通过持续集成工具，如jenkins；</li>
+<li>微服务易于被一个开发人员理解，修改和维护，这样小团队能够更关注自己的工作成果，无需通过合作才能体现价值</li>
+<li>微服务允许你利用融合最新技术</li>
+<li>微服务只是业务逻辑的代码，不会和HTML，CSS或其它界面混合</li>
+<li>每个微服务都有自己的存储能力，可以有自己的数据库，也可以有统一数据库</li>
+</ul>
+<h4>缺点</h4>
+<ul>
+<li>开发人员要处理分布式系统的复杂性</li>
+<li>多服务运维难度，随着服务的增加，运维的压力也在增大</li>
+<li>系统部署依赖</li>
+<li>服务间通信成本</li>
+<li>数据一致性</li>
+<li>系统集成测试</li>
+<li>性能监控</li>
+</ul>
+<h2>二、微服务解决方案</h2>
+<h3>1.Spring Cloud NetFlix</h3>
+<blockquote><p>18年停更了。</p>
+</blockquote>
+<h3>2.Apache Dubbo Zookeeper</h3>
+<blockquote><p>api网关：没有，找第三方组件，或自己实现</p>
+<p>Dubbo：基于socket通信，一个rpc框架</p>
+<p>Zookeeper：服务注册与发现</p>
+<p>熔断机制：没有，使用第三方</p>
+</blockquote>
+<h3>3.Spring Cloud Alibaba</h3>
+<blockquote><p>一站式解决方案！使用更简单</p>
+<p>Nacos：服务注册与发现，配置中心</p>
+</blockquote>
+<h3>4.微服务技术栈</h3>
+<table>
+<thead><tr>
+<th>微服务条目</th>
+<th>落地技术</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务开发</td>
+<td>SpringBoot、SSM</td>
+</tr>
+<tr>
+<td>服务配置与管理</td>
+<td>Netflix公司的Archaius、阿里的Diamond等</td>
+</tr>
+<tr>
+<td>服务注册与发现</td>
+<td>Eureka、Zookeeper、Nacos、Consul等</td>
+</tr>
+<tr>
+<td>服务调用</td>
+<td>Rest(Http)、RPC、gRPC</td>
+</tr>
+<tr>
+<td>服务熔断器</td>
+<td>Hystrix、Envoy、Sentinel等</td>
+</tr>
+<tr>
+<td>负载均衡</td>
+<td>Ribbon、Nginx、Feign等</td>
+</tr>
+<tr>
+<td>服务接口调用</td>
+<td>Feign</td>
+</tr>
+<tr>
+<td>消息队列</td>
+<td>Kafka、RabbitMQ、ActiveMQ、RocketMQ</td>
+</tr>
+<tr>
+<td>服务配置中心管理</td>
+<td>config、consul、apollo、nacos</td>
+</tr>
+<tr>
+<td>服务路由(网关)</td>
+<td>Zuul、Gateway等</td>
+</tr>
+<tr>
+<td>服务监控</td>
+<td>Zabbix、Nagios、Metrics、Specatator等</td>
+</tr>
+<tr>
+<td>全链路追踪</td>
+<td>Zipkin、Brave、Dapper等</td>
+</tr>
+<tr>
+<td>服务部署</td>
+<td>Docker、OpenStack、Kubernetes(k8s)等</td>
+</tr>
+<tr>
+<td>数据流操作开发包</td>
+<td>SpringCloud Stream(封装与Redis、Rabbit、Kafka等发送接收消息)</td>
+</tr>
+<tr>
+<td>事件消息总线</td>
+<td>SpringCloud Bus</td>
+</tr>
+</tbody>
+</table>
+<h2>三、常见面试题</h2>
+<ul>
+<li>### 1.什么是微服务和微服务架构</li>
+</ul>
+<blockquote><p>1.微服务</p>
+<p>强调的是服务的大小，它关注的是某一个点，是具体解决某一个问题并提供落地对应服务的一个服务应用，狭义的看，可以看做是IDEA中的一个个微服务工程或者Module</p>
+<p>2.微服务架构</p>
+<p>一种新的架构形式，由Martin Fowler，2014提出。</p>
+<p>它提倡将单一应用程序划分成一组小的服务，服务之间相互协调，互相配合，为用户提供最终价值，每个服务运行在其独立的进程中，服务于服务间采用轻量级的通信机制互相协作，每个服务都围绕着具体的业务进行构建，并且能够被独立的部署到生产环境中，另外，应尽量避免统一的集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，选择合适的语言，工具对其进行构建。</p>
+</blockquote>
+<ul>
+<li>### 2.微服务之间是如何独立通讯的</li>
+</ul>
+<blockquote><p>Spring Cloud基于http协议通信</p>
+<p>Dubbo则是典型的rpc协议通信框架</p>
+</blockquote>
+<ul>
+<li>### 3.SpringCloud和Dubbo有哪些区别</li>
+</ul>
+<blockquote>
+</blockquote>
+<ul>
+<li>### 4.SpringBoot和SpringCloud，请你谈谈对他们的理解</li>
+</ul>
+<blockquote>
+</blockquote>
+<ul>
+<li>### 5.什么是服务熔断？什么是服务降级</li>
+</ul>
+<blockquote>
+</blockquote>
+<ul>
+<li>### 6.微服务的优缺点分别是什么？说下你在项目中遇到的坑</li>
+</ul>
+<blockquote>
+</blockquote>
+<ul>
+<li>### 7.你所知道的微服务技术栈有哪些？请列举一二</li>
+</ul>
+<blockquote>
+</blockquote>
+<ul>
+<li>### 8.eureka和zookeeper都可以提供服务注册与发现的功能请说说两都之间的区别</li>
+</ul>
+<blockquote>
+</blockquote>
+<h2><a href="http://www.macrozheng.com/#/cloud/springcloud?id=什么是springcloud">四、什么是SpringCloud</a></h2>
+<h3><a href="http://www.macrozheng.com/#/cloud/springcloud?id=目标">目标</a></h3>
+<p>协调任何服务，简化分布式系统开发。</p>
+<h3><a href="http://www.macrozheng.com/#/cloud/springcloud?id=简介">简介</a></h3>
+<p>构建分布式系统不应该是复杂的，SpringCloud对常见的分布式系统模式提供了简单易用的编程模型，帮助开发者构建弹性、可靠、协调的应用程序。 SpringCloud是在SpringBoot的基础上构建的，使开发者可以轻松入门并快速提高工作效率。 SpringCloud为开发人员提供了快速构建分布式系统架构的工具，例如配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁定，领导选举，分布式会话，集群状态等。</p>
+<h3><a href="http://www.macrozheng.com/#/cloud/springcloud?id=整体架构">整体架构</a></h3>
+<p><figure><img data-width="1274" data-height="658" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a4708199b65a5eb5b92ba1d4f672e910.png" alt="来自Spring官网" /><figcaption>来自Spring官网</figcaption></figure></p>
+<h3><a href="http://www.macrozheng.com/#/cloud/springcloud?id=springcloud的版本关系">SpringCloud的版本关系</a></h3>
+<p>SpringCloud是一个由许多子项目组成的综合项目，各子项目有不同的发布节奏。 为了管理SpringCloud与各子项目的版本依赖关系，发布了一个清单，其中包括了某个SpringCloud版本对应的子项目版本。 为了避免SpringCloud版本号与子项目版本号混淆，SpringCloud版本采用了名称而非版本号的命名，这些版本的名字采用了伦敦地铁站的名字，根据字母表的顺序来对应版本时间顺序，例如Angel是第一个版本, Brixton是第二个版本。 当SpringCloud的发布内容积累到临界点或者一个重大BUG被解决后，会发布一个"service releases"版本，简称SRX版本，比如Greenwich.SR2就是SpringCloud发布的Greenwich版本的第2个SRX版本。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=springcloud和springboot版本对应关系">SpringCloud和SpringBoot版本对应关系</a></h4>
+<table>
+<thead><tr>
+<th>SpringCloud Version</th>
+<th>SpringBoot Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hoxton</td>
+<td>2.2.x</td>
+</tr>
+<tr>
+<td>Greenwich</td>
+<td>2.1.x</td>
+</tr>
+<tr>
+<td>Finchley</td>
+<td>2.0.x</td>
+</tr>
+<tr>
+<td>Edgware</td>
+<td>1.5.x</td>
+</tr>
+<tr>
+<td>Dalston</td>
+<td>1.5.x</td>
+</tr>
+</tbody>
+</table>
+<h4>SpringCloud和SpringBoot关系</h4>
+<ul>
+<li>SpringBoot专注于快速方便的开发单个个体微服务，SpringCloud关注全局的服务治理框架</li>
+<li>SpringCloud是关注全局的微服务协调整理治理框架，它将SpringBoot开发的一个个单体微服务整合并管理起来，为各个微服务之间提供：配置管理，服务发现，断路器，路由，微代理，事件总线，全局锁，决策竞选，分布式会话等集成服务。</li>
+<li>SpringBoot可以离开SpringCloud独立使用，开发项目，但是SpringCloud离不开SpringBoot，属于依赖关系</li>
+</ul>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=springcloud和各子项目版本对应关系">SpringCloud和各子项目版本对应关系</a></h4>
+<table>
+<thead><tr>
+<th>Component</th>
+<th>Edgware.SR6</th>
+<th>Greenwich.SR2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spring-cloud-bus</td>
+<td>1.3.4.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-commons</td>
+<td>1.3.6.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-config</td>
+<td>1.4.7.RELEASE</td>
+<td>2.1.3.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-netflix</td>
+<td>1.4.7.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-security</td>
+<td>1.2.4.RELEASE</td>
+<td>2.1.3.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-consul</td>
+<td>1.3.6.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-sleuth</td>
+<td>1.3.6.RELEASE</td>
+<td>2.1.1.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-stream</td>
+<td>Ditmars.SR5</td>
+<td>Fishtown.SR3</td>
+</tr>
+<tr>
+<td>spring-cloud-zookeeper</td>
+<td>1.2.3.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-boot</td>
+<td>1.5.21.RELEASE</td>
+<td>2.1.5.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-task</td>
+<td>1.2.4.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-gateway</td>
+<td>1.0.3.RELEASE</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-openfeign</td>
+<td>暂无</td>
+<td>2.1.2.RELEASE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：Greenwich版本是基于SpringBoot 2.1.x版本构建的，不适用于1.5.x版本。随着2019年8月SpringBoot 1.5.x版本停止维护，Edgware版本也将停止维护。</strong></p>
+<h3><a href="http://www.macrozheng.com/#/cloud/springcloud?id=springcloud子项目简介">SpringCloud子项目简介</a></h3>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-config">Spring Cloud Config</a></h4>
+<p>集中配置管理工具，分布式系统中统一的外部配置管理，默认使用Git来存储配置，可以支持客户端配置的刷新及加密、解密操作。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-netflix">Spring Cloud Netflix</a></h4>
+<p>Netflix OSS 开源组件集成，包括Eureka、Hystrix、Ribbon、Feign、Zuul等核心组件。</p>
+<ul>
+<li>Eureka：服务治理组件，包括服务端的注册中心和客户端的服务发现机制；</li>
+<li>Ribbon：负载均衡的服务调用组件，具有多种负载均衡调用策略；</li>
+<li>Hystrix：服务容错组件，实现了断路器模式，为依赖服务的出错和延迟提供了容错能力；</li>
+<li>Feign：基于Ribbon和Hystrix的声明式服务调用组件；</li>
+<li>Zuul：API网关组件，对请求提供路由及过滤功能。</li>
+</ul>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-bus">Spring Cloud Bus</a></h4>
+<p>用于传播集群状态变化的消息总线，使用轻量级消息代理链接分布式系统中的节点，可以用来动态刷新集群中的服务配置。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-consul">Spring Cloud Consul</a></h4>
+<p>基于Hashicorp Consul的服务治理组件。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-security">Spring Cloud Security</a></h4>
+<p>安全工具包，对Zuul代理中的负载均衡OAuth2客户端及登录认证进行支持。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-sleuth">Spring Cloud Sleuth</a></h4>
+<p>SpringCloud应用程序的分布式请求链路跟踪，支持使用Zipkin、HTrace和基于日志（例如ELK）的跟踪。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-stream">Spring Cloud Stream</a></h4>
+<p>轻量级事件驱动微服务框架，可以使用简单的声明式模型来发送及接收消息，主要实现为Apache Kafka及RabbitMQ。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-task">Spring Cloud Task</a></h4>
+<p>用于快速构建短暂、有限数据处理任务的微服务框架，用于向应用中添加功能性和非功能性的特性。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-zookeeper">Spring Cloud Zookeeper</a></h4>
+<p>基于Apache Zookeeper的服务治理组件。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-gateway">Spring Cloud Gateway</a></h4>
+<p>API网关组件，对请求提供路由及过滤功能。</p>
+<h4><a href="http://www.macrozheng.com/#/cloud/springcloud?id=spring-cloud-openfeign">Spring Cloud OpenFeign</a></h4>
+<p>基于Ribbon和Hystrix的声明式服务调用组件，可以动态创建基于Spring MVC注解的接口实现用于服务调用，在SpringCloud 2.0中已经取代Feign成为了一等公民。</p>
+<h3>为什么要选择SpringCloud</h3>
+<h4>1.选择依据</h4>
+<ul>
+<li><p>整体解决方案和成熟度</p>
+</li>
+<li><p>社区热度</p>
+</li>
+<li><p>可维护性</p>
+</li>
+<li><p>学习曲线</p>
+</li>
+</ul>
+<h4>2.当前各大IT公司用的微服务框架有哪些</h4>
+<ul>
+<li>阿里：Dubbo + HFS</li>
+<li>京东：JSF</li>
+<li>新浪：Motan</li>
+<li>当当网：DubboX</li>
+</ul>
+<h2>五、什么是Dubbo</h2>
+<h3>1.dubbo简介</h3>
+<blockquote><p>Dubbo是阿里巴巴公司开源的一个高性能优秀的服务框架，使得应用可通过高性能的RPC实现服务的输</p>
+<p>出和输入功能，可以和Spring框架无缝集成。</p>
+<p>Dubbo是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调</p>
+<p>用，智能容错和负载均衡，以及服务自动注册和发现。</p>
+<p>现已发展成为Apache的顶级孵化开源项目，详见官网：<a href="http://dubbo.apache.org/en-us/">http://dubbo.apache.org/en-us/</a></p>
+</blockquote>
+<h3>2.dubbo组织架构图</h3>
+<p>官网的dubbo组织架构图</p>
+<p><figure><img data-width="1060" data-height="824" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/421bd70578b195afd2d64fbb73c0d559.png" alt="img" /><figcaption>img</figcaption></figure></p>
+<p>详细介绍</p>
+<blockquote><ol>
+<li><p>Registry:服务注册与发现中心，作为服务提供者和消费者注册与发现的中心。</p>
+</li>
+<li><p>Provider:服务提供者，在注册中心注册作为服务提供的一方，发布服务到服务注册中心。</p>
+</li>
+<li><p>Consumer:服务消费者，通过注册中心协调，订阅可用的已注册的服务。</p>
+</li>
+<li><p>Container:服务运行容器，独立的容器类似于tomcat/jboss的作用，作为服务运行的容器。</p>
+</li>
+<li><p>Monitor:dubbo的监控中心，用来显示接口暴露、注册情况，也可以看接口的调用明细，调用时</p>
+<p>间等。</p>
+</li>
+</ol>
+</blockquote>
+<h3>3.dubbo的优势</h3>
+<blockquote><ol>
+<li>单一应用架构，当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和 成本。此时，用于简化增删改查工作量的 数据访问框架(ORM)是关键。</li>
+<li>垂直应用架构，当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，将应用拆成互不相 干的几个应用，以提升效率。此时，用于加速前端页面开发的 Web框架(MVC)是关键。</li>
+<li>分布式服务架构，当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立 的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的 分布式服务框架(RPC)是关键。</li>
+<li>流动计算架构当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的 资源 调度和治理中心(SOA)是关键。</li>
+</ol>
+</blockquote>
+<h2>六、Dubbo与SpringCloud对比</h2>
+<table>
+<thead><tr>
+<th>核心要素</th>
+<th>Dubbo</th>
+<th>Spring Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务注册中心</td>
+<td>Zookeeper、Redis、Nacos</td>
+<td>Eureka、Consul、Nacos</td>
+</tr>
+<tr>
+<td>服务调用方式</td>
+<td>RPC</td>
+<td>Restful api(http)</td>
+</tr>
+<tr>
+<td>服务网关</td>
+<td>无</td>
+<td>Zuul、gateway</td>
+</tr>
+<tr>
+<td>断路器</td>
+<td>不完美</td>
+<td>Hystrix</td>
+</tr>
+<tr>
+<td>分布式配置</td>
+<td>无</td>
+<td>Config、Apollo、Nacos、Consul</td>
+</tr>
+<tr>
+<td>分布式追踪系统</td>
+<td>无</td>
+<td>Sleuth</td>
+</tr>
+<tr>
+<td>消息总线</td>
+<td>无</td>
+<td>Bus</td>
+</tr>
+<tr>
+<td>数据流</td>
+<td>无</td>
+<td>Stream基本Redis、Rabbit、Kafka实现消息服务</td>
+</tr>
+<tr>
+<td>指量任务</td>
+<td>无</td>
+<td>Task</td>
+</tr>
+</tbody>
+</table>
+<h3>总结</h3>
+<blockquote><ol>
+<li><p>dubbo由于是二进制的传输，占用带宽会更少</p>
+</li>
+<li><p>springCloud是http协议传输，带宽会比较多，同时使用http协议一般会使用JSON报文，消耗会更</p>
+<p>大</p>
+</li>
+<li><p>dubbo的开发难度较大，原因是dubbo的jar包依赖问题很多大型工程无法解决</p>
+</li>
+<li><p>springcloud的接口协议约定比较自由且松散，需要有强有力的行政措施来限制接口无序升级</p>
+</li>
+<li><p>dubbo的注册中心可以选择zk,redis等多种，springcloud的注册中心只能用eureka或者自研</p>
+</li>
+</ol>
+</blockquote>
+<h2>七、Spring Cloud Alibaba</h2>
+<h3>1.SpringCloud Alibaba简介</h3>
+<blockquote><p>Spring Cloud Alibaba 致力于提供分布式应用服务开发的一站式解决方案。项目包含开发分布式应用服 务的必需组件，方便开发者通过 Spring Cloud 编程模型轻松使用这些组件来开发分布式应用服务。</p>
+</blockquote>
+<h3>2.主要功能</h3>
+<ol>
+<li><p><strong>服务限流降级</strong>:默认支持 Servlet、Feign、RestTemplate、Dubbo 和 RocketMQ 限流降级功能 的接入，可以在运行时通过控制台实时修改限流降级规则，还支持查看限流降级 Metrics 监控。</p>
+</li>
+<li><p><strong>服务注册与发现</strong>:适配 SpringCloud 服务注册与发现标准，默认集成了 Ribbon的支持。</p>
+</li>
+<li><p><strong>分布式配置管理</strong>:支持分布式系统中的外部化配置，配置更改时自动刷新。</p>
+</li>
+<li><p><strong>消息驱动能力</strong>:基于 SpringCloudStream 为微服务应用构建消息驱动能力。</p>
+</li>
+<li><p><strong>阿里云对象存储</strong>:阿里云提供的海量、安全、低成本、高可靠的云存储服务。支持在任何应用、任</p>
+<p>何时间、任何地点存储和访问任意类型的数据。</p>
+</li>
+<li><p><strong>分布式任务调度</strong>:提供秒级、精准、高可靠、高可用的定时(基于 Cron 表达式)任务调度服务。</p>
+<p>同时提供分布式的任务执行模型，如网格任务。网格任务支持海量子任务均匀分配到所有 Worker(schedulerx-client)上执行。</p>
+</li>
+</ol>
+<h3>3.已包括的组件有</h3>
+<ul>
+<li>Sentinel:把流量作为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。 </li>
+<li><p>Nacos:一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。</p>
+</li>
+<li><p>RocketMQ:一款开源的分布式消息系统，基于高可用分布式集群技术，提供低延时的、高可靠的消息 发布与订阅服务。</p>
+</li>
+<li><p>Dubbo:Apache DubboTM 是一款高性能 Java RPC 框架。</p>
+</li>
+<li><p>Seata:阿里巴巴开源产品，一个易于使用的高性能微服务分布式事务解决方案。</p>
+</li>
+<li><p>Alibaba Cloud ACM:一款在分布式架构环境中对应用配置进行集中管理和推送的应用配置中心产品。</p>
+</li>
+<li><p>Alibaba Cloud OSS: 阿里云对象存储服务(Object Storage Service，简称 OSS)，是阿里云提供的海 量、安全、低成本、高可靠的云存储服务。您可以在任何应用、任何时间、任何地点存储和访问任意类 型的数据。</p>
+</li>
+<li><p>Alibaba Cloud SchedulerX: 阿里中间件团队开发的一款分布式任务调度产品，提供秒级、精准、高可 靠、高可用的定时(基于 Cron 表达式)任务调度服务。</p>
+</li>
+<li><p>Alibaba Cloud SMS: 覆盖全球的短信服务，友好、高效、智能的互联化通讯能力，帮助企业迅速搭建客 户触达通道。</p>
+</li>
+</ul>
+<h3>4.与SpringCloud官方对比</h3>
+<p>阿里巴巴提供的方案跟Spring官方提供的方案有一些对应关系:</p>
+<p>Nacos = Eureka/Consule + Config + Admin</p>
+<p>Sentinel = Hystrix + Dashboard + Turbine</p>
+<p>Dubbo = Ribbon + Feign</p>
+<p>RocketMQ = RabbitMQ</p>
+<p>Schedulerx = Quartz</p>
+<p><figure><img data-width="2362" data-height="1118" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8012f54debe0e754aafcc73c8bc6deb9.png" alt="" /></figure></p>
+</article>
+    </section>
+
+    
+    <section id="content-pager">
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/xshell connect to Centos7 in VMware/">
+                    <time>June 06 2020</time>
+                    <span>用xshell连接虚拟机中的Centos7</span>
+                </a>
+            </div>
+        
+    </section>
+    
+
+    
+        <section id="comments">
+            <div id="vcomments"></div>
+        </section>
+        <script>
+            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u8fd8\u8bf7\u4e0d\u541d\u8d50\u6559"};
+            window.ValineOpt.path = window.location.pathname;
+        </script>
+    
+
+    <script>
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
+    </script>
+</div>
+                    <footer>
+                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        
+    <span class="leancloud_visitors"
+            id="/archives/认识SpringCloud/" 
+            data-flag-title="认识SpringCloud">
+            <i class="fa fa-eye"></i> <i style="font-style: normal" class="leancloud-visitors-count"></i> Views
+        </span>
+
+                        <span class="addon">
+<p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
+</span>
+                    </footer>
+                </div>
+                
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
+
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script>
+            function ExSearchCall(item){
+                if (item && item.length) {
+                    $('.ins-close').click(); // 关闭搜索框
+                    $('input.ins-search-input').val(''); // 清空
+                    let url = item.attr('data-url'); // 获取目标页面 URL
+                    $.pjax({url: url, 
+                        container: '#pjax-container',
+                        fragment: '#pjax-container',
+                        timeout: 8000, }); // 发起一次 PJAX 请求
+                }
+            }
+        </script>
+
+        <!--Valine-->
+        
+            <script>
+                var initValine = function () {
+                    if (typeof window.ValineOpt === 'object' && $(window.ValineOpt.el).length) {
+                        new Valine(window.ValineOpt);
+                    }
+                }
+            </script>
+            <script async src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        
+
+        <!--ExSearch-->
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        
+        <!--katex-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.js"></script>
+        <script>
+        mathOpts = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+        
+    </body>
+</html>
