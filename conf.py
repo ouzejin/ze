@@ -50,7 +50,7 @@ external_links = [
     },
     {
         "name": "Photos",
-        "url": "https://photo.lifeisgg.online",
+        "url": "https://photos.lifeisgg.online",
         "brief": "相册。"
     },
     {
