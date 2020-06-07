@@ -12,6 +12,8 @@ tags:
   - Github
 ---
 
+修改文件：C:\Windows\System32\drivers\etc\HOST
+
 ```
 # Github
 192.30.253.113 github.com

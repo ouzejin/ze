@@ -82,7 +82,7 @@ nav = [
     },
     {
         "name": "MyProject",
-        "url": "${site_prefix}myProject/",
+        "url": "${site_prefix}MyProject/",
         "target": "_self"
     }
 ]
