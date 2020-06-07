@@ -5,10 +5,24 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	
 
 <url>
+    <loc>/MyProject/</loc>
+    <lastmod>2020-06-07</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
     <loc>/about/</loc>
     <lastmod>2017-06-28</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>/archives/xshell connect to Centos7 in VMware/</loc>
+    <lastmod>2020-06-06</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
 </url>
 
 <url>
