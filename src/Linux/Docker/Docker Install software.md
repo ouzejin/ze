@@ -55,12 +55,12 @@ docker pull mysql:5.7
 ## 使⽤docker命令启动容器
 
 ```shell
-mkdir /mydata/mysql5.7 #先在根目录创建容器来存放mysql相关
+mkdir /mydata/mysql/mysql5.7 #先在根目录创建容器来存放mysql相关
 #将容器的3306端口映射到主机的3307接口，适合主机的3306接口被主机Mysql占用情况下
 docker run -p 3307:3306 --name mysql5.7 \
--v /mydata/mysql/log:/var/log/mysql5.7 \
--v /mydata/mysql/data:/var/lib/mysql5.7 \
--v /mydata/mysql/conf:/etc/mysql5.7 \
+-v /mydata/mysql/mysql5.7/log:/var/log/mysql5.7 \
+-v /mydata/mysql/mysql5.7/data:/var/lib/mysql5.7 \
+-v /mydata/mysql/mysql5.7/conf:/etc/mysql5.7 \
 -e MYSQL_ROOT_PASSWORD=root \
 -d mysql:5.7
 ```
