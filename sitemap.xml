@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/大三下实训期末作业/</loc>
+    <lastmod>2020-06-30</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/认识SpringCloud/</loc>
     <lastmod>2020-06-07</lastmod>
     <changefreq>always</changefreq>
