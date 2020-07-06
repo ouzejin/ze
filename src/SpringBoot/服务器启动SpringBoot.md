@@ -14,12 +14,6 @@ excerpt: 服务器上部署SpringBoot
 
 
 
-# 1.第一种方式
-
-
-
-
-
 # 第一种:打包为jar包
 
 
