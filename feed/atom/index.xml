@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-07-06T08:10:26.339502+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/软考软件设计师笔记/</id><title>软考软件设计师笔记</title><updated>2020-07-06T08:10:26.339907+00:00</updated><author><name>patrick</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;一.计算机系统知识&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-07-06T09:24:24.060091+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/软考软件设计师笔记/</id><title>软考软件设计师笔记</title><updated>2020-07-06T09:24:24.060494+00:00</updated><author><name>patrick</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;一.计算机系统知识&lt;/h1&gt;
 &lt;h2&gt;1.1原码反码补码移码&lt;/h2&gt;
 &lt;p&gt;正数时&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;原=反=补&lt;/p&gt;
@@ -1614,7 +1614,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><link href="/archives/软考软件设计师笔记/" rel="alternate"/><published>2020-04-05T23:01:04+08:06</published></entry><entry><id>/archives/修改Host以访问Github/</id><title>修改Host以访问Github</title><updated>2020-07-06T08:10:26.339877+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;修改文件：C:\Windows\System32\drivers\etc\HOST&lt;/p&gt;
+</content><link href="/archives/软考软件设计师笔记/" rel="alternate"/><published>2020-04-05T23:01:04+08:06</published></entry><entry><id>/archives/修改Host以访问Github/</id><title>修改Host以访问Github</title><updated>2020-07-06T09:24:24.060467+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;修改文件：C:\Windows\System32\drivers\etc\HOST&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# Github
 192.30.253.113 github.com
@@ -1632,7 +1632,7 @@
 185.199.108.153 pages.github.com  
 34.196.237.103 classroom.github.com&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后cmd用&lt;code&gt;ipconfig/flushdns&lt;/code&gt;刷新&lt;/p&gt;
-</content><link href="/archives/修改Host以访问Github/" rel="alternate"/><published>2020-04-16T23:46:17+08:06</published></entry><entry><id>/archives/Hadoop伪分布式配置/</id><title>Hadoop伪分布式配置</title><updated>2020-07-06T08:10:26.339847+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1.准备&lt;/h1&gt;
+</content><link href="/archives/修改Host以访问Github/" rel="alternate"/><published>2020-04-16T23:46:17+08:06</published></entry><entry><id>/archives/Hadoop伪分布式配置/</id><title>Hadoop伪分布式配置</title><updated>2020-07-06T09:24:24.060442+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1.准备&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ol&gt;
 &lt;li&gt;java&lt;/li&gt;
 &lt;li&gt;Hadoop,&lt;a href="http://mirror.bit.edu.cn/apache/hadoop/common/"&gt;镜像下载地址&lt;/a&gt;&lt;/li&gt;
@@ -1749,7 +1749,7 @@ hadoop version
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1678" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e93272b1e116dc6bbeed902c98e6e4f7.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;4.参考&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://dblab.xmu.edu.cn/blog/install-hadoop/"&gt;厦门大学大数据实验室Hadoop配置&lt;/a&gt;&lt;/p&gt;
-</content><link href="/archives/Hadoop伪分布式配置/" rel="alternate"/><published>2020-05-02T18:59:32+08:06</published></entry><entry><id>/archives/Import-excel-to-mysql/</id><title>Import excel to mysql</title><updated>2020-07-06T08:10:26.339818+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
+</content><link href="/archives/Hadoop伪分布式配置/" rel="alternate"/><published>2020-05-02T18:59:32+08:06</published></entry><entry><id>/archives/Import-excel-to-mysql/</id><title>Import excel to mysql</title><updated>2020-07-06T09:24:24.060417+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;1.准备&lt;/h2&gt;
 &lt;h3&gt;1.1添加所需要的的依赖&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- excel需要的包--&amp;gt;&lt;/span&gt;
@@ -1944,7 +1944,7 @@ hadoop version
 &lt;h3&gt;3.3IDEA&lt;/h3&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="505" data-height="133" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f7c1a1bce7bae99990920365cd46f807.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1911" data-height="857" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/83dce82ba475e407841c238f794f36cd.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/Import-excel-to-mysql/" rel="alternate"/><published>2020-05-28T12:35:00+08:06</published></entry><entry><id>/archives/Docker-deployment/</id><title>Docker deployment</title><updated>2020-07-06T08:10:26.339789+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;环境&lt;/p&gt;
+</content><link href="/archives/Import-excel-to-mysql/" rel="alternate"/><published>2020-05-28T12:35:00+08:06</published></entry><entry><id>/archives/Docker-deployment/</id><title>Docker deployment</title><updated>2020-07-06T09:24:24.060392+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;环境&lt;/p&gt;
 &lt;p&gt;CentOs 7&lt;/p&gt;
 &lt;h1&gt;1.Docker常用命令&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#0.搜索收藏数不⼩于10的镜像&lt;/span&gt;
@@ -2054,7 +2054,7 @@ sudo systemctl restart docker
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;4.参考Reference&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://www.runoob.com/docker/centos-docker-install.html"&gt;CentOs Docker Install&lt;/a&gt;&lt;/p&gt;
-</content><link href="/archives/Docker-deployment/" rel="alternate"/><published>2020-05-31T15:39:08+08:06</published></entry><entry><id>/archives/Docker:Install-software/</id><title>Docker:Install software</title><updated>2020-07-06T08:10:26.339758+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;概念&lt;/h1&gt;
+</content><link href="/archives/Docker-deployment/" rel="alternate"/><published>2020-05-31T15:39:08+08:06</published></entry><entry><id>/archives/Docker:Install-software/</id><title>Docker:Install software</title><updated>2020-07-06T09:24:24.060366+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;概念&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;镜像：相当于java中的类,镜像由一层层只读层堆在一起&lt;/li&gt;
 &lt;li&gt;容器：镜像只读层+读写层，运行态容器为由一个可读写的文件系统「静态容器」+ 隔离的进程空间和其中的进程构成(可以理解为&lt;strong&gt;虚拟机中的虚拟机&lt;/strong&gt;)&lt;/li&gt;
@@ -2140,8 +2140,8 @@ docker rm nginx1.18
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;启动成功&lt;/h3&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1714" data-height="360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ed494a48b4197ec5459cf7265dec6043.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/Docker:Install-software/" rel="alternate"/><published>2020-05-31T20:47:14+08:06</published></entry><entry><id>/archives/xshell connect to Centos7 in VMware/</id><title>用xshell连接虚拟机中的Centos7</title><updated>2020-07-06T08:10:26.339727+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;参考&lt;a href="https://www.linuxidc.com/Linux/2017-07/145845.htm"&gt;https://www.linuxidc.com/Linux/2017-07/145845.htm&lt;/a&gt;&lt;/p&gt;
-</content><link href="/archives/xshell connect to Centos7 in VMware/" rel="alternate"/><published>2020-06-06T22:14:50+08:06</published></entry><entry><id>/archives/认识SpringCloud/</id><title>认识SpringCloud</title><updated>2020-07-06T08:10:26.339695+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SpringCloud课程&lt;/h1&gt;
+</content><link href="/archives/Docker:Install-software/" rel="alternate"/><published>2020-05-31T20:47:14+08:06</published></entry><entry><id>/archives/xshell connect to Centos7 in VMware/</id><title>用xshell连接虚拟机中的Centos7</title><updated>2020-07-06T09:24:24.060337+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;参考&lt;a href="https://www.linuxidc.com/Linux/2017-07/145845.htm"&gt;https://www.linuxidc.com/Linux/2017-07/145845.htm&lt;/a&gt;&lt;/p&gt;
+</content><link href="/archives/xshell connect to Centos7 in VMware/" rel="alternate"/><published>2020-06-06T22:14:50+08:06</published></entry><entry><id>/archives/认识SpringCloud/</id><title>认识SpringCloud</title><updated>2020-07-06T09:24:24.060309+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SpringCloud课程&lt;/h1&gt;
 &lt;h2&gt;一、微服务和微服务架构&lt;/h2&gt;
 &lt;h3&gt;1.什么是微服务&lt;/h3&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://martinfowler.com/articles/microservices.html，提出者原文"&gt;https://martinfowler.com/articles/microservices.html，提出者原文&lt;/a&gt;&lt;/p&gt;
@@ -2640,7 +2640,7 @@ docker rm nginx1.18
 &lt;p&gt;RocketMQ = RabbitMQ&lt;/p&gt;
 &lt;p&gt;Schedulerx = Quartz&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="2362" data-height="1118" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8012f54debe0e754aafcc73c8bc6deb9.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/认识SpringCloud/" rel="alternate"/><published>2020-06-07T17:00:47+08:06</published></entry><entry><id>/archives/大三下实训期末作业/</id><title>大三下实训期末作业</title><updated>2020-07-06T08:10:26.339659+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;活动室指纹考勤管理系统&lt;/h1&gt;
+</content><link href="/archives/认识SpringCloud/" rel="alternate"/><published>2020-06-07T17:00:47+08:06</published></entry><entry><id>/archives/大三下实训期末作业/</id><title>大三下实训期末作业</title><updated>2020-07-06T09:24:24.060241+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;活动室指纹考勤管理系统&lt;/h1&gt;
 &lt;p&gt;成员：陈龙&lt;/p&gt;
 &lt;p&gt;网页端浏览：&lt;a href="https://wiki.lifeisgg.online/archives/大三下实训期末作业/"&gt;https://wiki.lifeisgg.online/archives/大三下实训期末作业/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;项目Github地址：&lt;a href="https://github.com/LifeAlsoIsGG/springcloud-demo"&gt;https://github.com/LifeAlsoIsGG/springcloud-demo&lt;/a&gt;&lt;/p&gt;
@@ -6704,8 +6704,7 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="C:\Users\15010\AppData\Roaming\Typora\typora-user-../images/大三下实训期末作业/\image-20200113162718191.png" alt="image-20200113162718191" /&gt;&lt;figcaption&gt;image-20200113162718191&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;在URL地址栏中发生的请求，它的方法是GET，但是后台控制器方法上的注解表明这是一个POST请求，将其改成post就行&lt;/p&gt;
 &lt;h4&gt; &lt;/h4&gt;
-</content><link href="/archives/大三下实训期末作业/" rel="alternate"/><published>2020-06-30T10:43:30+08:06</published></entry><entry><id>/archives/服务器上部署SpringBoot/</id><title>服务器上部署SpringBoot</title><updated>2020-07-06T08:10:26.339590+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1.第一种方式&lt;/h1&gt;
-&lt;h1&gt;第一种:打包为jar包&lt;/h1&gt;
+</content><link href="/archives/大三下实训期末作业/" rel="alternate"/><published>2020-06-30T10:43:30+08:06</published></entry><entry><id>/archives/服务器上部署SpringBoot/</id><title>服务器上部署SpringBoot</title><updated>2020-07-06T09:24:24.060175+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;第一种:打包为jar包&lt;/h1&gt;
 &lt;h2&gt;1.pom.xml配置&lt;/h2&gt;
 &lt;p&gt;在&lt;strong&gt;pom.xml&lt;/strong&gt;里面配置如下，下面配置一般是SpringBoot的默认配置&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;package&amp;gt;&lt;/span&gt;jar&lt;span class="nt"&gt;&amp;lt;/package&amp;gt;&lt;/span&gt;
