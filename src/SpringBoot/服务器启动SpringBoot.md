@@ -20,21 +20,10 @@ excerpt: 服务器上部署SpringBoot
 
 ## 1.pom.xml配置
 
-在**pom.xml**里面配置如下，下面配置一般是SpringBoot的默认配置
+在**pom.xml**里面配置如下
 
 ```xml
 <package>jar</package>
-
-...
-
-<build>
- <plugins>
-  <plugin>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-maven-plugin</artifactId>
-  </plugin>
- </plugins>
-</build>
 ```
 
 
@@ -128,16 +117,6 @@ nohup java -jar XXX.jar >/dev/null 2>&1 &
  <scope>provided</scope>
 </dependency>
 
-...
-
-<build>
- <plugins>
-  <plugin>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-maven-plugin</artifactId>
-  </plugin>
- </plugins>
-</build>
 ```
 
 
