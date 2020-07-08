@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Wed, 08 Jul 2020 14:00:24 +0806</lastBuildDate><pubDate>Wed, 08 Jul 2020 14:00:24 +0806</pubDate><item><title>Import excel to mysql</title><link>/archives/Import-excel-to-mysql/</link><description>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Wed, 08 Jul 2020 14:08:56 +0806</lastBuildDate><pubDate>Wed, 08 Jul 2020 14:08:56 +0806</pubDate><item><title>Import excel to mysql</title><link>/archives/Import-excel-to-mysql/</link><description>&lt;p&gt;Github:&lt;a href="https://github.com/LifeAlsoIsGG/MyPractice-Neusoft/tree/master/import-Excel"&gt;import excel to mysql&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;1.准备&lt;/h2&gt;
 &lt;h3&gt;1.1添加所需要的的依赖&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- excel需要的包--&amp;gt;&lt;/span&gt;
@@ -5093,6 +5093,13 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
 &lt;/blockquote&gt;
 &lt;h3&gt;14.如何使用 Spring Boot 实现异常处理？&lt;/h3&gt;
 &lt;blockquote&gt;&lt;p&gt;​ Spring 提供了一种使用 &lt;strong&gt;ControllerAdvice&lt;/strong&gt; 处理异常的非常有用的方法。 我们通过实现一个 &lt;strong&gt;ControlerAdvice&lt;/strong&gt; 类，来处理控制器类抛出的所有异常。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;15.您使用了哪些 starter maven 依赖项？&lt;/h3&gt;
+&lt;blockquote&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;spring-boot-starter-parent&lt;/code&gt;：Spring Boot的父级依赖，它用来提供相关的Maven默认依赖。使用它之后，常用的包依赖可以省去version标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;spring-boot-starter&lt;/code&gt;：核心Spring Boot starter，包括自动配置支持，日志和YAML&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;spring-boot-starter-web&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/blockquote&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/后端面试题/</guid><pubDate>Tue, 07 Jul 2020 10:31:21 +0806</pubDate></item><item><title>前端面试题</title><link>/archives/前端面试题/</link><description>&lt;p&gt;前端&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/前端面试题/</guid><pubDate>Tue, 07 Jul 2020 10:31:22 +0806</pubDate></item><item><title>uni-app</title><link>/archives/uni-app/</link><description>&lt;p&gt;Uni-app&lt;/p&gt;
