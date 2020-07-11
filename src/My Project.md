@@ -1,7 +1,7 @@
 ---
 layout: page
 title: My Project
-slug: MyProject
+slug: My Project
 date: 2020/06/07 15:22:42
 status: publish
 author: LifeAlsoIsGG
