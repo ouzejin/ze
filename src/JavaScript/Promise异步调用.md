@@ -39,8 +39,6 @@ tags:
 		<title></title>
 	</head>
 	<body>
-
-
 		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 		</script>
 		<script type="text/javascript">
@@ -64,8 +62,7 @@ tags:
 						}
 					});
 				})
-        
-        
+                
 				/*使用promise的then方法*/
 				promise.then((res) => {
 					let token = res.data.tokenHead + res.data.token
