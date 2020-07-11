@@ -5,7 +5,7 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	
 
 <url>
-    <loc>/MyProject/</loc>
+    <loc>/My Project/</loc>
     <lastmod>2020-06-07</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
@@ -16,6 +16,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <lastmod>2017-06-28</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>/archives/Promise异步调用/</loc>
+    <lastmod>2020-07-11</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
 </url>
 
 <url>
