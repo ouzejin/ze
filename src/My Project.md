@@ -17,9 +17,11 @@ tags:
 
 # Attendance Miniprogram
 
- 
 
-![](images/My Project/attendance miniprogram.png)
+
+ [![](images/My Project/attendance miniprogram.png)](https://wiki.lifeisgg.online/archives/AttendanceMiniprogram/)
+
+
 
 
 
@@ -40,8 +42,9 @@ tags:
 
  
 
+[![](images/My Project/supermarket system.png)](https://wiki.lifeisgg.online/archives/SupermarketSystem/)
 
-![](images/My Project/supermarket system.png)
+
 
 
 
@@ -62,7 +65,9 @@ tags:
 
  
 
-![](images/My Project/activity system.png)
+[![](images/My Project/activity system.png)](https://wiki.lifeisgg.online/archives/ActivitySystem/)
+
+
 
 
 
@@ -84,7 +89,9 @@ tags:
 
  
 
-![](images/My Project/the expanse.png)
+[![](images/My Project/the expanse.png)](https://expanse.lifeisgg.online/)
+
+
 
 
 
