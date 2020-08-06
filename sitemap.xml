@@ -19,6 +19,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/MyProject-AttendanceMiniprogram/</loc>
+    <lastmod>2020-08-07</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/字节跳动面试/</loc>
+    <lastmod>2020-07-17</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/ActivitySystem/</loc>
     <lastmod>2020-07-12</lastmod>
     <changefreq>always</changefreq>
@@ -26,14 +40,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/SupermarketSystem/</loc>
-    <lastmod>2020-07-12</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
-    <loc>/archives/AttendanceMiniprogram/</loc>
+    <loc>/archives/MyProject-SupermarketSystem/</loc>
     <lastmod>2020-07-12</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -42,6 +49,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
     <loc>/archives/Promise异步调用/</loc>
     <lastmod>2020-07-11</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/uni-app/</loc>
+    <lastmod>2020-07-07</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
