@@ -27,15 +27,15 @@ tags:
 
 
 
-此小程序获得了[2020中国微信官方小程序大赛](https://developers.weixin.qq.com/community/competition)华南赛区二等奖:tada:
+此小程序获得了[2020中国微信官方小程序大赛](https://developers.weixin.qq.com/community/competition)华南赛区二等奖🎉
 
 > - 一等奖：5%
 > - 二等奖：10%
 > - 三等奖：15%
 >
-> 电子证书还没开放，后续再补充:sweat_smile:
+> 电子证书还没开放，后续再补充😅
 
-![](images/attendance/attendance/华南赛区.png)
+![](images/attendance/华南赛区.png)
 
 
 
@@ -106,7 +106,7 @@ tags:
 
 ![](images/attendance/dock栏.jpg)
 
-<div align=center><img src=/></div>
+
 
 > 1. 首页
 > 2. 日志
@@ -127,6 +127,8 @@ tags:
 之后可以点击右下角按钮`模拟退出实验室`
 
 <div align=center>  <table><tr>    <img width="30%" src=images/首页5.jpg/>    <img width="30%" src=images/首页6.jpg/>   </tr></table></div>
+
+
 ## 4.2日志
 
 根据时间逆序查看自己的日志，还可以根据日期时间段进行筛选
@@ -135,6 +137,7 @@ tags:
 点击我的实验室可以查看我去过的实验室，点击卡片可以看到我在这间实验室的日志
 
 <div align=center>  <table><tr>    <img width="30%" src=images/日志3.jpg/>    <img width="30%" src=images/日志4.jpg/>   </tr></table></div>
+
 
 
 ## 4.3仪表盘
@@ -150,11 +153,13 @@ tags:
 <div align=center>  <table><tr>    <img width="30%" src=images/仪表盘1.jpg/>    <img width="30%" src=images/仪表盘2.jpg/><img width="30%" src=images/仪表盘3.jpg/>    </tr></table></div>
 
 
+
 ## 4.4排行榜
 
 排行榜类似`微信运动`，可以查看目前谁的活跃时长最高，每天都会重新算
 
 ![](images/attendance/rank.jpg)
+
 
 
 ## 4.5我的
@@ -163,4 +168,9 @@ tags:
 
 <div align=center>  <table><tr>    <img width="30%" src=images/我的1.jpg/>    <img width="30%" src=images/我的2.jpg/><img width="30%" src=images/我的3.jpg/>    </tr></table></div>
 
+
+
+# 5.原文地址
+
+https://wiki.lifeisgg.online/archives/MyProject-AttendanceMiniprogram/
 
