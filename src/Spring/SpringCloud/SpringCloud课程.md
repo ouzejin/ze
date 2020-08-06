@@ -6,7 +6,7 @@ date: 2020/06/07 17:00:47
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - SpringBoot
+  - Spring
   - SpringCloud
 tags: 
   - SpringBoot

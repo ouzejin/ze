@@ -6,9 +6,10 @@ date: 2020/05/02 18:59:32
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - Code
+  - 数据库
   - Hadoop
 tags: 
+  - 数据库
   - Hadoop
 ---
 

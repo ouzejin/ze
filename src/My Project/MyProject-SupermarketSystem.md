@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java超市系统
-slug: SupermarketSystem
+title: Java Swing-超市系统
+slug: MyProject-SupermarketSystem
 date: 2020/07/12 01:27:13
 status: publish
 author: LifeAlsoIsGG

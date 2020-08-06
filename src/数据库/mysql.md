@@ -6,16 +6,16 @@ date: 2020/07/07 10:37:18
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - Vue
-  - uni-app
+  - 数据库
+  - Mysql
 tags: 
-  - Vue
-  - uni-app
-excerpt: Uni-app
+  - 数据库
+  - Mysql
+
 ---
 
 
 
 
 
-Uni-app
+Mysql
