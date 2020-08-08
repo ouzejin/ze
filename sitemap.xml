@@ -19,6 +19,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/计算机基础面试题/</loc>
+    <lastmod>2020-08-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Mysql数据库面试题/</loc>
+    <lastmod>2020-08-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Spring框架面试题/</loc>
+    <lastmod>2020-08-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Java基础面试题/</loc>
+    <lastmod>2020-08-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/数据结构&算法/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
@@ -83,13 +111,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
     <loc>/archives/uni-app/</loc>
-    <lastmod>2020-07-07</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
-    <loc>/archives/前端面试题/</loc>
     <lastmod>2020-07-07</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
