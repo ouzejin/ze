@@ -18,6 +18,81 @@ excerpt: Spring框架面试题
 
 
 
+# 1 Spring
+
+
+
+
+
+## 1.1 什么是 Spring 框架?
+
+​		spring是开源的轻量级框架。我们⼀般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使⽤这些模块可以很⽅ 便地协助我们进⾏开发。这些模块是：核⼼容器、数据访问/集成,、Web、AOP（⾯向切⾯编程）、⼯ 具、消息和测试模块。⽐如：Core Container 中的 Core 组件是Spring 所有组件的核⼼，Beans 组件 和 Context 组件是实现IOC和依赖注⼊的基础，AOP组件⽤来实现⾯向切⾯编程。
+
+
+
+**Spring 官⽹列出的 Spring 的 6 个特征:**
+
+
+
+- 核⼼技术 ：依赖注⼊(DI)，AOP，事件(events)，资源，i18n，验证，数据绑定，类型转换， SpEL。
+- 测试 ：模拟对象，TestContext框架，Spring MVC 测试，WebTestClient。 
+- 数据访问 ：事务，DAO⽀持，JDBC，ORM，编组XML。 
+- Web⽀持 : Spring MVC和Spring WebFlux Web框架。 
+- 集成 ：远程处理，JMS，JCA，JMX，电⼦邮件，任务，调度，缓存。 
+- 语⾔ ：Kotlin，Groovy，动态语⾔。
+
+
+
+**特点：**
+
+- **方便解耦，简化开发**
+
+　　通过Spring提供的IoC容器，我们可以将对象之间的依赖关系交由Spring进行控制，避免硬编码所造成的过度程序耦合。有了Spring，用户不必再为单实例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。
+
+- **AOP编程的支持**
+
+　　通过Spring提供的AOP功能，方便进行面向切面的编程，许多不容易用传统OOP实现的功能可以通过AOP轻松应付。
+
+- **声明事物的支持**
+
+　　在Spring中，我们可以从单调烦闷的事务管理代码中解脱出来，通过声明式方式灵活地进行事务的管理，提高开发效率和质量。
+
+- **方便程序的测试**
+
+　　可以用非容器依赖的编程方式进行几乎所有的测试工作，在Spring里，测试不再是昂贵的操作，而是随手可做的事情。例如：Spring对Junit4支持，可以通过注解方便的测试Spring程序。
+
+- **方便集成各种优秀框架**
+
+　　Spring不排斥各种优秀的开源框架，相反，Spring可以降低各种框架的使用难度，Spring提供了对各种优秀框架（如Struts,Hibernate、Hessian、Quartz）等的直接支持。
+
+- **降低Java EE API的使用难度**
+
+　　Spring对很多难用的Java EE API（如JDBC，JavaMail，远程调用等）提供了一个薄薄的封装层，通过Spring的简易封装，这些Java EE API的使用难度大为降低。
+
+- **Java 源码是经典学习范例**
+
+　　　　Spring的源码设计精妙、结构清晰、匠心独用，处处体现着大师对Java设计模式灵活运用以及对Java技术的高深造诣。Spring框架源码无疑是Java技术的最佳实践范例。如果想在短时间内迅速提高自己的Java技术水平和应用开发水平，学习和研究Spring源码将会使你收到意想不到的效果。
+
+
+
+## AOP和IOC
+
+
+
+### AOP(Aspect-Oriented Programming，面向切面编程)
+
+​		面向切面编程，通过**预编译方式**和**运行期动态代理**实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个 热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑 的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高 了开发的效率。
+
+​		要理解切面编程，就需要先理解什么是切面。用刀把一个西瓜分成两瓣，切开的切口就是切面；炒菜，锅与炉子共同来完成炒菜，锅与炉子就是切面。web层级设计中，web层->网关层->服务层->数据层，每一层之间也是一个切面。**编程中，对象与对象之间，方法与方法之间，模块与模块之间都是一个个切面。**
+
+
+
+实例理解
+
+
+
+
+
 # SpringCloud
 
 ​		微服务架构就是将单体的应用程序分成多个应用程序,这多个应用程序就成为微服务,每个微服务运行在自己的进程中,并使用轻量级的机制通信。这些服务围绕业务能力来划分,并通过自动化部署机制来独立部署。这些服务可以使用不同的编程语言,不同数据库,以保证最低限度的集中式管理。
@@ -51,3 +126,24 @@ excerpt: Spring框架面试题
 
 
 总的来说优点大过于缺点，目前看来SpringCloud是一套非常完善的分布式框架，目前很多企业开始用微服务
+
+
+
+## SpringBoot和SpringCloud区别
+
+![](images/Spring面试/SpringBoot和SpringCloud区别.jpg)
+
+
+
+## SpringCloud组成
+
+
+
+- SpringCloud Eureka：服务发现与注册
+- SpringCloud Hystrix：熔断器
+- SpringCloud Ribbon：负载均衡
+- SpringCloud Zuul：路由网关
+- SpringCloud Config：分布式统一配置
+- SpringCloud Feign：声明性的Web服务客户端
+
+等20多个开源框架
