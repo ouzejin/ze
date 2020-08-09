@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 09 Aug 2020 17:13:28 +0806</lastBuildDate><pubDate>Sun, 09 Aug 2020 17:13:28 +0806</pubDate><item><title>字节跳动面试</title><link>/archives/字节跳动面试/</link><description>&lt;h2&gt;1.Java GC(垃圾回收)&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 09 Aug 2020 17:15:18 +0806</lastBuildDate><pubDate>Sun, 09 Aug 2020 17:15:18 +0806</pubDate><item><title>字节跳动面试</title><link>/archives/字节跳动面试/</link><description>&lt;h2&gt;1.Java GC(垃圾回收)&lt;/h2&gt;
 &lt;p&gt;主要任务&lt;/p&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;分配内存&lt;/li&gt;
@@ -282,7 +282,7 @@
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1034" data-height="452" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5e2abecd9f8309e858d017b5801be3ca.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;概念&amp;amp;关键词&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;连接点（Join point）：&lt;/em&gt;&lt;/strong&gt;程序执行的某个特定位置：如类开始初始化之前、类初始化之后、类某个方法调用前、调用后等；一个类或一段程序代码拥有一些具有边界性质的特定点，这些代码中的特定点就成为“连接点”，&lt;strong&gt;Spring仅支持方法的连接点，即仅能在方法调用前、方法调用后以及方法调用前后的这些程序执行点织入增强&lt;/strong&gt;。比如：黑客攻击系统需要找到突破口，没有突破口就没有办法攻击，从某种程度上来说，AOP就是一个黑客，连接点就是AOP向目标类攻击的候选点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;连接点（Join point）：&lt;/em&gt;&lt;/strong&gt;程序执行的某个特定位置：如类开始初始化之前、类初始化之后、类某个方法调用前、调用后等；一个类或一段程序代码拥有一些具有边界性质的特定点，这些代码中的特定点就成为“连接点”，&lt;strong&gt;&lt;u&gt;Spring仅支持方法的连接点，即仅能在方法调用前、方法调用后以及方法调用前后的这些程序执行点织入增强&lt;/u&gt;&lt;/strong&gt;。比如：黑客攻击系统需要找到突破口，没有突破口就没有办法攻击，从某种程度上来说，AOP就是一个黑客，连接点就是AOP向目标类攻击的候选点。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1&gt;SpringCloud&lt;/h1&gt;
 &lt;p&gt;​       微服务架构就是将单体的应用程序分成多个应用程序,这多个应用程序就成为微服务,每个微服务运行在自己的进程中,并使用轻量级的机制通信。这些服务围绕业务能力来划分,并通过自动化部署机制来独立部署。这些服务可以使用不同的编程语言,不同数据库,以保证最低限度的集中式管理。&lt;/p&gt;
