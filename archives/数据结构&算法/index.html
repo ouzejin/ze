@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/f343c1595031d7eaab642ab09aab6b14.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/6f2e14c594121e25bb2620fce17ee397.json"
         }
     </script>
     <script>
@@ -233,7 +233,9 @@
 </li>
 </ul>
 <p><figure><img data-width="550" data-height="200" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/aa5c76cc8efc5d7b1433c1fa6de2b3ef.jpg" alt="" /></figure></p>
-<h4>初始化队列</h4>
+<ol>
+<li><strong>初始化队列</strong></li>
+</ol>
 <div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">int</span> <span class="n">maxSize</span><span class="p">;</span><span class="c1">// 表示数组最大容量</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">front</span><span class="p">;</span> <span class="c1">// 队列头指针指向队列头的前一个位置</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">rear</span><span class="p">;</span> <span class="c1">// 队列尾指针</span>
@@ -247,21 +249,27 @@
         <span class="n">rear</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// 向队列队尾，指向队列尾的数据(队列最后一个数据)，当队列执行入操作时++</span>
     <span class="p">}</span>
 </pre></div>
-<h4>判断队列是否已满</h4>
+<ol>
+<li><strong>判断队列是否已满</strong></li>
+</ol>
 <p>当 <strong>rear = maxSize - 1</strong> 时队列满</p>
 <div class="highlight"><pre><span></span><span class="c1">//        判断队列是否满</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFull</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">rear</span> <span class="o">==</span> <span class="n">maxSize</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<h4>判断队列是否为空</h4>
+<ol>
+<li><strong>判断队列是否为空</strong></li>
+</ol>
 <p>当 <strong>rear == front</strong> 时队列为空</p>
 <div class="highlight"><pre><span></span><span class="c1">//        判断队列是否空</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">rear</span> <span class="o">==</span> <span class="n">front</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<h4>入队操作 <strong>addQueue</strong></h4>
+<ol>
+<li><strong>入队操作 addQueue</strong> </li>
+</ol>
 <p><strong>需要两个步骤</strong></p>
 <ul>
 <li>先判断队列是否已满，当 <strong>rear == maxSize-1</strong> 时队列满无法插入</li>
@@ -278,7 +286,9 @@
         <span class="n">arr</span><span class="o">[</span><span class="n">rear</span><span class="o">]</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<h4>出队操作 outQueue</h4>
+<ol>
+<li><strong>出队操作 outQueue</strong></li>
+</ol>
 <p><strong>需要两个步骤</strong></p>
 <ul>
 <li>先判断队列是否为空，当 <strong>rear == front</strong> 时队列为空无法出队</li>
@@ -295,7 +305,9 @@
         <span class="k">return</span> <span class="n">arrQueue</span><span class="o">[</span><span class="n">front</span><span class="o">]</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<h4>显示队列</h4>
+<ol>
+<li><strong>显示队列</strong></li>
+</ol>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">showQueue</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">//遍历</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
@@ -307,7 +319,9 @@
         <span class="p">}</span>
     <span class="p">}</span>
 </pre></div>
-<h4>用数组实现队列模拟代码</h4>
+<ol>
+<li><strong>用数组实现队列模拟代码</strong></li>
+</ol>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayQueue</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">maxSize</span><span class="p">;</span><span class="c1">// 表示数组最大容量</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">front</span><span class="p">;</span> <span class="c1">// 队列头指针指向队列头的前一个位置</span>
