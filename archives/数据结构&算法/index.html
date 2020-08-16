@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/4e9b189d0e0de4ed5362dfc66955ed01.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/f59a7542f5c7f8e63ee6d1dd7b23afef.json"
         }
     </script>
     <script>
@@ -224,6 +224,18 @@
 <p><strong>运行结果</strong></p>
 <p><figure><img data-width="405" data-height="841" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/19609d6f670766628e027b1f83ff1497.jpg" alt="" /></figure></p>
 <h2>队列</h2>
+<p>先进先出</p>
+<h3>用数组模拟队列实现</h3>
+<ul>
+<li>队列本身是<code>有序列表</code>,若使用数组的结构来存储队列的数据,则队列数组的声明如下图,其中<strong><code>maxSize</code></strong>是该队列的最大容量 </li>
+<li>因为队列的输出、翰入是分别从前后端来处理,因此需要两个变量 <code>front</code> 及rear分别记录队列前后端的下标,front会随着数据输出而改变,而rear则是随着数据输入而改变,如图所示:  </li>
+</ul>
+<p>将数据存入队列时称为<strong><u>addQueue</u></strong>,<strong><u>addQueue</u></strong>需要两个步骤</p>
+<ul>
+<li>将尾指针往后移：rear+1，判断队列满时的条件为当<strong>front == rear</strong>时为空</li>
+<li>若尾指针rear小于队列的最大下标 maxSize-1,则将数据存入rear所指的数组元素中,否则无法存入数据。rear == maxSize-1时【队列满】  </li>
+</ul>
+<p><figure><img data-width="550" data-height="200" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/aa5c76cc8efc5d7b1433c1fa6de2b3ef.jpg" alt="" /></figure></p>
 </article>
     </section>
 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 16 Aug 2020 07:58:53 +0806</lastBuildDate><pubDate>Sun, 16 Aug 2020 07:58:53 +0806</pubDate><item><title>实验室出入管理小程序</title><link>/archives/MyProject-AttendanceMiniprogram/</link><description>&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/logo.png"/&gt;&lt;/div&gt;&lt;p&gt;原文链接&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 16 Aug 2020 13:05:15 +0806</lastBuildDate><pubDate>Sun, 16 Aug 2020 13:05:15 +0806</pubDate><item><title>实验室出入管理小程序</title><link>/archives/MyProject-AttendanceMiniprogram/</link><description>&lt;div align=center&gt;&lt;img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/logo.png"/&gt;&lt;/div&gt;&lt;p&gt;原文链接&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://wiki.lifeisgg.online/archives/MyProject-AttendanceMiniprogram/"&gt;https://wiki.lifeisgg.online/archives/MyProject-AttendanceMiniprogram/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Github&lt;/p&gt;
@@ -407,6 +407,18 @@
 &lt;p&gt;&lt;strong&gt;运行结果&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="405" data-height="841" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/19609d6f670766628e027b1f83ff1497.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2&gt;队列&lt;/h2&gt;
+&lt;p&gt;先进先出&lt;/p&gt;
+&lt;h3&gt;用数组模拟队列实现&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;队列本身是&lt;code&gt;有序列表&lt;/code&gt;,若使用数组的结构来存储队列的数据,则队列数组的声明如下图,其中&lt;strong&gt;&lt;code&gt;maxSize&lt;/code&gt;&lt;/strong&gt;是该队列的最大容量 &lt;/li&gt;
+&lt;li&gt;因为队列的输出、翰入是分别从前后端来处理,因此需要两个变量 &lt;code&gt;front&lt;/code&gt; 及rear分别记录队列前后端的下标,front会随着数据输出而改变,而rear则是随着数据输入而改变,如图所示:  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将数据存入队列时称为&lt;strong&gt;&lt;u&gt;addQueue&lt;/u&gt;&lt;/strong&gt;,&lt;strong&gt;&lt;u&gt;addQueue&lt;/u&gt;&lt;/strong&gt;需要两个步骤&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将尾指针往后移：rear+1，判断队列满时的条件为当&lt;strong&gt;front == rear&lt;/strong&gt;时为空&lt;/li&gt;
+&lt;li&gt;若尾指针rear小于队列的最大下标 maxSize-1,则将数据存入rear所指的数组元素中,否则无法存入数据。rear == maxSize-1时【队列满】  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="550" data-height="200" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/aa5c76cc8efc5d7b1433c1fa6de2b3ef.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/数据结构&amp;算法/</guid><pubDate>Sat, 08 Aug 2020 12:42:14 +0806</pubDate></item><item><title>Java基础面试题</title><link>/archives/Java基础面试题/</link><description>&lt;h1&gt;学习路线&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="628" data-height="808" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4523d751441b2a7df931def638a6a183.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;Java基础&lt;/h1&gt;
