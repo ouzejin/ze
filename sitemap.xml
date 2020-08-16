@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Linux常用命令/</loc>
+    <lastmod>2020-08-14</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Java设计模式/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>always</changefreq>
@@ -26,14 +33,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/计算机基础面试题/</loc>
+    <loc>/archives/计算机其它面试题/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
-    <loc>/archives/Mysql数据库面试题/</loc>
+    <loc>/archives/Mysql&Redis数据库面试题/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
