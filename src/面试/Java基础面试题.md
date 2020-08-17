@@ -303,15 +303,7 @@ public class MultiDemo {
 
 
 
-## this/super关键字
-
-
-
-### super
-
-- 子类的成员方法中，访问**父类**的成员变量。
-- 子类的成员方法中，访问**父类**的成员方法。
-- 子类的构造方法中，访问**父类**的构造方法。
+## this | super | final | static关键字
 
 
 
@@ -321,18 +313,40 @@ public class MultiDemo {
 - 本类成员方法中，访问**本类**的另一个成员方法。
 - 本类的构造方法中，访问**本类**的另一个构造方法。
 
+![](images/Java基础面试题/this关键字.png)
 
 
-### 注意
+
+### super
+
+- 子类的成员方法中，访问**父类**的成员变量。
+- 子类的成员方法中，访问**父类**的成员方法。
+- 子类的构造方法中，访问**父类**的构造方法。
+
+![](images/Java基础面试题/super关键字.png)
+
+
+
+**注意**
 
 - this关键字同super一样，必须在构造方法的第一个语句，且是唯一的。
 - this与super不能同时存在。
 
 
 
-## final关键字
+### final
 
 ![](images/Java基础面试题/final关键字.png)
+
+
+
+![](images/Java基础面试题/final关键字_2.png)
+
+
+
+### static
+
+![](images/Java基础面试题/static关键字.png)
 
 
 
@@ -459,13 +473,82 @@ https://www.cnblogs.com/dolphin0520/p/3780005.html
 
 ## Java中异常处理
 
+参考
+
+> https://blog.csdn.net/sugar_no1/article/details/88593255
+
+
+
 ![](images/Java基础面试题/Java中的异常处理.png)
 
+![](images/Java基础面试题/Java中的异常处理_2.png)
 
+![](images/Java基础面试题/Java中的异常处理_3.png)
+
+![](images/Java基础面试题/Java中的异常处理_4.png)
+
+
+
+## 获取⽤键盘输⼊常⽤的两种⽅法
+
+![](images/Java基础面试题/获取⽤键盘输⼊常⽤的两种⽅法.png)
+
+
+
+### 输入一个字符
+
+```java
+Scanner input = new Scanner(System.in);
+char c = input.next().charAt(0);
+```
+
+
+
+### next()和nextLine()
+
+- **next()：**不可以读取空格。它不能读两个由空格或符号隔开的单词。此外，next()在读取输入后将光标放在同一行中。(next()只读空格之前的数据,并且光标指向本行)
+- **nextLine()：**可以读取空格，包括单词之间的空格和除回车以外的所有符号(即。它读到行尾)。读取输入后，nextLine()将光标定位在下一行。
+
+
+
+## 泛型使用
+
+参考
+
+> https://www.cnblogs.com/jpfss/p/9928747.html
+
+
+
+## 浅拷贝 | 深拷贝
+
+- 浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址
+- 深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存
 
 
 
 # Java集合
+
+![](images/Java基础面试题/Java集合图.webp)
+
+
+
+
+
+
+
+
+
+## 常用集合方法
+
+参考
+
+> https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2
+
+
+
+
+
+
 
 
 
