@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/397b43ce5e15d88f18622a6d12828997.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/058f0ee9c0dcf9a419e2a53ab3299610.json"
         }
     </script>
     <script>
@@ -140,17 +140,118 @@
             </span>
         </p>
         <article class="yue"><h1>学习路线</h1>
-<p><figure><img data-width="628" data-height="808" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4523d751441b2a7df931def638a6a183.png" alt="" /></figure></p>
+<p><figure><img data-width="628" data-height="808" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f53560858e548e5859e3b095609cd821.png" alt="" /></figure></p>
 <h1>Java基础</h1>
 <h2>JDK和JRE区别</h2>
-<p>​       <strong><u>JDK（Java Development Kit）</u></strong>是针对Java开发员的产品，是整个Java的核心，包括了Java运行环境JRE、Java工具和Java基础类库。<strong><u>Java Runtime Environment（JRE）</u></strong>是运行JAVA程序所必须的环境的集合，包含JVM标准实现及Java核心类库。JVM是<strong><u>Java Virtual Machine（Java虚拟机）</u></strong>的缩写，是整个java实现跨平台的最核心的部分，能够运行以Java语言写作的软件程序。</p>
+<ul>
+<li><strong><u>JDK（Java Development Kit）</u></strong>是针对Java开发员的产品，是整个Java的核心，包括了Java运行环境JRE、Java工具和Java基础类库。</li>
+<li><strong><u>Java Runtime Environment（JRE）</u></strong>是运行JAVA程序所必须的环境的集合，包含JVM标准实现及Java核心类库。</li>
+<li><strong><u>Java Virtual Machine（Java虚拟机JVM）</u></strong>的缩写，是整个java实现跨平台的最核心的部分，能够运行以Java语言写作的软件程序。</li>
+</ul>
+<p><figure><img data-width="904" data-height="493" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4be18fd971a5c330e26e143bddbe8542.png" alt="" /></figure></p>
 <h3>JDK（Java Development Kit）</h3>
+<ul>
+<li>JDK中包含JRE，在JDK的安装目录下有一个名为jre的目录，里面有两个文件夹bin和lib，在这里可以认为bin里的就是jvm，lib中则是jvm工作所需要的类库，而jvm和 lib和起来就称为jre。</li>
+<li>JDK是整个JAVA的核心，包括了Java运行环境JRE（Java Runtime Envirnment）、一堆Java工具（javac/java/jdb等）和Java基础的类库（即Java API 包括rt.jar）。</li>
+</ul>
+<p><strong>类型</strong></p>
+<ul>
+<li>SE(J2SE)，standard edition，标准版，是我们通常用的一个版本，从JDK 5.0开始，改名为Java SE。</li>
+<li>EE(J2EE)，enterprise edition，企业版，使用这种JDK开发J2EE应用程序，从JDK 5.0开始，改名为Java EE。</li>
+<li>ME(J2ME)，micro edition，主要用于移动设备、嵌入式设备上的java应用程序，从JDK 5.0开始，改名为Java ME。</li>
+</ul>
+<h3>JRE（Java Runtime Environment）</h3>
+<p>​       是运行基于Java语言编写的程序所不可缺少的运行环境。RE中包含了Java virtual machine（JVM），runtime class libraries和Java application launcher，这些是运行Java程序的必要组件。<strong>但是在运行编译好的程序中包含Servlet时，需要JDK</strong></p>
+<h3>JVM（Java Virtual Machine）</h3>
+<p>​       就是我们常说的java虚拟机，它是整个java实现跨平台的最核心的部分，所有的java程序会首先被编译为.class的类文件，这种类文件可以在虚拟机上执行。</p>
+<p>也就是说class并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。</p>
+<p>只有JVM还不能成class的执行，因为在解释class的时候JVM需要调用解释所需要的类库lib，而jre包含lib类库。</p>
+<p>JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。</p>
+<h2>重载和重写</h2>
+<h3>重载(Overload)</h3>
+<ol>
+<li><strong>重载Overload是一个类中多态性的一种表现或者一个类中多个构造器的实现</strong></li>
+<li>重载要求同名方法的参数列表不同(参数类型，参数个数甚至是参数顺序)</li>
+<li>重载的时候，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Father</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="n">Father</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Father</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">sayHello</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">sayHello</span><span class="p">(</span><span class="s">&quot;wintershii&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3>重写(Override)</h3>
+<ol>
+<li><strong>发生在父类与子类之间</strong></li>
+<li><strong>方法名，参数列表，返回类型（除过子类中方法的返回类型是父类中返回类型的子类）必须相同</strong></li>
+<li>访问修饰符的限制一定要<strong>大于</strong>被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</li>
+<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Father</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="n">Son</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Son</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">sayHello</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Son</span> <span class="kd">extends</span> <span class="n">Father</span><span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hello by &quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+<h3>重载（Overload）和重写（Override）的区别</h3>
+<p>​       方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的参数列表，有兼容的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求，不能根据返回类型进行区分。</p>
+<h2>构造器Constructor是否可被Override(重写)</h2>
+<p>​       构造器Constructor不能被继承，因此不能被<strong>重写(Override)</strong>，但是可以被<strong>重载（Overload）</strong>。如果父类自定义了有参构造函数，则子类无论定义构造函数与否，定义有参构造函数与否，都会报错，正确的做法是在子类的构造方法中添上super（参数），以表明子类构造之前先构造父类，而这句话必须放在第一句，否则报"Constructor call must be the first statement in a constructor"的错误。</p>
+<h3>类的加载顺序：</h3>
+<ol>
+<li>父类的静态代码块/初始化静态变量（两者优先级相同）</li>
+<li>执行子类的静态代码/初始化静态变量（两者优先级相同，谁写在前面谁先执行）</li>
+<li>初始化父类成员变量/执行代码块{}（两者优先级相同），父类的构造器</li>
+<li>子类的成员变量/代码块，最后子类的构造器。</li>
+</ol>
+<h2>三大特性封装继承多态</h2>
 <h1>Java集合</h1>
 <h1>Java多线程</h1>
 <h1>JVM</h1>
 <p>​       JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。</p>
 <h2>JVM组成</h2>
-<p><figure><img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8af3ffc4d07ccb2dbf25d8ed458dbb60.png" alt="" /></figure></p>
+<p><figure><img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9e96bc50471662cf89c7193c8e148e95.png" alt="" /></figure></p>
+<h3>线程共享</h3>
+<ul>
+<li><strong>方法区：</strong>用于存储虚拟机加载的类信息，常量，静态变量等数据</li>
+<li><strong>堆：</strong>存放对象实例，所有的对象和数组都要在堆上分配。是JVM所管理的</li>
+</ul>
+<h3>线程私有</h3>
+<ul>
+<li><strong>栈：</strong>Java方法执行的内存模型，存储局部变量表，操作数栈，动态链接，方法出口信息。随线程创建和销毁</li>
+<li><strong>本地方法栈：</strong>与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务</li>
+<li><strong>程序计数器：</strong>当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令</li>
+</ul>
 </article>
     </section>
 
