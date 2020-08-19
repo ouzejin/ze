@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/ea87c94abfad6659e90ada48bb84e6d1.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/f6ca660394fc10850fa679485a22b147.json"
         }
     </script>
     <script>
@@ -452,15 +452,32 @@
 <li>浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址</li>
 <li>深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存</li>
 </ul>
+<h2>synchronized 关键字</h2>
+<h3>Synchronized在JDK 1.8做了哪些优化</h3>
 <h1>Java集合</h1>
-<p><figure><img data-width="704" data-height="423" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/eb4dfda5eb0bfe5f3c12c3b9e7e7e386.webp" alt="" /></figure></p>
+<p><figure><img data-width="959" data-height="912" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a829451a4894b166d676ce46d46c6c2d.jpg" alt="" /></figure></p>
+<p><figure><img data-width="-1" data-height="-1" src="images/Java基础面试题/Java集合框架体系.png" alt="" /></figure></p>
 <h2>常用集合方法</h2>
 <p>参考</p>
 <blockquote><p><a href="https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2">https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2</a></p>
 </blockquote>
+<h2>ArrayList</h2>
+<h3>ArrayList是如何扩容的/扩容机制?</h3>
+<p>参考</p>
+<blockquote><p><a href="https://www.cnblogs.com/dengrongzhang/p/9371551.html">https://www.cnblogs.com/dengrongzhang/p/9371551.html</a></p>
+</blockquote>
+<h2>HashMap</h2>
+<p><figure><img data-width="706" data-height="436" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/35954178e11d001170904cd73922cfb0.png" alt="" /></figure></p>
+<h3>put() | get()原理/底层</h3>
+<p><figure><img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e3f665a5e608b870b351189926f90e8f.png" alt="" /></figure></p>
+<h3>HashMap扩容机制</h3>
+<h3>为什么HashMap线程不安全</h3>
+<h3>ConcurrentHashMap1.8如何实现线程安全</h3>
 <h1>Java多线程</h1>
 <h2>简述线程、程序、进程的基本概念。以及他们之间关系是什么?</h2>
 <p><figure><img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6b9a3c36c04c3ab3d164589c4ca98199.png" alt="" /></figure></p>
+<h2>Java线程池</h2>
+<h3>线程池执行流程</h3>
 <h1>JVM</h1>
 <p>​       JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。</p>
 <h2>JVM组成</h2>
@@ -476,6 +493,7 @@
 <li><strong>本地方法栈：</strong>与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务</li>
 <li><strong>程序计数器：</strong>当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令</li>
 </ul>
+<h1> </h1>
 </article>
     </section>
 
