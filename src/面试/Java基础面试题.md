@@ -526,13 +526,25 @@ char c = input.next().charAt(0);
 
 
 
+## synchronized 关键字
+
+
+
+### Synchronized在JDK 1.8做了哪些优化
+
+
+
+
+
+
+
 # Java集合
 
-![](images/Java基础面试题/Java集合图.webp)
+![](images/Java基础面试题/Java集合图.jpg)
 
 
 
-
+![](images/Java基础面试题/Java集合框架体系.png)
 
 
 
@@ -543,6 +555,76 @@ char c = input.next().charAt(0);
 参考
 
 > https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2
+
+
+
+## ArrayList
+
+
+
+### ArrayList是如何扩容的/扩容机制?
+
+参考
+
+> https://www.cnblogs.com/dengrongzhang/p/9371551.html
+
+
+
+
+
+## HashMap
+
+![](images/Java基础面试题/Map集合图.png)
+
+
+
+
+
+### put() | get()原理/底层
+
+![](images/Java基础面试题/HashMap的put原理图.png)
+
+
+
+### HashMap扩容机制
+
+
+
+
+
+### 为什么HashMap线程不安全
+
+
+
+### ConcurrentHashMap1.8如何实现线程安全
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -559,6 +641,18 @@ char c = input.next().charAt(0);
 ## 简述线程、程序、进程的基本概念。以及他们之间关系是什么?
 
 ![](images/Java基础面试题/线程、程序、进程.png)
+
+
+
+## Java线程池
+
+
+
+### 线程池执行流程
+
+
+
+
 
 # JVM
 
@@ -584,3 +678,9 @@ char c = input.next().charAt(0);
 - **栈：**Java方法执行的内存模型，存储局部变量表，操作数栈，动态链接，方法出口信息。随线程创建和销毁
 - **本地方法栈：**与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务
 - **程序计数器：**当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令
+
+
+
+
+
+# 

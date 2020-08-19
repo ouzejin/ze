@@ -33,7 +33,7 @@ Github
 
 
 
-<div align=center><img width="30%" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/实验室出入管理小程序二维码.jpg"/></div>
+<div align=center><img  src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/实验室出入管理小程序二维码.jpg"/></div>
 
 
 
