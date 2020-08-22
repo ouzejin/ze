@@ -11,6 +11,7 @@ tags:
   - 面试
   - Java
 excerpt: Java基础面试题
+
 ---
 
 
@@ -606,7 +607,7 @@ c==d 为假，是因为c和d引用了对内存中的两个不同的对象，不�
 
 ![](images/Java基础面试题/Java集合框架体系.png)
 
-
+![](images/Java基础面试题/集合框架底层数据结构总结.png)
 
 
 
@@ -841,13 +842,7 @@ public ArrayList(Collection<? extends E> c)//指定集合
      */
     private static final int DEFAULT_CAPACITY = 10;  // 默认容量为10
 
-    // 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值
-    private static int calculateCapacity(Object[] elementData, int minCapacity) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
-            return Math.max(DEFAULT_CAPACITY, minCapacity);
-        }
-        return minCapacity;
-    }
+   
 
     private void ensureCapacityInternal(int minCapacity) {
         ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
@@ -860,6 +855,14 @@ public ArrayList(Collection<? extends E> c)//指定集合
         // 如果所需容量最小值大于实际数组的长度就扩大实际数组容量
         if (minCapacity - elementData.length > 0)
             grow(minCapacity);
+    }
+
+ // 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值
+    private static int calculateCapacity(Object[] elementData, int minCapacity) {
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+            return Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+        return minCapacity;
     }
 
     /**
@@ -1173,11 +1176,294 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
+## HashSet
+
+**HashSet**实现**Set**接口，由哈希表（实际上是一个**HashMap**实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于**HashSet**而言，它是基于**HashMap**实现的，HashSet底层使用**HashMap**来保存所有元素，因此**HashSet** 的实现比较简单，相关**HashSet**的操作，基本上都是直接调用底层**HashMap**的相关方法来完成， **HashSet**的源代码如下：
+
+
+
+### 构造器
+
+```java
+public class HashSet<E>  
+    extends AbstractSet<E>  
+    implements Set<E>, Cloneable, java.io.Serializable  
+{  
+    static final long serialVersionUID = -5024744406713321676L;  
+  
+    // 底层使用HashMap来保存HashSet中所有元素。  
+    private transient HashMap<E,Object> map;  
+      
+    // 定义一个虚拟的Object对象作为HashMap的value，将此对象定义为static final。  
+    private static final Object PRESENT = new Object();  
+  
+    /** 
+     * 默认的无参构造器，构造一个空的HashSet。 
+     *  
+     * 实际底层会初始化一个空的HashMap，并使用默认初始容量为16和加载因子0.75。 
+     */  
+    public HashSet() {  
+    map = new HashMap<E,Object>();  
+    }  
+  
+    /** 
+     * 构造一个包含指定collection中的元素的新set。 
+     * 
+     * 实际底层使用默认的加载因子0.75和足以包含指定 
+     * collection中所有元素的初始容量来创建一个HashMap。 
+     * @param c 其中的元素将存放在此set中的collection。 
+     */  
+    public HashSet(Collection<? extends E> c) {  
+    map = new HashMap<E,Object>(Math.max((int) (c.size()/.75f) + 1, 16));  
+    addAll(c);  
+    }  
+  
+    /** 
+     * 以指定的initialCapacity和loadFactor构造一个空的HashSet。 
+     * 
+     * 实际底层以相应的参数构造一个空的HashMap。 
+     * @param initialCapacity 初始容量。 
+     * @param loadFactor 加载因子。 
+     */  
+    public HashSet(int initialCapacity, float loadFactor) {  
+    map = new HashMap<E,Object>(initialCapacity, loadFactor);  
+    }  
+  
+    /** 
+     * 以指定的initialCapacity构造一个空的HashSet。 
+     * 
+     * 实际底层以相应的参数及加载因子loadFactor为0.75构造一个空的HashMap。 
+     * @param initialCapacity 初始容量。 
+     */  
+    public HashSet(int initialCapacity) {  
+    map = new HashMap<E,Object>(initialCapacity);  
+    }  
+  
+    /** 
+     * 以指定的initialCapacity和loadFactor构造一个新的空链接哈希集合。 
+     * 此构造函数为包访问权限，不对外公开，实际只是是对LinkedHashSet的支持。 
+     * 
+     * 实际底层会以指定的参数构造一个空LinkedHashMap实例来实现。 
+     * @param initialCapacity 初始容量。 
+     * @param loadFactor 加载因子。 
+     * @param dummy 标记。 
+     */  
+    HashSet(int initialCapacity, float loadFactor, boolean dummy) {  
+    map = new LinkedHashMap<E,Object>(initialCapacity, loadFactor);  
+    }  
+  
+
+  
+    /** 
+     * 返回此HashSet实例的浅表副本：并没有复制这些元素本身。 
+     * 
+     * 底层实际调用HashMap的clone()方法，获取HashMap的浅表副本，并设置到HashSet中。 
+     */  
+    public Object clone() {  
+        try {  
+            HashSet<E> newSet = (HashSet<E>) super.clone();  
+            newSet.map = (HashMap<E, Object>) map.clone();  
+            return newSet;  
+        } catch (CloneNotSupportedException e) {  
+            throw new InternalError();  
+        }  
+    }  
+}  
+```
+
+
+
+### 调用add方法
+
+```java
+    /** 
+     * 如果此set中尚未包含指定元素，则添加指定元素。 
+     * 更确切地讲，如果此 set 没有包含满足(e==null ? e2==null : e.equals(e2)) 
+     * 的元素e2，则向此set 添加指定的元素e。 
+     * 如果此set已包含该元素，则该调用不更改set并返回false。 
+     * 
+     * 底层实际将将该元素作为key放入HashMap。 
+     * 由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key 
+     * 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）， 
+     * 新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， 
+     * 因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， 
+     * 原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 
+     * @param e 将添加到此set中的元素。 
+     * @return 如果此set尚未包含指定元素，则返回true。 
+     */  
+    public boolean add(E e) {  
+    return map.put(e, PRESENT)==null;  
+    }  
+```
+
+
+
+### 调用remove方法
+
+```java
+ /** 
+     * 如果指定元素存在于此set中，则将其移除。 
+     * 更确切地讲，如果此set包含一个满足(o==null ? e==null : o.equals(e))的元素e， 
+     * 则将其移除。如果此set已包含该元素，则返回true 
+     * （或者：如果此set因调用而发生更改，则返回true）。（一旦调用返回，则此set不再包含该元素）。 
+     * 
+     * 底层实际调用HashMap的remove方法删除指定Entry。 
+     * @param o 如果存在于此set中则需要将其移除的对象。 
+     * @return 如果set包含指定元素，则返回true。 
+     */  
+    public boolean remove(Object o) {  
+    return map.remove(o)==PRESENT;
+    }  
+```
+
+
+
+### 调用clear方法
+
+```java
+    /** 
+     * 从此set中移除所有元素。此调用返回后，该set将为空。 
+     * 
+     * 底层实际调用HashMap的clear方法清空Entry中所有元素。 
+     */  
+    public void clear() {  
+    map.clear();  
+    }  
+```
+
+
+
+### 迭代器遍历
+
+底层实际调用底层**HashMap**的**keySet**来返回所有的key。
+
+```java
+/** 
+     * 返回对此set中元素进行迭代的迭代器。返回元素的顺序并不是特定的。 
+     *  
+     * 底层实际调用底层HashMap的keySet来返回所有的key。 
+     * 可见HashSet中的元素，只是存放在了底层HashMap的key上， 
+     * value使用一个static final的Object对象标识。 
+     * @return 对此set中元素进行迭代的Iterator。 
+     */  
+    public Iterator<E> iterator() {  
+    return map.keySet().iterator();  
+    }  
+  
+```
+
+
+
+### size大小
+
+底层实际调用**HashMap**的**size()**方法返回Entry的数量，就得到该Set中元素的个数
+
+```java
+/** 
+     * 返回此set中的元素的数量（set的容量）。 
+     * 
+     * 底层实际调用HashMap的size()方法返回Entry的数量，就得到该Set中元素的个数。 
+     * @return 此set中的元素的数量（set的容量）。 
+     */  
+    public int size() {
+    return map.size();  
+    }  
+```
+
+
+
+### 判断空
+
+```java
+    /** 
+     * 如果此set不包含任何元素，则返回true。 
+     * 
+     * 底层实际调用HashMap的isEmpty()判断该HashSet是否为空。 
+     * @return 如果此set不包含任何元素，则返回true。 
+     */  
+    public boolean isEmpty() {  
+    return map.isEmpty();  
+    }  
+```
+
+
+
+### 判断是否存在某个对象
+
+```java
+
+    /** 
+     * 如果此set包含指定元素，则返回true。 
+     * 更确切地讲，当且仅当此set包含一个满足(o==null ? e==null : o.equals(e)) 
+     * 的e元素时，返回true。 
+     * 
+     * 底层实际调用HashMap的containsKey判断是否包含指定key。 
+     * @param o 在此set中的存在已得到测试的元素。 
+     * @return 如果此set包含指定元素，则返回true。 
+     */  
+    public boolean contains(Object o) {  
+    return map.containsKey(o);  
+    }  
+```
+
+
+
 
 
 ## HashMap
 
+
+
 ![](images/Java基础面试题/Map集合图.png)
+
+### 参考
+
+> - https://www.cnblogs.com/chentang/p/12670462.html
+> - https://www.cnblogs.com/wytiger/p/10731082.html
+> - https://www.cnblogs.com/yuanblog/p/4441017.html
+
+
+
+### 哈希表&哈希冲突
+
+​		在数组中根据下标查找某个元素，一次定位就可以达到，哈希表利用了这种特性，**哈希表的主干就是数组**。比如我们要新增或查找某个元素，我们通过把当前元素的关键字 通过某个函数映射到数组中的某个位置，通过数组下标一次定位就可完成操作。
+
+> **存储位置 = f(关键字)**
+
+其中，这个函数f一般称为**哈希函数**，这个函数的设计好坏会直接影响到哈希表的优劣。举个例子，比如我们要在哈希表中执行插入操作：
+
+![](images/Java基础面试题/哈希表图解.jpg)
+
+查找操作同理，先通过哈希函数计算出实际存储地址，然后从数组中对应地址取出即可。
+
+​		然而万事无完美，如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，其实这就是所谓的**哈希冲突**，也叫哈希碰撞。前面我们提到过，哈希函数的设计至关重要，好的哈希函数会尽可能地保证 **计算简单**和**散列地址分布均匀,**但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？
+
+- **链地址法：**将哈希表的每个单元作为链表的头结点，所有哈希地址为 i 的元素构成一个同义词链表。即发生冲突时就把该关键字链在以该单元为头结点的链表的尾部。
+
+
+
+### HashMap源码关键字
+
+- **initialCapacity：**初始容量。指的是 HashMap 集合初始化的时候自身的容量。可以在构造方法中指定；如果不指定的话，总容量默认值是 **16** 。需要注意的是初始容量必须是 2 的幂次方。
+- **size：**当前 HashMap 中已经存储着的键值对数量，即 HashMap.size()
+- **loadFactor：**加载因子。所谓的加载因子就是 HashMap (当前的容量/总容量) 到达一定值的时候，HashMap 会实施扩容。加载因子也可以通过构造方法中指定，默认的值是 0.75 。举个例子，假设有一个 HashMap 的初始容量为 16 ，那么扩容的阀值就是 0.75 * 16 = 12 。也就是说，在你打算存入第 13 个值的时候，HashMap 会先执行扩容。
+- **threshold：**扩容阀值。即 扩容阀值 = HashMap 总容量 * 加载因子。当前 HashMap 的容量大于或等于扩容阀值的时候就会去执行扩容。扩容的容量为当前 HashMap 总容量的两倍。比如，当前 HashMap 的总容量为 16 ，那么扩容之后为 32 。
+- **table：**Entry 数组。我们都知道 HashMap 内部存储 key/value 是通过 Entry 这个介质来实现的。而 table 就是 Entry 数组。
+
+
+
+### HashMap数据结构
+
+​	**HashMap**的主干是一个变量名为**table**的**Entry数组**。**Entry**是**HashMap**的基本组成单元，每一个**Entry**包含一个**key-value**键值对。
+
+```java
+//HashMap的主干数组，可以看到就是一个Entry数组，初始值为空数组{}，主干数组的长度一定是2的次幂
+transient Entry<K,V>[] table = (Entry<K,V>[]) EMPTY_TABLE;
+```
+
+
+
+![](images/Java基础面试题/HashMap数据结构.png)
 
 
 
@@ -1193,8 +1479,6 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
-
-
 ### 为什么HashMap线程不安全
 
 
@@ -1207,43 +1491,25 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Java多线程
 
 
 
-## 简述线程、程序、进程的基本概念。以及他们之间关系是什么?
+##  简述线程、程序、进程的基本概念。以及他们之间关系是什么?
 
 ![](images/Java基础面试题/线程、程序、进程.png)
+
+
+
+## Java多线程的四种实现方式
+
+
+
+
+
+
+
+
 
 
 
@@ -1257,9 +1523,9 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
+
+
 # JVM
-
-
 
 ​		JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。
 
@@ -1274,16 +1540,8 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 - **方法区：**用于存储虚拟机加载的类信息，常量，静态变量等数据
 - **堆：**存放对象实例，所有的对象和数组都要在堆上分配。是JVM所管理的
 
-
-
 ### 线程私有
 
 - **栈：**Java方法执行的内存模型，存储局部变量表，操作数栈，动态链接，方法出口信息。随线程创建和销毁
 - **本地方法栈：**与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务
 - **程序计数器：**当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令
-
-
-
-
-
-# 
