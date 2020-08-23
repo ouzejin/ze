@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/ec9ea6b751b132c97e47d24968b8308b.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/dfa8e63a22e37813c282b1a82bb11cea.json"
         }
     </script>
     <script>
@@ -498,6 +498,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <h1>Java集合</h1>
 <p><figure><img data-width="959" data-height="912" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a829451a4894b166d676ce46d46c6c2d.jpg" alt="" /></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="images/Java基础面试题/Java集合框架体系.png" alt="" /></figure></p>
+<p><figure><img data-width="801" data-height="810" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a0b74ba88b510bb3e9c82e49bf81bc14.png" alt="" /></figure></p>
 <h2>常用集合方法</h2>
 <p>参考</p>
 <blockquote><p><a href="https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2">https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2</a></p>
@@ -682,13 +683,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <span class="cm">     */</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_CAPACITY</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// 默认容量为10</span>
 
-    <span class="c1">// 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculateCapacity</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span> <span class="n">elementData</span><span class="p">,</span> <span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">elementData</span> <span class="o">==</span> <span class="n">DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">DEFAULT_CAPACITY</span><span class="p">,</span> <span class="n">minCapacity</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">minCapacity</span><span class="p">;</span>
-    <span class="p">}</span>
+
 
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureCapacityInternal</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">ensureExplicitCapacity</span><span class="p">(</span><span class="n">calculateCapacity</span><span class="p">(</span><span class="n">elementData</span><span class="p">,</span> <span class="n">minCapacity</span><span class="p">));</span>
@@ -701,6 +696,14 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         <span class="c1">// 如果所需容量最小值大于实际数组的长度就扩大实际数组容量</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">minCapacity</span> <span class="o">-</span> <span class="n">elementData</span><span class="p">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">grow</span><span class="p">(</span><span class="n">minCapacity</span><span class="p">);</span>
+    <span class="p">}</span>
+
+ <span class="c1">// 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculateCapacity</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span> <span class="n">elementData</span><span class="p">,</span> <span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">elementData</span> <span class="o">==</span> <span class="n">DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">DEFAULT_CAPACITY</span><span class="p">,</span> <span class="n">minCapacity</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">minCapacity</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
@@ -972,8 +975,224 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
+<h2>HashSet</h2>
+<p><strong>HashSet</strong>实现<strong>Set</strong>接口，由哈希表（实际上是一个<strong>HashMap</strong>实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于<strong>HashSet</strong>而言，它是基于<strong>HashMap</strong>实现的，HashSet底层使用<strong>HashMap</strong>来保存所有元素，因此<strong>HashSet</strong> 的实现比较简单，相关<strong>HashSet</strong>的操作，基本上都是直接调用底层<strong>HashMap</strong>的相关方法来完成， <strong>HashSet</strong>的源代码如下：</p>
+<h3>构造器</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>  
+    <span class="kd">extends</span> <span class="n">AbstractSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>  
+    <span class="kd">implements</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Cloneable</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span>  
+<span class="p">{</span>  
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5024744406713321676L</span><span class="p">;</span>  
+
+    <span class="c1">// 底层使用HashMap来保存HashSet中所有元素。  </span>
+    <span class="kd">private</span> <span class="kd">transient</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span><span class="p">;</span>  
+
+    <span class="c1">// 定义一个虚拟的Object对象作为HashMap的value，将此对象定义为static final。  </span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Object</span> <span class="n">PRESENT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>  
+
+    <span class="cm">/** </span>
+<span class="cm">     * 默认的无参构造器，构造一个空的HashSet。 </span>
+<span class="cm">     *  </span>
+<span class="cm">     * 实际底层会初始化一个空的HashMap，并使用默认初始容量为16和加载因子0.75。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="nf">HashSet</span><span class="p">()</span> <span class="p">{</span>  
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>  
+    <span class="p">}</span>  
+
+    <span class="cm">/** </span>
+<span class="cm">     * 构造一个包含指定collection中的元素的新set。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 实际底层使用默认的加载因子0.75和足以包含指定 </span>
+<span class="cm">     * collection中所有元素的初始容量来创建一个HashMap。 </span>
+<span class="cm">     * @param c 其中的元素将存放在此set中的collection。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="nf">HashSet</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">/</span><span class="mf">.75f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">));</span>  
+    <span class="n">addAll</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>  
+    <span class="p">}</span>  
+
+    <span class="cm">/** </span>
+<span class="cm">     * 以指定的initialCapacity和loadFactor构造一个空的HashSet。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 实际底层以相应的参数构造一个空的HashMap。 </span>
+<span class="cm">     * @param initialCapacity 初始容量。 </span>
+<span class="cm">     * @param loadFactor 加载因子。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="nf">HashSet</span><span class="p">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="p">,</span> <span class="kt">float</span> <span class="n">loadFactor</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">initialCapacity</span><span class="p">,</span> <span class="n">loadFactor</span><span class="p">);</span>  
+    <span class="p">}</span>  
+
+    <span class="cm">/** </span>
+<span class="cm">     * 以指定的initialCapacity构造一个空的HashSet。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 实际底层以相应的参数及加载因子loadFactor为0.75构造一个空的HashMap。 </span>
+<span class="cm">     * @param initialCapacity 初始容量。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="nf">HashSet</span><span class="p">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">initialCapacity</span><span class="p">);</span>  
+    <span class="p">}</span>  
+
+    <span class="cm">/** </span>
+<span class="cm">     * 以指定的initialCapacity和loadFactor构造一个新的空链接哈希集合。 </span>
+<span class="cm">     * 此构造函数为包访问权限，不对外公开，实际只是是对LinkedHashSet的支持。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 实际底层会以指定的参数构造一个空LinkedHashMap实例来实现。 </span>
+<span class="cm">     * @param initialCapacity 初始容量。 </span>
+<span class="cm">     * @param loadFactor 加载因子。 </span>
+<span class="cm">     * @param dummy 标记。 </span>
+<span class="cm">     */</span>  
+    <span class="n">HashSet</span><span class="p">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="p">,</span> <span class="kt">float</span> <span class="n">loadFactor</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">dummy</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">initialCapacity</span><span class="p">,</span> <span class="n">loadFactor</span><span class="p">);</span>  
+    <span class="p">}</span>  
+
+
+
+    <span class="cm">/** </span>
+<span class="cm">     * 返回此HashSet实例的浅表副本：并没有复制这些元素本身。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的clone()方法，获取HashMap的浅表副本，并设置到HashSet中。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="p">()</span> <span class="p">{</span>  
+        <span class="k">try</span> <span class="p">{</span>  
+            <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">newSet</span> <span class="o">=</span> <span class="p">(</span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">)</span> <span class="kd">super</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>  
+            <span class="n">newSet</span><span class="p">.</span><span class="na">map</span> <span class="o">=</span> <span class="p">(</span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">map</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>  
+            <span class="k">return</span> <span class="n">newSet</span><span class="p">;</span>  
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">CloneNotSupportedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">InternalError</span><span class="p">();</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>
+</pre></div>
+<h3>调用add方法</h3>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 如果此set中尚未包含指定元素，则添加指定元素。 </span>
+<span class="cm">     * 更确切地讲，如果此 set 没有包含满足(e==null ? e2==null : e.equals(e2)) </span>
+<span class="cm">     * 的元素e2，则向此set 添加指定的元素e。 </span>
+<span class="cm">     * 如果此set已包含该元素，则该调用不更改set并返回false。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际将将该元素作为key放入HashMap。 </span>
+<span class="cm">     * 由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key </span>
+<span class="cm">     * 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）， </span>
+<span class="cm">     * 新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， </span>
+<span class="cm">     * 因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， </span>
+<span class="cm">     * 原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 </span>
+<span class="cm">     * @param e 将添加到此set中的元素。 </span>
+<span class="cm">     * @return 如果此set尚未包含指定元素，则返回true。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="p">(</span><span class="n">E</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">PRESENT</span><span class="p">)</span><span class="o">==</span><span class="kc">null</span><span class="p">;</span>  
+    <span class="p">}</span>
+</pre></div>
+<h3>调用remove方法</h3>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 如果指定元素存在于此set中，则将其移除。 </span>
+<span class="cm">     * 更确切地讲，如果此set包含一个满足(o==null ? e==null : o.equals(e))的元素e， </span>
+<span class="cm">     * 则将其移除。如果此set已包含该元素，则返回true </span>
+<span class="cm">     * （或者：如果此set因调用而发生更改，则返回true）。（一旦调用返回，则此set不再包含该元素）。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的remove方法删除指定Entry。 </span>
+<span class="cm">     * @param o 如果存在于此set中则需要将其移除的对象。 </span>
+<span class="cm">     * @return 如果set包含指定元素，则返回true。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">remove</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="o">==</span><span class="n">PRESENT</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+<h3>调用clear方法</h3>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 从此set中移除所有元素。此调用返回后，该set将为空。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的clear方法清空Entry中所有元素。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clear</span><span class="p">()</span> <span class="p">{</span>  
+    <span class="n">map</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>  
+    <span class="p">}</span>
+</pre></div>
+<h3>迭代器遍历</h3>
+<p>底层实际调用底层<strong>HashMap</strong>的<strong>keySet</strong>来返回所有的key。</p>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 返回对此set中元素进行迭代的迭代器。返回元素的顺序并不是特定的。 </span>
+<span class="cm">     *  </span>
+<span class="cm">     * 底层实际调用底层HashMap的keySet来返回所有的key。 </span>
+<span class="cm">     * 可见HashSet中的元素，只是存放在了底层HashMap的key上， </span>
+<span class="cm">     * value使用一个static final的Object对象标识。 </span>
+<span class="cm">     * @return 对此set中元素进行迭代的Iterator。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">keySet</span><span class="p">().</span><span class="na">iterator</span><span class="p">();</span>  
+    <span class="p">}</span>
+</pre></div>
+<h3>size大小</h3>
+<p>底层实际调用<strong>HashMap</strong>的<strong>size()</strong>方法返回Entry的数量，就得到该Set中元素的个数</p>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 返回此set中的元素的数量（set的容量）。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的size()方法返回Entry的数量，就得到该Set中元素的个数。 </span>
+<span class="cm">     * @return 此set中的元素的数量（set的容量）。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>  
+    <span class="p">}</span>
+</pre></div>
+<h3>判断空</h3>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 如果此set不包含任何元素，则返回true。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的isEmpty()判断该HashSet是否为空。 </span>
+<span class="cm">     * @return 如果此set不包含任何元素，则返回true。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>  
+    <span class="p">}</span>
+</pre></div>
+<h3>判断是否存在某个对象</h3>
+<div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm">     * 如果此set包含指定元素，则返回true。 </span>
+<span class="cm">     * 更确切地讲，当且仅当此set包含一个满足(o==null ? e==null : o.equals(e)) </span>
+<span class="cm">     * 的e元素时，返回true。 </span>
+<span class="cm">     * </span>
+<span class="cm">     * 底层实际调用HashMap的containsKey判断是否包含指定key。 </span>
+<span class="cm">     * @param o 在此set中的存在已得到测试的元素。 </span>
+<span class="cm">     * @return 如果此set包含指定元素，则返回true。 </span>
+<span class="cm">     */</span>  
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>  
+    <span class="p">}</span>
+</pre></div>
 <h2>HashMap</h2>
 <p><figure><img data-width="706" data-height="436" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/35954178e11d001170904cd73922cfb0.png" alt="" /></figure></p>
+<h3>参考</h3>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/chentang/p/12670462.html">https://www.cnblogs.com/chentang/p/12670462.html</a></li>
+<li><a href="https://www.cnblogs.com/wytiger/p/10731082.html">https://www.cnblogs.com/wytiger/p/10731082.html</a></li>
+<li><a href="https://www.cnblogs.com/yuanblog/p/4441017.html">https://www.cnblogs.com/yuanblog/p/4441017.html</a></li>
+</ul>
+</blockquote>
+<h3>哈希表&amp;哈希冲突</h3>
+<p>​       在数组中根据下标查找某个元素，一次定位就可以达到，哈希表利用了这种特性，<strong>哈希表的主干就是数组</strong>。比如我们要新增或查找某个元素，我们通过把当前元素的关键字 通过某个函数映射到数组中的某个位置，通过数组下标一次定位就可完成操作。</p>
+<blockquote><p><strong>存储位置 = f(关键字)</strong></p>
+</blockquote>
+<p>其中，这个函数f一般称为<strong>哈希函数</strong>，这个函数的设计好坏会直接影响到哈希表的优劣。举个例子，比如我们要在哈希表中执行插入操作：</p>
+<p><figure><img data-width="759" data-height="511" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e5992053716a6929fde771c6aaa47029.jpg" alt="" /></figure></p>
+<p>查找操作同理，先通过哈希函数计算出实际存储地址，然后从数组中对应地址取出即可。</p>
+<p>​       然而万事无完美，如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，其实这就是所谓的<strong>哈希冲突</strong>，也叫哈希碰撞。前面我们提到过，哈希函数的设计至关重要，好的哈希函数会尽可能地保证 <strong>计算简单</strong>和<strong>散列地址分布均匀,</strong>但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？</p>
+<ul>
+<li><strong>链地址法：</strong>将哈希表的每个单元作为链表的头结点，所有哈希地址为 i 的元素构成一个同义词链表。即发生冲突时就把该关键字链在以该单元为头结点的链表的尾部。</li>
+</ul>
+<h3>HashMap源码关键字</h3>
+<ul>
+<li><strong>initialCapacity：</strong>初始容量。指的是 HashMap 集合初始化的时候自身的容量。可以在构造方法中指定；如果不指定的话，总容量默认值是 <strong>16</strong> 。需要注意的是初始容量必须是 2 的幂次方。</li>
+<li><strong>size：</strong>当前 HashMap 中已经存储着的键值对数量，即 HashMap.size()</li>
+<li><strong>loadFactor：</strong>加载因子。所谓的加载因子就是 HashMap (当前的容量/总容量) 到达一定值的时候，HashMap 会实施扩容。加载因子也可以通过构造方法中指定，默认的值是 0.75 。举个例子，假设有一个 HashMap 的初始容量为 16 ，那么扩容的阀值就是 0.75 * 16 = 12 。也就是说，在你打算存入第 13 个值的时候，HashMap 会先执行扩容。</li>
+<li><strong>threshold：</strong>扩容阀值。即 扩容阀值 = HashMap 总容量 * 加载因子。当前 HashMap 的容量大于或等于扩容阀值的时候就会去执行扩容。扩容的容量为当前 HashMap 总容量的两倍。比如，当前 HashMap 的总容量为 16 ，那么扩容之后为 32 。</li>
+<li><strong>table：</strong>Entry 数组。我们都知道 HashMap 内部存储 key/value 是通过 Entry 这个介质来实现的。而 table 就是 Entry 数组。</li>
+</ul>
+<h3>HashMap数据结构</h3>
+<p>​   <strong>HashMap</strong>的主干是一个变量名为<strong>table</strong>的<strong>Entry数组</strong>。<strong>Entry</strong>是<strong>HashMap</strong>的基本组成单元，每一个<strong>Entry</strong>包含一个<strong>key-value</strong>键值对。</p>
+<div class="highlight"><pre><span></span><span class="c1">//HashMap的主干数组，可以看到就是一个Entry数组，初始值为空数组{}，主干数组的长度一定是2的次幂</span>
+<span class="kd">transient</span> <span class="n">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="n">table</span> <span class="o">=</span> <span class="p">(</span><span class="n">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span><span class="p">)</span> <span class="n">EMPTY_TABLE</span><span class="p">;</span>
+</pre></div>
+<p><figure><img data-width="793" data-height="640" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7eb3be3b403e4a795a94036149f52a83.png" alt="" /></figure></p>
 <h3>put() | get()原理/底层</h3>
 <p><figure><img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e3f665a5e608b870b351189926f90e8f.png" alt="" /></figure></p>
 <h3>HashMap扩容机制</h3>
@@ -982,6 +1201,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <h1>Java多线程</h1>
 <h2>简述线程、程序、进程的基本概念。以及他们之间关系是什么?</h2>
 <p><figure><img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6b9a3c36c04c3ab3d164589c4ca98199.png" alt="" /></figure></p>
+<h2>Java多线程的四种实现方式</h2>
 <h2>Java线程池</h2>
 <h3>线程池执行流程</h3>
 <h1>JVM</h1>
@@ -999,7 +1219,6 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <li><strong>本地方法栈：</strong>与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务</li>
 <li><strong>程序计数器：</strong>当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令</li>
 </ul>
-<h1> </h1>
 </article>
     </section>
 
