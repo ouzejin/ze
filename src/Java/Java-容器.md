@@ -40,11 +40,11 @@ tags:
 
 
 
-# List
+# 1. List
 
 
 
-## ArrayList
+## 1.1 ArrayList
 
 参考
 
@@ -601,11 +601,11 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
-# Set
+# 2. Set
 
 
 
-## HashSet
+## 2.1 HashSet
 
 **HashSet**实现**Set**接口，由哈希表（实际上是一个**HashMap**实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于**HashSet**而言，它是基于**HashMap**实现的，HashSet底层使用**HashMap**来保存所有元素，因此**HashSet** 的实现比较简单，相关**HashSet**的操作，基本上都是直接调用底层**HashMap**的相关方法来完成， **HashSet**的源代码如下：
 
@@ -839,11 +839,11 @@ public class HashSet<E>
 
 
 
-# Map
+# 3. Map
 
 
 
-## HashMap
+## 3.1 HashMap
 
 
 
@@ -1081,9 +1081,7 @@ public HashMap(Map<? extends K, ? extends V> m) {
 
 ### put()：添加一个键值对
 
-
-
-**未发生哈希冲突**
+![](images/Java容器/HashMap的put原理图.png)
 
 
 
@@ -1157,9 +1155,119 @@ public V put(K key, V value) {
 
 
 
+**resize()扩容操作**
+
+```java
+    final Node<K,V>[] resize() {
+        //把没插入之前的哈希数组做我诶oldTal
+        Node<K,V>[] oldTab = table;
+        //old的长度
+        int oldCap = (oldTab == null) ? 0 : oldTab.length;
+        //old的临界值
+        int oldThr = threshold;
+        //初始化new的长度和临界值
+        int newCap, newThr = 0;
+        //oldCap > 0也就是说不是首次初始化，因为hashMap用的是懒加载
+        if (oldCap > 0) {
+            //大于最大值
+            if (oldCap >= MAXIMUM_CAPACITY) {
+                //临界值为整数的最大值
+                threshold = Integer.MAX_VALUE;
+                return oldTab;
+            }
+            //标记##，其它情况，扩容两倍，并且扩容后的长度要小于最大值，old长度也要大于16
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+                     oldCap >= DEFAULT_INITIAL_CAPACITY)
+                //临界值也扩容为old的临界值2倍
+                newThr = oldThr << 1; 
+        }
+        /**如果oldCap<0，但是已经初始化了，像把元素删除完之后的情况，那么它的临界值肯定还存在，        
+           如果是首次初始化，它的临界值则为0
+        **/
+        else if (oldThr > 0) 
+            newCap = oldThr;
+        //首次初始化，给与默认的值
+        else {               
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            //临界值等于容量*加载因子
+            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+        }
+        //此处的if为上面标记##的补充，也就是初始化时容量小于默认值16的，此时newThr没有赋值
+        if (newThr == 0) {
+            //new的临界值
+            float ft = (float)newCap * loadFactor;
+            //判断是否new容量是否大于最大值，临界值是否大于最大值
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                      (int)ft : Integer.MAX_VALUE);
+        }
+        //把上面各种情况分析出的临界值，在此处真正进行改变，也就是容量和临界值都改变了。
+        threshold = newThr;
+        //表示忽略该警告
+        @SuppressWarnings({"rawtypes","unchecked"})
+            //初始化
+            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+        //赋予当前的table
+        table = newTab;
+        //此处自然是把old中的元素，遍历到new中
+        if (oldTab != null) {
+            for (int j = 0; j < oldCap; ++j) {
+                //临时变量
+                Node<K,V> e;
+                //当前哈希桶的位置值不为null，也就是数组下标处有值，因为有值表示可能会发生冲突
+                if ((e = oldTab[j]) != null) {
+                    //把已经赋值之后的变量置位null，当然是为了好回收，释放内存
+                    oldTab[j] = null;
+                    //如果下标处的节点没有下一个元素
+                    if (e.next == null)
+                        //把该变量的值存入newCap中，e.hash & (newCap - 1)并不等于j
+                        newTab[e.hash & (newCap - 1)] = e;
+                    //该节点为红黑树结构，也就是存在哈希冲突，该哈希桶中有多个元素
+                    else if (e instanceof TreeNode)
+                        //把此树进行转移到newCap中
+                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
+                    else { /**此处表示为链表结构，同样把链表转移到newCap中，就是把链表遍历后，把值转过去，在置位null**/
+                        Node<K,V> loHead = null, loTail = null;
+                        Node<K,V> hiHead = null, hiTail = null;
+                        Node<K,V> next;
+                        do {
+                            next = e.next;
+                            if ((e.hash & oldCap) == 0) {
+                                if (loTail == null)
+                                    loHead = e;
+                                else
+                                    loTail.next = e;
+                                loTail = e;
+                            }
+                            else {
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+        }
+        //返回扩容后的hashMap
+        return newTab;
+    }
+```
 
 
-![](images/Java容器/HashMap的put原理图.png)
+
+
+
+
 
 **计算hash值**
 
