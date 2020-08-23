@@ -1085,6 +1085,21 @@ public HashMap(Map<? extends K, ? extends V> m) {
 
 
 
+**计算hash值**
+
+先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突
+
+```java
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+```
+
+
+
+**方法源码**
+
 ```java
 public V put(K key, V value) {
         /**四个参数，第一个hash值，第四个参数表示如果该key存在值，如果为null的话，则插入新的value，最后一个参数，在hashMap中没有用，可以不用管，使用默认的即可**/
@@ -1156,6 +1171,10 @@ public V put(K key, V value) {
 
 
 **resize()扩容操作**
+
+​	当hashmap中的元素越来越多的时候，碰撞的几率也就越来越高（因为数组的长度是固定的），所以为了提高查询的效率，就要对hashmap的数组进行扩容，数组扩容这个操作也会出现在ArrayList中，所以这是一个通用的操作，很多人对它的性能表示过怀疑，不过想想我们的“均摊”原理，就释然了，而在hashmap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。
+
+​    那么hashmap什么时候进行扩容呢？**当hashmap中的元素个数超过数组大小loadFactor时，就会进行数组扩容**，loadFactor的默认值为0.75，也就是说，默认情况下，数组大小为16，那么当hashmap中元素个数超过**16 × 0.75 = 12**的时候，就把数组的大小扩展为**2 × 16=32**，**即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作**，所以如果我们已经预知hashmap中元素的个数，那么预设元素的个数能够有效的提高hashmap的性能。比如说，我们有1000个元素new HashMap(1000), 但是理论上来讲new HashMap(1024)更合适，不过上面annegu已经说过，即使是1000，hashmap也自动会将其设置为1024。 但是new HashMap(1024)还不是更合适的，因为0**.75 × 1000 < 1000**, 也就是说为了让**0.75 × size > 1000**, 我们必须这样new HashMap(2048)才最合适，既考虑了&的问题，也避免了resize的问题。
 
 ```java
     final Node<K,V>[] resize() {
@@ -1267,90 +1286,11 @@ public V put(K key, V value) {
 
 
 
-
-
-**计算hash值**
-
-先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突
-
-```java
-    static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-    }
-```
+### Hash扩容要扩容到2的次方
 
 
 
-**方法源码**
 
-```java
-public V put(K key, V value) {
-        /**四个参数，第一个hash值，第四个参数表示如果该key存在值，如果为null的话，则插入新的value，最后一个参数，在hashMap中没有用，可以不用管，使用默认的即可**/
-        return putVal(hash(key), key, value, false, true);
-    }
- 
-    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-                   boolean evict) {
-        //tab 哈希数组，p 该哈希桶的首节点，n hashMap的长度，i 计算出的数组下标
-        Node<K,V>[] tab; Node<K,V> p; int n, i;
-        //获取长度并进行扩容，使用的是懒加载，table一开始是没有加载的，等put后才开始加载
-        if ((tab = table) == null || (n = tab.length) == 0)
-            n = (tab = resize()).length;
-        /**如果计算出的该哈希桶的位置没有值，则把新插入的key-value放到此处，此处就算没有插入成功，也就是发生哈希冲突时也会把哈希桶的首节点赋予p**/
-        if ((p = tab[i = (n - 1) & hash]) == null)
-            tab[i] = newNode(hash, key, value, null);
-        //发生哈希冲突的几种情况
-        else {
-            // e 临时节点的作用， k 存放该当前节点的key 
-            Node<K,V> e; K k;
-            //第一种，插入的key-value的hash值，key都与当前节点的相等，e = p，则表示为首节点
-            if (p.hash == hash &&
-                ((k = p.key) == key || (key != null && key.equals(k))))
-                e = p;
-            //第二种，hash值不等于首节点，判断该p是否属于红黑树的节点
-            else if (p instanceof TreeNode)
-                /**为红黑树的节点，则在红黑树中进行添加，如果该节点已经存在，则返回该节点（不为null），该值很重要，用来判断put操作是否成功，如果添加成功返回null**/
-                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
-            //第三种，hash值不等于首节点，不为红黑树的节点，则为链表的节点
-            else {
-                //遍历该链表
-                for (int binCount = 0; ; ++binCount) {
-                    //如果找到尾部，则表明添加的key-value没有重复，在尾部进行添加
-                    if ((e = p.next) == null) {
-                        p.next = newNode(hash, key, value, null);
-                        //判断是否要转换为红黑树结构
-                        if (binCount >= TREEIFY_THRESHOLD - 1) 
-                            treeifyBin(tab, hash);
-                        break;
-                    }
-                    //如果链表中有重复的key，e则为当前重复的节点，结束循环
-                    if (e.hash == hash &&
-                        ((k = e.key) == key || (key != null && key.equals(k))))
-                        break;
-                    p = e;
-                }
-            }
-            //有重复的key，则用待插入值进行覆盖，返回旧值。
-            if (e != null) { 
-                V oldValue = e.value;
-                if (!onlyIfAbsent || oldValue == null)
-                    e.value = value;
-                afterNodeAccess(e);
-                return oldValue;
-            }
-        }
-        //到了此步骤，则表明待插入的key-value是没有key的重复，因为插入成功e节点的值为null
-        //修改次数+1
-        ++modCount;
-        //实际长度+1，判断是否大于临界值，大于则扩容
-        if (++size > threshold)
-            resize();
-        afterNodeInsertion(evict);
-        //添加成功
-        return null;
-    }
-```
 
 
 

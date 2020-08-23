@@ -77,7 +77,7 @@ nav = [
     },
     {
         "name": "About",
-        "url": "${site_prefix}about/",
+        "url": "${site_prefix}About/",
         "target": "_self"
     },
     {
