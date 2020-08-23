@@ -33,6 +33,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Java-JVM/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Java-容器/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Java-多线程/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Linux常用命令/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>always</changefreq>
@@ -82,14 +103,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Java方法汇总/</loc>
+    <loc>/archives/Java-方法汇总/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
-    <loc>/archives/Java基础知识笔记/</loc>
+    <loc>/archives/Java-基础知识笔记/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
