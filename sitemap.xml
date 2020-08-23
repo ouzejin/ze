@@ -61,7 +61,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Java设计模式/</loc>
+    <loc>/archives/Java-设计模式/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
