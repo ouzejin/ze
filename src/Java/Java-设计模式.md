@@ -7,9 +7,8 @@ status: publish
 author: LifeAlsoIsGG
 categories: 
   - Java
-  - 笔记
 tags: 
-  - 笔记
+  - Java
   - 设计模式
 ---
 

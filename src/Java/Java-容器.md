@@ -1,613 +1,34 @@
 ---
 layout: post
-title: Java基础面试题
-slug: Java基础面试题
-date: 2020/08/08 23:24:32
+title: Java-容器
+slug: Java-容器
+date: 2020/08/23 20:37:41
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - 面试
-tags: 
-  - 面试
   - Java
-excerpt: Java基础面试题
-
+tags: 
+  - Java
+  - Java-容器
 ---
 
 
 
 
 
-# 学习路线
 
-![](images/Java基础面试题/Java学习路线图.png)
 
+# 容器总览
 
+![](images/Java容器/Java集合图.jpg)
 
-# Java基础
 
 
 
-## JDK和JRE区别
 
-- **<u>JDK（Java Development Kit）</u>**是针对Java开发员的产品，是整个Java的核心，包括了Java运行环境JRE、Java工具和Java基础类库。
-- **<u>Java Runtime Environment（JRE）</u>**是运行JAVA程序所必须的环境的集合，包含JVM标准实现及Java核心类库。
-- **<u>Java Virtual Machine（Java虚拟机JVM）</u>**的缩写，是整个java实现跨平台的最核心的部分，能够运行以Java语言写作的软件程序。
+![](images/Java容器/Java集合框架体系.png)
 
-![](images/Java基础面试题/JDK%JRE&JVM.png)
-
-
-
-### JDK（Java Development Kit）
-
-- JDK中包含JRE，在JDK的安装目录下有一个名为jre的目录，里面有两个文件夹bin和lib，在这里可以认为bin里的就是jvm，lib中则是jvm工作所需要的类库，而jvm和 lib和起来就称为jre。
-- JDK是整个JAVA的核心，包括了Java运行环境JRE（Java Runtime Envirnment）、一堆Java工具（javac/java/jdb等）和Java基础的类库（即Java API 包括rt.jar）。
-
-**类型**
-
-- SE(J2SE)，standard edition，标准版，是我们通常用的一个版本，从JDK 5.0开始，改名为Java SE。
-- EE(J2EE)，enterprise edition，企业版，使用这种JDK开发J2EE应用程序，从JDK 5.0开始，改名为Java EE。
-- ME(J2ME)，micro edition，主要用于移动设备、嵌入式设备上的java应用程序，从JDK 5.0开始，改名为Java ME。
-
-
-
-### JRE（Java Runtime Environment）
-
-​		是运行基于Java语言编写的程序所不可缺少的运行环境。RE中包含了Java virtual machine（JVM），runtime class libraries和Java application launcher，这些是运行Java程序的必要组件。**但是在运行编译好的程序中包含Servlet时，需要JDK**
-
-
-
-### JVM（Java Virtual Machine）
-
-​		就是我们常说的java虚拟机，它是整个java实现跨平台的最核心的部分，所有的java程序会首先被编译为.class的类文件，这种类文件可以在虚拟机上执行。
-
-也就是说class并不直接与机器的操作系统相对应，而是经过虚拟机间接与操作系统交互，由虚拟机将程序解释给本地系统执行。
-
-只有JVM还不能成class的执行，因为在解释class的时候JVM需要调用解释所需要的类库lib，而jre包含lib类库。
-
-JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。
-
-
-
-## 重载和重写
-
-
-
-### 重载(Overload)
-
-1. 重载Overload是一个类中多态性的一种表现或者一个类中多个构造器的实现
-2. 重载要求同名方法的参数列表不同(参数类型，参数个数甚至是参数顺序)
-3. 重载的时候，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准
-
-```java
-public class Father {
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        Father s = new Father();
-        s.sayHello();
-        s.sayHello("wintershii");
-
-    }
-
-    public void sayHello() {
-        System.out.println("Hello");
-    }
-
-    public void sayHello(String name) {
-        System.out.println("Hello" + " " + name);
-    }
-}
-```
-
-
-
-### 重写(Override)
-
-1. **发生在父类与子类之间**
-2. **方法名，参数列表，返回类型（除过子类中方法的返回类型是父类中返回类型的子类）必须相同**
-3. 访问修饰符的限制一定要**大于**被重写方法的访问修饰符（public>protected>default>private)
-4. 重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常
-
-```java
-public class Father {
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        Son s = new Son();
-        s.sayHello();
-    }
-
-    public void sayHello() {
-        System.out.println("Hello");
-    }
-}
-
-class Son extends Father{
-
-    @Override
-    public void sayHello() {
-        // TODO Auto-generated method stub
-        System.out.println("hello by ");
-    }
-
-}
-```
-
-
-
-### 重载（Overload）和重写（Override）的区别
-
-​		方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的参数列表，有兼容的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求，不能根据返回类型进行区分。
-
-
-
-
-## 构造器Constructor是否可被Override(重写)
-
-​		构造器Constructor不能被继承，因此不能被**重写(Override)**，但是可以被**重载（Overload）**。如果父类自定义了有参构造函数，则子类无论定义构造函数与否，定义有参构造函数与否，都会报错，正确的做法是在子类的构造方法中添上super（参数），以表明子类构造之前先构造父类，而这句话必须放在第一句，否则报"Constructor call must be the first statement in a constructor"的错误。
-
-
-
-### 类的加载顺序：
-
-1. 父类的静态代码块/初始化静态变量（两者优先级相同）
-2. 执行子类的静态代码/初始化静态变量（两者优先级相同，谁写在前面谁先执行）
-3. 初始化父类成员变量/执行代码块{}（两者优先级相同），父类的构造器
-4. 子类的成员变量/代码块，最后子类的构造器。
-
-
-
-## 三大特性封装继承多态
-
-![](images/Java基础面试题/封装继承多态.png)
-
-
-
-### 封装
-
-​		封装（Encapsulation）是面向对象方法的重要原则，就是把对象的属性和操作（或服务）结合为一个独立的整体，并尽可能隐藏对象的内部实现细节。实体类那些属性就是被封装
-
-- 将类的某些信息隐藏在类的内部，不允许外部程序进行直接的访问调用。
-- 通过该类提供的方法来实现对隐藏信息的操作和访问。
-- 隐藏对象的信息。
-- 留出访问的对外接口。
-
-
-
-### 继承
-
-​		继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。当然，如果在父类中拥有私有属性(private修饰)，则子类是不能被继承的。
-
-只支持单继承，即一个子类只允许有一个父类，但是可以实现多级继承，及子类拥有唯一的父类，而父类还可以再继承。
-
--  子类可以拥有父类的属性和方法。
--  子类可以拥有自己的属性和方法。
--  子类可以重写覆盖父类的方法。
-
-
-
-**使用**
-
-在父子类关系继承中，如果成员变量重名，则创建子类对象时，访问有两种方式。
-
-- 直接通过子类对象访问成员变量
-
-   等号左边是谁，就优先使用谁，如果没有就向上找。
-
-- 间接通过成员方法访问成员变量
-
-  该方法属于谁，谁就优先使用，如果没有就向上找。
-
-```java
-public class FU {
-    int numFU = 10;
-    int num = 100;
-    public void method(){
-        System.out.println("父类成员变量："+numFU);
-    }
-    public void methodFU(){
-        System.out.println("父类成员方法!");
-    }
-}
-
-public class Zi extends FU{
-    int numZi = 20;
-    int num = 200;
-    public void method(){
-        System.out.println("子类成员变量："+numFU);
-    }
-    public void methodZi(){
-        System.out.println("子类方法！");
-    }
-}
-
-public class ExtendDemo {
-    public static void main(String[] args) {
-        FU fu = new FU();
-        // 父类的实体对象只能调用父类的成员变量
-        System.out.println("父类：" + fu.numFU);   // 结果：10
-        
-        Zi zi = new Zi();
-        System.out.println("调用父类：" + zi.numFU); // 结果：10
-        System.out.println("子类：" + zi.numZi);   // 结果：20
-
-        /** 输出结果为200，证明在重名情况下，如果子类中存在则优先使用，
-         *  如果不存在则去父类查找，但如果父类也没有那么编译期就会报错。
-         */
-        System.out.println(zi.num); // 结果：200
-        /**
-         * 通过成员方法调用成员变量
-         */
-        zi.method();    // 结果：10
-    }
-}
-```
-
-
-
-### 多态
-
-指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。动态绑定（dynamic binding），是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。
-
-**实现方式**
-
-- 接口多态性。
-- 继承多态性。
-- 通过抽象类实现的多态性。
-
-
-
-**向上转型**
-
-```java
-public class MultiDemo {
-       public static void main(String[] args) {
-           // 多态的引用，就是向上转型，此时无法使用之类中父类没有的方法
-           Animals dog = new Dog();
-           dog.eat();//狗在吃骨头！
-           
-           Animals cat = new Cat();
-           cat.eat();//猫在吃鱼！
-           
-           // 如果要调用父类中没有的方法，则要向下转型
-           Dog dogDown = (Dog)dog;
-           dogDown.watchDoor();
-   
-       }
-   }
-   class Animals {
-       public void eat(){
-           System.out.println("动物吃饭！");
-       }
-   }
-   class Dog extends Animals{
-       public void eat(){
-           System.out.println("狗在吃骨头！");
-       }
-       public void watchDoor(){
-           System.out.println("狗看门！");
-       }
-   }
-   class Cat extends Animals{
-       public void eat(){
-           System.out.println("猫在吃鱼！");
-       }
-   }
-```
-
-
-
-![](images/Java基础面试题/向上转型.png)
-
-
-
-
-
-## this | super | final | static关键字
-
-
-
-### this
-
-- 本类成员方法中，访问**本类**的成员变量。
-- 本类成员方法中，访问**本类**的另一个成员方法。
-- 本类的构造方法中，访问**本类**的另一个构造方法。
-
-![](images/Java基础面试题/this关键字.png)
-
-
-
-### super
-
-- 子类的成员方法中，访问**父类**的成员变量。
-- 子类的成员方法中，访问**父类**的成员方法。
-- 子类的构造方法中，访问**父类**的构造方法。
-
-![](images/Java基础面试题/super关键字.png)
-
-
-
-**注意**
-
-- this关键字同super一样，必须在构造方法的第一个语句，且是唯一的。
-- this与super不能同时存在。
-
-
-
-### final
-
-![](images/Java基础面试题/final关键字.png)
-
-
-
-![](images/Java基础面试题/final关键字_2.png)
-
-
-
-### static
-
-![](images/Java基础面试题/static关键字.png)
-
-
-
-## String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?
-
-
-
-### Java String 类：String字符串常量
-
-需要注意的是，String的值是不可变的，这就导致每次对String的操作都会生成**新的String对象**，这样不仅效率低下，而且大量浪费有限的内存空间。我们来看一下这张对String操作时内存变化的图：
-
-![](images/Java基础面试题/String不可变.png)
-
-我们可以看到，初始String值为“hello”，然后在这个字符串后面加上新的字符串“world”，这个过程是需要重新在栈堆内存中开辟内存空间的，最终得到了“hello world”字符串也相应的需要开辟内存空间，**这样短短的两个字符串，却需要开辟三次内存空间**，不得不说这是对内存空间的**极大浪费**。为了应对经常性的字符串相关的操作，就需要使用Java提供的其他两个操作字符串的类——StringBuffer类和StringBuild类来对此种变化字符串进行处理。
-
-
-
-### StringBuffer 和 StringBuilder 类——StringBuffer、StringBuilder字符串变量
-
-![](images/Java基础面试题/StringBuffer&StringBuilder_3.png)
-
-当对字符串进行修改的时候，需要使用 **StringBuffer(线程安全)** 和 **StringBuilder(线程不安全)** 类。
-
-和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。
-
-StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 **StringBuilder 的方法不是线程安全的（不能同步访问）**。
-
-由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。
-
-![](images/Java基础面试题/String继承结构.png)
-
-### 区别
-
-- **String：**不可变字符串；
-- **StringBuffer：**可变字符串、效率低、线程安全；
-- **StringBuilder：**可变字符序列、效率高、线程不安全；
-
-初始化上的区别，String可以空赋值，后者不行，报错
-
-![](images/Java基础面试题/StringBuffer&StringBuilder.png)
-
-
-
-![](images/Java基础面试题/StringBuffer&StringBuilder_2.png)
-
-
-
-## 装箱与拆箱
-
-https://www.cnblogs.com/dolphin0520/p/3780005.html
-
-![](images/Java基础面试题/装箱与拆箱_1.png)
-
-
-
-![](images/Java基础面试题/装箱与拆箱_2.png)
-
-
-
-### 面试题
-
-![](images/Java基础面试题/装箱与拆箱_面试题.png)
-
-​		从这2段代码可以看出，在通过valueOf方法创建Integer对象的时候，如果数值在**[-128,127]**之间，便返回指向IntegerCache.cache中已经存在的对象的引用；否则创建一个新的Integer对象。
-
-​		上面的代码中i1和i2的数值为100，因此会直接从cache中取已经存在的对象，所以i1和i2指向的是同一个对象，而i3和i4则是分别指向不同的对象。
-
-![](images/Java基础面试题/装箱与拆箱_面试题2.png)
-
-
-
-
-
-![](images/Java基础面试题/装箱与拆箱_面试题3.png)
-
-
-
-## 在 Java 中定义⼀个不做事且没有参数的构造⽅法的作⽤
-
-​		Java 程序在执⾏⼦类的构造⽅法之前，如果没有⽤ **super()** 来调⽤⽗类特定的构造⽅法，则会调⽤ **⽗类中“没有参数的构造⽅法”**。因此，如果⽗类中只定义了有参数的构造⽅法，⽽在⼦类的构造⽅法中 ⼜没有⽤ super() 来调⽤⽗类中特定的构造⽅法，则编译时将发⽣错误，因为 Java 程序在⽗类中找 不到没有参数的构造⽅法可供执⾏。解决办法是在⽗类⾥加上⼀个不做事且没有参数的构造⽅法。
-
-
-
-## 接⼝和抽象类
-
-![](images/Java基础面试题/抽象类和接口的对比.png)
-
-
-
-![](images/Java基础面试题/抽象类和接口的对比_2.png)
-
-
-
-![](images/Java基础面试题/抽象类和接口的对比_3.png)
-
-
-
-## 成员变量与局部变量的区别有哪些？
-
-![](images/Java基础面试题/成员变量和局部变量的区别.png)
-
-
-
-## 静态⽅法和实例⽅法有何不同
-
-- 在外部调用静态方法时，可以使用**"类名.方法名"**的方式，也可以使用**"对象名.方法名"**的方式。而实例方法只有后面这种方式。也就是说，调用静态方法可以无需创建对象。
-- 静态方法在访问本类的成员时，只允许访问静态成员（即静态成员变量和静态方法），而不允许访问实例成员变量和实例方法；实例方法则无此限制。
-
-
-
-## ==与equals()
-
-![](images/Java基础面试题/==与equals().png)
-
-
-
-## 为什么 Java 中只有值传递？
-
-参考
-
-> https://blog.csdn.net/bjweimengshu/article/details/79799485
-
-
-
-## Java中异常处理
-
-参考
-
-> https://blog.csdn.net/sugar_no1/article/details/88593255
-
-
-
-![](images/Java基础面试题/Java中的异常处理.png)
-
-![](images/Java基础面试题/Java中的异常处理_2.png)
-
-![](images/Java基础面试题/Java中的异常处理_3.png)
-
-![](images/Java基础面试题/Java中的异常处理_4.png)
-
-
-
-## 获取⽤键盘输⼊常⽤的两种⽅法
-
-![](images/Java基础面试题/获取⽤键盘输⼊常⽤的两种⽅法.png)
-
-
-
-### 输入一个字符
-
-```java
-Scanner input = new Scanner(System.in);
-char c = input.next().charAt(0);
-```
-
-
-
-### next()和nextLine()
-
-- **next()：**不可以读取空格。它不能读两个由空格或符号隔开的单词。此外，next()在读取输入后将光标放在同一行中。(next()只读空格之前的数据,并且光标指向本行)
-- **nextLine()：**可以读取空格，包括单词之间的空格和除回车以外的所有符号(即。它读到行尾)。读取输入后，nextLine()将光标定位在下一行。
-
-
-
-## 泛型使用
-
-参考
-
-> https://www.cnblogs.com/jpfss/p/9928747.html
-
-
-
-## 浅拷贝 | 深拷贝
-
-- 浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址
-- 深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存
-
-
-
-## synchronized 关键字
-
-
-
-### 三种使用方式
-
-- 修饰实例方法，作用于当前对象实例加锁，进入同步代码前要获得当前对象实例的锁
-- 修饰静态方法，作用于当前类对象加锁，进入同步代码前要获得当前类对象的锁 。也就是给当前类加锁，会作
-  用于类的所有对象实例，因为静态成员不属于任何一个实例对象，是类成员（ static 表明这是该类的一个静态
-  资源，不管new了多少个对象，只有一份，所以对该类的所有对象都加了锁）。所以如果一个线程A调用一个实
-  例对象的非静态 synchronized 方法，而线程B需要调用这个实例对象所属类的静态 synchronized 方法，是允
-  许的，不会发生互斥现象，因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态
-  synchronized 方法占用的锁是当前实例对象锁。
-- 修饰代码块，指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。 和 synchronized 方
-  法一样，synchronized(this)代码块也是锁定当前对象的。synchronized 关键字加到 static 静态方法和
-  synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下：synchronized关键字加到非 static 静态
-  方法上是给对象实例上锁。
-
-### Synchronized在JDK 1.8做了哪些优化
-
-
-
-
-
-
-
-## String
-
-
-
-### 创建的两种方式
-
-- 第一种是通过**“字面量”**赋值
-
-  ```java
-  String str="hello"
-  ```
-
-- 第二种是通过**new关键字创建新对象**，在内存中用构造器创建新对象形式
-
-  ```java
-  String str=new String("hello")
-  ```
-
-  
-
-**案例：**
-
-```java
-String a = "abcd";
-String b = "abcd";
-System.out.println(a == b); // True
-System.out.println(a.equals(b)); // True
-```
-
-a==b为真，是因为a和b都指向了方法区里面的同一个字符串，引用值相等；
-
-当相同的字符串被创建多次，内存中只保存一份字符串常量值，这就是字符串的"驻留"
-
-
-
-**案例二：**
-
-```java
-String c = new String("abcd");
-String d = new String("abcd");
-System.out.println(c == d); // False
-System.out.println(c.equals(d)); // True
-```
-
-c==d 为假，是因为c和d引用了对内存中的两个不同的对象，不同的对象，引用值肯定不同
-
-# Java集合
-
-![](images/Java基础面试题/Java集合图.jpg)
-
-
-
-![](images/Java基础面试题/Java集合框架体系.png)
-
-![](images/Java基础面试题/集合框架底层数据结构总结.png)
+![](images/Java容器/集合框架底层数据结构总结.png)
 
 
 
@@ -616,6 +37,10 @@ c==d 为假，是因为c和d引用了对内存中的两个不同的对象，不�
 参考
 
 > https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2
+
+
+
+# List
 
 
 
@@ -913,7 +338,7 @@ public ArrayList(Collection<? extends E> c)//指定集合
 
 **模拟添加数据(lierabbit)到index=4过程如下：**
 
-![](images/Java基础面试题/ArrayList根据索引模拟添加数据.jpg)
+![](images/Java容器/ArrayList根据索引模拟添加数据.jpg)
 
 ```java
 /**
@@ -991,7 +416,7 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
-     * <tt>(o==null ? get(i)==null : o.equals(get(i)))</tt>,
+     * <tt>(o==null ? get(i)==null : o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      */
     public int indexOf(Object o) {
@@ -1016,7 +441,7 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 模拟删除index=4（值为lierabbit）过程如下
 
-![](images/Java基础面试题/ArrayList根据索引删除元素.jpg)
+![](images/Java容器/ArrayList根据索引删除元素.jpg)
 
 ```java
 /**
@@ -1059,7 +484,7 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
      * if it is present.  If the list does not contain the element, it is
      * unchanged.  More formally, removes the element with the lowest index
      * <tt>i</tt> such that
-     * <tt>(o==null ? get(i)==null : o.equals(get(i)))</tt>
+     * <tt>(o==null ? get(i)==null : o.equals(get(i)))</tt>
      * (if such an element exists).  Returns <tt>true</tt> if this list
      * contained the specified element (or equivalently, if this list
      * changed as a result of the call).
@@ -1173,6 +598,10 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
         return obj;
     }
 ```
+
+
+
+# Set
 
 
 
@@ -1410,11 +839,15 @@ public class HashSet<E>
 
 
 
+# Map
+
+
+
 ## HashMap
 
 
 
-![](images/Java基础面试题/Map集合图.png)
+![](images/Java容器/Map集合图.png)
 
 ### 参考
 
@@ -1426,52 +859,314 @@ public class HashSet<E>
 
 ### 哈希表&哈希冲突
 
-​		在数组中根据下标查找某个元素，一次定位就可以达到，哈希表利用了这种特性，**哈希表的主干就是数组**。比如我们要新增或查找某个元素，我们通过把当前元素的关键字 通过某个函数映射到数组中的某个位置，通过数组下标一次定位就可完成操作。
+		在数组中根据下标查找某个元素，一次定位就可以达到，哈希表利用了这种特性，**哈希表的主干就是数组**。比如我们要新增或查找某个元素，我们通过把当前元素的关键字 通过某个函数映射到数组中的某个位置，通过数组下标一次定位就可完成操作。
 
 > **存储位置 = f(关键字)**
 
 其中，这个函数f一般称为**哈希函数**，这个函数的设计好坏会直接影响到哈希表的优劣。举个例子，比如我们要在哈希表中执行插入操作：
 
-![](images/Java基础面试题/哈希表图解.jpg)
+![](images/Java容器/哈希表图解.jpg)
 
 查找操作同理，先通过哈希函数计算出实际存储地址，然后从数组中对应地址取出即可。
 
-​		然而万事无完美，如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，其实这就是所谓的**哈希冲突**，也叫哈希碰撞。前面我们提到过，哈希函数的设计至关重要，好的哈希函数会尽可能地保证 **计算简单**和**散列地址分布均匀,**但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？
+		然而万事无完美，如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，其实这就是所谓的**哈希冲突**，也叫哈希碰撞。前面我们提到过，哈希函数的设计至关重要，好的哈希函数会尽可能地保证 **计算简单**和**散列地址分布均匀,**但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？
 
 - **链地址法：**将哈希表的每个单元作为链表的头结点，所有哈希地址为 i 的元素构成一个同义词链表。即发生冲突时就把该关键字链在以该单元为头结点的链表的尾部。
 
 
 
-### HashMap源码关键字
 
-- **initialCapacity：**初始容量。指的是 HashMap 集合初始化的时候自身的容量。可以在构造方法中指定；如果不指定的话，总容量默认值是 **16** 。需要注意的是初始容量必须是 2 的幂次方。
-- **size：**当前 HashMap 中已经存储着的键值对数量，即 HashMap.size()
-- **loadFactor：**加载因子。所谓的加载因子就是 HashMap (当前的容量/总容量) 到达一定值的时候，HashMap 会实施扩容。加载因子也可以通过构造方法中指定，默认的值是 0.75 。举个例子，假设有一个 HashMap 的初始容量为 16 ，那么扩容的阀值就是 0.75 * 16 = 12 。也就是说，在你打算存入第 13 个值的时候，HashMap 会先执行扩容。
-- **threshold：**扩容阀值。即 扩容阀值 = HashMap 总容量 * 加载因子。当前 HashMap 的容量大于或等于扩容阀值的时候就会去执行扩容。扩容的容量为当前 HashMap 总容量的两倍。比如，当前 HashMap 的总容量为 16 ，那么扩容之后为 32 。
-- **table：**Entry 数组。我们都知道 HashMap 内部存储 key/value 是通过 Entry 这个介质来实现的。而 table 就是 Entry 数组。
 
 
 
 ### HashMap数据结构
 
-​	**HashMap**的主干是一个变量名为**table**的**Entry数组**。**Entry**是**HashMap**的基本组成单元，每一个**Entry**包含一个**key-value**键值对。
+	**HashMap**的主干是一个变量名为**table**的**Entry/Node数组**。**Entry/Node**是**HashMap**的基本组成单元，每一个**Entry/Node**包含一个**key-value**键值对。
 
 ```java
 //HashMap的主干数组，可以看到就是一个Entry数组，初始值为空数组{}，主干数组的长度一定是2的次幂
 transient Entry<K,V>[] table = (Entry<K,V>[]) EMPTY_TABLE;
+
+    static class Node<K,V> implements Map.Entry<K,V> {
+        final int hash;
+        final K key;
+        V value;
+        Node<K,V> next;
+
+        Node(int hash, K key, V value, Node<K,V> next) {
+            this.hash = hash;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+```
+
+- **简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的。**
+- **如果定位到的数组位置不含链表（当前entry的next指向null）：那么对于查找，添加等操作很快，仅需一次寻址即可；**
+- **如果定位到的数组包含链表：对于添加操作，其时间复杂度为O(n)，首先遍历链表，存在即覆盖，否则新增；对于查找操作来讲，仍需遍历链表，然后通过key对象的equals方法逐一比对查找。**
+
+![](images/Java容器/HashMap数据结构.png)
+
+![](images/Java容器/HashMap数据结构_2.png)
+
+
+
+### HashMap属性
+
+- **initialCapacity：**初始容量。指的是 HashMap 集合初始化的时候自身的容量。可以在构造方法中指定；如果不指定的话，总容量默认值是 **16** 。需要注意的是初始容量必须是 2 的幂次方。
+- **size：**当前 HashMap 中已经存储着的键值对数量，即 HashMap.size()
+- **loadFactor：**加载因子。所谓的加载因子就是 HashMap (当前的容量/总容量) 到达一定值的时候，HashMap 会实施扩容。加载因子也可以通过构造方法中指定，默认的值是 0.75 。举个例子，假设有一个 HashMap 的初始容量为 16 ，那么扩容的阀值就是 0.75 * 16 = 12 。也就是说，在你打算存入第 13 个值的时候，HashMap 会先执行扩容。
+- **threshold：**扩容阀值。即 扩容阀值 = HashMap 总容量 * 加载因子。当前 HashMap 的容量大于或等于扩容阀值的时候就会去执行扩容。扩容的容量为当前 HashMap 总容量的两倍。比如，当前 HashMap 的总容量为 16 ，那么扩容之后为 32 。
+- **table：**1.8之前为Entry 数组，1.8之后为Node数组。我们都知道 HashMap 内部存储 key/value 是通过 Entry/Node 这个介质来实现的。
+
+```java
+implements Map<K,V>, Cloneable, Serializable {
+    //序列号，序列化的时候使用。
+    private static final long serialVersionUID = 362498820763181265L;
+    /**默认容量，1向左移位4个，00000001变成00010000，也就是2的4次方为16，使用移位是因为移位是计算机基础运算，效率比加减乘除快。**/
+    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
+    //最大容量，2的30次方。
+    static final int MAXIMUM_CAPACITY = 1 << 30;
+    //加载因子，用于扩容使用。
+    static final float DEFAULT_LOAD_FACTOR = 0.75f;
+    //当某个桶节点数量大于8时，会转换为红黑树。
+    static final int TREEIFY_THRESHOLD = 8;
+    //当某个桶节点数量小于6时，会转换为链表，前提是它当前是红黑树结构。
+    static final int UNTREEIFY_THRESHOLD = 6;
+    //当整个hashMap中元素数量大于64时，也会进行转为红黑树结构。
+    static final int MIN_TREEIFY_CAPACITY = 64;
+    //存储元素的数组，transient关键字表示该属性不能被序列化
+    transient Node<K,V>[] table;
+    //将数据转换成set的另一种存储形式，这个变量主要用于迭代功能。
+    transient Set<Map.Entry<K,V>> entrySet;
+    //元素数量
+    transient int size;
+    //统计该map修改的次数
+    transient int modCount;
+    //临界值，也就是元素数量达到临界值时，会进行扩容。
+    int threshold;
+    //也是加载因子，只不过这个是变量。
+    final float loadFactor; 
 ```
 
 
 
-![](images/Java基础面试题/HashMap数据结构.png)
+### HashMap常用内部类
+
+**红黑树结构**
+
+```java
+static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
+        TreeNode<K,V> parent;  
+        TreeNode<K,V> left;
+        TreeNode<K,V> right;
+        TreeNode<K,V> prev;    
+        boolean red;
+        TreeNode(int hash, K key, V val, Node<K,V> next) {
+            super(hash, key, val, next);
+        }
+}
+```
+
+
+
+**结点类**
+
+```java
+static class Node<K,V> implements Map.Entry<K,V> {
+        final int hash;
+        final K key;
+        V value;
+        Node<K,V> next;
+ 
+        Node(int hash, K key, V value, Node<K,V> next) {
+            this.hash = hash;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+}
+```
+
+
+
+### 构造方法
+
+- 无参构造方法，默认容量**16**，默认的加载因子**0.75**
+- 设置初始容量，并使用默认的加载因子**0.75**，调用的方法是第三个构造方法，将默认**DEFAULT_LOAD_FACTOR**作为形参传入第三个构造函数
+- 设置初始容量和加载因子
+- 传入一个Map，然后把该Map转为hashMap
+
+
+
+**无参构造方法**
+
+```java
+public HashMap() {
+        this.loadFactor = DEFAULT_LOAD_FACTOR; 
+    }
+```
+
+
+
+**设置初始容量，并使用默认的加载因子0.75**
+
+```java
+public HashMap(int initialCapacity) {
+        this(initialCapacity, DEFAULT_LOAD_FACTOR);
+    }
+```
+
+
+
+**设置初始容量和加载因子**
+
+```java
+public HashMap(int initialCapacity, float loadFactor) {
+        if (initialCapacity < 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " +
+                                               initialCapacity);
+        if (initialCapacity > MAXIMUM_CAPACITY)
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor <= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException("Illegal load factor: " +
+                                               loadFactor);
+        this.loadFactor = loadFactor;
+        this.threshold = tableSizeFor(initialCapacity);
+    }
+```
+
+
+
+**传入一个Map，然后把该Map转为hashMap**
+
+```java
+public HashMap(Map<? extends K, ? extends V> m) {
+        this.loadFactor = DEFAULT_LOAD_FACTOR;
+        putMapEntries(m, false);
+    }
+ 
+ 
+    final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
+        //获取该map的实际长度
+        int s = m.size();
+        if (s > 0) {
+            //判断table是否初始化，如果没有初始化
+            if (table == null) { // pre-size
+                /**求出需要的容量，因为实际使用的长度=容量*0.75得来的，+1是因为小数相除，基本都不会是整数，容量大小不能为小数的，后面转换为int，多余的小数就要被丢掉，所以+1，例如，map实际长度22，22/0.75=29.3,所需要的容量肯定为30，有人会问如果刚刚好除得整数呢，除得整数的话，容量大小多1也没什么影响**/
+                float ft = ((float)s / loadFactor) + 1.0F;
+                //判断该容量大小是否超出上限。
+                int t = ((ft < (float)MAXIMUM_CAPACITY) ?
+                         (int)ft : MAXIMUM_CAPACITY);
+                /**对临界值进行初始化，tableSizeFor(t)这个方法会返回大于t值的，且离其最近的2次幂，例如t为29，则返回的值是32**/
+                if (t > threshold)
+                    threshold = tableSizeFor(t);
+            }
+            //如果table已经初始化，则进行扩容操作，resize()就是扩容。
+            else if (s > threshold)
+                resize();
+            //遍历，把map中的数据转到hashMap中。
+            for (Map.Entry<? extends K, ? extends V> e : m.entrySet()) {
+                K key = e.getKey();
+                V value = e.getValue();
+                putVal(hash(key), key, value, false, evict);
+            }
+        }
+    }
+```
 
 
 
 
 
-### put() | get()原理/底层
+### put()：添加一个键值对
 
-![](images/Java基础面试题/HashMap的put原理图.png)
+![](images/Java容器/HashMap的put原理图.png)
+
+**计算hash值**
+
+先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突
+
+```java
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+```
+
+
+
+**方法源码**
+
+```java
+public V put(K key, V value) {
+        /**四个参数，第一个hash值，第四个参数表示如果该key存在值，如果为null的话，则插入新的value，最后一个参数，在hashMap中没有用，可以不用管，使用默认的即可**/
+        return putVal(hash(key), key, value, false, true);
+    }
+ 
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        //tab 哈希数组，p 该哈希桶的首节点，n hashMap的长度，i 计算出的数组下标
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        //获取长度并进行扩容，使用的是懒加载，table一开始是没有加载的，等put后才开始加载
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        /**如果计算出的该哈希桶的位置没有值，则把新插入的key-value放到此处，此处就算没有插入成功，也就是发生哈希冲突时也会把哈希桶的首节点赋予p**/
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        //发生哈希冲突的几种情况
+        else {
+            // e 临时节点的作用， k 存放该当前节点的key 
+            Node<K,V> e; K k;
+            //第一种，插入的key-value的hash值，key都与当前节点的相等，e = p，则表示为首节点
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            //第二种，hash值不等于首节点，判断该p是否属于红黑树的节点
+            else if (p instanceof TreeNode)
+                /**为红黑树的节点，则在红黑树中进行添加，如果该节点已经存在，则返回该节点（不为null），该值很重要，用来判断put操作是否成功，如果添加成功返回null**/
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            //第三种，hash值不等于首节点，不为红黑树的节点，则为链表的节点
+            else {
+                //遍历该链表
+                for (int binCount = 0; ; ++binCount) {
+                    //如果找到尾部，则表明添加的key-value没有重复，在尾部进行添加
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        //判断是否要转换为红黑树结构
+                        if (binCount >= TREEIFY_THRESHOLD - 1) 
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    //如果链表中有重复的key，e则为当前重复的节点，结束循环
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            //有重复的key，则用待插入值进行覆盖，返回旧值。
+            if (e != null) { 
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        //到了此步骤，则表明待插入的key-value是没有key的重复，因为插入成功e节点的值为null
+        //修改次数+1
+        ++modCount;
+        //实际长度+1，判断是否大于临界值，大于则扩容
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
+        //添加成功
+        return null;
+    }
+```
+
+
 
 
 
@@ -1484,64 +1179,3 @@ transient Entry<K,V>[] table = (Entry<K,V>[]) EMPTY_TABLE;
 
 
 ### ConcurrentHashMap1.8如何实现线程安全
-
-
-
-
-
-
-
-# Java多线程
-
-
-
-##  简述线程、程序、进程的基本概念。以及他们之间关系是什么?
-
-![](images/Java基础面试题/线程、程序、进程.png)
-
-
-
-## Java多线程的四种实现方式
-
-
-
-
-
-
-
-
-
-
-
-## Java线程池
-
-
-
-### 线程池执行流程
-
-
-
-
-
-
-
-# JVM
-
-​		JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。
-
-
-
-## JVM组成
-
-![](images/Java基础面试题/JVM组成图.png)
-
-### 线程共享
-
-- **方法区：**用于存储虚拟机加载的类信息，常量，静态变量等数据
-- **堆：**存放对象实例，所有的对象和数组都要在堆上分配。是JVM所管理的
-
-### 线程私有
-
-- **栈：**Java方法执行的内存模型，存储局部变量表，操作数栈，动态链接，方法出口信息。随线程创建和销毁
-- **本地方法栈：**与虚拟机栈相似，不同点本地方法栈为native方法执行服务，虚拟机栈为虚拟机栈执行的Java方法服务
-- **程序计数器：**当前线程所执行的行号指示器。是JVM内存区域最小的一块区域。执行字节码工作时就是利用程序计数器来选取下一条需要执行的字节码指令
