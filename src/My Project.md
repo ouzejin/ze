@@ -27,7 +27,7 @@ tags:
 
 > - 介绍：一个与线下人脸识别等硬件结合的实验室管理小程序，可以查看出入日志，所在实验室的人员公告等，管理员可以管理实验室开关发布公告，超级管理员添加删除实验室管理员等等
 > - 类型：微信小程序，uniapp
-> - 介绍文档：[Attendance Miniprogram](https://wiki.lifeisgg.online/archives/AttendanceMiniprogram/)
+> - 介绍文档：[Attendance Miniprogram](https://wiki.lifeisgg.online/archives/MyProject-AttendanceMiniprogram/)
 > - Github地址：https://github.com/LifeAlsoIsGG/MyProject-AttendanceMiniprogram-2.0
 
  
@@ -50,7 +50,7 @@ tags:
 
 > - 介绍：模拟超市里面收银进货系统，人员管理系统，仓库管理的Java应用
 > - 类型：Java应用
-> - 介绍文档：[Supermarket System](https://wiki.lifeisgg.online/archives/SupermarketSystem/)
+> - 介绍文档：[Supermarket System](https://wiki.lifeisgg.online/archives/MyProject-SupermarketSystem/)
 > - Github地址：https://github.com/LifeAlsoIsGG/MyProject-SupermarketSystem
 
  
