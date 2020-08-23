@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/a1dcb0b9f8ae6f13d7e666665ce578cf.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/a09c38a51ce9ce1c3e3c8b2ea60765cc.json"
         }
     </script>
     <script>
@@ -147,8 +147,8 @@
 <p>参考</p>
 <blockquote><p><a href="https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2">https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2</a></p>
 </blockquote>
-<h1>List</h1>
-<h2>ArrayList</h2>
+<h1>1. List</h1>
+<h2>1.1 ArrayList</h2>
 <p>参考</p>
 <blockquote><p>ArrayList方法原理：<a href="https://www.cnblogs.com/lierabbit/p/8383683.html">https://www.cnblogs.com/lierabbit/p/8383683.html</a></p>
 </blockquote>
@@ -620,8 +620,8 @@
         <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<h1>Set</h1>
-<h2>HashSet</h2>
+<h1>2. Set</h1>
+<h2>2.1 HashSet</h2>
 <p><strong>HashSet</strong>实现<strong>Set</strong>接口，由哈希表（实际上是一个<strong>HashMap</strong>实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于<strong>HashSet</strong>而言，它是基于<strong>HashMap</strong>实现的，HashSet底层使用<strong>HashMap</strong>来保存所有元素，因此<strong>HashSet</strong> 的实现比较简单，相关<strong>HashSet</strong>的操作，基本上都是直接调用底层<strong>HashMap</strong>的相关方法来完成， <strong>HashSet</strong>的源代码如下：</p>
 <h3>构造器</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>  
@@ -805,8 +805,8 @@
     <span class="k">return</span> <span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>  
     <span class="p">}</span>
 </pre></div>
-<h1>Map</h1>
-<h2>HashMap</h2>
+<h1>3. Map</h1>
+<h2>3.1 HashMap</h2>
 <p><figure><img data-width="706" data-height="436" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/017d96594affbad94816eac161973480.png" alt="" /></figure></p>
 <h3>参考</h3>
 <blockquote><ul>
@@ -990,7 +990,7 @@
     <span class="p">}</span>
 </pre></div>
 <h3>put()：添加一个键值对</h3>
-<p><strong>未发生哈希冲突</strong></p>
+<p><figure><img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a9b583621c8de6a6fe8a510c40bbf81f.png" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">V</span> <span class="nf">put</span><span class="p">(</span><span class="n">K</span> <span class="n">key</span><span class="p">,</span> <span class="n">V</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
         <span class="cm">/**四个参数，第一个hash值，第四个参数表示如果该key存在值，如果为null的话，则插入新的value，最后一个参数，在hashMap中没有用，可以不用管，使用默认的即可**/</span>
         <span class="k">return</span> <span class="n">putVal</span><span class="p">(</span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1057,7 +1057,111 @@
         <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
-<p><figure><img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a9b583621c8de6a6fe8a510c40bbf81f.png" alt="" /></figure></p>
+<p><strong>resize()扩容操作</strong></p>
+<div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="nf">resize</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//把没插入之前的哈希数组做我诶oldTal</span>
+        <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="n">oldTab</span> <span class="o">=</span> <span class="n">table</span><span class="p">;</span>
+        <span class="c1">//old的长度</span>
+        <span class="kt">int</span> <span class="n">oldCap</span> <span class="o">=</span> <span class="p">(</span><span class="n">oldTab</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">oldTab</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+        <span class="c1">//old的临界值</span>
+        <span class="kt">int</span> <span class="n">oldThr</span> <span class="o">=</span> <span class="n">threshold</span><span class="p">;</span>
+        <span class="c1">//初始化new的长度和临界值</span>
+        <span class="kt">int</span> <span class="n">newCap</span><span class="p">,</span> <span class="n">newThr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">//oldCap &gt; 0也就是说不是首次初始化，因为hashMap用的是懒加载</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">oldCap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//大于最大值</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">oldCap</span> <span class="o">&gt;=</span> <span class="n">MAXIMUM_CAPACITY</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">//临界值为整数的最大值</span>
+                <span class="n">threshold</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">oldTab</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">//标记##，其它情况，扩容两倍，并且扩容后的长度要小于最大值，old长度也要大于16</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">newCap</span> <span class="o">=</span> <span class="n">oldCap</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAXIMUM_CAPACITY</span> <span class="o">&amp;&amp;</span>
+                     <span class="n">oldCap</span> <span class="o">&gt;=</span> <span class="n">DEFAULT_INITIAL_CAPACITY</span><span class="p">)</span>
+                <span class="c1">//临界值也扩容为old的临界值2倍</span>
+                <span class="n">newThr</span> <span class="o">=</span> <span class="n">oldThr</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="cm">/**如果oldCap&lt;0，但是已经初始化了，像把元素删除完之后的情况，那么它的临界值肯定还存在，        </span>
+<span class="cm">           如果是首次初始化，它的临界值则为0</span>
+<span class="cm">        **/</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">oldThr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+            <span class="n">newCap</span> <span class="o">=</span> <span class="n">oldThr</span><span class="p">;</span>
+        <span class="c1">//首次初始化，给与默认的值</span>
+        <span class="k">else</span> <span class="p">{</span>               
+            <span class="n">newCap</span> <span class="o">=</span> <span class="n">DEFAULT_INITIAL_CAPACITY</span><span class="p">;</span>
+            <span class="c1">//临界值等于容量*加载因子</span>
+            <span class="n">newThr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">DEFAULT_LOAD_FACTOR</span> <span class="o">*</span> <span class="n">DEFAULT_INITIAL_CAPACITY</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//此处的if为上面标记##的补充，也就是初始化时容量小于默认值16的，此时newThr没有赋值</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">newThr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//new的临界值</span>
+            <span class="kt">float</span> <span class="n">ft</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">newCap</span> <span class="o">*</span> <span class="n">loadFactor</span><span class="p">;</span>
+            <span class="c1">//判断是否new容量是否大于最大值，临界值是否大于最大值</span>
+            <span class="n">newThr</span> <span class="o">=</span> <span class="p">(</span><span class="n">newCap</span> <span class="o">&lt;</span> <span class="n">MAXIMUM_CAPACITY</span> <span class="o">&amp;&amp;</span> <span class="n">ft</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">MAXIMUM_CAPACITY</span> <span class="o">?</span>
+                      <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ft</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//把上面各种情况分析出的临界值，在此处真正进行改变，也就是容量和临界值都改变了。</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="n">newThr</span><span class="p">;</span>
+        <span class="c1">//表示忽略该警告</span>
+        <span class="nd">@SuppressWarnings</span><span class="p">({</span><span class="s">&quot;rawtypes&quot;</span><span class="p">,</span><span class="s">&quot;unchecked&quot;</span><span class="p">})</span>
+            <span class="c1">//初始化</span>
+            <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="n">newTab</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span><span class="p">)</span><span class="k">new</span> <span class="n">Node</span><span class="o">[</span><span class="n">newCap</span><span class="o">]</span><span class="p">;</span>
+        <span class="c1">//赋予当前的table</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">newTab</span><span class="p">;</span>
+        <span class="c1">//此处自然是把old中的元素，遍历到new中</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">oldTab</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">oldCap</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">//临时变量</span>
+                <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">e</span><span class="p">;</span>
+                <span class="c1">//当前哈希桶的位置值不为null，也就是数组下标处有值，因为有值表示可能会发生冲突</span>
+                <span class="k">if</span> <span class="p">((</span><span class="n">e</span> <span class="o">=</span> <span class="n">oldTab</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">//把已经赋值之后的变量置位null，当然是为了好回收，释放内存</span>
+                    <span class="n">oldTab</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                    <span class="c1">//如果下标处的节点没有下一个元素</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+                        <span class="c1">//把该变量的值存入newCap中，e.hash &amp; (newCap - 1)并不等于j</span>
+                        <span class="n">newTab</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">hash</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">newCap</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                    <span class="c1">//该节点为红黑树结构，也就是存在哈希冲突，该哈希桶中有多个元素</span>
+                    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">TreeNode</span><span class="p">)</span>
+                        <span class="c1">//把此树进行转移到newCap中</span>
+                        <span class="p">((</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span><span class="p">)</span><span class="n">e</span><span class="p">).</span><span class="na">split</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">newTab</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">oldCap</span><span class="p">);</span>
+                    <span class="k">else</span> <span class="p">{</span> <span class="cm">/**此处表示为链表结构，同样把链表转移到newCap中，就是把链表遍历后，把值转过去，在置位null**/</span>
+                        <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">loHead</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">loTail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                        <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">hiHead</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">hiTail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                        <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">next</span><span class="p">;</span>
+                        <span class="k">do</span> <span class="p">{</span>
+                            <span class="n">next</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+                            <span class="k">if</span> <span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="na">hash</span> <span class="o">&amp;</span> <span class="n">oldCap</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">if</span> <span class="p">(</span><span class="n">loTail</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+                                    <span class="n">loHead</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                                <span class="k">else</span>
+                                    <span class="n">loTail</span><span class="p">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                                <span class="n">loTail</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="k">else</span> <span class="p">{</span>
+                                <span class="k">if</span> <span class="p">(</span><span class="n">hiTail</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+                                    <span class="n">hiHead</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                                <span class="k">else</span>
+                                    <span class="n">hiTail</span><span class="p">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                                <span class="n">hiTail</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span> <span class="k">while</span> <span class="p">((</span><span class="n">e</span> <span class="o">=</span> <span class="n">next</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">);</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">loTail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="n">loTail</span><span class="p">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                            <span class="n">newTab</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">loHead</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">hiTail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="n">hiTail</span><span class="p">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                            <span class="n">newTab</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="n">oldCap</span><span class="o">]</span> <span class="o">=</span> <span class="n">hiHead</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">//返回扩容后的hashMap</span>
+        <span class="k">return</span> <span class="n">newTab</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
 <p><strong>计算hash值</strong></p>
 <p>先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突</p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">hash</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
