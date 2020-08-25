@@ -33,6 +33,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/腾讯移动客户端面经/</loc>
+    <lastmod>2020-08-24</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Java-JVM/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>always</changefreq>
