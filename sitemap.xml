@@ -54,7 +54,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Java-多线程/</loc>
+    <loc>/archives/Java-多线程并发/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
