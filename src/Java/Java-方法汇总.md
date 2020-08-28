@@ -187,3 +187,155 @@ ArrayList
 
 
 
+
+
+# String字符串
+
+参考
+
+> - https://www.cnblogs.com/windbyside/p/9393716.html
+
+
+
+#### char charAt(int index)：返回指定索引位置的字符
+
+```java
+String str = new String("String");
+System.out.println(str.charAt(0));
+//return "S";
+```
+
+
+
+#### String substring(int beginIndex)：返回指定起始位置至字符串末尾的字符串
+
+```java
+String str = new String("String");
+System.out.println(str.substring(1));
+//return "tring";
+```
+
+
+
+#### **String** substring(int beginIndex, int endIndex)：返回指定起始位置（含）到结束位置（不含）之间的字符串
+
+```java
+String str = new String("String");
+System.out.println(str.substring(1, 3));
+//return "tr";
+```
+
+
+
+#### int indexOf(String str)：返回指定字符串的索引位置
+
+```java
+String str = new String("String");
+System.out.println(str.indexOf("i"));
+//return "3";
+
+System.out.println(str.indexOf("ing"));
+//return "3";
+```
+
+
+
+#### int indexOf(String str, int fromIndex)：返回从指定索引位置fromIndex开始的str的索引位置,如果没有返回-1
+
+```java
+String str = new String("String");
+System.out.println(str.indexOf("ing", 2));
+//return "3";
+```
+
+
+
+#### String replace(CharSequence oldString, CharSequence newString): 用newString替换字符串中的oldString
+
+```java
+String str = new String("String");
+System.out.println(str.replace("g", "gs"));
+//return "Strings";
+```
+
+
+
+#### String trim()：返回一个去除两头空格的新字符串
+
+```java
+String str1 = new String();
+　　str1 =  " "+"string"+" ";
+　　System.out.println(str1.length());
+　　//return "8"
+　　str1 = str1.trim();
+　　System.out.println(str.length());
+　　//return "6"
+```
+
+
+
+#### String[ ] split(String regex)：指定正则表达式分隔符，返回一个字符串数组
+
+```java
+String str2 = new String();
+　　str2 = "A/B/C";
+　　String s[] = str2.split("/");
+　　System.out.println("s[0] = "+s[0]);
+　　//return"A"
+　　for(String ss: s) {
+　　System.out.print(ss+" ");
+　　}
+　　//return"A B C"
+```
+
+
+
+#### String[ ] split(String regex, int limit)：指定正则表达式分隔符regex和分隔份数limit，返回一个字符串数组　
+
+```java
+String str2 = new String();
+　　str2 = "A/B/C";
+　　String s[] = str2.split("/", 2);
+　　for(String ss: s) {
+　　System.out.print(ss+" ");
+　　}
+　　//return"A B/C"
+```
+
+
+
+#### String.copyValueOf(charArray)：将字符数组转换为字符串
+
+```java
+char[] arr=['a','b','c'];
+String string =String.copyValueOf(arr);
+System.out.println(string);          //abc
+```
+
+
+
+String数组->字符串
+
+
+
+#### String toLowerCase()：转换为小写字母
+
+
+
+#### String toUpperCase()：转换为大写字母
+
+
+
+#### boolean startsWith(String prefix)：如果字符串以prefix开头返回true，否则返回false
+
+
+
+#### boolean endsWith(String suffix)：如果字符串以suffix结尾返回true，否则返回false
+
+
+
+#### boolean equals(Object other)：如果字符串与other相等返回true，否则返回false
+
+
+
+#### boolean equalsIgnoreCase(String other)：如果字符串与other相等（忽略大小写）返回true，否则返回false
