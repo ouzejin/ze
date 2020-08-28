@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/4ee0dada3011f5ecaf34ee2ff4771b8c.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/0d7f5ebc06aa45b8b8dc2e77d9be9891.json"
         }
     </script>
     <script>
@@ -274,6 +274,86 @@
 </li>
 </ol>
 <h3>List特有</h3>
+<h1>String字符串</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/windbyside/p/9393716.html">https://www.cnblogs.com/windbyside/p/9393716.html</a></li>
+</ul>
+</blockquote>
+<h4>char charAt(int index)：返回指定索引位置的字符</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="c1">//return &quot;S&quot;;</span>
+</pre></div>
+<h4>String substring(int beginIndex)：返回指定起始位置至字符串末尾的字符串</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">//return &quot;tring&quot;;</span>
+</pre></div>
+<h4><strong>String</strong> substring(int beginIndex, int endIndex)：返回指定起始位置（含）到结束位置（不含）之间的字符串</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+<span class="c1">//return &quot;tr&quot;;</span>
+</pre></div>
+<h4>int indexOf(String str)：返回指定字符串的索引位置</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;i&quot;</span><span class="p">));</span>
+<span class="c1">//return &quot;3&quot;;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ing&quot;</span><span class="p">));</span>
+<span class="c1">//return &quot;3&quot;;</span>
+</pre></div>
+<h4>int indexOf(String str, int fromIndex)：返回从指定索引位置fromIndex开始的str的索引位置,如果没有返回-1</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ing&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+<span class="c1">//return &quot;3&quot;;</span>
+</pre></div>
+<h4>String replace(CharSequence oldString, CharSequence newString): 用newString替换字符串中的oldString</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;gs&quot;</span><span class="p">));</span>
+<span class="c1">//return &quot;Strings&quot;;</span>
+</pre></div>
+<h4>String trim()：返回一个去除两头空格的新字符串</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">();</span>
+　　<span class="n">str1</span> <span class="o">=</span>  <span class="s">&quot; &quot;</span><span class="o">+</span><span class="s">&quot;string&quot;</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">;</span>
+　　<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str1</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+　　<span class="c1">//return &quot;8&quot;</span>
+　　<span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="p">.</span><span class="na">trim</span><span class="p">();</span>
+　　<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+　　<span class="c1">//return &quot;6&quot;</span>
+</pre></div>
+<h4>String[ ] split(String regex)：指定正则表达式分隔符，返回一个字符串数组</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">();</span>
+　　<span class="n">str2</span> <span class="o">=</span> <span class="s">&quot;A/B/C&quot;</span><span class="p">;</span>
+　　<span class="n">String</span> <span class="n">s</span><span class="o">[]</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">);</span>
+　　<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s[0] = &quot;</span><span class="o">+</span><span class="n">s</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+　　<span class="c1">//return&quot;A&quot;</span>
+　　<span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">ss</span><span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+　　<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">ss</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+　　<span class="p">}</span>
+　　<span class="c1">//return&quot;A B C&quot;</span>
+</pre></div>
+<h4>String[ ] split(String regex, int limit)：指定正则表达式分隔符regex和分隔份数limit，返回一个字符串数组　</h4>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">();</span>
+　　<span class="n">str2</span> <span class="o">=</span> <span class="s">&quot;A/B/C&quot;</span><span class="p">;</span>
+　　<span class="n">String</span> <span class="n">s</span><span class="o">[]</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+　　<span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">ss</span><span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+　　<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">ss</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+　　<span class="p">}</span>
+　　<span class="c1">//return&quot;A B/C&quot;</span>
+</pre></div>
+<h4>String.copyValueOf(charArray)：将字符数组转换为字符串</h4>
+<div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">arr</span><span class="o">=[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="o">]</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">string</span> <span class="o">=</span><span class="n">String</span><span class="p">.</span><span class="na">copyValueOf</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">string</span><span class="p">);</span>          <span class="c1">//abc</span>
+</pre></div>
+<p>String数组-&gt;字符串</p>
+<h4>String toLowerCase()：转换为小写字母</h4>
+<h4>String toUpperCase()：转换为大写字母</h4>
+<h4>boolean startsWith(String prefix)：如果字符串以prefix开头返回true，否则返回false</h4>
+<h4>boolean endsWith(String suffix)：如果字符串以suffix结尾返回true，否则返回false</h4>
+<h4>boolean equals(Object other)：如果字符串与other相等返回true，否则返回false</h4>
+<h4>boolean equalsIgnoreCase(String other)：如果字符串与other相等（忽略大小写）返回true，否则返回false</h4>
 </article>
     </section>
 
