@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-08-28T16:58:19.728935+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java基础面试题/</id><title>Java基础面试题</title><updated>2020-08-28T16:58:19.729333+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习路线&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-08-28T17:02:41.246626+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java基础面试题/</id><title>Java基础面试题</title><updated>2020-08-28T17:02:41.247226+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习路线&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="628" data-height="808" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f53560858e548e5859e3b095609cd821.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;JDK和JRE区别&lt;/h1&gt;
 &lt;ul&gt;
@@ -349,7 +349,7 @@
 &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// True&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;c==d 为假，是因为c和d引用了对内存中的两个不同的对象，不同的对象，引用值肯定不同&lt;/p&gt;
-</content><link href="/archives/Java基础面试题/" rel="alternate"/><published>2020-08-08T23:24:32+08:06</published></entry><entry><id>/archives/Spring框架面试题/</id><title>Spring框架面试题</title><updated>2020-08-28T16:58:19.729305+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1 Spring&lt;/h1&gt;
+</content><link href="/archives/Java基础面试题/" rel="alternate"/><published>2020-08-08T23:24:32+08:06</published></entry><entry><id>/archives/Spring框架面试题/</id><title>Spring框架面试题</title><updated>2020-08-28T17:02:41.247194+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1 Spring&lt;/h1&gt;
 &lt;h2&gt;1.1 什么是 Spring 框架?&lt;/h2&gt;
 &lt;p&gt;​       spring是开源的轻量级框架。我们⼀般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使⽤这些模块可以很⽅ 便地协助我们进⾏开发。这些模块是：核⼼容器、数据访问/集成,、Web、AOP（⾯向切⾯编程）、⼯ 具、消息和测试模块。⽐如：Core Container 中的 Core 组件是Spring 所有组件的核⼼，Beans 组件 和 Context 组件是实现IOC和依赖注⼊的基础，AOP组件⽤来实现⾯向切⾯编程。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Spring 官⽹列出的 Spring 的 6 个特征:&lt;/strong&gt;&lt;/p&gt;
@@ -445,8 +445,8 @@
 &lt;li&gt;SpringCloud Feign：声明性的Web服务客户端&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;等20多个开源框架&lt;/p&gt;
-</content><link href="/archives/Spring框架面试题/" rel="alternate"/><published>2020-08-08T23:25:58+08:06</published></entry><entry><id>/archives/Mysql&amp;Redis数据库面试题/</id><title>Mysql&amp;Redis数据库面试题</title><updated>2020-08-28T16:58:19.729276+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Mysql&amp;amp;Redis数据库面试题&lt;/p&gt;
-</content><link href="/archives/Mysql&amp;Redis数据库面试题/" rel="alternate"/><published>2020-08-08T23:26:48+08:06</published></entry><entry><id>/archives/计算机其它面试题/</id><title>计算机其它面试题</title><updated>2020-08-28T16:58:19.729247+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;操作系统&lt;/h1&gt;
+</content><link href="/archives/Spring框架面试题/" rel="alternate"/><published>2020-08-08T23:25:58+08:06</published></entry><entry><id>/archives/Mysql&amp;Redis数据库面试题/</id><title>Mysql&amp;Redis数据库面试题</title><updated>2020-08-28T17:02:41.247149+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Mysql&amp;amp;Redis数据库面试题&lt;/p&gt;
+</content><link href="/archives/Mysql&amp;Redis数据库面试题/" rel="alternate"/><published>2020-08-08T23:26:48+08:06</published></entry><entry><id>/archives/计算机其它面试题/</id><title>计算机其它面试题</title><updated>2020-08-28T17:02:41.247073+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;操作系统&lt;/h1&gt;
 &lt;h2&gt;进程和线程以及它们的区别&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;进程是对运行时程序的封装，是系统进行资源调度和分配的的基本单位，实现了操作系统的并发；&lt;/li&gt;
@@ -739,8 +739,8 @@
 &lt;p&gt;服务端向客户端发送自己的证书，当前显示这是一个自签的证书（keytool工具生成）证书更多的是验证身份，其中包含了公钥，可用于RSA密钥交换算法的加密。&lt;/p&gt;
 &lt;h1&gt;数据结构&lt;/h1&gt;
 &lt;h1&gt;Linux&lt;/h1&gt;
-</content><link href="/archives/计算机其它面试题/" rel="alternate"/><published>2020-08-08T23:29:00+08:06</published></entry><entry><id>/archives/Java-设计模式/</id><title>Java-设计模式</title><updated>2020-08-28T16:58:19.729218+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java设计模式&lt;/p&gt;
-</content><link href="/archives/Java-设计模式/" rel="alternate"/><published>2020-08-09T23:57:52+08:06</published></entry><entry><id>/archives/Linux常用命令/</id><title>Linux常用命令</title><updated>2020-08-28T16:58:19.729186+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;菜鸟教程Linux命令大全&lt;/h1&gt;
+</content><link href="/archives/计算机其它面试题/" rel="alternate"/><published>2020-08-08T23:29:00+08:06</published></entry><entry><id>/archives/Java-设计模式/</id><title>Java-设计模式</title><updated>2020-08-28T17:02:41.246997+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java设计模式&lt;/p&gt;
+</content><link href="/archives/Java-设计模式/" rel="alternate"/><published>2020-08-09T23:57:52+08:06</published></entry><entry><id>/archives/Linux常用命令/</id><title>Linux常用命令</title><updated>2020-08-28T17:02:41.246962+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;菜鸟教程Linux命令大全&lt;/h1&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://www.runoob.com/linux/linux-command-manual.html"&gt;https://www.runoob.com/linux/linux-command-manual.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;系统管理&lt;/h2&gt;
@@ -759,7 +759,7 @@
 --help 　显示帮助。
 --version 　显示版本信息。
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/Linux常用命令/" rel="alternate"/><published>2020-08-14T16:45:16+08:06</published></entry><entry><id>/archives/Java-多线程并发/</id><title>Java-多线程并发</title><updated>2020-08-28T16:58:19.729154+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;线程、程序、进程的基本概念&lt;/h1&gt;
+</content><link href="/archives/Linux常用命令/" rel="alternate"/><published>2020-08-14T16:45:16+08:06</published></entry><entry><id>/archives/Java-多线程并发/</id><title>Java-多线程并发</title><updated>2020-08-28T17:02:41.246911+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;线程、程序、进程的基本概念&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d4057bed69eb6b5479b6a48d1a7c2c0e.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;Java多线程的四种实现方式&lt;/h1&gt;
 &lt;p&gt;参考&lt;/p&gt;
@@ -1007,7 +1007,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;/ol&gt;
 &lt;h2&gt;内存可见性&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1267" data-height="700" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ad9b6a6bfaf4df3ba5b9991e6a33b51c.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/Java-多线程并发/" rel="alternate"/><published>2020-08-23T20:36:25+08:06</published></entry><entry><id>/archives/Java-容器/</id><title>Java-容器</title><updated>2020-08-28T16:58:19.729121+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;容器总览&lt;/h1&gt;
+</content><link href="/archives/Java-多线程并发/" rel="alternate"/><published>2020-08-23T20:36:25+08:06</published></entry><entry><id>/archives/Java-容器/</id><title>Java-容器</title><updated>2020-08-28T17:02:41.246830+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;容器总览&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="959" data-height="912" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/40eb958aebc6e5e06c8b4f0afb334cb5.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="images/Java容器/Java集合框架体系.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="801" data-height="810" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/fbbb5098a2e2b5c19e24ba6c4c1118e3.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -2044,7 +2044,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;h3&gt;HashMap扩容机制&lt;/h3&gt;
 &lt;h3&gt;为什么HashMap线程不安全&lt;/h3&gt;
 &lt;h3&gt;ConcurrentHashMap1.8如何实现线程安全&lt;/h3&gt;
-</content><link href="/archives/Java-容器/" rel="alternate"/><published>2020-08-23T20:37:41+08:06</published></entry><entry><id>/archives/Java-JVM/</id><title>Java-JVM</title><updated>2020-08-28T16:58:19.729085+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;​   JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。&lt;/p&gt;
+</content><link href="/archives/Java-容器/" rel="alternate"/><published>2020-08-23T20:37:41+08:06</published></entry><entry><id>/archives/Java-JVM/</id><title>Java-JVM</title><updated>2020-08-28T17:02:41.246790+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;​   JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。&lt;/p&gt;
 &lt;h1&gt;JVM组成&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4d29555739c58caac26279d8a55c56bb.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2&gt;线程共享&lt;/h2&gt;
@@ -2081,4 +2081,4 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;li&gt;&lt;strong&gt;栈内存：&lt;/strong&gt;没有可用的空间存储方法调用和局部变量，JVM会抛出&lt;strong&gt;java.lang.StackOverFlowError&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;空间大小&lt;/h2&gt;
-</content><link href="/archives/Java-JVM/" rel="alternate"/><published>2020-08-23T21:10:09+08:06</published></entry><entry><id>/archives/腾讯移动客户端面经/</id><title>腾讯移动客户端面经</title><updated>2020-08-28T16:58:19.729019+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content/><link href="/archives/腾讯移动客户端面经/" rel="alternate"/><published>2020-08-24T18:44:39+08:06</published></entry></feed>
+</content><link href="/archives/Java-JVM/" rel="alternate"/><published>2020-08-23T21:10:09+08:06</published></entry><entry><id>/archives/腾讯移动客户端面经/</id><title>腾讯移动客户端面经</title><updated>2020-08-28T17:02:41.246718+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content/><link href="/archives/腾讯移动客户端面经/" rel="alternate"/><published>2020-08-24T18:44:39+08:06</published></entry></feed>
