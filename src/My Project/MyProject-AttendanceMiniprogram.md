@@ -33,7 +33,7 @@ Github
 
 
 
-<div align=center><img  src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/实验室出入管理小程序二维码.jpg"/></div>
+<div align=center><img width="70%" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/实验室出入管理小程序二维码.jpg"/></div>
 
 
 
@@ -41,9 +41,11 @@ Github
 
 此小程序获得了[2020中国微信官方小程序大赛](https://developers.weixin.qq.com/community/competition)华南赛区二等奖🎉
 
-<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/2020微信小程序应用开发赛华南赛区二等奖.jpg"/></div>
+<div align=center><img width="70%"src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/2020微信小程序应用开发赛华南赛区二等奖.jpg"/></div>
 
 
+
+赛区奖项比例
 
 > - 一等奖：5%
 > - 二等奖：10%
@@ -53,6 +55,8 @@ Github
 
 
 <div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-AttendanceMiniprogram-2.0/images/readme/华南赛区.png"/></div>
+
+
 
 
 
