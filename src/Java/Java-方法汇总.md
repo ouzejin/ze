@@ -379,7 +379,11 @@ System.out.println(string);          //abc
 
 
 
-## StringBuffer
+## StringBuffer | StringBuilder
+
+
+
+通用于StringBuilder
 
 
 
@@ -444,11 +448,11 @@ System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4, 5]
 
 
 
-### String | StringBuffer 互转
+### String | StringBuffer/StringBuilder 互转
 
 
 
-#### String 转 StringBuffer
+#### String 转 StringBuffer/StringBuilder
 
 ```java
 String s = "abc";
@@ -463,7 +467,7 @@ sb.append(s);
 
 
 
-#### StringBuffer 转 String
+#### StringBuffer/StringBuilder 转 String
 
 ```java
 StringBuffer sb = new StringBuffer("abc");
