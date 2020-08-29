@@ -26,10 +26,10 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/about/</loc>
-    <lastmod>2017-06-28</lastmod>
+    <loc>/archives/数据结构&算法题目合集/</loc>
+    <lastmod>2020-08-29</lastmod>
     <changefreq>always</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
 </url>
 
 <url>
