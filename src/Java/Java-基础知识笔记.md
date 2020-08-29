@@ -7,7 +7,6 @@ status: publish
 author: LifeAlsoIsGG
 categories: 
   - Java
-  - 笔记
 tags: 
   - Java
   - 笔记
