@@ -190,13 +190,21 @@ ArrayList
 
 # String字符串
 
+
+
 参考
 
 > - https://www.cnblogs.com/windbyside/p/9393716.html
 
 
 
-#### char charAt(int index)：返回指定索引位置的字符
+
+
+
+
+## char charAt(int index)
+
+返回指定索引位置的字符
 
 ```java
 String str = new String("String");
@@ -206,7 +214,9 @@ System.out.println(str.charAt(0));
 
 
 
-#### String substring(int beginIndex)：返回指定起始位置至字符串末尾的字符串
+## String substring(int beginIndex)
+
+返回指定起始位置至字符串末尾的字符串
 
 ```java
 String str = new String("String");
@@ -216,7 +226,9 @@ System.out.println(str.substring(1));
 
 
 
-#### **String** substring(int beginIndex, int endIndex)：返回指定起始位置（含）到结束位置（不含）之间的字符串
+## **String** substring(int beginIndex, int endIndex)
+
+返回指定起始位置（含）到结束位置（不含）之间的字符串
 
 ```java
 String str = new String("String");
@@ -226,7 +238,9 @@ System.out.println(str.substring(1, 3));
 
 
 
-#### int indexOf(String str)：返回指定字符串的索引位置
+## int indexOf(String str)
+
+返回指定字符串的索引位置
 
 ```java
 String str = new String("String");
@@ -239,7 +253,9 @@ System.out.println(str.indexOf("ing"));
 
 
 
-#### int indexOf(String str, int fromIndex)：返回从指定索引位置fromIndex开始的str的索引位置,如果没有返回-1
+## int indexOf(String str, int fromIndex)
+
+返回从指定索引位置fromIndex开始的str的索引位置,如果没有返回-1
 
 ```java
 String str = new String("String");
@@ -249,7 +265,9 @@ System.out.println(str.indexOf("ing", 2));
 
 
 
-#### String replace(CharSequence oldString, CharSequence newString): 用newString替换字符串中的oldString
+## String replace(CharSequence oldString, CharSequence newString):
+
+用newString替换字符串中的oldString，注意相当于new了个新的String，原String不变
 
 ```java
 String str = new String("String");
@@ -259,7 +277,9 @@ System.out.println(str.replace("g", "gs"));
 
 
 
-#### String trim()：返回一个去除两头空格的新字符串
+## String trim()
+
+返回一个去除两头空格的新字符串
 
 ```java
 String str1 = new String();
@@ -273,7 +293,9 @@ String str1 = new String();
 
 
 
-#### String[ ] split(String regex)：指定正则表达式分隔符，返回一个字符串数组
+## String[ ] split(String regex)
+
+指定正则表达式分隔符，返回一个字符串数组
 
 ```java
 String str2 = new String();
@@ -289,7 +311,9 @@ String str2 = new String();
 
 
 
-#### String[ ] split(String regex, int limit)：指定正则表达式分隔符regex和分隔份数limit，返回一个字符串数组　
+## String[ ] split(String regex, int limit)
+
+指定正则表达式分隔符regex和分隔份数limit，返回一个字符串数组
 
 ```java
 String str2 = new String();
@@ -303,7 +327,9 @@ String str2 = new String();
 
 
 
-#### String.copyValueOf(charArray)：将字符数组转换为字符串
+## String.copyValueOf(charArray)
+
+将字符数组转换为字符串
 
 ```java
 char[] arr=['a','b','c'];
@@ -313,28 +339,139 @@ System.out.println(string);          //abc
 
 
 
-String数组->字符串
+
+
+## String toLowerCase()
+
+转换为小写字母
 
 
 
-#### String toLowerCase()：转换为小写字母
+## String toUpperCase()：
+
+转换为大写字母
 
 
 
-#### String toUpperCase()：转换为大写字母
+## boolean startsWith(String prefix)
+
+如果字符串以prefix开头返回true，否则返回false
 
 
 
-#### boolean startsWith(String prefix)：如果字符串以prefix开头返回true，否则返回false
+## boolean endsWith(String suffix)
+
+如果字符串以suffix结尾返回true，否则返回false
 
 
 
-#### boolean endsWith(String suffix)：如果字符串以suffix结尾返回true，否则返回false
+## boolean equals(Object other)
+
+如果字符串与other相等返回true，否则返回false
 
 
 
-#### boolean equals(Object other)：如果字符串与other相等返回true，否则返回false
+## boolean equalsIgnoreCase(String other)
+
+如果字符串与other相等（忽略大小写）返回true，否则返回false
 
 
 
-#### boolean equalsIgnoreCase(String other)：如果字符串与other相等（忽略大小写）返回true，否则返回false
+
+
+## StringBuffer
+
+
+
+### StringBuffer append(String s)
+
+将其他类型拼接操作。可用于字符串数组转
+
+![](images/Java常用方法汇总/StringBuffer_append().jpg)
+
+
+
+### String toString()
+
+转换为String。也可以通过构造方法进行转换
+
+```java
+StringBuffer stringBuffer = new StringBuffer("String");
+stringBuffer.toString()
+```
+
+
+
+
+
+## 字符串 | 数组 | 其它类型 互转
+
+
+
+### char[] toCharArray()
+
+字符串转字符数组
+
+```java
+String str = new String("String");
+System.out.println(str.toCharArray());
+```
+
+
+
+### String String.valueOf(char[] c);
+
+将其它类型转换为字符串
+
+![](images/Java常用方法汇总/valueOf.jpg)
+
+
+
+### String[] split(String s)
+
+字符串转字符串数组。split() 方法根据匹配给定的正则表达式来拆分字符串。 **. 、 | 和 *** 等转义字符，必须得加 \ \。多个分隔符，可以用 | 作为连字符。
+
+```java
+// 字符串转数组  java.lang.String
+String str = "0,1,2,3,4,5";
+String[] arr = str.split(","); // 用,分割
+System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4, 5]
+```
+
+> 字符串数组转字符串可以使用**StringBuffer**的拼接操作**append(String s)**进行遍历拼接
+
+
+
+
+
+### String | StringBuffer 互转
+
+
+
+#### String 转 StringBuffer
+
+```java
+String s = "abc";
+
+//通过构造方法
+StringBuffer sb = new StringBuffer(s);
+
+//通过append()方法
+StringBuffer sb = new StringBuffer();
+sb.append(s);
+```
+
+
+
+#### StringBuffer 转 String
+
+```java
+StringBuffer sb = new StringBuffer("abc");
+
+//通过构造方法
+String s = new String(sb);
+
+//通过toString()方法
+String s = sb.toString();
+```
+
