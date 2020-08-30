@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 30 Aug 2020 10:04:42 +0806</lastBuildDate><pubDate>Sun, 30 Aug 2020 10:04:42 +0806</pubDate><item><title>Mysql&amp;Redis数据库面试题</title><link>/archives/Mysql&amp;Redis数据库面试题/</link><description>&lt;p&gt;Mysql&amp;amp;Redis数据库面试题&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 30 Aug 2020 15:18:40 +0806</lastBuildDate><pubDate>Sun, 30 Aug 2020 15:18:40 +0806</pubDate><item><title>Mysql&amp;Redis数据库面试题</title><link>/archives/Mysql&amp;Redis数据库面试题/</link><description>&lt;p&gt;Mysql&amp;amp;Redis数据库面试题&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Mysql&amp;Redis数据库面试题/</guid><pubDate>Sat, 08 Aug 2020 23:26:48 +0806</pubDate></item><item><title>计算机其它面试题</title><link>/archives/计算机其它面试题/</link><description>&lt;h1&gt;操作系统&lt;/h1&gt;
 &lt;h2&gt;进程和线程以及它们的区别&lt;/h2&gt;
 &lt;ul&gt;
@@ -292,6 +292,10 @@
 &lt;h3&gt;3. Certificate&lt;/h3&gt;
 &lt;p&gt;服务端向客户端发送自己的证书，当前显示这是一个自签的证书（keytool工具生成）证书更多的是验证身份，其中包含了公钥，可用于RSA密钥交换算法的加密。&lt;/p&gt;
 &lt;h1&gt;数据结构&lt;/h1&gt;
+&lt;h2&gt;01.假设整数乘法运算时间复杂度为 O(1)， 计算整数的 n 次幂( n&amp;gt;0)， 最快算法的时间复杂度为&lt;/h2&gt;
+&lt;blockquote&gt;&lt;p&gt;O(logn)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用&lt;a href="https://baike.baidu.com/item/%E5%BF%AB%E9%80%9F%E5%B9%82/5500243?fr=aladdin"&gt;快速幂&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Linux&lt;/h1&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/计算机其它面试题/</guid><pubDate>Sat, 08 Aug 2020 23:29:00 +0806</pubDate></item><item><title>Java-设计模式</title><link>/archives/Java-设计模式/</link><description>&lt;p&gt;Java设计模式&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-设计模式/</guid><pubDate>Sun, 09 Aug 2020 23:57:52 +0806</pubDate></item><item><title>Linux常用命令</title><link>/archives/Linux常用命令/</link><description>&lt;h1&gt;菜鸟教程Linux命令大全&lt;/h1&gt;
@@ -1842,6 +1846,23 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/数据结构&amp;算法题目合集/</guid><pubDate>Sat, 29 Aug 2020 19:21:57 +0806</pubDate></item><item><title>数据结构&amp;算法</title><link>/archives/数据结构&amp;算法/</link><description>&lt;h1&gt;时间复杂度计算&lt;/h1&gt;
+&lt;h1&gt;算法&lt;/h1&gt;
+&lt;h2&gt;区别&lt;/h2&gt;
+&lt;h3&gt;动态规划和贪心算法的区别&lt;/h3&gt;
+&lt;p&gt;相同点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态规划和贪心算法都是一种递推算法 &lt;/li&gt;
+&lt;li&gt;均有局部最优解来推导全局最优解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不同点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。 &lt;/li&gt;
+&lt;li&gt;可以知道贪心法正确的条件是：每一步的最优解一定包含上一步的最优解。 &lt;/li&gt;
+&lt;li&gt;全局最优解中一定包含某个局部最优解，但不一定包含前一个局部最优解，因此需要记录之前的所有最优解 &lt;/li&gt;
+&lt;li&gt;动态规划的关键是状态转移方程，即如何由以求出的局部最优解来推导全局最优解 &lt;/li&gt;
+&lt;li&gt;边界条件：即最简单的，可以直接得出的局部最优解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;数据结构&lt;/h1&gt;
 &lt;h2&gt;稀疏数组&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;只适用于大部分元素为相同时，比如五子棋&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="614" data-height="191" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d5690082f37b5113a6d96b3536cf0128.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;

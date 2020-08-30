@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b79ba8bca2205b3878d7d6e8ee11dedc.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/21e9ce2b3feb5d847f4bb78d484b620f.json"
         }
     </script>
     <script>
@@ -136,6 +136,23 @@
             </span>
         </p>
         <article class="yue"><h1>时间复杂度计算</h1>
+<h1>算法</h1>
+<h2>区别</h2>
+<h3>动态规划和贪心算法的区别</h3>
+<p>相同点</p>
+<ul>
+<li>动态规划和贪心算法都是一种递推算法 </li>
+<li>均有局部最优解来推导全局最优解</li>
+</ul>
+<p>不同点</p>
+<ul>
+<li>贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。 </li>
+<li>可以知道贪心法正确的条件是：每一步的最优解一定包含上一步的最优解。 </li>
+<li>全局最优解中一定包含某个局部最优解，但不一定包含前一个局部最优解，因此需要记录之前的所有最优解 </li>
+<li>动态规划的关键是状态转移方程，即如何由以求出的局部最优解来推导全局最优解 </li>
+<li>边界条件：即最简单的，可以直接得出的局部最优解</li>
+</ul>
+<h1>数据结构</h1>
 <h2>稀疏数组</h2>
 <p><strong>只适用于大部分元素为相同时，比如五子棋</strong></p>
 <p><figure><img data-width="614" data-height="191" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d5690082f37b5113a6d96b3536cf0128.jpg" alt="" /></figure></p>
