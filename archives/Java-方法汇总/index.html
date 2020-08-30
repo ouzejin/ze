@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/21e9ce2b3feb5d847f4bb78d484b620f.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/7c0d22e3a4b03884610b9e6dc0969942.json"
         }
     </script>
     <script>
@@ -306,15 +306,18 @@
 
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ing&quot;</span><span class="p">));</span>
 <span class="c1">//return &quot;3&quot;;</span>
-
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;hhh&quot;</span><span class="p">));</span>
-<span class="c1">//不存在，return &quot;-1&quot;;</span>
 </pre></div>
 <h2>int indexOf(String str, int fromIndex)</h2>
 <p>返回从指定索引位置fromIndex开始的str的索引位置,如果没有返回-1</p>
 <div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ing&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
 <span class="c1">//return &quot;3&quot;;</span>
+</pre></div>
+<h2>int lastIndexOf(String str)</h2>
+<p>返回子字符串最后出现的位置。没有找到，则返回 -1。</p>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;StringString&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">));</span>
+<span class="c1">//return &quot;6&quot;;</span>
 </pre></div>
 <h2>String replace(CharSequence oldString, CharSequence newString):</h2>
 <p>用newString替换字符串中的oldString，注意相当于new了个新的String，原String不变</p>
