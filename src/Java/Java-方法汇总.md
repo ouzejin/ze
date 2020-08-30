@@ -249,9 +249,6 @@ System.out.println(str.indexOf("i"));
 
 System.out.println(str.indexOf("ing"));
 //return "3";
-
-System.out.println(str.indexOf("hhh"));
-//不存在，return "-1";
 ```
 
 
@@ -265,6 +262,20 @@ String str = new String("String");
 System.out.println(str.indexOf("ing", 2));
 //return "3";
 ```
+
+
+
+## int lastIndexOf(String str)
+
+返回子字符串最后出现的位置。没有找到，则返回 -1。
+
+```java
+String str = new String("StringString");
+System.out.println(str.indexOf("String"));
+//return "6";
+```
+
+
 
 
 
