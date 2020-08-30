@@ -240,7 +240,7 @@ System.out.println(str.substring(1, 3));
 
 ## int indexOf(String str)
 
-返回指定字符串的索引位置
+返回指定字符串的索引位置， 没有则返回-1
 
 ```java
 String str = new String("String");
@@ -249,6 +249,9 @@ System.out.println(str.indexOf("i"));
 
 System.out.println(str.indexOf("ing"));
 //return "3";
+
+System.out.println(str.indexOf("hhh"));
+//不存在，return "-1";
 ```
 
 
@@ -327,7 +330,7 @@ String str2 = new String();
 
 
 
-## String.copyValueOf(charArray)
+## String.copyValueOf(char[] charArray)
 
 将字符数组转换为字符串
 
@@ -350,6 +353,12 @@ System.out.println(string);          //abc
 ## String toUpperCase()：
 
 转换为大写字母
+
+
+
+## boolean contains(String s)
+
+该方法是判断字符串中是否有子字符串。如果有则返回true，如果没有则返回false。
 
 
 
@@ -414,12 +423,28 @@ stringBuffer.toString()
 
 ### char[] toCharArray()
 
-字符串转字符数组
+字符串 -> 字符数组
 
 ```java
 String str = new String("String");
 System.out.println(str.toCharArray());
 ```
+
+
+
+
+
+### String.copyValueOf(char[] charArray)
+
+字符数组 -> 字符串
+
+```java
+char[] arr=['a','b','c'];
+String string =String.copyValueOf(arr);
+System.out.println(string);          //abc
+```
+
+
 
 
 
