@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java基础面试题
-slug: Java基础面试题
+title: Java-基础面试题
+slug: Java-基础面试题
 date: 2020/08/08 23:24:32
 status: publish
 author: LifeAlsoIsGG

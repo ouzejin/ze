@@ -144,6 +144,16 @@ ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
 
 
+### 其它操作
+
+```java
+List<T> nCopies(int i , T t)//根据泛型t复制i次，最后组成一个List<T>并返回
+```
+
+
+
+
+
 ArrayList
 
 
@@ -180,7 +190,7 @@ ArrayList
 
    
 
-### List特有
+## List特有
 
 
 
@@ -403,11 +413,11 @@ System.out.println(string);          //abc
 
 
 
-通用于StringBuilder
+通用于**StringBuilder**,普通模式下建议用**StringBuilder非线程安全**。
 
 
 
-### StringBuffer append(String s)
+### StringBuilder append(String s)
 
 将其他类型拼接操作。可用于字符串数组转
 
@@ -420,8 +430,22 @@ System.out.println(string);          //abc
 转换为String。也可以通过构造方法进行转换
 
 ```java
-StringBuffer stringBuffer = new StringBuffer("String");
-stringBuffer.toString()
+StringBuilder stringBuilder = new StringBuilder("String");
+stringBuilder.toString()
+```
+
+
+
+
+
+### StringBuilder reverse()
+
+反转字符串
+
+```java
+StringBuilder stringBuilder = new StringBuilder("String");
+stringBuilder.reverse()
+System.out.println(stringBuilder);//"gnirtS"
 ```
 
 
@@ -459,7 +483,7 @@ System.out.println(string);          //abc
 
 
 
-### String String.valueOf(char[] c);
+### String String.valueOf(char[] charArray);
 
 将其它类型转换为字符串
 
