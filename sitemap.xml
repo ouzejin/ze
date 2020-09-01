@@ -96,7 +96,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Java基础面试题/</loc>
+    <loc>/archives/Java-基础面试题/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
