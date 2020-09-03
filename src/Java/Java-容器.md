@@ -1172,6 +1172,13 @@ public V put(K key, V value) {
 
 **resize()扩容操作**
 
+参考
+
+> - [HashMap的底层实现原理和为何扩容为2的次数幂及与HashTable的区别。](https://blog.csdn.net/weixin_43689776/article/details/95335330?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159897939119724836748682%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=159897939119724836748682&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-95335330.pc_v2_rank_blog_default&utm_term=%E6%89%A9%E5%AE%B9&spm=1018.2118.3001.4187)
+> - [HashMap的扩容机制](https://zhuanlan.zhihu.com/p/114363420)
+
+
+
 ​	当hashmap中的元素越来越多的时候，碰撞的几率也就越来越高（因为数组的长度是固定的），所以为了提高查询的效率，就要对hashmap的数组进行扩容，数组扩容这个操作也会出现在ArrayList中，所以这是一个通用的操作，很多人对它的性能表示过怀疑，不过想想我们的“均摊”原理，就释然了，而在hashmap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。
 
 ​    那么hashmap什么时候进行扩容呢？**当hashmap中的元素个数超过数组大小loadFactor时，就会进行数组扩容**，loadFactor的默认值为0.75，也就是说，默认情况下，数组大小为16，那么当hashmap中元素个数超过**16 × 0.75 = 12**的时候，就把数组的大小扩展为**2 × 16=32**，**即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作**，所以如果我们已经预知hashmap中元素的个数，那么预设元素的个数能够有效的提高hashmap的性能。比如说，我们有1000个元素new HashMap(1000), 但是理论上来讲new HashMap(1024)更合适，不过上面annegu已经说过，即使是1000，hashmap也自动会将其设置为1024。 但是new HashMap(1024)还不是更合适的，因为0**.75 × 1000 < 1000**, 也就是说为了让**0.75 × size > 1000**, 我们必须这样new HashMap(2048)才最合适，既考虑了&的问题，也避免了resize的问题。
@@ -1284,19 +1291,19 @@ public V put(K key, V value) {
 
 
 
-
-
-### Hash扩容要扩容到2的次方
-
+### JDK1.8中HashMap如何应对hash冲突？
 
 
 
+参考
+
+> - [JDK1.8中HashMap如何应对hash冲突](https://blog.csdn.net/weixin_43689776/article/details/99999126?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
 
 
 
 
 
-### HashMap扩容机制
+### jdk1.8之前并发操作hashmap时为什么会有死循环的问题？
 
 
 
@@ -1304,4 +1311,18 @@ public V put(K key, V value) {
 
 
 
+参考
+
+> - https://blog.csdn.net/swpu_ocean/article/details/88917958
+
+
+
 ### ConcurrentHashMap1.8如何实现线程安全
+
+
+
+
+
+
+
+## 3.2 Hashtable
