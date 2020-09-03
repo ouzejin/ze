@@ -61,9 +61,141 @@ tags:
 - 实现**Callable**接口通过**FutureTask**包装器来创建Thread线程，调用Thread为
 - 线程池，使用**ExecutorService**、Callable、Future实现有返回结果的多线程
 
+## 3.1 线程启动原理
 
 
-## 3.1 继承Thread类创建线程
+
+参考
+
+> - https://www.jianshu.com/p/8c16aeea7e1a
+> - https://www.cnblogs.com/xuyuanpeng/p/11050394.html
+
+
+
+Java多线程，皆始于Thread。Thread是多线程的根，每一个线程的开启都始于Thread的`start()`方法
+
+
+
+### 3.1.1 start()方法源码
+
+```java
+ /**
+     * Causes this thread to begin execution; the Java Virtual Machine
+     * calls the <code>run</code> method of this thread.
+     * 
+     * 1、start方法将导致this thread开始执行。由JVM调用this thread的run方法。
+     * 
+     * The result is that two threads are running concurrently: the
+     * current thread (which returns from the call to the
+     * <code>start</code> method) and the other thread (which executes its
+     * <code>run</code> method).
+     * 
+     * 2、结果是 调用start方法的当前线程 和 执行run方法的另一个线程 同时运行。
+     * 
+     * It is never legal to start a thread more than once.
+     * In particular, a thread may not be restarted once it has completed
+     * execution.
+     *
+     * 3、多次启动线程永远不合法。 特别是，线程一旦完成执行就不会重新启动。
+     * 
+     * @exception  IllegalThreadStateException  if the thread was already started.
+     * 如果线程已启动，则抛出异常。
+     * @see        #run()
+     * @see        #stop()
+     */
+    public synchronized void start() {
+        /**
+         * This method is not invoked for the main method thread or "system"
+         * group threads created/set up by the VM. Any new functionality added
+         * to this method in the future may have to also be added to the VM.
+         * 
+         * 4、对于由VM创建/设置的main方法线程或“system”组线程，不会调用此方法。 
+         *    未来添加到此方法的任何新功能可能也必须添加到VM中。
+         * 
+         * A zero status value corresponds to state "NEW".
+         * 5、status=0 代表是 status 是 "NEW"。
+         */
+        if (threadStatus != 0)
+            throw new IllegalThreadStateException();
+
+        /* Notify the group that this thread is about to be started
+         * so that it can be added to the group's list of threads
+         * and the group's unstarted count can be decremented. 
+         * 
+         * 6、通知组该线程即将启动，以便将其添加到线程组的列表中，
+         *    并且减少线程组的未启动线程数递减。
+         * 
+         * */
+        group.add(this);
+
+        boolean started = false;
+        try {
+            //7、调用native方法，底层开启异步线程，并调用run方法。
+            start0();
+            started = true;
+        } finally {
+            try {
+                if (!started) {
+                    group.threadStartFailed(this);
+                }
+            } catch (Throwable ignore) {
+                /* do nothing. If start0 threw a Throwable then it will be passed up the call stack 
+                 * 8、忽略异常。 如果start0抛出一个Throwable，它将被传递给调用堆栈。
+                 */
+            }
+        }
+    }
+
+ //native方法，JVM创建并启动线程，并调用run方法
+ private native void start0();
+```
+
+
+
+> - `start`方法用`synchronized`修饰，为`同步方法`；
+> - 虽然为同步方法，但不能避免多次调用问题，用`threadStatus`来记录线程状态，如果线程被多次start会抛出异常；threadStatus的状态由JVM控制。
+> - 使用`Runnable`时，主线程无法捕获子线程中的异常状态。线程的异常，应在线程内部解决。
+
+
+
+### 3.1.2 run()方法源码
+
+```java
+/**
+     * If this thread was constructed using a separate
+     * <code>Runnable</code> run object, then that
+     * <code>Runnable</code> object's <code>run</code> method is called;
+     * otherwise, this method does nothing and returns.
+     * <p>
+     * Subclasses of <code>Thread</code> should override this method.
+     *
+     * @see     #start()
+     * @see     #stop()
+     * @see     #Thread(ThreadGroup, Runnable, String)
+     */
+    @Override
+    public void run() {
+        if (target != null) {
+            target.run();
+        }
+    }
+```
+
+run方法就很简单了，就是回调了Runable的run()接口。导致Thread写的@Overwrite void run() 方法直接是在主线程执行，导致阻塞了主线程。
+
+到此我们就知道了，start会使重写的run方法被虚拟机调用，是在子线程中执行的run方法。而直接调用线程的run方法，他是内部回调了run接口，导致直接执行了Runable.run的重写内容。相当于直接在主线程中执行。
+
+
+
+### 3.1.3 为什么我们调⽤ start() ⽅法时会执⾏ run() ⽅法，为什么我们不能直接调⽤ run() ⽅法？
+
+new ⼀个 Thread，线程进⼊了新建状态;调⽤ start() ⽅法，会启动⼀个线程并使线程进⼊了就绪状 态，当分配到时间⽚后就可以开始运⾏了。 start() 会执⾏线程的相应准备⼯作，然后⾃动执⾏ run() ⽅法的内容，这是真正的多线程⼯作。 ⽽直接执⾏ run() ⽅法，会把 run ⽅法当成⼀个 main 主线程下的普通⽅法去执⾏，并不会在某个线程中执⾏它，所以这并不是多线程⼯作。 总结： 调⽤ start ⽅法⽅可启动线程并使线程进⼊就绪状态，⽽ run ⽅法只是 thread 的⼀个普通 ⽅法调⽤，还是在主线程⾥执⾏。
+
+
+
+
+
+## 3.2 继承Thread类创建线程
 
 ​	Thread类本质上是实现了Runnable接口的一个实例，代表一个线程的实例。启动线程的唯一方法就是通过Thread类的start()实例方法。start()方法是一个native方法，它将启动一个新线程，并执行run()方法。这种方式实现多线程很简单，通过自己的类直接extend Thread，并复写run()方法，就可以启动新线程并执行自己定义的run()方法。例如：
 
@@ -80,9 +212,17 @@ myThread1.start();
 myThread2.start();
 ```
 
+这种实现方式是显示的继承了Thread，但从类图中我们可以看到，Thread类本身就继承自Runnable，所以继承Thread的本质依然是实现Runnable接口定义的run方法。
+
+需要注意的是继承Thread方式，target对象为null，重写了run方法，导致方式1中的Thread原生的run方法失效，因此并不会调用到target.run()的逻辑，而是直接调用子类重写的run方法。
+
+因为java是单根继承，此方式一般不常用。
 
 
-## 3.2 实现Runnable接口
+
+
+
+## 3.3 实现Runnable接口
 
 实现run方法，接口的实现类的实例作为**Thread**的**target**作为参数传入带参的**Thread**构造函数，通过调用**start()**方法启动线程。适用于已经有继承的父类无法继承Thread类的时候
 
@@ -107,7 +247,7 @@ class MyThread implements Runnable{
 
 
 
-## 3.3 实现Callable接口通过FutureTask包装器来创建Thread线程
+## 3.4 实现Callable接口通过FutureTask包装器来创建Thread线程
 
 - 创建Callable接口的实现类 ，并实现Call方法 
 - 创建Callable实现类的实现，使用FutureTask类包装Callable对象，该FutureTask对象封装了Callable对象的Call方法的返回值 
@@ -115,43 +255,34 @@ class MyThread implements Runnable{
 - 调用FutureTask对象的get()来获取子线程执行结束的返回值
 
 ```java
-public class ThreadDemo03 {
- 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
- 
-      	//实例化一个Callable类
-        Callable<Object> oneCallable = new Tickets<Object>();
-      
-      	//使用FutureTask包装器包装Callable对象
-        FutureTask<Object> oneTask = new FutureTask<Object>(oneCallable); 
-      
-      	//将FutureTask对象作为target形参并调用Thread的构造函数实例化一个Thread对象
-        Thread t = new Thread(oneTask); 
-      
-        System.out.println(Thread.currentThread().getName()); 
-      
-        t.start();
-    }
-}
- 
-class Tickets<Object> implements Callable<Object>{ 
-    //重写call方法
+public class DemoCallable implements Callable<String>{
     @Override
-    public Object call() throws Exception {
+    public String call() throws Exception {
         // TODO Auto-generated method stub
-        System.out.println(Thread.currentThread().getName()+"-->我是通过实现Callable接口通过FutureTask包装器来实现的线程");
         return null;
-    }   
+    }
+    
+    public static void main(String[] args) throws Exception {
+        DemoCallable c = new DemoCallable();
+        FutureTask<String> future = new FutureTask<>(c); 
+        Thread t = new Thread(future);
+        t.start();
+        ...
+        String result = future.get(); //同步获取返回结果
+        System.out.println(result);
+    }
 }
 ```
 
+这个方法里，明明没有看到run方法，没有看到Runnable，为什么说本质也是实现Runnable接口呢？
+
+回看开篇的类图，`FutureTask`实现了`RunnableFuture`，`RunnableFuture`则实现了`Runnable`和`Future`两个接口。因此构造Thread时，`FutureTask`还是被转型为`Runnable`使用。**因此其本质还是实现Runnable接口。**
 
 
-## 3.4 通过线程池创建线程
+
+
+
+## 3.5 通过线程池创建线程
 
 ExecutorService、Callable都是属于Executor框架。返回结果的线程是在JDK1.5中引入的新特征，还有Future接口也是属于这个框架，有了这种特征得到返回值就很方便了。 
 通过分析可以知道，他同样也是实现了Callable接口，实现了Call方法，所以有返回值。这也就是正好符合了前面所说的两种分类
@@ -193,6 +324,8 @@ class RunnableThread implements Runnable
     }  
 }  
 ```
+
+
 
 
 
@@ -291,7 +424,7 @@ Java 线程在运⾏的⽣命周期中的指定时刻只可能处于下⾯ 6 种
 
 
 
-# 8. 为什么我们调⽤ start() ⽅法时会执⾏ run() ⽅法，为什么我们不能直接调⽤ run() ⽅法？
+# 
 
 
 
