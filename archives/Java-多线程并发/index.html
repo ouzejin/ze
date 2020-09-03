@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/43e9e389523ec0cff7b81b2e7fbb7901.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b45a68bbe71ff894fea60993dd5805e8.json"
         }
     </script>
     <script>
@@ -161,7 +161,116 @@
 <li>实现<strong>Callable</strong>接口通过<strong>FutureTask</strong>包装器来创建Thread线程，调用Thread为</li>
 <li>线程池，使用<strong>ExecutorService</strong>、Callable、Future实现有返回结果的多线程</li>
 </ul>
-<h2>3.1 继承Thread类创建线程</h2>
+<h2>3.1 线程启动原理</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.jianshu.com/p/8c16aeea7e1a">https://www.jianshu.com/p/8c16aeea7e1a</a></li>
+<li><a href="https://www.cnblogs.com/xuyuanpeng/p/11050394.html">https://www.cnblogs.com/xuyuanpeng/p/11050394.html</a></li>
+</ul>
+</blockquote>
+<p>Java多线程，皆始于Thread。Thread是多线程的根，每一个线程的开启都始于Thread的<code>start()</code>方法</p>
+<h3>3.1.1 start()方法源码</h3>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">     * Causes this thread to begin execution; the Java Virtual Machine</span>
+<span class="cm">     * calls the &lt;code&gt;run&lt;/code&gt; method of this thread.</span>
+<span class="cm">     * </span>
+<span class="cm">     * 1、start方法将导致this thread开始执行。由JVM调用this thread的run方法。</span>
+<span class="cm">     * </span>
+<span class="cm">     * The result is that two threads are running concurrently: the</span>
+<span class="cm">     * current thread (which returns from the call to the</span>
+<span class="cm">     * &lt;code&gt;start&lt;/code&gt; method) and the other thread (which executes its</span>
+<span class="cm">     * &lt;code&gt;run&lt;/code&gt; method).</span>
+<span class="cm">     * </span>
+<span class="cm">     * 2、结果是 调用start方法的当前线程 和 执行run方法的另一个线程 同时运行。</span>
+<span class="cm">     * </span>
+<span class="cm">     * It is never legal to start a thread more than once.</span>
+<span class="cm">     * In particular, a thread may not be restarted once it has completed</span>
+<span class="cm">     * execution.</span>
+<span class="cm">     *</span>
+<span class="cm">     * 3、多次启动线程永远不合法。 特别是，线程一旦完成执行就不会重新启动。</span>
+<span class="cm">     * </span>
+<span class="cm">     * @exception  IllegalThreadStateException  if the thread was already started.</span>
+<span class="cm">     * 如果线程已启动，则抛出异常。</span>
+<span class="cm">     * @see        #run()</span>
+<span class="cm">     * @see        #stop()</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="cm">/**</span>
+<span class="cm">         * This method is not invoked for the main method thread or &quot;system&quot;</span>
+<span class="cm">         * group threads created/set up by the VM. Any new functionality added</span>
+<span class="cm">         * to this method in the future may have to also be added to the VM.</span>
+<span class="cm">         * </span>
+<span class="cm">         * 4、对于由VM创建/设置的main方法线程或“system”组线程，不会调用此方法。 </span>
+<span class="cm">         *    未来添加到此方法的任何新功能可能也必须添加到VM中。</span>
+<span class="cm">         * </span>
+<span class="cm">         * A zero status value corresponds to state &quot;NEW&quot;.</span>
+<span class="cm">         * 5、status=0 代表是 status 是 &quot;NEW&quot;。</span>
+<span class="cm">         */</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">threadStatus</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalThreadStateException</span><span class="p">();</span>
+
+        <span class="cm">/* Notify the group that this thread is about to be started</span>
+<span class="cm">         * so that it can be added to the group&#39;s list of threads</span>
+<span class="cm">         * and the group&#39;s unstarted count can be decremented. </span>
+<span class="cm">         * </span>
+<span class="cm">         * 6、通知组该线程即将启动，以便将其添加到线程组的列表中，</span>
+<span class="cm">         *    并且减少线程组的未启动线程数递减。</span>
+<span class="cm">         * </span>
+<span class="cm">         * */</span>
+        <span class="n">group</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+        <span class="kt">boolean</span> <span class="n">started</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">//7、调用native方法，底层开启异步线程，并调用run方法。</span>
+            <span class="n">start0</span><span class="p">();</span>
+            <span class="n">started</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">group</span><span class="p">.</span><span class="na">threadStartFailed</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Throwable</span> <span class="n">ignore</span><span class="p">)</span> <span class="p">{</span>
+                <span class="cm">/* do nothing. If start0 threw a Throwable then it will be passed up the call stack </span>
+<span class="cm">                 * 8、忽略异常。 如果start0抛出一个Throwable，它将被传递给调用堆栈。</span>
+<span class="cm">                 */</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+ <span class="c1">//native方法，JVM创建并启动线程，并调用run方法</span>
+ <span class="kd">private</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">start0</span><span class="p">();</span>
+</pre></div>
+<blockquote><ul>
+<li><code>start</code>方法用<code>synchronized</code>修饰，为<code>同步方法</code>；</li>
+<li>虽然为同步方法，但不能避免多次调用问题，用<code>threadStatus</code>来记录线程状态，如果线程被多次start会抛出异常；threadStatus的状态由JVM控制。</li>
+<li>使用<code>Runnable</code>时，主线程无法捕获子线程中的异常状态。线程的异常，应在线程内部解决。</li>
+</ul>
+</blockquote>
+<h3>3.1.2 run()方法源码</h3>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">     * If this thread was constructed using a separate</span>
+<span class="cm">     * &lt;code&gt;Runnable&lt;/code&gt; run object, then that</span>
+<span class="cm">     * &lt;code&gt;Runnable&lt;/code&gt; object&#39;s &lt;code&gt;run&lt;/code&gt; method is called;</span>
+<span class="cm">     * otherwise, this method does nothing and returns.</span>
+<span class="cm">     * &lt;p&gt;</span>
+<span class="cm">     * Subclasses of &lt;code&gt;Thread&lt;/code&gt; should override this method.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @see     #start()</span>
+<span class="cm">     * @see     #stop()</span>
+<span class="cm">     * @see     #Thread(ThreadGroup, Runnable, String)</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">target</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+<p>run方法就很简单了，就是回调了Runable的run()接口。导致Thread写的@Overwrite void run() 方法直接是在主线程执行，导致阻塞了主线程。</p>
+<p>到此我们就知道了，start会使重写的run方法被虚拟机调用，是在子线程中执行的run方法。而直接调用线程的run方法，他是内部回调了run接口，导致直接执行了Runable.run的重写内容。相当于直接在主线程中执行。</p>
+<h3>3.1.3 为什么我们调⽤ start() ⽅法时会执⾏ run() ⽅法，为什么我们不能直接调⽤ run() ⽅法？</h3>
+<p>new ⼀个 Thread，线程进⼊了新建状态;调⽤ start() ⽅法，会启动⼀个线程并使线程进⼊了就绪状 态，当分配到时间⽚后就可以开始运⾏了。 start() 会执⾏线程的相应准备⼯作，然后⾃动执⾏ run() ⽅法的内容，这是真正的多线程⼯作。 ⽽直接执⾏ run() ⽅法，会把 run ⽅法当成⼀个 main 主线程下的普通⽅法去执⾏，并不会在某个线程中执⾏它，所以这并不是多线程⼯作。 总结： 调⽤ start ⽅法⽅可启动线程并使线程进⼊就绪状态，⽽ run ⽅法只是 thread 的⼀个普通 ⽅法调⽤，还是在主线程⾥执⾏。</p>
+<h2>3.2 继承Thread类创建线程</h2>
 <p>​   Thread类本质上是实现了Runnable接口的一个实例，代表一个线程的实例。启动线程的唯一方法就是通过Thread类的start()实例方法。start()方法是一个native方法，它将启动一个新线程，并执行run()方法。这种方式实现多线程很简单，通过自己的类直接extend Thread，并复写run()方法，就可以启动新线程并执行自己定义的run()方法。例如：</p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="p">{</span>  
 　　<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>  
@@ -174,7 +283,10 @@
 <span class="n">myThread1</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>  
 <span class="n">myThread2</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
 </pre></div>
-<h2>3.2 实现Runnable接口</h2>
+<p>这种实现方式是显示的继承了Thread，但从类图中我们可以看到，Thread类本身就继承自Runnable，所以继承Thread的本质依然是实现Runnable接口定义的run方法。</p>
+<p>需要注意的是继承Thread方式，target对象为null，重写了run方法，导致方式1中的Thread原生的run方法失效，因此并不会调用到target.run()的逻辑，而是直接调用子类重写的run方法。</p>
+<p>因为java是单根继承，此方式一般不常用。</p>
+<h2>3.3 实现Runnable接口</h2>
 <p>实现run方法，接口的实现类的实例作为<strong>Thread</strong>的<strong>target</strong>作为参数传入带参的<strong>Thread</strong>构造函数，通过调用<strong>start()</strong>方法启动线程。适用于已经有继承的父类无法继承Thread类的时候</p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadDemo02</span> <span class="p">{</span>
 
@@ -193,47 +305,34 @@
     <span class="p">}</span>   
 <span class="p">}</span>
 </pre></div>
-<h2>3.3 实现Callable接口通过FutureTask包装器来创建Thread线程</h2>
+<h2>3.4 实现Callable接口通过FutureTask包装器来创建Thread线程</h2>
 <ul>
 <li>创建Callable接口的实现类 ，并实现Call方法 </li>
 <li>创建Callable实现类的实现，使用FutureTask类包装Callable对象，该FutureTask对象封装了Callable对象的Call方法的返回值 </li>
 <li>使用FutureTask对象作为Thread对象的target创建并启动线程 </li>
 <li>调用FutureTask对象的get()来获取子线程执行结束的返回值</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadDemo03</span> <span class="p">{</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * @param args</span>
-<span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoCallable</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">call</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
         <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
 
-        <span class="c1">//实例化一个Callable类</span>
-        <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">oneCallable</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tickets</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
-
-        <span class="c1">//使用FutureTask包装器包装Callable对象</span>
-        <span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">oneTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">oneCallable</span><span class="p">);</span> 
-
-        <span class="c1">//将FutureTask对象作为target形参并调用Thread的构造函数实例化一个Thread对象</span>
-        <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">oneTask</span><span class="p">);</span> 
-
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span> 
-
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">DemoCallable</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DemoCallable</span><span class="p">();</span>
+        <span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FutureTask</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">);</span> 
+        <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
         <span class="n">t</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+        <span class="p">...</span>
+        <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span> <span class="c1">//同步获取返回结果</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Tickets</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">{</span> 
-    <span class="c1">//重写call方法</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">call</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-        <span class="c1">// TODO Auto-generated method stub</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;--&gt;我是通过实现Callable接口通过FutureTask包装器来实现的线程&quot;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
-    <span class="p">}</span>   
-<span class="p">}</span>
 </pre></div>
-<h2>3.4 通过线程池创建线程</h2>
+<p>这个方法里，明明没有看到run方法，没有看到Runnable，为什么说本质也是实现Runnable接口呢？</p>
+<p>回看开篇的类图，<code>FutureTask</code>实现了<code>RunnableFuture</code>，<code>RunnableFuture</code>则实现了<code>Runnable</code>和<code>Future</code>两个接口。因此构造Thread时，<code>FutureTask</code>还是被转型为<code>Runnable</code>使用。<strong>因此其本质还是实现Runnable接口。</strong></p>
+<h2>3.5 通过线程池创建线程</h2>
 <p>ExecutorService、Callable都是属于Executor框架。返回结果的线程是在JDK1.5中引入的新特征，还有Future接口也是属于这个框架，有了这种特征得到返回值就很方便了。 
 通过分析可以知道，他同样也是实现了Callable接口，实现了Call方法，所以有返回值。这也就是正好符合了前面所说的两种分类</p>
 <p>执行Callable任务后，可以获取一个Future的对象，在该对象上调用get就可以获取到Callable任务返回的Object了。get方法是阻塞的，即：线程无返回结果，get方法会一直等待。</p>
@@ -316,7 +415,7 @@
 sleep（）方法必须捕获异常，而wait（）、notify（）以及notifyALL()不需要捕获异常，在sleep()的过程中，有可能被其他对象调用它的interrupt（），产生interruptException异常。
 由于sleep不会释放“锁标志”，容易导致死锁问题的发生，因此，一般情况下，不推荐使用sleep（）方法，而推荐使用wait（）方法。</li>
 </ol>
-<h1>8. 为什么我们调⽤ start() ⽅法时会执⾏ run() ⽅法，为什么我们不能直接调⽤ run() ⽅法？</h1>
+<h1> </h1>
 <p>​       new ⼀个 Thread，线程进⼊了新建状态;调⽤ start() ⽅法，会启动⼀个线程并使线程进⼊了就绪状 态，当分配到时间⽚后就可以开始运⾏了。 start() 会执⾏线程的相应准备⼯作，然后⾃动执⾏ run() ⽅法的内容，这是真正的多线程⼯作。 ⽽直接执⾏ run() ⽅法，会把 run ⽅法当成⼀个 main 线程下的普通⽅法去执⾏，并不会在某个线程中执⾏它，所以这并不是多线程⼯作。 总结： 调⽤ start ⽅法⽅可启动线程并使线程进⼊就绪状态，⽽ run ⽅法只是 thread 的⼀个普通 ⽅法调⽤，还是在主线程⾥执⾏。</p>
 <h1>9. synchronized 关键字</h1>
 <p>​       synchronized关键字解决的是多个线程之间访问资源的同步性，synchronized关键字可以保证被它修饰 的⽅法或者代码块在任意时刻只能有⼀个线程执⾏。另外，在 Java 早期版本中，synchronized属于重量级锁，效率低下，<strong>因为监视器锁（monitor）是依 赖于底层的操作系统的 Mutex Lock 来实现的，Java 的线程是映射到操作系统的原⽣线程之上的</strong>。如 果要挂起或者唤醒⼀个线程，都需要操作系统帮忙完成，⽽操作系统实现线程之间的切换时需要从⽤户 态转换到内核态，这个状态之间的转换需要相对⽐较⻓的时间，时间成本相对较⾼，这也是为什么早期 的 synchronized 效率低的原因。庆幸的是在 Java 6 之后 Java 官⽅对从 JVM 层⾯对synchronized 较⼤优化，所以现在的 synchronized 锁效率也优化得很不错了。JDK1.6对锁的实现引⼊了⼤量的优化，如<strong>⾃旋锁、适应性⾃旋锁、锁消除、锁粗化、偏向锁、轻量级锁</strong>等技术来减少锁操作的开销。</p>
