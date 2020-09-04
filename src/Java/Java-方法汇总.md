@@ -14,15 +14,15 @@ tags:
 
 
 
-# Java集合
+# 1. Java集合
 
 
 
-## Collection
+## 1.1 Collection
 
 
 
-### 排序操作
+### 1.1.1 排序操作
 
 ```java
 void reverse(List list)//反转
@@ -86,7 +86,7 @@ ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
 
 
-### 查找,替换操作
+### 1.1.2 查找,替换操作
 
 ```java
 int binarySearch(List list, Object key)//对List进行二分查找，返回索引，注意List必须是有序的
@@ -144,7 +144,7 @@ ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
 
 
-### 其它操作
+### 1.1.3 其它操作
 
 ```java
 List<T> nCopies(int i , T t)//根据泛型t复制i次，最后组成一个List<T>并返回
@@ -198,7 +198,7 @@ ArrayList
 
 
 
-# String字符串
+# 2. String字符串
 
 
 
@@ -538,4 +538,92 @@ String s = new String(sb);
 //通过toString()方法
 String s = sb.toString();
 ```
+
+
+
+
+
+# 3. 封装类型
+
+
+
+## 3.1 Integer
+
+
+
+## String Integer.toString(int , int radix)
+
+Integer类中的静态方法toString()转换成字符串,将int整数转成指定的进制数radix
+
+```java
+int src = 32;
+//将int整数转换成指定的进制数
+String dest = Integer.toString(src,2);
+System.out.println(dest);//100000
+```
+
+
+
+
+
+## int Integer.ParseInt(String s)
+
+用于将字符串转换成基本数据类型(int)，要求字符串必须是数字格式.
+
+```java
+String year = "2018";
+int i = Integer.parseInt(year);
+System.out.println(i/2);//1009
+```
+
+
+
+## int Integer.parseInt(String s,int radix)
+
+将字符串s按照radix进行转换相应的进制数，然后运行的结果都是以十进制的形式打印。
+
+```java
+String year = "1110";
+String age = "A";
+//指定year的进制为2进制
+int i = Integer.parseInt(year,2);
+//指定age的进制为16进制
+int i2 = Integer.parseInt(age,16);
+System.out.println(i);//14
+System.out.println(i2);//10
+```
+
+
+
+静态变量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
