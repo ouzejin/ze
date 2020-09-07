@@ -10,6 +10,7 @@ categories:
 tags: 
   - Java
 
+
 ---
 
 
@@ -190,7 +191,220 @@ ArrayList
 
    
 
-## List特有
+## 1.2 List特有
+
+
+
+
+
+## 1.2 Map
+
+
+
+### 1.2.1 增删查改类
+
+
+
+### V put(K key , V value)
+
+向map中添加键值对，并返回`value`值，如果`key`重复，则返回之前的`oldValue`值
+
+```java
+///*Integer*/map.put("1", 1);//向map中添加值(返回这个key以前的值,如果没有返回null)
+         HashMap<String, Integer> map=new HashMap<>();
+         System.out.println(map.put("1", 1));//null
+         System.out.println(map.put("1", 2));//1
+```
+
+
+
+### V putIfAbsent(K key , V Value)
+
+`JDK1.8`
+
+如果当前 `Map` 不存在键 *key* 或者该 *key* 关联的值为 `null`，那么就执行 `put(key, value)`；否则，便不执行 `put` 操作并返回null
+
+```java
+HashMap<String, Integer> map=new HashMap<>();
+/*boolean*///判断map中是否存在这个key
+map.put("DEMO1", 1);
+map.put("DEMO2", 2);
+System.out.println(map);//{DEMO1=1, DEMO2=2}
+System.out.println(map.putIfAbsent("DEMO1", 12222));//1
+System.out.println(map.putIfAbsent("DEMO3", 12222));//null
+System.out.println(map);//{DEMO1=1, DEMO2=2,DEMO3=12222}
+```
+
+
+
+
+
+### Map<K , V> putAll(Map<? extends K, ? extends V> m)
+
+putAll可以合并两个相同类型的Map，被合并的类型必须是相等或继承的类型，只不过如果有相同的key那么用被合并的覆盖前面的
+
+```java
+HashMap map3=new HashMap();
+map3.put("1", "A");
+
+HashMap map4 = new HashMap();
+map4.put("1", "B");
+map4.put("3", "C");
+
+map3.putAll(map4);
+
+System.out.println(map3);
+//{3=C, 1=B},key为1value为“A“被覆盖
+```
+
+
+
+
+
+
+
+### V get(K key)
+
+得到map中key相对应的value的值,为空返回null
+
+
+
+### Map<K , V> clone()
+
+克隆map
+
+  
+
+### void clear()
+
+清空map
+
+
+
+### int Size()
+
+返回大小
+
+
+
+### V replace(K key , V newValue)
+
+`JDK1.8新方法`
+
+在指定的键已经存在并且有与之相关的映射值时才会将指定的键映射到指定的值（新值）, 并返回`旧的oldValue值`
+
+在指定的键不存在时，方法会return回来一个`null`
+
+
+
+### boolean replace(K key , V oldValue , V newValue)
+
+`JDK1.8新方法`
+
+当`Map.Entry<key , oldValue>`存在时，也就是说存在`key-oldValue`这个键值对时才进行替换操作
+
+成功返回`true`，否则`false`
+
+```java
+HashMap<String, String> map3=new HashMap();
+map3.put("1", "a");
+System.out.println(map3.replace("1" , "a" , "b"));//true
+System.out.println(map3.replace("2" , "a" , "b"));//false,key不同，value相同
+System.out.println(map3.replace("1" , "s" , "b"));//false,key相同，value不同
+```
+
+
+
+### boolean remove(K key)
+
+根据key删除此键值对下的键值对
+
+
+
+### boolean remove(K key , V value)
+
+删除key和value都符合的键值对
+
+
+
+
+
+### boolean isEmpty()
+
+判断是否为空
+
+
+
+### boolean containsKey(K key)
+
+查看是否包含此key
+
+
+
+### boolean containsValue(V value)
+
+查看是否包含此value
+
+
+
+
+
+
+
+### 1.2.2 遍历类
+
+
+
+### Collection\<V> values()
+
+获取map中所有的key并返回为`Collection<V>`类型
+
+
+
+### Set\<V> keySet()
+
+获取map中所有的key并返回`Set<V>`类型，因为Set的元素是独一无二之的，之后可以用迭代器`iterator()`遍历
+
+```java
+Iterator ot = map.keySet().iterator();
+while (ot.hasNext()){
+  System.out.println(ot.next());
+}
+```
+
+
+
+### Set<Map.Entry<K,V>> entrySet()
+
+返回所有结点，类型为`Set<Map.Entry<K,V>>`。也可以转换为迭代器`iterator()`遍历
+
+```java
+Set<Map.Entry<String,String>> es = map.entrySet();
+Iterator<Map.Entry<String,String>> it = es.iterator();
+ while(it.hasNext()){
+	Map.Entry<String, String> mey = it.next();
+               
+	//getKey()和getValue是接口Map.Entry<K,V>中的方法，返回对应的键和对应的值
+	String key = mey.getKey();
+	String value = mey.getValue();
+	System.out.println(key+":"+value);
+   
+}
+```
+
+
+
+
+
+
+
+## 1.3 HashMap
+
+
+
+
+
+
 
 
 
@@ -700,3 +914,8 @@ System.out.println(i2);//10
 
 
 
+
+
+### 对于该
+
+### 

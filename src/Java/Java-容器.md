@@ -64,11 +64,21 @@ tags:
 public ArrayList()//无参构造方法
 public ArrayList(int initialCapacity)；//有参构造方法
 public ArrayList(Collection<? extends E> c)//指定集合
+  
+/**
+* 默认初始容量大小为10
+*/
+private static final int DEFAULT_CAPACITY = 10;
+    
+/**默认空数组*/
+private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 ```
 
 
 
 **无参构造方法**
+
+**以无参数构造方法创建 ArrayList 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为10。**
 
 ```java
 /**
@@ -235,15 +245,32 @@ public ArrayList(Collection<? extends E> c)//指定集合
 
 
 
-添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组**DEFAULTCAPACITY_EMPTY_ELEMENTDATA**赋给elementData，在第一次调用add方法时才会扩容，一般是默认值**DEFAULT_CAPACITY = 10**
 
 
 
-**流程**
 
-1. 调用**calculateCapacity(elementData, minCapacity)**方法计算返回需要扩容的最小值
-2. 调用**ensureExplicitCapacity(calculateCapacity(elementData, minCapacity))**方法判断扩容的最小值是否大于数组的长度，大于则继续调用**grow(minCapacity)**方法，否则直接 **elementData[size++] = e;**
-3. 调用**grow(minCapacity);**方法，先**newCapacity = oldCapacity + (oldCapacity >> 1);**计算扩容1.5倍后再与**minCapacity**对比，如果还是比**minCapacity**小就直接**newCapacity = minCapacity;** ，之后再将**newCapacity**与**MAX_ARRAY_SIZE**对比，如果比**MAX_ARRAY_SIZE**大那就调用**hugeCapacity(minCapacity);**重新计算大小，最后**elementData = Arrays.copyOf(elementData, newCapacity);**完成扩容，最后再将加的对象赋值给**elementData[size] , size++**
+添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组`DEFAULTCAPACITY_EMPTY_ELEMENTDATA`赋给elementData，在第一次调用add方法时才会扩容，一般是默认值`DEFAULT_CAPACITY = 10`
+
+
+
+#### 流程
+
+
+
+- 第一步：调用`ensureCapacityInternal(size + 1)`方法
+- 第二步：调用 `calculateCapacity(elementData, minCapacity)` 方法计算返回需要扩容的最小值
+- 第三步：调用`ensureExplicitCapacity()`方法判断扩容的最小值是否大于数组的长度，此时`minCapacity`为调用`calculateCapacity`传过来的最后计算得出的最小容量。大于则继续调用**grow(minCapacity)**方法，否则直接 `elementData[size++] = e`;
+- 第四步：调用`grow()`方法进行扩容。先`newCapacity = oldCapacity + (oldCapacity >> 1)`;计算扩容`1.5倍`后再与`minCapacity`对比，如果还是比`minCapacity`小就直接`newCapacity = minCapacity`; 之后再将`newCapacity`与`MAX_ARRAY_SIZE`对比，如果比`MAX_ARRAY_SIZE`大那就调用`hugeCapacity(minCapacity)`;重新计算大小，最后`elementData = Arrays.copyOf(elementData, newCapacity)`;完成扩容，最后再将加的对象赋值给`elementData[size] , size++`
+
+
+
+
+
+
+
+#### 第一步：调用`ensureCapacityInternal(size + 1)`方法
+
+`minCapacity = size + 1`即为所需最小容量，调用此方法时会先调用`calculateCapacity(elementData, minCapacity)`去计算所需最小容量，之后作为参数去调用`ensureExplicitCapacity`去与当前elementdata数组的长度`elementdata.length`比较看是否需要调用`grow()`去扩容。
 
 ```java
 /**
@@ -263,25 +290,33 @@ public ArrayList(Collection<? extends E> c)//指定集合
         return true;
     }
 
+		private void ensureCapacityInternal(int minCapacity) {
+        ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
+    }
+
+```
+
+
+
+> **注意** ：JDK11 移除了 `ensureCapacityInternal()` 和 `ensureExplicitCapacity()` 方法
+
+
+
+
+
+#### 第二步：调用 `calculateCapacity(elementData, minCapacity)` 方法
+
+
+
+计算默认容量`DEFAULT_CAPACITY = 10`和当前`minCapacity = size + 1`的最大值。当 要 add 进第1个元素时，minCapacity为1，在Math.max()方法比较后，minCapacity 为10。
+
+```java
+
+
     /**
      * Default initial capacity.
      */
     private static final int DEFAULT_CAPACITY = 10;  // 默认容量为10
-
-   
-
-    private void ensureCapacityInternal(int minCapacity) {
-        ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
-    }
-
-    private void ensureExplicitCapacity(int minCapacity) {
-        modCount++;  // 操作数+1
-
-        // overflow-conscious code
-        // 如果所需容量最小值大于实际数组的长度就扩大实际数组容量
-        if (minCapacity - elementData.length > 0)
-            grow(minCapacity);
-    }
 
  // 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值
     private static int calculateCapacity(Object[] elementData, int minCapacity) {
@@ -291,13 +326,59 @@ public ArrayList(Collection<? extends E> c)//指定集合
         return minCapacity;
     }
 
+
     /**
      * The maximum size of array to allocate.
      * Some VMs reserve some header words in an array.
      * Attempts to allocate larger arrays may result in
      * OutOfMemoryError: Requested array size exceeds VM limit
      */
-    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;  // 数组最大容量为Integer最大值-8
+   
+
+```
+
+
+
+
+
+#### 第三步：调用`ensureExplicitCapacity()`方法看是否需要扩容
+
+
+
+- 当我们要 add 进第1个元素到 ArrayList 时，`elementData.length` 为0 （因为还是一个空的 list），因为执行了 `ensureCapacityInternal()` 方法 ，所以 minCapacity 此时为10。此时，`minCapacity - elementData.length > 0 `成立，所以会进入 `grow(minCapacity为10)` 方法。
+- 当add第2个元素时，`minCapacity` 为2，此时`elementData.length`(容量)在添加第一个元素后扩容成 10 了。此时，`minCapacity - elementData.length > 0 `不成立，所以不会进入 （执行）`grow(minCapacity)` 方法。
+- 添加第3、4···到第10个元素时，依然不会执行grow方法，数组容量都为10。直到添加第11个元素，`minCapacity(为11)`比`elementData.length（为10）`要大。进入`grow(minCapacity为11)`方法进行扩容
+
+
+
+```java
+    private void ensureExplicitCapacity(int minCapacity) {
+        modCount++;  // 操作数+1
+
+        // overflow-conscious code
+        // 如果所需容量最小值大于实际数组的长度就扩大实际数组容量
+        if (minCapacity - elementData.length > 0)
+            grow(minCapacity);
+    }
+```
+
+
+
+
+
+#### 第四步：调用`grow()`方法进行扩容
+
+
+
+- 当add第1个元素时，oldCapacity 为0，经比较后第一个if判断成立，newCapacity = minCapacity(为10)。但是第二个if判断不会成立，即newCapacity 不比 MAX_ARRAY_SIZE大，则不会进入 `hugeCapacity` 方法。数组容量为10，add方法中 return true,size增为1。
+- 当add第11个元素进入grow方法时，newCapacity为15，比minCapacity（为11）大，第一个if判断不成立。新容量没有大于数组最大size，不会进入hugeCapacity方法。数组容量扩为15，add方法中return true,size增为11。
+- 以此类推······
+
+
+
+之所以每次扩容原来的`1.5倍`，是为了不让每次调用`add()`方法都去扩容然后复制数组
+
+```java
 
     /**
      * Increases the capacity to ensure that it can hold at least the
@@ -329,7 +410,11 @@ public ArrayList(Collection<? extends E> c)//指定集合
                 Integer.MAX_VALUE :
                 MAX_ARRAY_SIZE;
     }
+
+ private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;  // 数组最大容量为Integer最大值再减8
 ```
+
+
 
 
 
@@ -340,6 +425,16 @@ public ArrayList(Collection<? extends E> c)//指定集合
 **模拟添加数据(lierabbit)到index=4过程如下：**
 
 ![](images/Java容器/ArrayList根据索引模拟添加数据.jpg)
+
+
+
+
+
+- 在此列表中的指定位置插入指定的元素。 
+- 先调用 `rangeCheckForAdd` 对index进行界限检查；然后调用 `ensureCapacityInternal` 方法保证`capacity`足够大；
+- 再将从index开始之后的所有成员后移一个位置；将element插入index位置；最后size加1。
+
+
 
 ```java
 /**
@@ -372,6 +467,124 @@ public ArrayList(Collection<? extends E> c)//指定集合
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
 ```
+
+
+
+### ensureCapacity(int minCapacity)：自主扩增容量
+
+在使用add()方法增加新的元素时，如果要增加的数据量很大，应该使用`ensureCapacity()`方法，该方法的作用是预先设置Arraylist的大小，这样可以大大提高初始化速度。 
+
+```java
+/**
+    如有必要，增加此 ArrayList 实例的容量，以确保它至少可以容纳由minimum capacity参数指定的元素数。
+     *
+     * @param   minCapacity   所需的最小容量
+     */
+    public void ensureCapacity(int minCapacity) {
+        int minExpand = (elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA)? 0: DEFAULT_CAPACITY;
+            // any size if not default element table            
+            // larger than default for default empty table. It's already
+            // supposed to be at default size.
+            
+        if (minCapacity > minExpand) {
+            ensureExplicitCapacity(minCapacity);
+        }
+    }
+```
+
+
+
+最好在 add 大量元素之前用 `ensureCapacity` 方法，以减少增量重新分配的次数。例如：
+
+
+
+未提前使用 `ensureCapacity` 前
+
+```java
+public class EnsureCapacityTest {
+	public static void main(String[] args) {
+		ArrayList<Object> list = new ArrayList<Object>();
+		final int N = 10000000;
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < N; i++) {
+			list.add(i);
+		}
+		long endTime = System.currentTimeMillis();
+		System.out.println("使用ensureCapacity方法前："+(endTime - startTime));
+
+	}
+}
+
+```
+
+结果：使用`ensureCapacity`方法前：2158
+
+
+
+使用 `ensureCapacity` 后
+
+```java
+public class EnsureCapacityTest {
+    public static void main(String[] args) {
+        ArrayList<Object> list = new ArrayList<Object>();
+        final int N = 10000000;
+        list = new ArrayList<Object>();
+        long startTime1 = System.currentTimeMillis();
+        list.ensureCapacity(N);//此处调用后
+        for (int i = 0; i < N; i++) {
+            list.add(i);
+        }
+        long endTime1 = System.currentTimeMillis();
+        System.out.println("使用ensureCapacity方法后："+(endTime1 - startTime1));
+    }
+}
+```
+
+
+
+结果：使用`ensureCapacity`方法后：1773
+
+
+
+
+
+
+
+### 数组复制/扩容的两个方法
+
+
+
+#### System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+
+将数组`src`从`srcPos`后的元素复制到目标数组`dest`的`destPos`起点开始，复制`length`个
+
+> - `src` -这是源数组. 
+> - `srcPos` -这是源数组中的起始位置。
+> - `dest` -这是目标数组。
+> - `destPos` -这是目标数据中的起始位置。
+> - `length` -- 这是一个要复制的数组元素的数目。
+
+
+
+
+
+#### Arrays.copyOf()
+
+```java
+elementData = Arrays.copyOf(elementData, newCapacity);
+```
+
+
+
+#### 区别
+
+看两者源代码可以发现 copyOf() 内部实际调用了 `System.arraycopy()` 方法
+
+`arraycopy()` 需要目标数组，将原数组拷贝到你自己定义的数组里或者原数组，而且可以选择拷贝的起点和长度以及放入新数组中的位置 `copyOf()` 是系统自动在内部新建一个数组，并返回该数组。
+
+
+
+
 
 
 
@@ -1080,7 +1293,13 @@ public HashMap(Map<? extends K, ? extends V> m) {
 
 
 
-### put()：添加一个键值对
+
+
+### put()：添加一个键值对/扩容机制
+
+
+
+向map中添加值(返回这个key以前的值,如果没有返回null)
 
 ![](images/Java容器/HashMap的put原理图.png)
 
@@ -1088,7 +1307,7 @@ public HashMap(Map<? extends K, ? extends V> m) {
 
 **计算hash值**
 
-先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突
+先获取到key的hashCode，然后进行移位再进行异或运算算出要插入的索引，为什么这么复杂，不用想肯定是为了减少hash冲突。如果key为空就返回索引0，也就是说插入到第一个结点。
 
 ```java
     static final int hash(Object key) {
@@ -1289,6 +1508,10 @@ public V put(K key, V value) {
         return newTab;
     }
 ```
+
+
+
+
 
 
 
