@@ -32,15 +32,23 @@ tags:
 
 
 
+![](images/Java容器/List,Set,Map三者的区别.png)
+
+
+
+
+
 ## 常用集合方法
 
 参考
 
-> https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2
+> https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB
 
 
 
 # 1. List
+
+
 
 
 
@@ -747,32 +755,7 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 这里可以看到**modCount**的用处，当**modCount**发生改变后，立刻抛出**ConcurrentModificationException**异常。通过之前的分析可以知道当列表内容被修改时**modCount**会增加。也就是说如果在遍历**ArrayList**的过程中有其他线程修改了**ArrayList**，那么将抛出**ConcurrentModificationException**异常
 
 ```java
-/**
-     * The number of times this list has been <i>structurally modified</i>.
-     * Structural modifications are those that change the size of the
-     * list, or otherwise perturb it in such a fashion that iterations in
-     * progress may yield incorrect results.
-     *
-     * <p>This field is used by the iterator and list iterator implementation
-     * returned by the {@code iterator} and {@code listIterator} methods.
-     * If the value of this field changes unexpectedly, the iterator (or list
-     * iterator) will throw a {@code ConcurrentModificationException} in
-     * response to the {@code next}, {@code remove}, {@code previous},
-     * {@code set} or {@code add} operations.  This provides
-     * <i>fail-fast</i> behavior, rather than non-deterministic behavior in
-     * the face of concurrent modification during iteration.
-     *
-     * <p><b>Use of this field by subclasses is optional.</b> If a subclass
-     * wishes to provide fail-fast iterators (and list iterators), then it
-     * merely has to increment this field in its {@code add(int, E)} and
-     * {@code remove(int)} methods (and any other methods that it overrides
-     * that result in structural modifications to the list).  A single call to
-     * {@code add(int, E)} or {@code remove(int)} must add no more than
-     * one to this field, or the iterators (and list iterators) will throw
-     * bogus {@code ConcurrentModificationExceptions}.  If an implementation
-     * does not wish to provide fail-fast iterators, this field may be
-     * ignored.
-     */
+
     protected transient int modCount = 0;//操作数
 
     @Override
@@ -791,27 +774,37 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
         }
     }
 
-    /**
-     * Checks that the specified object reference is not {@code null}. This
-     * method is designed primarily for doing parameter validation in methods
-     * and constructors, as demonstrated below:
-     * <blockquote><pre>
-     * public Foo(Bar bar) {
-     *     this.bar = Objects.requireNonNull(bar);
-     * }
-     * </pre></blockquote>
-     *
-     * @param obj the object reference to check for nullity
-     * @param <T> the type of the reference
-     * @return {@code obj} if not {@code null}
-     * @throws NullPointerException if {@code obj} is {@code null}
-     */
+
     public static <T> T requireNonNull(T obj) {
         if (obj == null)
             throw new NullPointerException();
         return obj;
     }
 ```
+
+
+
+## LinkedList
+
+
+
+
+
+## 区别
+
+
+
+### Arraylist 与 LinkedList 区别?
+
+![](images/Java容器/Arraylist与LinkedList区别.png)
+
+
+
+### ArrayList 与 Vector 区别呢?为什么要⽤Arraylist取代Vector呢？
+
+![](images/Java容器/ArrayList与Vector 区别.png)
+
+
 
 
 
@@ -822,6 +815,12 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 ## 2.1 HashSet
 
 **HashSet**实现**Set**接口，由哈希表（实际上是一个**HashMap**实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于**HashSet**而言，它是基于**HashMap**实现的，HashSet底层使用**HashMap**来保存所有元素，因此**HashSet** 的实现比较简单，相关**HashSet**的操作，基本上都是直接调用底层**HashMap**的相关方法来完成， **HashSet**的源代码如下：
+
+
+
+### HashSet与HashMap区别
+
+![](images/Java容器/HashMap和HashSet区别.png)
 
 
 
@@ -916,21 +915,20 @@ public class HashSet<E>
 
 
 
-### 调用add方法
+### 调用add方法/如何去重
+
+
+
+- 如果此set中尚未包含指定元素，则添加指定元素。 
+- 更确切地讲，如果此 set 没有包含满足(e\==null ? e2\==null : e.equals(e2)) 的元素e2，则向此set 添加指定的元素e。 
+- 如果此set已包含该元素，则该调用不更改set并返回false。 
+- 底层实际将将该元素作为key放入HashMap。 
+- 由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）。新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， 
+- 因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， 
+- 原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 
 
 ```java
-    /** 
-     * 如果此set中尚未包含指定元素，则添加指定元素。 
-     * 更确切地讲，如果此 set 没有包含满足(e==null ? e2==null : e.equals(e2)) 
-     * 的元素e2，则向此set 添加指定的元素e。 
-     * 如果此set已包含该元素，则该调用不更改set并返回false。 
-     * 
-     * 底层实际将将该元素作为key放入HashMap。 
-     * 由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key 
-     * 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）， 
-     * 新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， 
-     * 因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， 
-     * 原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 
+    /**  
      * @param e 将添加到此set中的元素。 
      * @return 如果此set尚未包含指定元素，则返回true。 
      */  
@@ -1095,7 +1093,7 @@ public class HashSet<E>
 
 ### HashMap数据结构
 
-	**HashMap**的主干是一个变量名为**table**的**Entry/Node数组**。**Entry/Node**是**HashMap**的基本组成单元，每一个**Entry/Node**包含一个**key-value**键值对。
+**HashMap**的主干是一个变量名为**table**的**Entry/Node数组**。**Entry/Node**是**HashMap**的基本组成单元，每一个**Entry/Node**包含一个**key-value**键值对。
 
 ```java
 //HashMap的主干数组，可以看到就是一个Entry数组，初始值为空数组{}，主干数组的长度一定是2的次幂
@@ -1560,7 +1558,17 @@ public V put(K key, V value) {
 
 
 
-### ConcurrentHashMap1.8如何实现线程安全
+## 3.2 LinkedHashMap
+
+
+
+
+
+## 3.3 ConcurrentHashMap
+
+如何实现线程安全
+
+![](images/Java容器/ConcurrentHashMap线程安全的原理.png)
 
 
 
@@ -1568,4 +1576,10 @@ public V put(K key, V value) {
 
 
 
-## 3.2 Hashtable
+
+
+## 3.3 Hashtable
+
+
+
+## 区别
