@@ -469,7 +469,7 @@ System.out.println(str.toCharArray());
 
 
 
-### String.copyValueOf(char[] charArray)
+### String String.copyValueOf(char[] charArray)
 
 字符数组 -> 字符串
 
@@ -547,7 +547,80 @@ String s = sb.toString();
 
 
 
+## 静态成员变量
+
+```java
+public class Demo1 {
+    public static void main(String[] args) {
+        int max = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
+        System.out.println("int最大值是："+max);
+        System.out.println("int最小值是："+min);
+
+        //根据上面的估计你就会做出举一反三的动作，如下：
+        System.out.println("Long最大值是："+Long.MAX_VALUE);
+        System.out.println("Long最小值是："+Long.MIN_VALUE);
+        System.out.println("Double最大值是："+Double.MAX_VALUE);
+        System.out.println("Double最小值是："+Double.MIN_VALUE);
+    }
+}
+
+
+
+/*
+以上代码执行结果如下：
+int最大值是：2147483647
+int最小值是：-2147483648
+Long最大值是：9223372036854775807
+Long最小值是：-9223372036854775808
+Double最大值是：1.7976931348623157E308
+Double最小值是：4.9E-324
+*/
+```
+
+
+
+
+
 ## 3.1 Integer
+
+
+
+## 静态成员变量
+
+```java
+int max = Integer.MAX_VALUE;
+int min = Integer.MIN_VALUE;
+System.out.println("int最大值是："+max);
+System.out.println("int最小值是："+min);
+/*
+以上代码执行结果如下：
+int最大值是：2147483647
+int最小值是：-2147483648
+*/
+```
+
+
+
+## 构造方法
+
+
+
+### Integer(int i)
+
+
+
+### Integer(String str)
+
+常用的构造方法Integer(String s)是将数字格式的字符串，传递到Integer类的构造方法中，创建Integer对象，包装的是一个字符串。将构造方法中的字符串转成基本数据类型，调用非静态方法。
+
+
+
+
+
+## int intValue()
+
+将Integer转换为int类型
 
 
 
@@ -566,7 +639,7 @@ System.out.println(dest);//100000
 
 
 
-## int Integer.ParseInt(String s)
+## int Integer.parseInt(String s)
 
 用于将字符串转换成基本数据类型(int)，要求字符串必须是数字格式.
 
@@ -595,7 +668,7 @@ System.out.println(i2);//10
 
 
 
-静态变量
+
 
 
 

@@ -231,6 +231,7 @@ public ArrayList(Collection<? extends E> c)//指定集合
 
 > - https://www.cnblogs.com/dengrongzhang/p/9371551.html
 > - https://blog.csdn.net/zymx14/article/details/78324464
+> - https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md
 
 
 
@@ -1291,6 +1292,18 @@ public V put(K key, V value) {
 
 
 
+### HashMap 的⻓度为什么是2的幂次⽅
+
+为了能让 HashMap 存取⾼效，尽量减少碰撞，也就是要尽量把数据分配均匀。我们上⾯也讲到了过 了，Hash 值的范围值-2147483648到2147483647，前后加起来⼤概40亿的映射空间，只要哈希函数映射 得⽐较均匀松散，⼀般应⽤是很难出现碰撞的。但问题是⼀个40亿⻓度的数组，内存是放不下的。所以 这个散列值是不能直接拿来⽤的。⽤之前还要先做对数组的⻓度取模运算，得到的余数才能⽤来要存放 的位置也就是对应的数组下标。这个数组下标的计算⽅法是“ `(n - 1) & hash` ”。（n代表数组⻓ 度）。这也就解释了 HashMap 的⻓度为什么是2的幂次⽅。 
+
+这个算法应该如何设计呢？ 
+
+我们⾸先可能会想到采⽤%取余的操作来实现。但是，重点来了：“取余(%)操作中如果除数是2的幂次则 等价于与其除数减⼀的与(&)操作（也就是说 hash%lengthdehash&(length-1)的前提是 length 是2的 n 次⽅；）。” 并且 采⽤⼆进制位操作 &，相对于%能够提⾼运算效率，这就解释了 HashMap 的⻓度 为什么是2的幂次⽅。
+
+
+
+
+
 ### JDK1.8中HashMap如何应对hash冲突？
 
 
@@ -1314,6 +1327,13 @@ public V put(K key, V value) {
 参考
 
 > - https://blog.csdn.net/swpu_ocean/article/details/88917958
+
+
+
+**总结**
+
+- 在JDK1.7中，当并发执行扩容操作时会造成环形链和数据丢失的情况。
+- **在JDK1.8中**，在并发执行put操作时会发生数据覆盖的情况。
 
 
 
