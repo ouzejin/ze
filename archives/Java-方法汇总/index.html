@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/1ccade953bb0160eaeefb4a2184d32e0.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/405628699ef52ea9ff5a2b0f60a0a73f.json"
         }
     </script>
     <script>
@@ -276,7 +276,99 @@
 </blockquote>
 </li>
 </ol>
-<h2>List特有</h2>
+<h2>1.2 List特有</h2>
+<h2>1.2 Map</h2>
+<h3>1.2.1 增删查改类</h3>
+<h3>V put(K key , V value)</h3>
+<p>向map中添加键值对，并返回<code>value</code>值，如果<code>key</code>重复，则返回之前的<code>oldValue</code>值</p>
+<div class="highlight"><pre><span></span><span class="c1">///*Integer*/map.put(&quot;1&quot;, 1);//向map中添加值(返回这个key以前的值,如果没有返回null)</span>
+         <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span><span class="c1">//null</span>
+         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span><span class="c1">//1</span>
+</pre></div>
+<h3>V putIfAbsent(K key , V Value)</h3>
+<p><code>JDK1.8</code></p>
+<p>如果当前 <code>Map</code> 不存在键 <em>key</em> 或者该 <em>key</em> 关联的值为 <code>null</code>，那么就执行 <code>put(key, value)</code>；否则，便不执行 <code>put</code> 操作并返回null</p>
+<div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="cm">/*boolean*/</span><span class="c1">//判断map中是否存在这个key</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;DEMO1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;DEMO2&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="c1">//{DEMO1=1, DEMO2=2}</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="s">&quot;DEMO1&quot;</span><span class="p">,</span> <span class="mi">12222</span><span class="p">));</span><span class="c1">//1</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="s">&quot;DEMO3&quot;</span><span class="p">,</span> <span class="mi">12222</span><span class="p">));</span><span class="c1">//null</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="c1">//{DEMO1=1, DEMO2=2,DEMO3=12222}</span>
+</pre></div>
+<h3>Map&lt;K , V&gt; putAll(Map&lt;? extends K, ? extends V&gt; m)</h3>
+<p>putAll可以合并两个相同类型的Map，被合并的类型必须是相等或继承的类型，只不过如果有相同的key那么用被合并的覆盖前面的</p>
+<div class="highlight"><pre><span></span><span class="n">HashMap</span> <span class="n">map3</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
+<span class="n">map3</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">);</span>
+
+<span class="n">HashMap</span> <span class="n">map4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
+<span class="n">map4</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">);</span>
+<span class="n">map4</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">map3</span><span class="p">.</span><span class="na">putAll</span><span class="p">(</span><span class="n">map4</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map3</span><span class="p">);</span>
+<span class="c1">//{3=C, 1=B},key为1value为“A“被覆盖</span>
+</pre></div>
+<h3>V get(K key)</h3>
+<p>得到map中key相对应的value的值,为空返回null</p>
+<h3>Map&lt;K , V&gt; clone()</h3>
+<p>克隆map</p>
+<h3>void clear()</h3>
+<p>清空map</p>
+<h3>int Size()</h3>
+<p>返回大小</p>
+<h3>V replace(K key , V newValue)</h3>
+<p><code>JDK1.8新方法</code></p>
+<p>在指定的键已经存在并且有与之相关的映射值时才会将指定的键映射到指定的值（新值）, 并返回<code>旧的oldValue值</code></p>
+<p>在指定的键不存在时，方法会return回来一个<code>null</code></p>
+<h3>boolean replace(K key , V oldValue , V newValue)</h3>
+<p><code>JDK1.8新方法</code></p>
+<p>当<code>Map.Entry&lt;key , oldValue&gt;</code>存在时，也就是说存在<code>key-oldValue</code>这个键值对时才进行替换操作</p>
+<p>成功返回<code>true</code>，否则<code>false</code></p>
+<div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map3</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="p">();</span>
+<span class="n">map3</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;1&quot;</span> <span class="p">,</span> <span class="s">&quot;a&quot;</span> <span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">));</span><span class="c1">//true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;2&quot;</span> <span class="p">,</span> <span class="s">&quot;a&quot;</span> <span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">));</span><span class="c1">//false,key不同，value相同</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;1&quot;</span> <span class="p">,</span> <span class="s">&quot;s&quot;</span> <span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">));</span><span class="c1">//false,key相同，value不同</span>
+</pre></div>
+<h3>boolean remove(K key)</h3>
+<p>根据key删除此键值对下的键值对</p>
+<h3>boolean remove(K key , V value)</h3>
+<p>删除key和value都符合的键值对</p>
+<h3>boolean isEmpty()</h3>
+<p>判断是否为空</p>
+<h3>boolean containsKey(K key)</h3>
+<p>查看是否包含此key</p>
+<h3>boolean containsValue(V value)</h3>
+<p>查看是否包含此value</p>
+<h3>1.2.2 遍历类</h3>
+<h3>Collection\<V> values()</h3>
+<p>获取map中所有的key并返回为<code>Collection&lt;V&gt;</code>类型</p>
+<h3>Set\<V> keySet()</h3>
+<p>获取map中所有的key并返回<code>Set&lt;V&gt;</code>类型，因为Set的元素是独一无二之的，之后可以用迭代器<code>iterator()</code>遍历</p>
+<div class="highlight"><pre><span></span><span class="n">Iterator</span> <span class="n">ot</span> <span class="o">=</span> <span class="n">map</span><span class="p">.</span><span class="na">keySet</span><span class="p">().</span><span class="na">iterator</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">ot</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ot</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+<h3>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</h3>
+<p>返回所有结点，类型为<code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code>。也可以转换为迭代器<code>iterator()</code>遍历</p>
+<div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">es</span> <span class="o">=</span> <span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">();</span>
+<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">es</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+ <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+    <span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">mey</span> <span class="o">=</span> <span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+
+    <span class="c1">//getKey()和getValue是接口Map.Entry&lt;K,V&gt;中的方法，返回对应的键和对应的值</span>
+    <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="n">mey</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+    <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mey</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="n">value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+<h2>1.3 HashMap</h2>
 <h1>2. String字符串</h1>
 <p>参考</p>
 <blockquote><ul>
@@ -511,6 +603,8 @@
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="c1">//14</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i2</span><span class="p">);</span><span class="c1">//10</span>
 </pre></div>
+<h3>对于该</h3>
+<h3> </h3>
 </article>
     </section>
 

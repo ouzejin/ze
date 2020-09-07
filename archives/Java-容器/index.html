@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/1ccade953bb0160eaeefb4a2184d32e0.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/405628699ef52ea9ff5a2b0f60a0a73f.json"
         }
     </script>
     <script>
@@ -161,8 +161,17 @@
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">ArrayList</span><span class="p">()</span><span class="c1">//无参构造方法</span>
 <span class="kd">public</span> <span class="nf">ArrayList</span><span class="p">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="p">)</span><span class="err">；</span><span class="c1">//有参构造方法</span>
 <span class="kd">public</span> <span class="nf">ArrayList</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span><span class="c1">//指定集合</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 默认初始容量大小为10</span>
+<span class="cm">*/</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_CAPACITY</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="cm">/**默认空数组*/</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span> <span class="o">=</span> <span class="p">{};</span>
 </pre></div>
 <p><strong>无参构造方法</strong></p>
+<p><strong>以无参数构造方法创建 ArrayList 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为10。</strong></p>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">     * Shared empty array instance used for default sized empty instances. We</span>
 <span class="cm">     * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when</span>
@@ -300,13 +309,16 @@
 <li><a href="https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md">https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md</a></li>
 </ul>
 </blockquote>
-<p>添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组<strong>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</strong>赋给elementData，在第一次调用add方法时才会扩容，一般是默认值<strong>DEFAULT_CAPACITY = 10</strong></p>
-<p><strong>流程</strong></p>
-<ol>
-<li>调用<strong>calculateCapacity(elementData, minCapacity)</strong>方法计算返回需要扩容的最小值</li>
-<li>调用<strong>ensureExplicitCapacity(calculateCapacity(elementData, minCapacity))</strong>方法判断扩容的最小值是否大于数组的长度，大于则继续调用<strong>grow(minCapacity)</strong>方法，否则直接 <strong>elementData[size++] = e;</strong></li>
-<li>调用<strong>grow(minCapacity);</strong>方法，先<strong>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</strong>计算扩容1.5倍后再与<strong>minCapacity</strong>对比，如果还是比<strong>minCapacity</strong>小就直接<strong>newCapacity = minCapacity;</strong> ，之后再将<strong>newCapacity</strong>与<strong>MAX_ARRAY_SIZE</strong>对比，如果比<strong>MAX_ARRAY_SIZE</strong>大那就调用<strong>hugeCapacity(minCapacity);</strong>重新计算大小，最后<strong>elementData = Arrays.copyOf(elementData, newCapacity);</strong>完成扩容，最后再将加的对象赋值给<strong>elementData[size] , size++</strong></li>
-</ol>
+<p>添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>赋给elementData，在第一次调用add方法时才会扩容，一般是默认值<code>DEFAULT_CAPACITY = 10</code></p>
+<h4>流程</h4>
+<ul>
+<li>第一步：调用<code>ensureCapacityInternal(size + 1)</code>方法</li>
+<li>第二步：调用 <code>calculateCapacity(elementData, minCapacity)</code> 方法计算返回需要扩容的最小值</li>
+<li>第三步：调用<code>ensureExplicitCapacity()</code>方法判断扩容的最小值是否大于数组的长度，此时<code>minCapacity</code>为调用<code>calculateCapacity</code>传过来的最后计算得出的最小容量。大于则继续调用<strong>grow(minCapacity)</strong>方法，否则直接 <code>elementData[size++] = e</code>;</li>
+<li>第四步：调用<code>grow()</code>方法进行扩容。先<code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code>;计算扩容<code>1.5倍</code>后再与<code>minCapacity</code>对比，如果还是比<code>minCapacity</code>小就直接<code>newCapacity = minCapacity</code>; 之后再将<code>newCapacity</code>与<code>MAX_ARRAY_SIZE</code>对比，如果比<code>MAX_ARRAY_SIZE</code>大那就调用<code>hugeCapacity(minCapacity)</code>;重新计算大小，最后<code>elementData = Arrays.copyOf(elementData, newCapacity)</code>;完成扩容，最后再将加的对象赋值给<code>elementData[size] , size++</code></li>
+</ul>
+<h4>第一步：调用<code>ensureCapacityInternal(size + 1)</code>方法</h4>
+<p><code>minCapacity = size + 1</code>即为所需最小容量，调用此方法时会先调用<code>calculateCapacity(elementData, minCapacity)</code>去计算所需最小容量，之后作为参数去调用<code>ensureExplicitCapacity</code>去与当前elementdata数组的长度<code>elementdata.length</code>比较看是否需要调用<code>grow()</code>去扩容。</p>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">     * Appends the specified element to the end of this list.</span>
 <span class="cm">     *</span>
@@ -324,25 +336,18 @@
         <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="cm">/**</span>
+        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureCapacityInternal</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ensureExplicitCapacity</span><span class="p">(</span><span class="n">calculateCapacity</span><span class="p">(</span><span class="n">elementData</span><span class="p">,</span> <span class="n">minCapacity</span><span class="p">));</span>
+    <span class="p">}</span>
+</pre></div>
+<blockquote><p><strong>注意</strong> ：JDK11 移除了 <code>ensureCapacityInternal()</code> 和 <code>ensureExplicitCapacity()</code> 方法</p>
+</blockquote>
+<h4>第二步：调用 <code>calculateCapacity(elementData, minCapacity)</code> 方法</h4>
+<p>计算默认容量<code>DEFAULT_CAPACITY = 10</code>和当前<code>minCapacity = size + 1</code>的最大值。当 要 add 进第1个元素时，minCapacity为1，在Math.max()方法比较后，minCapacity 为10。</p>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">     * Default initial capacity.</span>
 <span class="cm">     */</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_CAPACITY</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// 默认容量为10</span>
-
-
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureCapacityInternal</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ensureExplicitCapacity</span><span class="p">(</span><span class="n">calculateCapacity</span><span class="p">(</span><span class="n">elementData</span><span class="p">,</span> <span class="n">minCapacity</span><span class="p">));</span>
-    <span class="p">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureExplicitCapacity</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">modCount</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 操作数+1</span>
-
-        <span class="c1">// overflow-conscious code</span>
-        <span class="c1">// 如果所需容量最小值大于实际数组的长度就扩大实际数组容量</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">minCapacity</span> <span class="o">-</span> <span class="n">elementData</span><span class="p">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">grow</span><span class="p">(</span><span class="n">minCapacity</span><span class="p">);</span>
-    <span class="p">}</span>
 
  <span class="c1">// 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculateCapacity</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span> <span class="n">elementData</span><span class="p">,</span> <span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
@@ -352,15 +357,37 @@
         <span class="k">return</span> <span class="n">minCapacity</span><span class="p">;</span>
     <span class="p">}</span>
 
+
     <span class="cm">/**</span>
 <span class="cm">     * The maximum size of array to allocate.</span>
 <span class="cm">     * Some VMs reserve some header words in an array.</span>
 <span class="cm">     * Attempts to allocate larger arrays may result in</span>
 <span class="cm">     * OutOfMemoryError: Requested array size exceeds VM limit</span>
 <span class="cm">     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MAX_ARRAY_SIZE</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span> <span class="o">-</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// 数组最大容量为Integer最大值-8</span>
+</pre></div>
+<h4>第三步：调用<code>ensureExplicitCapacity()</code>方法看是否需要扩容</h4>
+<ul>
+<li>当我们要 add 进第1个元素到 ArrayList 时，<code>elementData.length</code> 为0 （因为还是一个空的 list），因为执行了 <code>ensureCapacityInternal()</code> 方法 ，所以 minCapacity 此时为10。此时，<code>minCapacity - elementData.length &gt; 0</code>成立，所以会进入 <code>grow(minCapacity为10)</code> 方法。</li>
+<li>当add第2个元素时，<code>minCapacity</code> 为2，此时<code>elementData.length</code>(容量)在添加第一个元素后扩容成 10 了。此时，<code>minCapacity - elementData.length &gt; 0</code>不成立，所以不会进入 （执行）<code>grow(minCapacity)</code> 方法。</li>
+<li>添加第3、4···到第10个元素时，依然不会执行grow方法，数组容量都为10。直到添加第11个元素，<code>minCapacity(为11)</code>比<code>elementData.length（为10）</code>要大。进入<code>grow(minCapacity为11)</code>方法进行扩容</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureExplicitCapacity</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">modCount</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 操作数+1</span>
 
-    <span class="cm">/**</span>
+        <span class="c1">// overflow-conscious code</span>
+        <span class="c1">// 如果所需容量最小值大于实际数组的长度就扩大实际数组容量</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">minCapacity</span> <span class="o">-</span> <span class="n">elementData</span><span class="p">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">grow</span><span class="p">(</span><span class="n">minCapacity</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+<h4>第四步：调用<code>grow()</code>方法进行扩容</h4>
+<ul>
+<li>当add第1个元素时，oldCapacity 为0，经比较后第一个if判断成立，newCapacity = minCapacity(为10)。但是第二个if判断不会成立，即newCapacity 不比 MAX_ARRAY_SIZE大，则不会进入 <code>hugeCapacity</code> 方法。数组容量为10，add方法中 return true,size增为1。</li>
+<li>当add第11个元素进入grow方法时，newCapacity为15，比minCapacity（为11）大，第一个if判断不成立。新容量没有大于数组最大size，不会进入hugeCapacity方法。数组容量扩为15，add方法中return true,size增为11。</li>
+<li>以此类推······</li>
+</ul>
+<p>之所以每次扩容原来的<code>1.5倍</code>，是为了不让每次调用<code>add()</code>方法都去扩容然后复制数组</p>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">     * Increases the capacity to ensure that it can hold at least the</span>
 <span class="cm">     * number of elements specified by the minimum capacity argument.</span>
 <span class="cm">     *</span>
@@ -390,11 +417,18 @@
                 <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span> <span class="p">:</span>
                 <span class="n">MAX_ARRAY_SIZE</span><span class="p">;</span>
     <span class="p">}</span>
+
+ <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MAX_ARRAY_SIZE</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span> <span class="o">-</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// 数组最大容量为Integer最大值再减8</span>
 </pre></div>
 <h3>void add(int index, E element) ：在index处放置元素</h3>
 <p>将elementData数组从index开始后面的元素往后移一位，接着在index处放置元素</p>
 <p><strong>模拟添加数据(lierabbit)到index=4过程如下：</strong></p>
 <p><figure><img data-width="1826" data-height="425" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/0729abe0cfcb74f571929f267a12ccfb.jpg" alt="" /></figure></p>
+<ul>
+<li>在此列表中的指定位置插入指定的元素。 </li>
+<li>先调用 <code>rangeCheckForAdd</code> 对index进行界限检查；然后调用 <code>ensureCapacityInternal</code> 方法保证<code>capacity</code>足够大；</li>
+<li>再将从index开始之后的所有成员后移一个位置；将element插入index位置；最后size加1。</li>
+</ul>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">     * Inserts the specified element at the specified position in this</span>
 <span class="cm">     * list. Shifts the element currently at that position (if any) and</span>
@@ -425,6 +459,75 @@
             <span class="k">throw</span> <span class="k">new</span> <span class="n">IndexOutOfBoundsException</span><span class="p">(</span><span class="n">outOfBoundsMsg</span><span class="p">(</span><span class="n">index</span><span class="p">));</span>
     <span class="p">}</span>
 </pre></div>
+<h3>ensureCapacity(int minCapacity)：自主扩增容量</h3>
+<p>在使用add()方法增加新的元素时，如果要增加的数据量很大，应该使用<code>ensureCapacity()</code>方法，该方法的作用是预先设置Arraylist的大小，这样可以大大提高初始化速度。</p>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">    如有必要，增加此 ArrayList 实例的容量，以确保它至少可以容纳由minimum capacity参数指定的元素数。</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param   minCapacity   所需的最小容量</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ensureCapacity</span><span class="p">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">minExpand</span> <span class="o">=</span> <span class="p">(</span><span class="n">elementData</span> <span class="o">!=</span> <span class="n">DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span><span class="p">)</span><span class="o">?</span> <span class="mi">0</span><span class="p">:</span> <span class="n">DEFAULT_CAPACITY</span><span class="p">;</span>
+            <span class="c1">// any size if not default element table            </span>
+            <span class="c1">// larger than default for default empty table. It&#39;s already</span>
+            <span class="c1">// supposed to be at default size.</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">minCapacity</span> <span class="o">&gt;</span> <span class="n">minExpand</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ensureExplicitCapacity</span><span class="p">(</span><span class="n">minCapacity</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+<p>最好在 add 大量元素之前用 <code>ensureCapacity</code> 方法，以减少增量重新分配的次数。例如：</p>
+<p>未提前使用 <code>ensureCapacity</code> 前</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnsureCapacityTest</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">long</span> <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;使用ensureCapacity方法前：&quot;</span><span class="o">+</span><span class="p">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="p">));</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>结果：使用<code>ensureCapacity</code>方法前：2158</p>
+<p>使用 <code>ensureCapacity</code> 后</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnsureCapacityTest</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span><span class="p">;</span>
+        <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">startTime1</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">list</span><span class="p">.</span><span class="na">ensureCapacity</span><span class="p">(</span><span class="n">N</span><span class="p">);</span><span class="c1">//此处调用后</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">long</span> <span class="n">endTime1</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;使用ensureCapacity方法后：&quot;</span><span class="o">+</span><span class="p">(</span><span class="n">endTime1</span> <span class="o">-</span> <span class="n">startTime1</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>结果：使用<code>ensureCapacity</code>方法后：1773</p>
+<h3>数组复制/扩容的两个方法</h3>
+<h4>System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)</h4>
+<p>将数组<code>src</code>从<code>srcPos</code>后的元素复制到目标数组<code>dest</code>的<code>destPos</code>起点开始，复制<code>length</code>个</p>
+<blockquote><ul>
+<li><code>src</code> -这是源数组. </li>
+<li><code>srcPos</code> -这是源数组中的起始位置。</li>
+<li><code>dest</code> -这是目标数组。</li>
+<li><code>destPos</code> -这是目标数据中的起始位置。</li>
+<li><code>length</code> -- 这是一个要复制的数组元素的数目。</li>
+</ul>
+</blockquote>
+<h4>Arrays.copyOf()</h4>
+<div class="highlight"><pre><span></span><span class="n">elementData</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">elementData</span><span class="p">,</span> <span class="n">newCapacity</span><span class="p">);</span>
+</pre></div>
+<h4>区别</h4>
+<p>看两者源代码可以发现 copyOf() 内部实际调用了 <code>System.arraycopy()</code> 方法</p>
+<p><code>arraycopy()</code> 需要目标数组，将原数组拷贝到你自己定义的数组里或者原数组，而且可以选择拷贝的起点和长度以及放入新数组中的位置 <code>copyOf()</code> 是系统自动在内部新建一个数组，并返回该数组。</p>
 <h3>boolean addAll(Collection&lt;? extends E&gt; c) : 添加一个集合里的所有元素到列表尾</h3>
 <p>将要添加的集合变为数组，然后将其复制到elementData数组末尾</p>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
@@ -990,10 +1093,11 @@
         <span class="p">}</span>
     <span class="p">}</span>
 </pre></div>
-<h3>put()：添加一个键值对</h3>
+<h3>put()：添加一个键值对/扩容机制</h3>
+<p>向map中添加值(返回这个key以前的值,如果没有返回null)</p>
 <p><figure><img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a9b583621c8de6a6fe8a510c40bbf81f.png" alt="" /></figure></p>
 <p><strong>计算hash值</strong></p>
-<p>先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突</p>
+<p>先获取到key的hashCode，然后进行移位再进行异或运算算出要插入的索引，为什么这么复杂，不用想肯定是为了减少hash冲突。如果key为空就返回索引0，也就是说插入到第一个结点。</p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">hash</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">h</span><span class="p">;</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="na">hashCode</span><span class="p">())</span> <span class="o">^</span> <span class="p">(</span><span class="n">h</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span><span class="p">);</span>

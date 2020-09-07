@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-09-07T02:24:35.960005+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java-方法汇总/</id><title>Java-方法汇总</title><updated>2020-09-07T02:24:35.960441+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. Java集合&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-09-07T15:07:15.743338+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java-方法汇总/</id><title>Java-方法汇总</title><updated>2020-09-07T15:07:15.743747+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. Java集合&lt;/h1&gt;
 &lt;h2&gt;1.1 Collection&lt;/h2&gt;
 &lt;h3&gt;1.1.1 排序操作&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;//反转&lt;/span&gt;
@@ -140,7 +140,99 @@
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;List特有&lt;/h2&gt;
+&lt;h2&gt;1.2 List特有&lt;/h2&gt;
+&lt;h2&gt;1.2 Map&lt;/h2&gt;
+&lt;h3&gt;1.2.1 增删查改类&lt;/h3&gt;
+&lt;h3&gt;V put(K key , V value)&lt;/h3&gt;
+&lt;p&gt;向map中添加键值对，并返回&lt;code&gt;value&lt;/code&gt;值，如果&lt;code&gt;key&lt;/code&gt;重复，则返回之前的&lt;code&gt;oldValue&lt;/code&gt;值&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;///*Integer*/map.put(&amp;quot;1&amp;quot;, 1);//向map中添加值(返回这个key以前的值,如果没有返回null)&lt;/span&gt;
+         &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+         &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//null&lt;/span&gt;
+         &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;V putIfAbsent(K key , V Value)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;JDK1.8&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果当前 &lt;code&gt;Map&lt;/code&gt; 不存在键 &lt;em&gt;key&lt;/em&gt; 或者该 &lt;em&gt;key&lt;/em&gt; 关联的值为 &lt;code&gt;null&lt;/code&gt;，那么就执行 &lt;code&gt;put(key, value)&lt;/code&gt;；否则，便不执行 &lt;code&gt;put&lt;/code&gt; 操作并返回null&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="cm"&gt;/*boolean*/&lt;/span&gt;&lt;span class="c1"&gt;//判断map中是否存在这个key&lt;/span&gt;
+&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DEMO1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DEMO2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//{DEMO1=1, DEMO2=2}&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;putIfAbsent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DEMO1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12222&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//1&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;putIfAbsent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DEMO3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12222&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//null&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//{DEMO1=1, DEMO2=2,DEMO3=12222}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Map&amp;lt;K , V&amp;gt; putAll(Map&amp;lt;? extends K, ? extends V&amp;gt; m)&lt;/h3&gt;
+&lt;p&gt;putAll可以合并两个相同类型的Map，被合并的类型必须是相等或继承的类型，只不过如果有相同的key那么用被合并的覆盖前面的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;HashMap&lt;/span&gt; &lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;HashMap&lt;/span&gt; &lt;span class="n"&gt;map4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;map4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;B&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;map4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;putAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map4&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;//{3=C, 1=B},key为1value为“A“被覆盖&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;V get(K key)&lt;/h3&gt;
+&lt;p&gt;得到map中key相对应的value的值,为空返回null&lt;/p&gt;
+&lt;h3&gt;Map&amp;lt;K , V&amp;gt; clone()&lt;/h3&gt;
+&lt;p&gt;克隆map&lt;/p&gt;
+&lt;h3&gt;void clear()&lt;/h3&gt;
+&lt;p&gt;清空map&lt;/p&gt;
+&lt;h3&gt;int Size()&lt;/h3&gt;
+&lt;p&gt;返回大小&lt;/p&gt;
+&lt;h3&gt;V replace(K key , V newValue)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;JDK1.8新方法&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在指定的键已经存在并且有与之相关的映射值时才会将指定的键映射到指定的值（新值）, 并返回&lt;code&gt;旧的oldValue值&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在指定的键不存在时，方法会return回来一个&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;boolean replace(K key , V oldValue , V newValue)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;JDK1.8新方法&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;当&lt;code&gt;Map.Entry&amp;lt;key , oldValue&amp;gt;&lt;/code&gt;存在时，也就是说存在&lt;code&gt;key-oldValue&lt;/code&gt;这个键值对时才进行替换操作&lt;/p&gt;
+&lt;p&gt;成功返回&lt;code&gt;true&lt;/code&gt;，否则&lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//true&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//false,key不同，value相同&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;s&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="c1"&gt;//false,key相同，value不同&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;boolean remove(K key)&lt;/h3&gt;
+&lt;p&gt;根据key删除此键值对下的键值对&lt;/p&gt;
+&lt;h3&gt;boolean remove(K key , V value)&lt;/h3&gt;
+&lt;p&gt;删除key和value都符合的键值对&lt;/p&gt;
+&lt;h3&gt;boolean isEmpty()&lt;/h3&gt;
+&lt;p&gt;判断是否为空&lt;/p&gt;
+&lt;h3&gt;boolean containsKey(K key)&lt;/h3&gt;
+&lt;p&gt;查看是否包含此key&lt;/p&gt;
+&lt;h3&gt;boolean containsValue(V value)&lt;/h3&gt;
+&lt;p&gt;查看是否包含此value&lt;/p&gt;
+&lt;h3&gt;1.2.2 遍历类&lt;/h3&gt;
+&lt;h3&gt;Collection\&lt;V&gt; values()&lt;/h3&gt;
+&lt;p&gt;获取map中所有的key并返回为&lt;code&gt;Collection&amp;lt;V&amp;gt;&lt;/code&gt;类型&lt;/p&gt;
+&lt;h3&gt;Set\&lt;V&gt; keySet()&lt;/h3&gt;
+&lt;p&gt;获取map中所有的key并返回&lt;code&gt;Set&amp;lt;V&amp;gt;&lt;/code&gt;类型，因为Set的元素是独一无二之的，之后可以用迭代器&lt;code&gt;iterator()&lt;/code&gt;遍历&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Iterator&lt;/span&gt; &lt;span class="n"&gt;ot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;keySet&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="na"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ot&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;hasNext&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ot&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;next&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Set&amp;lt;Map.Entry&amp;lt;K,V&amp;gt;&amp;gt; entrySet()&lt;/h3&gt;
+&lt;p&gt;返回所有结点，类型为&lt;code&gt;Set&amp;lt;Map.Entry&amp;lt;K,V&amp;gt;&amp;gt;&lt;/code&gt;。也可以转换为迭代器&lt;code&gt;iterator()&lt;/code&gt;遍历&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;es&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;entrySet&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;Iterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;es&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+ &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;hasNext&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+    &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;mey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;next&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="c1"&gt;//getKey()和getValue是接口Map.Entry&amp;lt;K,V&amp;gt;中的方法，返回对应的键和对应的值&lt;/span&gt;
+    &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mey&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getKey&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mey&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.3 HashMap&lt;/h2&gt;
 &lt;h1&gt;2. String字符串&lt;/h1&gt;
 &lt;p&gt;参考&lt;/p&gt;
 &lt;blockquote&gt;&lt;ul&gt;
@@ -375,7 +467,9 @@
 &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//14&lt;/span&gt;
 &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//10&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/Java-方法汇总/" rel="alternate"/><published>2020-08-09T23:56:52+08:06</published></entry><entry><id>/archives/Java-设计模式/</id><title>Java-设计模式</title><updated>2020-09-07T02:24:35.960412+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java设计模式&lt;/p&gt;
+&lt;h3&gt;对于该&lt;/h3&gt;
+&lt;h3&gt; &lt;/h3&gt;
+</content><link href="/archives/Java-方法汇总/" rel="alternate"/><published>2020-08-09T23:56:52+08:06</published></entry><entry><id>/archives/Java-设计模式/</id><title>Java-设计模式</title><updated>2020-09-07T15:07:15.743718+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java设计模式&lt;/p&gt;
 &lt;h1&gt;总览&lt;/h1&gt;
 &lt;p&gt;参考&lt;/p&gt;
 &lt;blockquote&gt;&lt;ul&gt;
@@ -590,7 +684,7 @@ getInstance() 的性能对应用程序很关键。&lt;/p&gt;
 &lt;li&gt;将 uniqueInstance 指向分配的内存地址 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;但是由于 JVM 具有指令重排的特性，执⾏顺序有可能变成 1&amp;gt;3&amp;gt;2。指令重排在单线程环境下不会出 现问题，但是在多线程环境下会导致⼀个线程获得还没有初始化的实例。例如，线程 T1 执⾏了 1 和 3，此时 T2 调⽤ getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。 使⽤ volatile 可以禁⽌ JVM 的指令重排，保证在多线程环境下也能正常运⾏。&lt;/p&gt;
-</content><link href="/archives/Java-设计模式/" rel="alternate"/><published>2020-08-09T23:57:52+08:06</published></entry><entry><id>/archives/Linux常用命令/</id><title>Linux常用命令</title><updated>2020-09-07T02:24:35.960384+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;菜鸟教程Linux命令大全&lt;/h1&gt;
+</content><link href="/archives/Java-设计模式/" rel="alternate"/><published>2020-08-09T23:57:52+08:06</published></entry><entry><id>/archives/Linux常用命令/</id><title>Linux常用命令</title><updated>2020-09-07T15:07:15.743688+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;菜鸟教程Linux命令大全&lt;/h1&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://www.runoob.com/linux/linux-command-manual.html"&gt;https://www.runoob.com/linux/linux-command-manual.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;系统管理&lt;/h2&gt;
@@ -609,7 +703,7 @@ getInstance() 的性能对应用程序很关键。&lt;/p&gt;
 --help 　显示帮助。
 --version 　显示版本信息。
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/Linux常用命令/" rel="alternate"/><published>2020-08-14T16:45:16+08:06</published></entry><entry><id>/archives/Java-多线程并发/</id><title>Java-多线程并发</title><updated>2020-09-07T02:24:35.960354+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. 线程、程序、进程的基本概念&lt;/h1&gt;
+</content><link href="/archives/Linux常用命令/" rel="alternate"/><published>2020-08-14T16:45:16+08:06</published></entry><entry><id>/archives/Java-多线程并发/</id><title>Java-多线程并发</title><updated>2020-09-07T15:07:15.743657+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. 线程、程序、进程的基本概念&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d4057bed69eb6b5479b6a48d1a7c2c0e.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;2. 使⽤多线程可能带来什么问题?&lt;/h1&gt;
 &lt;p&gt;并发编程的⽬的就是为了能提⾼程序的执⾏效率提⾼程序运⾏速度，但是并发编程并不总是能提⾼程序 运⾏速度的，⽽且并发编程可能会遇到很多问题，⽐如：&lt;strong&gt;内存泄漏、上下⽂切换、死锁还有受限于硬件 和软件的资源闲置问题&lt;/strong&gt;。&lt;/p&gt;
@@ -1124,7 +1218,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 来源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;
 &lt;h2&gt;12.4 线程池执行流程&lt;/h2&gt;
-</content><link href="/archives/Java-多线程并发/" rel="alternate"/><published>2020-08-23T20:36:25+08:06</published></entry><entry><id>/archives/Java-容器/</id><title>Java-容器</title><updated>2020-09-07T02:24:35.960324+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;容器总览&lt;/h1&gt;
+</content><link href="/archives/Java-多线程并发/" rel="alternate"/><published>2020-08-23T20:36:25+08:06</published></entry><entry><id>/archives/Java-容器/</id><title>Java-容器</title><updated>2020-09-07T15:07:15.743627+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;容器总览&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="959" data-height="912" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/40eb958aebc6e5e06c8b4f0afb334cb5.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="-1" data-height="-1" src="images/Java容器/Java集合框架体系.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="801" data-height="810" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/fbbb5098a2e2b5c19e24ba6c4c1118e3.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -1146,8 +1240,17 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ArrayList&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;//无参构造方法&lt;/span&gt;
 &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ArrayList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;initialCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;；&lt;/span&gt;&lt;span class="c1"&gt;//有参构造方法&lt;/span&gt;
 &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ArrayList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Collection&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;//指定集合&lt;/span&gt;
+
+&lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;* 默认初始容量大小为10&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;DEFAULT_CAPACITY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="cm"&gt;/**默认空数组*/&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;DEFAULTCAPACITY_EMPTY_ELEMENTDATA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;无参构造方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;以无参数构造方法创建 ArrayList 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为10。&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * Shared empty array instance used for default sized empty instances. We&lt;/span&gt;
 &lt;span class="cm"&gt;     * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when&lt;/span&gt;
@@ -1285,13 +1388,16 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;li&gt;&lt;a href="https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md"&gt;https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组&lt;strong&gt;DEFAULTCAPACITY_EMPTY_ELEMENTDATA&lt;/strong&gt;赋给elementData，在第一次调用add方法时才会扩容，一般是默认值&lt;strong&gt;DEFAULT_CAPACITY = 10&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;流程&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;调用&lt;strong&gt;calculateCapacity(elementData, minCapacity)&lt;/strong&gt;方法计算返回需要扩容的最小值&lt;/li&gt;
-&lt;li&gt;调用&lt;strong&gt;ensureExplicitCapacity(calculateCapacity(elementData, minCapacity))&lt;/strong&gt;方法判断扩容的最小值是否大于数组的长度，大于则继续调用&lt;strong&gt;grow(minCapacity)&lt;/strong&gt;方法，否则直接 &lt;strong&gt;elementData[size++] = e;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;调用&lt;strong&gt;grow(minCapacity);&lt;/strong&gt;方法，先&lt;strong&gt;newCapacity = oldCapacity + (oldCapacity &amp;gt;&amp;gt; 1);&lt;/strong&gt;计算扩容1.5倍后再与&lt;strong&gt;minCapacity&lt;/strong&gt;对比，如果还是比&lt;strong&gt;minCapacity&lt;/strong&gt;小就直接&lt;strong&gt;newCapacity = minCapacity;&lt;/strong&gt; ，之后再将&lt;strong&gt;newCapacity&lt;/strong&gt;与&lt;strong&gt;MAX_ARRAY_SIZE&lt;/strong&gt;对比，如果比&lt;strong&gt;MAX_ARRAY_SIZE&lt;/strong&gt;大那就调用&lt;strong&gt;hugeCapacity(minCapacity);&lt;/strong&gt;重新计算大小，最后&lt;strong&gt;elementData = Arrays.copyOf(elementData, newCapacity);&lt;/strong&gt;完成扩容，最后再将加的对象赋值给&lt;strong&gt;elementData[size] , size++&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;添加一个元素到列表尾，当列表容量不足时自动扩容（通常是扩容至原来的1.5倍），添加成功返回true 。如果是新创建的对象且调用的无参构造方法，初始化时是将空数组&lt;code&gt;DEFAULTCAPACITY_EMPTY_ELEMENTDATA&lt;/code&gt;赋给elementData，在第一次调用add方法时才会扩容，一般是默认值&lt;code&gt;DEFAULT_CAPACITY = 10&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;流程&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：调用&lt;code&gt;ensureCapacityInternal(size + 1)&lt;/code&gt;方法&lt;/li&gt;
+&lt;li&gt;第二步：调用 &lt;code&gt;calculateCapacity(elementData, minCapacity)&lt;/code&gt; 方法计算返回需要扩容的最小值&lt;/li&gt;
+&lt;li&gt;第三步：调用&lt;code&gt;ensureExplicitCapacity()&lt;/code&gt;方法判断扩容的最小值是否大于数组的长度，此时&lt;code&gt;minCapacity&lt;/code&gt;为调用&lt;code&gt;calculateCapacity&lt;/code&gt;传过来的最后计算得出的最小容量。大于则继续调用&lt;strong&gt;grow(minCapacity)&lt;/strong&gt;方法，否则直接 &lt;code&gt;elementData[size++] = e&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;第四步：调用&lt;code&gt;grow()&lt;/code&gt;方法进行扩容。先&lt;code&gt;newCapacity = oldCapacity + (oldCapacity &amp;gt;&amp;gt; 1)&lt;/code&gt;;计算扩容&lt;code&gt;1.5倍&lt;/code&gt;后再与&lt;code&gt;minCapacity&lt;/code&gt;对比，如果还是比&lt;code&gt;minCapacity&lt;/code&gt;小就直接&lt;code&gt;newCapacity = minCapacity&lt;/code&gt;; 之后再将&lt;code&gt;newCapacity&lt;/code&gt;与&lt;code&gt;MAX_ARRAY_SIZE&lt;/code&gt;对比，如果比&lt;code&gt;MAX_ARRAY_SIZE&lt;/code&gt;大那就调用&lt;code&gt;hugeCapacity(minCapacity)&lt;/code&gt;;重新计算大小，最后&lt;code&gt;elementData = Arrays.copyOf(elementData, newCapacity)&lt;/code&gt;;完成扩容，最后再将加的对象赋值给&lt;code&gt;elementData[size] , size++&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;第一步：调用&lt;code&gt;ensureCapacityInternal(size + 1)&lt;/code&gt;方法&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;minCapacity = size + 1&lt;/code&gt;即为所需最小容量，调用此方法时会先调用&lt;code&gt;calculateCapacity(elementData, minCapacity)&lt;/code&gt;去计算所需最小容量，之后作为参数去调用&lt;code&gt;ensureExplicitCapacity&lt;/code&gt;去与当前elementdata数组的长度&lt;code&gt;elementdata.length&lt;/code&gt;比较看是否需要调用&lt;code&gt;grow()&lt;/code&gt;去扩容。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * Appends the specified element to the end of this list.&lt;/span&gt;
 &lt;span class="cm"&gt;     *&lt;/span&gt;
@@ -1309,25 +1415,18 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
-    &lt;span class="cm"&gt;/**&lt;/span&gt;
+        &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ensureCapacityInternal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;ensureExplicitCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;calculateCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; ：JDK11 移除了 &lt;code&gt;ensureCapacityInternal()&lt;/code&gt; 和 &lt;code&gt;ensureExplicitCapacity()&lt;/code&gt; 方法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;第二步：调用 &lt;code&gt;calculateCapacity(elementData, minCapacity)&lt;/code&gt; 方法&lt;/h4&gt;
+&lt;p&gt;计算默认容量&lt;code&gt;DEFAULT_CAPACITY = 10&lt;/code&gt;和当前&lt;code&gt;minCapacity = size + 1&lt;/code&gt;的最大值。当 要 add 进第1个元素时，minCapacity为1，在Math.max()方法比较后，minCapacity 为10。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * Default initial capacity.&lt;/span&gt;
 &lt;span class="cm"&gt;     */&lt;/span&gt;
     &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;DEFAULT_CAPACITY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// 默认容量为10&lt;/span&gt;
-
-
-
-    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ensureCapacityInternal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;ensureExplicitCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;calculateCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-
-    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ensureExplicitCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;modCount&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// 操作数+1&lt;/span&gt;
-
-        &lt;span class="c1"&gt;// overflow-conscious code&lt;/span&gt;
-        &lt;span class="c1"&gt;// 如果所需容量最小值大于实际数组的长度就扩大实际数组容量&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="n"&gt;grow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
 
  &lt;span class="c1"&gt;// 如果数据等于默认数据，返回默认容量和minCapacity（所需容量最小值）的最大值，反之返回所需容量最小值&lt;/span&gt;
     &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;calculateCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -1337,15 +1436,37 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
+
     &lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * The maximum size of array to allocate.&lt;/span&gt;
 &lt;span class="cm"&gt;     * Some VMs reserve some header words in an array.&lt;/span&gt;
 &lt;span class="cm"&gt;     * Attempts to allocate larger arrays may result in&lt;/span&gt;
 &lt;span class="cm"&gt;     * OutOfMemoryError: Requested array size exceeds VM limit&lt;/span&gt;
 &lt;span class="cm"&gt;     */&lt;/span&gt;
-    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;MAX_ARRAY_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MAX_VALUE&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// 数组最大容量为Integer最大值-8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;第三步：调用&lt;code&gt;ensureExplicitCapacity()&lt;/code&gt;方法看是否需要扩容&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;当我们要 add 进第1个元素到 ArrayList 时，&lt;code&gt;elementData.length&lt;/code&gt; 为0 （因为还是一个空的 list），因为执行了 &lt;code&gt;ensureCapacityInternal()&lt;/code&gt; 方法 ，所以 minCapacity 此时为10。此时，&lt;code&gt;minCapacity - elementData.length &amp;gt; 0&lt;/code&gt;成立，所以会进入 &lt;code&gt;grow(minCapacity为10)&lt;/code&gt; 方法。&lt;/li&gt;
+&lt;li&gt;当add第2个元素时，&lt;code&gt;minCapacity&lt;/code&gt; 为2，此时&lt;code&gt;elementData.length&lt;/code&gt;(容量)在添加第一个元素后扩容成 10 了。此时，&lt;code&gt;minCapacity - elementData.length &amp;gt; 0&lt;/code&gt;不成立，所以不会进入 （执行）&lt;code&gt;grow(minCapacity)&lt;/code&gt; 方法。&lt;/li&gt;
+&lt;li&gt;添加第3、4···到第10个元素时，依然不会执行grow方法，数组容量都为10。直到添加第11个元素，&lt;code&gt;minCapacity(为11)&lt;/code&gt;比&lt;code&gt;elementData.length（为10）&lt;/code&gt;要大。进入&lt;code&gt;grow(minCapacity为11)&lt;/code&gt;方法进行扩容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ensureExplicitCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;modCount&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// 操作数+1&lt;/span&gt;
 
-    &lt;span class="cm"&gt;/**&lt;/span&gt;
+        &lt;span class="c1"&gt;// overflow-conscious code&lt;/span&gt;
+        &lt;span class="c1"&gt;// 如果所需容量最小值大于实际数组的长度就扩大实际数组容量&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;grow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;第四步：调用&lt;code&gt;grow()&lt;/code&gt;方法进行扩容&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;当add第1个元素时，oldCapacity 为0，经比较后第一个if判断成立，newCapacity = minCapacity(为10)。但是第二个if判断不会成立，即newCapacity 不比 MAX_ARRAY_SIZE大，则不会进入 &lt;code&gt;hugeCapacity&lt;/code&gt; 方法。数组容量为10，add方法中 return true,size增为1。&lt;/li&gt;
+&lt;li&gt;当add第11个元素进入grow方法时，newCapacity为15，比minCapacity（为11）大，第一个if判断不成立。新容量没有大于数组最大size，不会进入hugeCapacity方法。数组容量扩为15，add方法中return true,size增为11。&lt;/li&gt;
+&lt;li&gt;以此类推······&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之所以每次扩容原来的&lt;code&gt;1.5倍&lt;/code&gt;，是为了不让每次调用&lt;code&gt;add()&lt;/code&gt;方法都去扩容然后复制数组&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * Increases the capacity to ensure that it can hold at least the&lt;/span&gt;
 &lt;span class="cm"&gt;     * number of elements specified by the minimum capacity argument.&lt;/span&gt;
 &lt;span class="cm"&gt;     *&lt;/span&gt;
@@ -1375,11 +1496,18 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
                 &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MAX_VALUE&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;MAX_ARRAY_SIZE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
+
+ &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;MAX_ARRAY_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MAX_VALUE&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// 数组最大容量为Integer最大值再减8&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;void add(int index, E element) ：在index处放置元素&lt;/h3&gt;
 &lt;p&gt;将elementData数组从index开始后面的元素往后移一位，接着在index处放置元素&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;模拟添加数据(lierabbit)到index=4过程如下：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1826" data-height="425" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/0729abe0cfcb74f571929f267a12ccfb.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在此列表中的指定位置插入指定的元素。 &lt;/li&gt;
+&lt;li&gt;先调用 &lt;code&gt;rangeCheckForAdd&lt;/code&gt; 对index进行界限检查；然后调用 &lt;code&gt;ensureCapacityInternal&lt;/code&gt; 方法保证&lt;code&gt;capacity&lt;/code&gt;足够大；&lt;/li&gt;
+&lt;li&gt;再将从index开始之后的所有成员后移一个位置；将element插入index位置；最后size加1。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
 &lt;span class="cm"&gt;     * Inserts the specified element at the specified position in this&lt;/span&gt;
 &lt;span class="cm"&gt;     * list. Shifts the element currently at that position (if any) and&lt;/span&gt;
@@ -1410,6 +1538,75 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
             &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;IndexOutOfBoundsException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;outOfBoundsMsg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ensureCapacity(int minCapacity)：自主扩增容量&lt;/h3&gt;
+&lt;p&gt;在使用add()方法增加新的元素时，如果要增加的数据量很大，应该使用&lt;code&gt;ensureCapacity()&lt;/code&gt;方法，该方法的作用是预先设置Arraylist的大小，这样可以大大提高初始化速度。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    如有必要，增加此 ArrayList 实例的容量，以确保它至少可以容纳由minimum capacity参数指定的元素数。&lt;/span&gt;
+&lt;span class="cm"&gt;     *&lt;/span&gt;
+&lt;span class="cm"&gt;     * @param   minCapacity   所需的最小容量&lt;/span&gt;
+&lt;span class="cm"&gt;     */&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ensureCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;minExpand&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elementData&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;DEFAULTCAPACITY_EMPTY_ELEMENTDATA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;DEFAULT_CAPACITY&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="c1"&gt;// any size if not default element table            &lt;/span&gt;
+            &lt;span class="c1"&gt;// larger than default for default empty table. It&amp;#39;s already&lt;/span&gt;
+            &lt;span class="c1"&gt;// supposed to be at default size.&lt;/span&gt;
+
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;minExpand&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;ensureExplicitCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minCapacity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;最好在 add 大量元素之前用 &lt;code&gt;ensureCapacity&lt;/code&gt; 方法，以减少增量重新分配的次数。例如：&lt;/p&gt;
+&lt;p&gt;未提前使用 &lt;code&gt;ensureCapacity&lt;/code&gt; 前&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;EnsureCapacityTest&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10000000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;startTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;endTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;使用ensureCapacity方法前：&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;endTime&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;startTime&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结果：使用&lt;code&gt;ensureCapacity&lt;/code&gt;方法前：2158&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;ensureCapacity&lt;/code&gt; 后&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;EnsureCapacityTest&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10000000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;startTime1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;ensureCapacity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//此处调用后&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;endTime1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;使用ensureCapacity方法后：&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;endTime1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;startTime1&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结果：使用&lt;code&gt;ensureCapacity&lt;/code&gt;方法后：1773&lt;/p&gt;
+&lt;h3&gt;数组复制/扩容的两个方法&lt;/h3&gt;
+&lt;h4&gt;System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)&lt;/h4&gt;
+&lt;p&gt;将数组&lt;code&gt;src&lt;/code&gt;从&lt;code&gt;srcPos&lt;/code&gt;后的元素复制到目标数组&lt;code&gt;dest&lt;/code&gt;的&lt;code&gt;destPos&lt;/code&gt;起点开始，复制&lt;code&gt;length&lt;/code&gt;个&lt;/p&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;src&lt;/code&gt; -这是源数组. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;srcPos&lt;/code&gt; -这是源数组中的起始位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dest&lt;/code&gt; -这是目标数组。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;destPos&lt;/code&gt; -这是目标数据中的起始位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;length&lt;/code&gt; -- 这是一个要复制的数组元素的数目。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Arrays.copyOf()&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;elementData&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Arrays&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;copyOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elementData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newCapacity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;区别&lt;/h4&gt;
+&lt;p&gt;看两者源代码可以发现 copyOf() 内部实际调用了 &lt;code&gt;System.arraycopy()&lt;/code&gt; 方法&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;arraycopy()&lt;/code&gt; 需要目标数组，将原数组拷贝到你自己定义的数组里或者原数组，而且可以选择拷贝的起点和长度以及放入新数组中的位置 &lt;code&gt;copyOf()&lt;/code&gt; 是系统自动在内部新建一个数组，并返回该数组。&lt;/p&gt;
 &lt;h3&gt;boolean addAll(Collection&amp;lt;? extends E&amp;gt; c) : 添加一个集合里的所有元素到列表尾&lt;/h3&gt;
 &lt;p&gt;将要添加的集合变为数组，然后将其复制到elementData数组末尾&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
@@ -1975,10 +2172,11 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;put()：添加一个键值对&lt;/h3&gt;
+&lt;h3&gt;put()：添加一个键值对/扩容机制&lt;/h3&gt;
+&lt;p&gt;向map中添加值(返回这个key以前的值,如果没有返回null)&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1716" data-height="1360" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a9b583621c8de6a6fe8a510c40bbf81f.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;计算hash值&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;先获取到key的hashCode，然后进行移位再进行异或运算，为什么这么复杂，不用想肯定是为了减少hash冲突&lt;/p&gt;
+&lt;p&gt;先获取到key的hashCode，然后进行移位再进行异或运算算出要插入的索引，为什么这么复杂，不用想肯定是为了减少hash冲突。如果key为空就返回索引0，也就是说插入到第一个结点。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;hashCode&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;^&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -2188,7 +2386,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;/ul&gt;
 &lt;h3&gt;ConcurrentHashMap1.8如何实现线程安全&lt;/h3&gt;
 &lt;h2&gt;3.2 Hashtable&lt;/h2&gt;
-</content><link href="/archives/Java-容器/" rel="alternate"/><published>2020-08-23T20:37:41+08:06</published></entry><entry><id>/archives/Java-JVM/</id><title>Java-JVM</title><updated>2020-09-07T02:24:35.960295+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;​   JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。&lt;/p&gt;
+</content><link href="/archives/Java-容器/" rel="alternate"/><published>2020-08-23T20:37:41+08:06</published></entry><entry><id>/archives/Java-JVM/</id><title>Java-JVM</title><updated>2020-09-07T15:07:15.743596+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;​   JVM屏蔽了与具体操作系统平台相关的信息，使Java程序只需生成在Java虚拟机上运行的目标代码（字节码）,就可以在多种平台上不加修改地运行。JVM在执行字节码时，实际上最终还是把字节码解释成具体平台上的机器指令执行。&lt;/p&gt;
 &lt;h1&gt;JVM组成&lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4d29555739c58caac26279d8a55c56bb.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2&gt;线程共享&lt;/h2&gt;
@@ -2240,7 +2438,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;li&gt;&lt;strong&gt;栈内存：&lt;/strong&gt;没有可用的空间存储方法调用和局部变量，JVM会抛出&lt;strong&gt;java.lang.StackOverFlowError&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;空间大小&lt;/h2&gt;
-</content><link href="/archives/Java-JVM/" rel="alternate"/><published>2020-08-23T21:10:09+08:06</published></entry><entry><id>/archives/腾讯移动客户端面经/</id><title>腾讯移动客户端面经</title><updated>2020-09-07T02:24:35.960266+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content/><link href="/archives/腾讯移动客户端面经/" rel="alternate"/><published>2020-08-24T18:44:39+08:06</published></entry><entry><id>/archives/数据结构&amp;算法题目合集/</id><title>数据结构&amp;算法题目合集</title><updated>2020-09-07T02:24:35.960234+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;常用基本操作&lt;/h1&gt;
+</content><link href="/archives/Java-JVM/" rel="alternate"/><published>2020-08-23T21:10:09+08:06</published></entry><entry><id>/archives/腾讯移动客户端面经/</id><title>腾讯移动客户端面经</title><updated>2020-09-07T15:07:15.743566+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content/><link href="/archives/腾讯移动客户端面经/" rel="alternate"/><published>2020-08-24T18:44:39+08:06</published></entry><entry><id>/archives/数据结构&amp;算法题目合集/</id><title>数据结构&amp;算法题目合集</title><updated>2020-09-07T15:07:15.743533+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;常用基本操作&lt;/h1&gt;
 &lt;h2&gt;利用字符串输入不定长数组&lt;/h2&gt;
 &lt;p&gt;输入时用&lt;code&gt;','&lt;/code&gt;隔开&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Scanner&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Scanner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;in&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -2515,7 +2713,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;牛客网&lt;/h1&gt;
 &lt;h2&gt;判断一个括号字符串是否匹配正确，如果括号有多种，怎么做？如（（[]））正确，[[(()错误。&lt;/h2&gt;
-</content><link href="/archives/数据结构&amp;算法题目合集/" rel="alternate"/><published>2020-08-29T19:21:57+08:06</published></entry><entry><id>/archives/数据结构&amp;算法/</id><title>数据结构&amp;算法</title><updated>2020-09-07T02:24:35.960198+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. 时间复杂度计算&lt;/h1&gt;
+</content><link href="/archives/数据结构&amp;算法题目合集/" rel="alternate"/><published>2020-08-29T19:21:57+08:06</published></entry><entry><id>/archives/数据结构&amp;算法/</id><title>数据结构&amp;算法</title><updated>2020-09-07T15:07:15.743496+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;1. 时间复杂度计算&lt;/h1&gt;
 &lt;h1&gt;2. 算法&lt;/h1&gt;
 &lt;h2&gt;区别&lt;/h2&gt;
 &lt;h3&gt;动态规划和贪心算法的区别&lt;/h3&gt;
@@ -3010,5 +3208,5 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;ul&gt;
 &lt;li&gt;在写判定条件 &amp;amp;&amp;amp; 运算时，尽量把简单的操作写在&amp;amp;&amp;amp;之前&lt;/li&gt;
 &lt;/ul&gt;
-</content><link href="/archives/数据结构&amp;算法/" rel="alternate"/><published>2020-08-30T18:03:39+08:06</published></entry><entry><id>/archives/SQL实战题目/</id><title>SQL实战题目</title><updated>2020-09-07T02:24:35.960114+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;SQL实战题目&lt;/p&gt;
+</content><link href="/archives/数据结构&amp;算法/" rel="alternate"/><published>2020-08-30T18:03:39+08:06</published></entry><entry><id>/archives/SQL实战题目/</id><title>SQL实战题目</title><updated>2020-09-07T15:07:15.743427+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;SQL实战题目&lt;/p&gt;
 </content><link href="/archives/SQL实战题目/" rel="alternate"/><published>2020-09-05T18:15:17+08:06</published></entry></feed>
