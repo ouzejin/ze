@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/5e325753dcda8c620684197bf8ee9b52.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/27a693feb7b2c5cccb56c1002ebe8cb3.json"
         }
     </script>
     <script>
@@ -143,9 +143,10 @@
 <p><figure><img data-width="959" data-height="912" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/40eb958aebc6e5e06c8b4f0afb334cb5.jpg" alt="" /></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="images/Java容器/Java集合框架体系.png" alt="" /></figure></p>
 <p><figure><img data-width="801" data-height="810" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/fbbb5098a2e2b5c19e24ba6c4c1118e3.png" alt="" /></figure></p>
+<p><figure><img data-width="785" data-height="142" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/cd5fe982e2ae398a3ce27e2507edef16.png" alt="" /></figure></p>
 <h2>常用集合方法</h2>
 <p>参考</p>
-<blockquote><p><a href="https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2">https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#toc_2</a></p>
+<blockquote><p><a href="https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB">https://wiki.lifeisgg.online/archives/Java%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB</a></p>
 </blockquote>
 <h1>1. List</h1>
 <h2>1.1 ArrayList</h2>
@@ -659,33 +660,7 @@
 </pre></div>
 <h3>forEach(Consumer&lt;? super E&gt; action) ：遍历列表</h3>
 <p>这里可以看到<strong>modCount</strong>的用处，当<strong>modCount</strong>发生改变后，立刻抛出<strong>ConcurrentModificationException</strong>异常。通过之前的分析可以知道当列表内容被修改时<strong>modCount</strong>会增加。也就是说如果在遍历<strong>ArrayList</strong>的过程中有其他线程修改了<strong>ArrayList</strong>，那么将抛出<strong>ConcurrentModificationException</strong>异常</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
-<span class="cm">     * The number of times this list has been &lt;i&gt;structurally modified&lt;/i&gt;.</span>
-<span class="cm">     * Structural modifications are those that change the size of the</span>
-<span class="cm">     * list, or otherwise perturb it in such a fashion that iterations in</span>
-<span class="cm">     * progress may yield incorrect results.</span>
-<span class="cm">     *</span>
-<span class="cm">     * &lt;p&gt;This field is used by the iterator and list iterator implementation</span>
-<span class="cm">     * returned by the {@code iterator} and {@code listIterator} methods.</span>
-<span class="cm">     * If the value of this field changes unexpectedly, the iterator (or list</span>
-<span class="cm">     * iterator) will throw a {@code ConcurrentModificationException} in</span>
-<span class="cm">     * response to the {@code next}, {@code remove}, {@code previous},</span>
-<span class="cm">     * {@code set} or {@code add} operations.  This provides</span>
-<span class="cm">     * &lt;i&gt;fail-fast&lt;/i&gt; behavior, rather than non-deterministic behavior in</span>
-<span class="cm">     * the face of concurrent modification during iteration.</span>
-<span class="cm">     *</span>
-<span class="cm">     * &lt;p&gt;&lt;b&gt;Use of this field by subclasses is optional.&lt;/b&gt; If a subclass</span>
-<span class="cm">     * wishes to provide fail-fast iterators (and list iterators), then it</span>
-<span class="cm">     * merely has to increment this field in its {@code add(int, E)} and</span>
-<span class="cm">     * {@code remove(int)} methods (and any other methods that it overrides</span>
-<span class="cm">     * that result in structural modifications to the list).  A single call to</span>
-<span class="cm">     * {@code add(int, E)} or {@code remove(int)} must add no more than</span>
-<span class="cm">     * one to this field, or the iterators (and list iterators) will throw</span>
-<span class="cm">     * bogus {@code ConcurrentModificationExceptions}.  If an implementation</span>
-<span class="cm">     * does not wish to provide fail-fast iterators, this field may be</span>
-<span class="cm">     * ignored.</span>
-<span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">transient</span> <span class="kt">int</span> <span class="n">modCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//操作数</span>
+<div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kd">transient</span> <span class="kt">int</span> <span class="n">modCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//操作数</span>
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">forEach</span><span class="p">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">action</span><span class="p">)</span> <span class="p">{</span>
@@ -703,30 +678,24 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="cm">/**</span>
-<span class="cm">     * Checks that the specified object reference is not {@code null}. This</span>
-<span class="cm">     * method is designed primarily for doing parameter validation in methods</span>
-<span class="cm">     * and constructors, as demonstrated below:</span>
-<span class="cm">     * &lt;blockquote&gt;&lt;pre&gt;</span>
-<span class="cm">     * public Foo(Bar bar) {</span>
-<span class="cm">     *     this.bar = Objects.requireNonNull(bar);</span>
-<span class="cm">     * }</span>
-<span class="cm">     * &lt;/pre&gt;&lt;/blockquote&gt;</span>
-<span class="cm">     *</span>
-<span class="cm">     * @param obj the object reference to check for nullity</span>
-<span class="cm">     * @param &lt;T&gt; the type of the reference</span>
-<span class="cm">     * @return {@code obj} if not {@code null}</span>
-<span class="cm">     * @throws NullPointerException if {@code obj} is {@code null}</span>
-<span class="cm">     */</span>
+
     <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">requireNonNull</span><span class="p">(</span><span class="n">T</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">();</span>
         <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
+<h2>LinkedList</h2>
+<h2>区别</h2>
+<h3>Arraylist 与 LinkedList 区别?</h3>
+<p><figure><img data-width="779" data-height="659" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5253c5af82499f1755864fa8573a5d3a.png" alt="" /></figure></p>
+<h3>ArrayList 与 Vector 区别呢?为什么要⽤Arraylist取代Vector呢？</h3>
+<p><figure><img data-width="784" data-height="110" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/672f2e3d03eb1d3a1431ded823c04b9b.png" alt="" /></figure></p>
 <h1>2. Set</h1>
 <h2>2.1 HashSet</h2>
 <p><strong>HashSet</strong>实现<strong>Set</strong>接口，由哈希表（实际上是一个<strong>HashMap</strong>实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。对于<strong>HashSet</strong>而言，它是基于<strong>HashMap</strong>实现的，HashSet底层使用<strong>HashMap</strong>来保存所有元素，因此<strong>HashSet</strong> 的实现比较简单，相关<strong>HashSet</strong>的操作，基本上都是直接调用底层<strong>HashMap</strong>的相关方法来完成， <strong>HashSet</strong>的源代码如下：</p>
+<h3>HashSet与HashMap区别</h3>
+<p><figure><img data-width="817" data-height="386" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6ed857e6affc4d930cd4a12f356d88a7.png" alt="" /></figure></p>
 <h3>构造器</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>  
     <span class="kd">extends</span> <span class="n">AbstractSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>  
@@ -813,19 +782,17 @@
     <span class="p">}</span>  
 <span class="p">}</span>
 </pre></div>
-<h3>调用add方法</h3>
-<div class="highlight"><pre><span></span><span class="cm">/** </span>
-<span class="cm">     * 如果此set中尚未包含指定元素，则添加指定元素。 </span>
-<span class="cm">     * 更确切地讲，如果此 set 没有包含满足(e==null ? e2==null : e.equals(e2)) </span>
-<span class="cm">     * 的元素e2，则向此set 添加指定的元素e。 </span>
-<span class="cm">     * 如果此set已包含该元素，则该调用不更改set并返回false。 </span>
-<span class="cm">     * </span>
-<span class="cm">     * 底层实际将将该元素作为key放入HashMap。 </span>
-<span class="cm">     * 由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key </span>
-<span class="cm">     * 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）， </span>
-<span class="cm">     * 新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， </span>
-<span class="cm">     * 因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， </span>
-<span class="cm">     * 原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 </span>
+<h3>调用add方法/如何去重</h3>
+<ul>
+<li>如果此set中尚未包含指定元素，则添加指定元素。 </li>
+<li>更确切地讲，如果此 set 没有包含满足(e\==null ? e2\==null : e.equals(e2)) 的元素e2，则向此set 添加指定的元素e。 </li>
+<li>如果此set已包含该元素，则该调用不更改set并返回false。 </li>
+<li>底层实际将将该元素作为key放入HashMap。 </li>
+<li>由于HashMap的put()方法添加key-value对时，当新放入HashMap的Entry中key 与集合中原有Entry的key相同（hashCode()返回值相等，通过equals比较也返回true）。新添加的Entry的value会将覆盖原来Entry的value，但key不会有任何改变， </li>
+<li>因此如果向HashSet中添加一个已经存在的元素时，新添加的集合元素将不会被放入HashMap中， </li>
+<li>原来的元素也不会有任何改变，这也就满足了Set中元素不重复的特性。 </li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cm">/**  </span>
 <span class="cm">     * @param e 将添加到此set中的元素。 </span>
 <span class="cm">     * @return 如果此set尚未包含指定元素，则返回true。 </span>
 <span class="cm">     */</span>  
@@ -937,10 +904,7 @@
 <li><strong>链地址法：</strong>将哈希表的每个单元作为链表的头结点，所有哈希地址为 i 的元素构成一个同义词链表。即发生冲突时就把该关键字链在以该单元为头结点的链表的尾部。</li>
 </ul>
 <h3>HashMap数据结构</h3>
-
-<pre><code>**HashMap**的主干是一个变量名为**table**的**Entry/Node数组**。**Entry/Node**是**HashMap**的基本组成单元，每一个**Entry/Node**包含一个**key-value**键值对。
-
-</code></pre>
+<p><strong>HashMap</strong>的主干是一个变量名为<strong>table</strong>的<strong>Entry/Node数组</strong>。<strong>Entry/Node</strong>是<strong>HashMap</strong>的基本组成单元，每一个<strong>Entry/Node</strong>包含一个<strong>key-value</strong>键值对。</p>
 <div class="highlight"><pre><span></span><span class="c1">//HashMap的主干数组，可以看到就是一个Entry数组，初始值为空数组{}，主干数组的长度一定是2的次幂</span>
 <span class="kd">transient</span> <span class="n">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="n">table</span> <span class="o">=</span> <span class="p">(</span><span class="n">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span><span class="p">)</span> <span class="n">EMPTY_TABLE</span><span class="p">;</span>
 
@@ -1305,8 +1269,12 @@
 <li>在JDK1.7中，当并发执行扩容操作时会造成环形链和数据丢失的情况。</li>
 <li><strong>在JDK1.8中</strong>，在并发执行put操作时会发生数据覆盖的情况。</li>
 </ul>
-<h3>ConcurrentHashMap1.8如何实现线程安全</h3>
-<h2>3.2 Hashtable</h2>
+<h2>3.2 LinkedHashMap</h2>
+<h2>3.3 ConcurrentHashMap</h2>
+<p>如何实现线程安全</p>
+<p><figure><img data-width="801" data-height="655" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ce5731b9fb14b23486b6ce342ceb5948.png" alt="" /></figure></p>
+<h2>3.3 Hashtable</h2>
+<h2>区别</h2>
 </article>
     </section>
 
