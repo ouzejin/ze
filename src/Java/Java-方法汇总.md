@@ -355,13 +355,13 @@ System.out.println(map3.replace("1" , "s" , "b"));//false,key相同，value不�
 
 
 
-### Collection\<V> values()
+### Collection<V> values()
 
 获取map中所有的key并返回为`Collection<V>`类型
 
 
 
-### Set\<V> keySet()
+### Set<V> keySet()
 
 获取map中所有的key并返回`Set<V>`类型，因为Set的元素是独一无二之的，之后可以用迭代器`iterator()`遍历
 
@@ -391,16 +391,6 @@ Iterator<Map.Entry<String,String>> it = es.iterator();
    
 }
 ```
-
-
-
-
-
-
-
-## 1.3 HashMap
-
-
 
 
 
