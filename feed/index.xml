@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 11 Sep 2020 03:32:50 +0806</lastBuildDate><pubDate>Fri, 11 Sep 2020 03:32:50 +0806</pubDate><item><title>Java-方法汇总</title><link>/archives/Java-方法汇总/</link><description>&lt;h1&gt;1. Java集合&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 11 Sep 2020 15:46:11 +0806</lastBuildDate><pubDate>Fri, 11 Sep 2020 15:46:11 +0806</pubDate><item><title>Java-方法汇总</title><link>/archives/Java-方法汇总/</link><description>&lt;h1&gt;1. Java集合&lt;/h1&gt;
 &lt;h2&gt;1.1 Collection&lt;/h2&gt;
 &lt;h3&gt;1.1.1 排序操作&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;//反转&lt;/span&gt;
@@ -2679,7 +2679,71 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;&lt;a href="https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/"&gt;剑指 Offer 52. 两个链表的第一个公共节点&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/"&gt;09. 剑指 Offer 09. 用两个栈实现队列&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;栈&lt;/code&gt; &lt;code&gt;队列&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用两个栈，一个栈(A)负责进，一个栈(B)负责出，根据方法有两种情况：&lt;/p&gt;
+&lt;p&gt;入队&lt;code&gt;appendTail&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;直接将元素压入第一个栈A中，此时第一个栈栈底即为队列第一个元素&lt;/p&gt;
+&lt;p&gt;出队&lt;code&gt;deleteHead&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在执行出队时我们将A栈中的元素出队到B栈中，A栈在&lt;code&gt;pop&lt;/code&gt;前栈底为头结点，栈顶为尾结点，将A栈中元素出栈后&lt;code&gt;push&lt;/code&gt;进B中，此时A栈为空，B栈中栈顶元素为队列的头结点，栈底元素为队列的尾结点。在后续出栈中有三种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;B栈不为空，则出栈&lt;code&gt;push&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;B栈为空，A栈不为空，将A栈元素都&lt;code&gt;pop&lt;/code&gt;然后&lt;code&gt;push&lt;/code&gt;到B栈中，B栈再出栈&lt;/li&gt;
+&lt;li&gt;B栈为空，A栈为空，此时没有结点，则直接返回-1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;集合框架不采用Stack是因为被Stack继承于Vector，存在着大量的Synchronized而弃用，使用LinkedList可以模拟，比如&lt;code&gt;addFirst&lt;/code&gt;和&lt;code&gt;addLast&lt;/code&gt;，&lt;code&gt;removeFirst&lt;/code&gt;和&lt;code&gt;removeLast&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CQueue&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;LinkedList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;CQueue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LinkedList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LinkedList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;appendTail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addLast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;deleteHead&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;isEmpty&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;removeLast&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;isEmpty&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;isEmpty&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+            &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addLast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;removeLast&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;removeLast&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt; * Your CQueue object will be instantiated and called as such:&lt;/span&gt;
+&lt;span class="cm"&gt; * CQueue obj = new CQueue();&lt;/span&gt;
+&lt;span class="cm"&gt; * obj.appendTail(value);&lt;/span&gt;
+&lt;span class="cm"&gt; * int param_2 = obj.deleteHead();&lt;/span&gt;
+&lt;span class="cm"&gt; */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href="https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/"&gt;10. 剑指 Offer 10- II. 青蛙跳台阶问题&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Fibonacci&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Solution&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;numWays&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;1000000007&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href="https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/"&gt;52. 剑指 Offer 52. 两个链表的第一个公共节点&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;双指针&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="742" data-height="241" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6ad62b42d92d74f7d02cb384920cf6a9.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;使用双指针，注意结点的数字相同不代表结点对象相同&lt;/p&gt;
@@ -3201,7 +3265,14 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;4. 排序&lt;/h1&gt;
 &lt;h2&gt;4.1 快速排序&lt;/h2&gt;
-&lt;h1&gt;5. 一些tips&lt;/h1&gt;
+&lt;h1&gt;5. 查找&lt;/h1&gt;
+&lt;h2&gt;二分查找&lt;/h2&gt;
+&lt;p&gt;参考&lt;/p&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/kyoner/p/11080078.html"&gt;https://www.cnblogs.com/kyoner/p/11080078.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;tips&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;在写判定条件 &amp;amp;&amp;amp; 运算时，尽量把简单的操作写在&amp;amp;&amp;amp;之前&lt;/li&gt;
 &lt;/ul&gt;

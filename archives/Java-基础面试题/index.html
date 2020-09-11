@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/fe6493cf168855e197950c256801b479.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/789484ff62d43bd5733be3cdce42c1d1.json"
         }
     </script>
     <script>
@@ -226,13 +226,69 @@
 <p>​       方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的参数列表，有兼容的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求，不能根据返回类型进行区分。</p>
 <h1>构造器Constructor是否可被Override(重写)</h1>
 <p>​       构造器Constructor不能被继承，因此不能被<strong>重写(Override)</strong>，但是可以被<strong>重载（Overload）</strong>。如果父类自定义了有参构造函数，则子类无论定义构造函数与否，定义有参构造函数与否，都会报错，正确的做法是在子类的构造方法中添上super（参数），以表明子类构造之前先构造父类，而这句话必须放在第一句，否则报"Constructor call must be the first statement in a constructor"的错误。</p>
-<h2>类的加载顺序：</h2>
+<h2>类的加载顺序</h2>
 <ol>
 <li>父类的静态代码块/初始化静态变量（两者优先级相同）</li>
 <li>执行子类的静态代码/初始化静态变量（两者优先级相同，谁写在前面谁先执行）</li>
 <li>初始化父类成员变量/执行代码块{}（两者优先级相同），父类的构造器</li>
 <li>子类的成员变量/代码块，最后子类的构造器。</li>
 </ol>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="p">{</span>
+    <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">);</span>
+    <span class="kd">static</span><span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;test static&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">Test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;test constructor&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+    <span class="kd">static</span><span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;person static&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">Person</span><span class="p">(</span><span class="n">String</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;person &quot;</span><span class="o">+</span><span class="n">str</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">Test</span> <span class="p">{</span>
+    <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">);</span>
+    <span class="kd">static</span><span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;myclass static&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyClass</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;myclass constructor&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>结果：</p>
+<blockquote><ul>
+<li>test static</li>
+<li>myclass static</li>
+<li>person static</li>
+<li>person Test</li>
+<li>test constructor</li>
+<li>person MyClass</li>
+<li>myclass constructor</li>
+</ul>
+</blockquote>
+<p>顺序解析：</p>
+<blockquote><ul>
+<li>首先加载Test类，因此会执行Test类中的static块。</li>
+<li>接着执行new MyClass()，而MyClass类还没有被加载，因此需要加载MyClass类。在加载MyClass类的时候，发现MyClass类继承自Test类，但是由于Test类已经被加载了，所以只需要加载MyClass类，那么就会执行MyClass类的中的static块。</li>
+<li>在加载完之后，就通过构造器来生成对象。而在生成对象的时候，必须先初始化父类的成员变量，因此会执行Test中的Person person = new Person()，而Person类还没有被加载过，因此会先加载Person类并执行Person类中的static块，</li>
+<li>接着执行父类的构造器，完成了父类的初始化，然后就来初始化自身了，因此会接着执行MyClass中的Person person = new Person()，最后执行MyClass的构造器。</li>
+</ul>
+</blockquote>
 <h1>三大特性封装继承多态</h1>
 <p><figure><img data-width="672" data-height="519" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/580e90e67848582220c27c9295576f74.png" alt="" /></figure></p>
 <h2>封装</h2>
