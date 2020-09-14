@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/789484ff62d43bd5733be3cdce42c1d1.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/3dbf8e54517d29fce911ac110affab7b.json"
         }
     </script>
     <script>
@@ -3294,8 +3294,8 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
    <span class="k">return</span> <span class="p">{</span>
     <span class="nx">roomLog</span><span class="o">:</span> <span class="p">{},</span>
     <span class="nx">userInfo</span><span class="o">:</span> <span class="p">{},</span>
-    <span class="nx">isX</span><span class="o">:</span> <span class="mi">999</span><span class="p">,</span> <span class="c1">//放在store统一管理</span>
-    <span class="nx">isY</span><span class="o">:</span> <span class="mi">999</span><span class="p">,</span> <span class="c1">//放在store统一管理</span>
+    <span class="nx">isX</span><span class="o">:</span> <span class="mf">999</span><span class="p">,</span> <span class="c1">//放在store统一管理</span>
+    <span class="nx">isY</span><span class="o">:</span> <span class="mf">999</span><span class="p">,</span> <span class="c1">//放在store统一管理</span>
     <span class="nx">toView</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">showPicker</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nx">pickRoomList</span><span class="o">:</span> <span class="p">[],</span>
@@ -3354,7 +3354,7 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
     <span class="k">this</span><span class="p">.</span><span class="nx">toView</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
      <span class="k">this</span><span class="p">.</span><span class="nx">toView</span> <span class="o">=</span> <span class="s1">&#39;top&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentTab</span>
-    <span class="p">},</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">},</span> <span class="mf">10</span><span class="p">)</span>
    <span class="p">},</span>
    <span class="c1">// 判断登录</span>
    <span class="nx">isLogin</span><span class="p">()</span> <span class="p">{</span>
@@ -3592,8 +3592,8 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
       <span class="c1">//  that.myLogList[i].lDate = moment(res.data.logList[0].lDate).format(&#39;YYYY-MM-DD-dd HH:mm:ss&#39;)</span>
       <span class="c1">// }    </span>
       <span class="nx">that</span><span class="p">.</span><span class="nx">roomList</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomList</span>
-      <span class="nx">that</span><span class="p">.</span><span class="nx">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">myLogList</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
-      <span class="nx">that</span><span class="p">.</span><span class="nx">list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">roomList</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+      <span class="nx">that</span><span class="p">.</span><span class="nx">list</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">myLogList</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+      <span class="nx">that</span><span class="p">.</span><span class="nx">list</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">roomList</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">that</span><span class="p">.</span><span class="nx">list</span><span class="p">)</span>
       <span class="nx">uni</span><span class="p">.</span><span class="nx">showToast</span><span class="p">({</span>
        <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;获取日志成功&quot;</span>
@@ -3699,10 +3699,10 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
  <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
    <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">index</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nx">index</span><span class="o">:</span> <span class="o">-</span><span class="mf">1</span><span class="p">,</span>
 
 
-    <span class="nx">multiIndex</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">],</span>
+    <span class="nx">multiIndex</span><span class="o">:</span> <span class="p">[</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span> <span class="p">],</span>
     <span class="nx">time</span><span class="o">:</span> <span class="s1">&#39;12:01&#39;</span><span class="p">,</span>
     <span class="nx">date</span><span class="o">:</span> <span class="s1">&#39;2018-12-25&#39;</span><span class="p">,</span>
 
@@ -3819,8 +3819,8 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
  <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
    <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">index</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-    <span class="nx">multiIndex</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">],</span>
+    <span class="nx">index</span><span class="o">:</span> <span class="o">-</span><span class="mf">1</span><span class="p">,</span>
+    <span class="nx">multiIndex</span><span class="o">:</span> <span class="p">[</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span> <span class="p">],</span>
     <span class="nx">time</span><span class="o">:</span> <span class="s1">&#39;12:01&#39;</span><span class="p">,</span>
     <span class="nx">date</span><span class="o">:</span> <span class="s1">&#39;2018-12-25&#39;</span><span class="p">,</span>
 
@@ -3948,14 +3948,14 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
   <span class="p">},</span>
   <span class="nx">filters</span><span class="o">:</span> <span class="p">{</span>
    <span class="nx">TimeToString</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">hour</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">value</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span>
-    <span class="kd">var</span> <span class="nx">minute</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">%</span> <span class="mi">60</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">hour</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">hour</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">value</span> <span class="o">/</span> <span class="mf">60</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">minute</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">%</span> <span class="mf">60</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">hour</span> <span class="o">&lt;</span> <span class="mf">10</span><span class="p">)</span> <span class="p">{</span>
      <span class="nx">hour</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nx">hour</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
      <span class="nx">hour</span> <span class="o">=</span> <span class="nx">hour</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
     <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">minute</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">minute</span> <span class="o">&lt;</span> <span class="mf">10</span><span class="p">)</span> <span class="p">{</span>
      <span class="nx">minute</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nx">minute</span>
     <span class="p">}</span>
 
@@ -3999,12 +3999,12 @@ delete from RoomAdmin where rId=#{rId} and uId=#{uId}
    <span class="p">},</span>
    <span class="c1">// ListTouch触摸开始</span>
    <span class="nx">ListTouchStart</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">listTouchStart</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">listTouchStart</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">pageX</span>
    <span class="p">},</span>
 
    <span class="c1">// ListTouch计算方向</span>
    <span class="nx">ListTouchMove</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">listTouchDirection</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">listTouchStart</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;right&#39;</span> <span class="o">:</span> <span class="s1">&#39;left&#39;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">listTouchDirection</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">pageX</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">listTouchStart</span> <span class="o">&gt;</span> <span class="mf">0</span> <span class="o">?</span> <span class="s1">&#39;right&#39;</span> <span class="o">:</span> <span class="s1">&#39;left&#39;</span>
    <span class="p">},</span>
 
    <span class="c1">// ListTouch计算滚动</span>

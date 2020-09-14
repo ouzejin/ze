@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/789484ff62d43bd5733be3cdce42c1d1.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/3dbf8e54517d29fce911ac110affab7b.json"
         }
     </script>
     <script>
@@ -221,6 +221,7 @@
 <li>传输对象模式（Transfer Object Pattern）</li>
 </ul>
 <h1>单例模式</h1>
+<p><code>创建型模式</code></p>
 <p>参考</p>
 <blockquote><ul>
 <li><a href="https://www.runoob.com/design-pattern/singleton-pattern.html">https://www.runoob.com/design-pattern/singleton-pattern.html</a></li>
@@ -234,8 +235,7 @@
 <li>3、单例类必须给所有其他对象提供这一实例。</li>
 </ul>
 <h2>步骤</h2>
-<h3>步骤 1</h3>
-<p>创建一个 Singleton 类。</p>
+<h3>步骤 1：创建一个 <code>Singleton</code> 类</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingleObject</span> <span class="p">{</span>
 
    <span class="c1">//创建 SingleObject 的一个对象</span>
@@ -254,8 +254,7 @@
    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<h3>步骤 2</h3>
-<p>从 singleton 类获取唯一的对象。</p>
+<h3>步骤 2：从 <code>singleton</code> 类获取唯一的对象</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonPatternDemo</span> <span class="p">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
@@ -354,6 +353,7 @@ getInstance() 的性能对应用程序很关键。</p>
 <li>将 uniqueInstance 指向分配的内存地址 </li>
 </ol>
 <p>但是由于 JVM 具有指令重排的特性，执⾏顺序有可能变成 1&gt;3&gt;2。指令重排在单线程环境下不会出 现问题，但是在多线程环境下会导致⼀个线程获得还没有初始化的实例。例如，线程 T1 执⾏了 1 和 3，此时 T2 调⽤ getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。 使⽤ volatile 可以禁⽌ JVM 的指令重排，保证在多线程环境下也能正常运⾏。</p>
+<h1>工厂模式</h1>
 </article>
     </section>
 

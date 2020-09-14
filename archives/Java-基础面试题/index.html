@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/789484ff62d43bd5733be3cdce42c1d1.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/3dbf8e54517d29fce911ac110affab7b.json"
         }
     </script>
     <script>
@@ -224,9 +224,9 @@
 </pre></div>
 <h2>重载（Overload）和重写（Override）的区别</h2>
 <p>​       方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的参数列表，有兼容的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求，不能根据返回类型进行区分。</p>
-<h1>构造器Constructor是否可被Override(重写)</h1>
+<h2>构造器Constructor是否可被Override(重写)</h2>
 <p>​       构造器Constructor不能被继承，因此不能被<strong>重写(Override)</strong>，但是可以被<strong>重载（Overload）</strong>。如果父类自定义了有参构造函数，则子类无论定义构造函数与否，定义有参构造函数与否，都会报错，正确的做法是在子类的构造方法中添上super（参数），以表明子类构造之前先构造父类，而这句话必须放在第一句，否则报"Constructor call must be the first statement in a constructor"的错误。</p>
-<h2>类的加载顺序</h2>
+<h1>类的加载顺序</h1>
 <ol>
 <li>父类的静态代码块/初始化静态变量（两者优先级相同）</li>
 <li>执行子类的静态代码/初始化静态变量（两者优先级相同，谁写在前面谁先执行）</li>
@@ -429,6 +429,10 @@
 <p><figure><img data-width="965" data-height="290" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7dd5e7b872f9729d7ae35d638ef51504.png" alt="" /></figure></p>
 <h2>static</h2>
 <p><figure><img data-width="963" data-height="323" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/cadae2b13731450515c64ae27948c3aa.png" alt="" /></figure></p>
+<h3>Java中是否可以覆盖(override)一个<code>private</code>或者是<code>static</code>的方法？</h3>
+<p>java中也不可以覆盖private的方法，因为private修饰的变量和方法只能在当前类中使用，如果是其他的类继承当前类是不能访问到private变量或方法的，当然也不能覆盖。</p>
+<h3>是否可以在<code>static</code>环境中访问<code>非static</code>变量？</h3>
+<p>static变量在Java中是属于类的，它在所有的实例中的值是一样的。当类被Java虚拟机载入的时候，会对static变量进行初始化。如果你的代码尝试不用实例来访问非static的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。</p>
 <h1>String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</h1>
 <h2>Java String 类：String字符串常量</h2>
 <p>需要注意的是，String的值是不可变的，这就导致每次对String的操作都会生成<strong>新的String对象</strong>，这样不仅效率低下，而且大量浪费有限的内存空间。我们来看一下这张对String操作时内存变化的图：</p>
