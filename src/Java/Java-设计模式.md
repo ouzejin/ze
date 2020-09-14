@@ -129,6 +129,8 @@ Java设计模式
 
 # 单例模式
 
+`创建型模式`
+
 
 
 参考
@@ -153,9 +155,9 @@ Java设计模式
 
 
 
-### 步骤 1
+### 步骤 1：创建一个 `Singleton` 类
 
-创建一个 Singleton 类。
+
 
 ```java
 public class SingleObject {
@@ -179,9 +181,9 @@ public class SingleObject {
 
 
 
-### 步骤 2
+### 步骤 2：从 `singleton` 类获取唯一的对象
 
-从 singleton 类获取唯一的对象。
+
 
 ```java
 public class SingletonPatternDemo {
@@ -340,3 +342,10 @@ public class Singleton {
 
 
 但是由于 JVM 具有指令重排的特性，执⾏顺序有可能变成 1>3>2。指令重排在单线程环境下不会出 现问题，但是在多线程环境下会导致⼀个线程获得还没有初始化的实例。例如，线程 T1 执⾏了 1 和 3，此时 T2 调⽤ getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。 使⽤ volatile 可以禁⽌ JVM 的指令重排，保证在多线程环境下也能正常运⾏。
+
+
+
+
+
+# 工厂模式
+

@@ -141,13 +141,13 @@ class Son extends Father{
 
 
 
-# 构造器Constructor是否可被Override(重写)
+## 构造器Constructor是否可被Override(重写)
 
 ​		构造器Constructor不能被继承，因此不能被**重写(Override)**，但是可以被**重载（Overload）**。如果父类自定义了有参构造函数，则子类无论定义构造函数与否，定义有参构造函数与否，都会报错，正确的做法是在子类的构造方法中添上super（参数），以表明子类构造之前先构造父类，而这句话必须放在第一句，否则报"Constructor call must be the first statement in a constructor"的错误。
 
 
 
-## 类的加载顺序
+# 类的加载顺序
 
 1. 父类的静态代码块/初始化静态变量（两者优先级相同）
 2. 执行子类的静态代码/初始化静态变量（两者优先级相同，谁写在前面谁先执行）
@@ -409,6 +409,16 @@ public class MultiDemo {
 ![](images/Java基础面试题/static关键字.png)
 
 
+
+### Java中是否可以覆盖(override)一个`private`或者是`static`的方法？
+
+java中也不可以覆盖private的方法，因为private修饰的变量和方法只能在当前类中使用，如果是其他的类继承当前类是不能访问到private变量或方法的，当然也不能覆盖。
+
+
+
+### 是否可以在`static`环境中访问`非static`变量？
+
+static变量在Java中是属于类的，它在所有的实例中的值是一样的。当类被Java虚拟机载入的时候，会对static变量进行初始化。如果你的代码尝试不用实例来访问非static的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。
 
 
 
