@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,wiki" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Kepler" />
+    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/a6d18fc6ce7d5d4c5a810af8ef431d10.json"
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+                document.body.classList.add('safari')
+            }else{
+                document.body.classList.remove('safari')
+            }
+        });
+    </script>
+    
+<title>SpringMVC面试题 - LifeAlsoIsGG-Wiki</title>
+<meta name="author" content="LifeAlsoIsGG" />
+<meta name="description" content="什么是MVC" />
+<meta property="og:title" content="SpringMVC面试题 - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="什么是MVC" />
+<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/SpringMVC面试题/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-09-15T11:40:00-00.00" />
+<meta name="twitter:title" content="SpringMVC面试题 - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="什么是MVC" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" type="images/x-ico" />
+
+    </head>
+    
+    <body class="content">
+        <header>
+            <div class="container">
+                <section>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png">LifeAlsoIsGG-Wiki</a>
+                </section>
+                <section>
+                    <nav>
+                        <ul>
+                            
+                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                            
+                                <li><a href="https://photos.lifeisgg.online" target="_blank">Photos</a></li>
+                            
+                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                            
+                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+    
+                <section>
+                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
+                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
+                    <button class="search-form-input"><i class="fa fa-search"></i></button>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <div id="pjax-container" class="container">
+                <aside id="navbar" class="no-scrollbar">
+                    
+                    <section class="sidebar-nav">
+                        
+                            <div class="None" ><span><a href="/">Home</a></span></div>
+                        
+                            <div class="None" ><span><a href="/archives/">Archives</a></span></div>
+                        
+                            <div class="None" ><span><a href="/About/">About</a></span></div>
+                        
+                            <div class="None" ><span><a href="/My Project/">My Project</a></span></div>
+                        
+                    </section>
+                    
+                    <section>
+                        
+    <div class="open "><span><a href="/category/Spring/">Spring</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/SpringMVC面试题/">SpringMVC面试题</a></li><div class=" "><span><a href="/category/SpringBoot/">SpringBoot</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/服务器上部署SpringBoot/">服务器上部署SpringBoot</a></li></ul></div><div class=" "><span><a href="/category/SpringCloud/">SpringCloud</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/认识SpringCloud/">认识SpringCloud</a></li></ul></div></ul></div><div class=" "><span><a href="/category/数据库/">数据库</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/SQL实战题目/">SQL实战题目</a></li><div class=" "><span><a href="/category/Mysql/">Mysql</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/uni-app/">uni-app</a></li></ul></div><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/数据结构&算法/">数据结构&算法</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/数据结构&算法/">数据结构&算法</a></li><li class=""><a href="/archives/数据结构&算法题目合集/">数据结构&算法题目合集</a></li></ul></div><div class=" "><span><a href="/category/面试/">面试</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/腾讯移动客户端面经/">腾讯移动客户端面经</a></li><li class=""><a href="/archives/计算机其它面试题/">计算机其它面试题</a></li><li class=""><a href="/archives/Mysql&Redis数据库面试题/">Mysql&Redis数据库面试题</a></li><li class=""><a href="/archives/Spring框架面试题/">Spring框架面试题</a></li><li class=""><a href="/archives/字节跳动面试/">字节跳动面试</a></li><li class=""><a href="/archives/后端面试题/">后端面试题</a></li></ul></div><div class=" "><span><a href="/category/Java/">Java</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Java-JVM/">Java-JVM</a></li><li class=""><a href="/archives/Java-容器/">Java-容器</a></li><li class=""><a href="/archives/Java-多线程并发/">Java-多线程并发</a></li><li class=""><a href="/archives/Java-设计模式/">Java-设计模式</a></li><li class=""><a href="/archives/Java-方法汇总/">Java-方法汇总</a></li><li class=""><a href="/archives/Java-基础面试题/">Java-基础面试题</a></li><li class=""><a href="/archives/Java-基础知识笔记/">Java-基础知识笔记</a></li><li class=""><a href="/archives/Import-excel-to-mysql/">Import excel to mysql</a></li></ul></div><div class=" "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Linux常用命令/">Linux常用命令</a></li><li class=""><a href="/archives/xshell connect to Centos7 in VMware/">用xshell连接虚拟机中的Centos7</a></li><div class=" "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install-software/">Docker:Install software</a></li><li class=""><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/My Project/">My Project</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/MyProject-AttendanceMiniprogram/">实验室出入管理小程序</a></li><li class=""><a href="/archives/ActivitySystem/">Javaweb大学活动管理系统</a></li><li class=""><a href="/archives/MyProject-SupermarketSystem/">Java Swing-超市系统</a></li></ul></div><div class=" "><span><a href="/category/JavaScript/">JavaScript</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Promise异步调用/">Promise异步调用</a></li></ul></div><div class=" "><span><a href="/category/Vue/">Vue</a><button class="toggle_sidebar fa"></button></span><ul><div class=" "><span><a href="/category/uni-app/">uni-app</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/uni-app/">uni-app</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/大三下实训期末作业/">大三下实训期末作业</a></li><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
+
+                    </section>
+                    <section hidden class="sidebar-external-link">
+                        
+                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://photos.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                    </section>
+                    <section class="maverick">
+                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
+                    </section>
+                </aside>
+                <div id="content-wrapper">
+                    <div id="content">
+    <section>
+        <h1 class="post-title">SpringMVC面试题</h1>
+        <p class="post-meta">
+            <time>September 15 2020</time>
+            <span class="tags">
+                
+                <span>
+                    <a href="/tag/Spring/">#Spring</a>
+                </span>
+                
+                <span>
+                    <a href="/tag/SpringMVC/">#SpringMVC</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><h1>什么是MVC</h1>
+<p>MVC即<code>Model-View-Controller</code>，将应用按照<code>Model（模型）</code>、<code>View（视图）</code>、<code>Controller（控制）</code>这样的方式分离。把较为复杂的web应用分成逻辑清晰的几部分，基于请求驱动指的就是使用<code>请求-响应模型</code>。是为了简化开发，减少出错。还是为了组内开发人员之间的配合。总之就是一种分层工作的办法。</p>
+<p><figure><img data-width="871" data-height="600" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4b2af76e3e0e0d831744ca544c105296.png" alt="" /></figure></p>
+<ul>
+<li><code>视图(View)</code>：是应用程序中处理数据显示的部分，代表用户交互界面，对于Web应用来说，可以是HTML，也可能是jsp、XML和Applet等。一个应用可能有很多不同的视图，MVC设计模式对于视图的处理仅限于视图上数据的采集和处理，以及用户的请求，而不包括在视图上的业务流程的处理。业务流程的处理交予模型(Model)处理。</li>
+<li><code>模型(Model)</code>：是应用程序中用于处理应用程序数据逻辑的部分，是业务的处理以及业务规则的制定。通常模型对象负责在数据库中存取数据模型接受视图请求的数据，并返回最终的处理结果。业务模型的设计是MVC最主要的核心。MVC设计模式告诉我们，把应用的模型按一定的规则抽取出来，抽取的层次很重要，抽象与具体不能隔得太远，也不能太近。MVC并没有提供模型的设计方法，而只是组织管理这些模型，以便于模型的重构和提高重用性。</li>
+<li><code>控制(Controller)</code>：是应用程序中处理用户交互的部分，可以理解为从用户接收请求, 将模型与视图匹配在一起，共同完成用户的请求。划分控制层的作用也很明显，它清楚地告诉你，它就是一个分发器，选择什么样的模型，选择什么样的视图，可以完成什么样的用户请求。控制层并不做任何的数据处理。</li>
+</ul>
+<h1>什么是MVP[Android]</h1>
+<p>MVP即<code>Model-View-Presenter</code></p>
+<p><figure><img data-width="871" data-height="601" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/792aa864d85a86b8c490d3f1b9c9afdd.png" alt="" /></figure></p>
+<h1>MVC和MVP的区别</h1>
+<p><figure><img data-width="1067" data-height="480" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d64f90c57e6773cf89f190f99f251c7f.jpg" alt="" /></figure></p>
+<p>MVP与MVC有着一个重大的区别：在MVP中View并不直接使用Model，它们之间的通信是通过Presenter (MVC中的Controller)来进行的，所有的交互都发生在Presenter内部，而在MVC中View会直接从Model中读取数据而不是通过 Controller。</p>
+<ul>
+<li>Presenter与Controller都扮演了逻辑层的角色，但是Presenter层的功能相对更复杂，因为他负责和View的双向交互，Controller只是单向的中介。因为Presenter是从View层抽离出来的，通常和View是一对一的关系，而Controller是面向业务的，往往是单例模式或者提供静态方法。</li>
+<li>MVP中View和Model是不能进行通信的，虽然加重了P层的负担，但是有利于维护View层和Model层，如果条件允许，我们还可以对Presenter进一步拆分，来弥补Presenter负担过重的问题。</li>
+<li>MVC中View和Model层可以直接交互，虽然方便了两者之间的交互，但是耦合性相对较高。</li>
+</ul>
+<h1>什么是SpringMVC</h1>
+<p>Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的轻量级Web框架，通过把<code>模型(Model)</code>，<code>视图(View)</code>，<code>控制器(Controller)</code>分离，将web层进行职责解耦，把复杂的web应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。</p>
+<h1>SpringMVC的优点</h1>
+<ul>
+<li>可以支持各种视图技术,而不仅仅局限于JSP；</li>
+<li>与Spring框架集成（如IoC容器、AOP等）；</li>
+<li>清晰的角色分配：前端控制器(dispatcherServlet) , 请求到处理器映射（handlerMapping), 处理器适配器（HandlerAdapter), 视图解析器（ViewResolver）。</li>
+<li>支持各种请求资源的映射策略。</li>
+</ul>
+<h1>SpringMVC组件</h1>
+<ul>
+<li><code>DispatcherServlet</code>：前端控制器。也称为中央控制器，它是整个请求响应的控制中心，组件的调用由它统一调度。有了他就减少了其他组件之间的耦合度。</li>
+<li><code>HandlerMapping</code>：处理器映射器。它根据用户访问的 URL 映射到对应的后端处理器 Handler。也就是说它知道处理用户请求的后端处理器，但是它并不执行后端处理器，而是将处理器告诉给中央处理器。</li>
+<li><code>HandlerAdapter</code>：处理器适配器。根据传过来不同类型的<code>Hadnle</code>它调用后端处理器中的方法，返回逻辑视图 <code>ModelAndView</code> 对象给<code>DispatcherServlet</code>。</li>
+<li><code>ViewResolver</code>：视图解析器。将 <code>ModelAndView</code> 逻辑视图解析为具体的视图（如 JSP）。</li>
+<li><code>Handler</code>：后端处理器。对用户具体请求进行处理，也就是我们编写的 <code>Controller</code> 类。需要程序员开发</li>
+</ul>
+<h1>SpringMVC工作流程</h1>
+<p><figure><img data-width="1195" data-height="659" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/43a507768e3a02998c8e67620f7c1534.jpg" alt="" /></figure></p>
+<ol>
+<li>用户向服务端发送一次请求，这个请求会先到前端控制器<code>DispatcherServlet</code>(也叫中央控制器)。</li>
+</ol>
+<ol>
+<li><code>DispatcherServlet</code>接收到请求后会调用<code>HandlerMapping</code>处理器映射器来，根据配置或注解获取不同的<code>Handle</code>，并返回给<code>DispatcherServlet</code>。由此得知，该请求该由哪个<code>Controller</code>来处理（并未调用Controller，只是得知）</li>
+</ol>
+<ol>
+<li><code>DispatcherServlet</code>调用<code>HandlerAdapter</code>处理器适配器，告诉处理器适配器应该要去执行哪个<code>Controller</code></li>
+</ol>
+<ol>
+<li><code>HandlerAdapter</code>处理器适配器去执行<code>Controller</code>并得到<code>ModelAndView</code>(数据和视图)，并层层返回给<code>DispatcherServlet</code></li>
+</ol>
+<ol>
+<li><code>DispatcherServlet</code>将<code>ModelAndView</code>交给<code>ViewReslover</code>视图解析器解析，然后返回真正的视图<code>View</code>。</li>
+</ol>
+<ol>
+<li><code>DispatcherServlet</code>将模型数据填充到视图中</li>
+</ol>
+<ol>
+<li><code>DispatcherServlet</code>将结果响应给用户</li>
+</ol>
+<h1>SpringMVC常用注解</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/leskang/p/5445698.html">https://www.cnblogs.com/leskang/p/5445698.html</a></li>
+</ul>
+</blockquote>
+<ul>
+<li><p>@Controller</p>
+<blockquote><p>@Controller注解在类上，表明这个类是Spring MVC里的Controller，将其声明为Spring的一个Bean，<code>DispatchServlet</code>会自动扫描注解了此注解的类，并将Web请求映射到注解了<code>@RequestMapping</code>的方法上，需要注意的是，在Spring MVC声明控制器Bean的时候，只能使用@Controller。</p>
+</blockquote>
+</li>
+<li><p>@RequestMapping</p>
+<blockquote><p>@RequestMapping注解是用来映射Web请求（访问路径和参数）、处理类和方法的。它可以注解在类和方法上。注解在方法上的<code>@RequestMapping</code>路径会继承注解在类上的路径，<code>@RequestMapping</code>支持Servlet的request和response作为参数，也支持对它们的媒体类型进行配置。</p>
+</blockquote>
+</li>
+<li><p>@ResponseBody</p>
+<blockquote><p><code>@ResponseBody</code>支持将返回值放在<code>response</code>体内，而不是返回一个页面。我们很多机遇<code>Ajax</code>的程序，可以以此注解返回数据而不是返回页面；此注解可以放在返回值或者方法上。</p>
+</blockquote>
+</li>
+<li><p>@RequestBody</p>
+<blockquote><p><code>@RequestBody</code>允许<code>request</code>的参数在<code>request</code>体中，而不是在直接链接在地址后面。此注解放在参数前。</p>
+</blockquote>
+</li>
+<li><p>@PathVariable</p>
+<blockquote><p><code>@PathVariable</code> 用来接收路径参数，如<code>/news/001</code>,可接收001作为参数，此注解放置在参数前。</p>
+</blockquote>
+</li>
+<li><p>@RestController</p>
+<blockquote><p>@RestController是一个组合注解，组合了@Controller和@ResponseBody，意味着当只开发一个和页面交互数据的控制的时候，需要使用此注解。 若没有此注解，要想实现上述功能，则需自己在代码中加@Controller和@ResponseBody两个注解。</p>
+</blockquote>
+</li>
+</ul>
+<h2>@Controller控制器</h2>
+</article>
+    </section>
+
+    
+    <section id="content-pager">
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/SQL实战题目/">
+                    <time>September 05 2020</time>
+                    <span>SQL实战题目</span>
+                </a>
+            </div>
+        
+    </section>
+    
+
+    
+        <section id="comments">
+            <div id="vcomments"></div>
+        </section>
+        <script>
+            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u8fd8\u8bf7\u4e0d\u541d\u8d50\u6559"};
+            window.ValineOpt.path = window.location.pathname;
+        </script>
+    
+
+    <script>
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
+    </script>
+</div>
+                    <footer>
+                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        
+    <span class="leancloud_visitors"
+            id="/archives/SpringMVC面试题/" 
+            data-flag-title="SpringMVC面试题">
+            <i class="fa fa-eye"></i> <i style="font-style: normal" class="leancloud-visitors-count"></i> Views
+        </span>
+
+                        <span class="addon">
+<p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
+</span>
+                    </footer>
+                </div>
+                
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
+
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script>
+            function ExSearchCall(item){
+                if (item && item.length) {
+                    $('.ins-close').click(); // 关闭搜索框
+                    $('input.ins-search-input').val(''); // 清空
+                    let url = item.attr('data-url'); // 获取目标页面 URL
+                    $.pjax({url: url, 
+                        container: '#pjax-container',
+                        fragment: '#pjax-container',
+                        timeout: 8000, }); // 发起一次 PJAX 请求
+                }
+            }
+        </script>
+
+        <!--Valine-->
+        
+            <script>
+                var initValine = function () {
+                    if (typeof window.ValineOpt === 'object' && $(window.ValineOpt.el).length) {
+                        new Valine(window.ValineOpt);
+                    }
+                }
+            </script>
+            <script async src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        
+
+        <!--ExSearch-->
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        
+        <!--katex-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.js"></script>
+        <script>
+        mathOpts = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+        
+    </body>
+</html>
