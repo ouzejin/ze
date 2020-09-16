@@ -54,7 +54,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/数据结构&算法/</loc>
+    <loc>/archives/数据结构&算法笔记/</loc>
     <lastmod>2020-08-30</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
