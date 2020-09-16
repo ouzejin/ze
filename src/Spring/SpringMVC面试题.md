@@ -14,7 +14,7 @@ tags:
 
 
 
-# 什么是MVC
+# 1. 什么是MVC
 
 
 
@@ -34,7 +34,7 @@ MVC即`Model-View-Controller`，将应用按照`Model（模型）`、`View（视
 
 
 
-# 什么是MVP[Android]
+# 2. 什么是MVP[Android]
 
 
 
@@ -48,7 +48,7 @@ MVP即`Model-View-Presenter`
 
 
 
-# MVC和MVP的区别
+# 3. MVC和MVP的区别
 
 
 
@@ -68,17 +68,17 @@ MVP与MVC有着一个重大的区别：在MVP中View并不直接使用Model，�
 
 
 
-# 什么是SpringMVC
+# 4. 什么是SpringMVC
 
 
 
-Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的轻量级Web框架，通过把`模型(Model)`，`视图(View)`，`控制器(Controller)`分离，将web层进行职责解耦，把复杂的web应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。
+Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的轻量级Web框架，通过把`模型(Model)`，`视图(View)`，`控制器(Controller)`分离，将web层进行职责解耦，把复杂的web应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。Spring MVC 下我们⼀般把后端项⽬分为 Service层 （处理业务）、Dao层（数据库操作）、Entity层（实体类）、Controller层(控制层，返回数据给前台 ⻚⾯)。
 
 
 
 
 
-# SpringMVC的优点
+# 5. SpringMVC的优点
 
 
 
@@ -91,7 +91,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-# SpringMVC组件
+# 6. SpringMVC组件
 
 
 
@@ -103,7 +103,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-# SpringMVC工作流程
+# 7. SpringMVC工作流程
 
 
 
@@ -141,7 +141,26 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-# SpringMVC常用注解
+# SpringMVC注解原理
+
+
+
+注解本质是一个继承了 Annotation的特殊接口,其具体实现类是Java运行时生成的动态代理类。我们通过反射获取注解时,返回的是Java运行时生成的动态代理对象。通过代理对象调用自定义注解的方法,会最终调用AnnotationInvocationHandler的 invoke方法。该方法会从 membervalues这个Map中索引出对应的值。而 membervalues的来源是Java常量池
+
+
+
+
+
+​     Controller类使用继承@Component注解的方法，将其以单例的形式放入spring容器，如果仔细看的话会发现每个注解里面都有一个默认的value()方法，它的作用是为当前的注解声明一个名字，一般默认为类名，然后spring会通过配置文件中的context:component-scan的配置，进行如下操作：
+
+- 使用asm技术扫描.class文件，并将包含@Component及元注解为@Component的注解@Controller、@Service、@Repository或者其他自定义的的bean注册到beanFactory中，
+- 然后spring在注册处理器
+- 实例化处理器，然后将其放到beanPostFactory中，然后我们就可以在类中进行使用了。
+- 创建bean时，会自动调用相应的处理器进行处理。
+
+
+
+# 9. SpringMVC常用注解
 
 
 
@@ -197,7 +216,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-## @Controller控制器
+## 8.1 @Controller控制器
 
 在SpringMVC 中，控制器Controller 负责处理由DispatcherServlet 分发的请求，它把用户请求的数据经过业务处理层处理之后封装成一个Model ，然后再把该Model 返回给对应的View 进行展示。在SpringMVC 中提供了一个非常简便的定义Controller 的方法，你无需继承特定的类或实现特定的接口，只需使用@Controller 标记一个类是Controller ，然后使用@RequestMapping 和@RequestParam 等一些注解用以定义URL 请求和Controller 方法之间的映射，这样的Controller 就能被外界访问到。此外Controller 不会直接依赖于`HttpServletRequest` 和`HttpServletResponse` 等HttpServlet 对象，它们可以通过Controller 的方法参数灵活的获取到。
 
@@ -205,7 +224,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-## @RestController
+## 8.2 @RestController
 
 可以发现，`@RestController`注解里面包含了`@Controller`注解和@`ResponseBody`注解，`@ResponseBody` 注解是将返回的数据结构转换为 `JSON` 格式，所以说可以这么理解：@RestController = @Controller + @ResponseBody ，省了很多事，我们使用 @RestController 之后就不需要再使用 @Controller 了。
 
@@ -213,7 +232,7 @@ Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的
 
 
 
-## @RequestMapping请求映射
+## 8.3 @RequestMapping请求映射
 
 RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。`@RequestMapping`注解是用来映射Web请求（访问路径和参数）、处理类和方法的。它可以注解在类和方法上。注解在方法上的`@RequestMapping`路径会继承注解在类上的路径，`@RequestMapping`支持Servlet的`request`和`response`作为参数，也支持对它们的媒体类型进行配置。
 
@@ -248,7 +267,7 @@ RequestMapping是一个用来处理请求地址映射的注解，可用于类或
 
 
 
-## @ResponseBody
+## 8.4 @ResponseBody
 
 作用： 该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，写入到`Response`对象的`body`数据区。
 
@@ -258,13 +277,13 @@ RequestMapping是一个用来处理请求地址映射的注解，可用于类或
 
 
 
-## @RequestBody
+## 8.5 @RequestBody
 
 RequestBody 注解用于接收前端传来的实体，接收参数也是对应的实体，比如前端通过 JSON 提交传来两个参数 username 和 password，此时我们需要在后端封装一个实体来接收。在传递的参数比较多的情况下，使用 @RequestBody 接收会非常方便。
 
 
 
-## @PathVariable
+## 8.6 @PathVariable
 
 @PathVariable 注解主要用来获取 URL 参数，Spring Boot 支持 Restfull 风格的 URL，比如一个 GET 请求携带一个参数 id，我们将 id 作为参数接收，可以使用 @PathVariable 注解。如下：
 
@@ -298,7 +317,7 @@ public class TestController {
 
 
 
-## @RequestParam
+## 8.7 @RequestParam
 
 @RequestParam 注解顾名思义，也是获取请求参数的，主要用于在SpringMVC后台控制层获取参数，类似一种request.getParameter("name")。上面我们介绍了 @PathValiable 注解也是获取请求参数的，那么 @RequestParam 和 @PathVariable 有什么不同呢：
 
@@ -334,7 +353,7 @@ defaultValue = "0", required = false, value = "isApp"；
 
 
 
-## @Resource和@Autowired
+## 8.8 @Resource和@Autowired
 
 @Resource和@Autowired都是做bean的注入时使用，其实@Resource并不是Spring的注解，它的包是javax.annotation.Resource，需要导入，但是Spring支持该注解的注入。
 
@@ -399,3 +418,11 @@ public class TestServiceImpl {
 4. 如果既没有指定name，又没有指定type，则自动按照byName方式进行装配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配。
 
 @Resource的作用相当于@Autowired，只不过@Autowired按照byType自动注入。
+
+
+
+
+
+# 9. Spring控制器是什么设计模式，有什么问题，为什么是这个模式
+
+是**单例模式**，所以在多线程访问的时候有线程安全问题不要用同步会影晌性能的。解决方案是在控制器里面不能写字段成员变量。使用单例模式是为了性能（无需频繁初始化），同时也没有必要使用多例模式。万一必须要定义一个非静态成员变量时候，则通过注解`@Scope("prototype")`，将其设置为多例模式
