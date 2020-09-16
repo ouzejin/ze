@@ -1,16 +1,15 @@
 ---
 layout: post
-title: uni-app
-slug: uni-app
-date: 2020/07/07 10:37:18
+title: Mysql面试题
+slug: Mysql面试题
+date: 2020/09/16 18:10:26
 status: publish
 author: LifeAlsoIsGG
 categories: 
   - 数据库
-  - Mysql
 tags: 
   - 数据库
-  - Mysql
+  - Mysql面试题
 
 ---
 
