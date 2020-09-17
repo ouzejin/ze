@@ -575,9 +575,18 @@ System.out.println(string);          //abc
 
 
 
-## String toUpperCase()：
+## String toUpperCase()
 
 转换为大写字母
+
+
+
+## String intern()
+
+
+
+- 如果字符串常量池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串的引用值。
+- 如果不包含，将此String对象添加到池中，并返回字符串常量池此String对象的引用
 
 
 

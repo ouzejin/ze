@@ -804,16 +804,17 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 ## 12.3 ThreadPoolExecutor 类分析
 
+参考
+
+> - https://www.jianshu.com/p/c41e942bcd64
+
 ![](images/Java多线程并发/ThreadPoolExecutor的类图.webp)
 
 ​		当在execute(Runnable)方法中提交新任务并且少于corePoolSize线程正在运行时，即使其他工作线程处于空闲状态，也会创建一个新线程来处理该请求。 如果有多于corePoolSize但小于maximumPoolSize线程正在运行，则仅当队列已满时才会创建新线程。 通过设置corePoolSize和maximumPoolSize相同，您可以创建一个固定大小的线程池。 通过将maximumPoolSize设置为基本上无界的值，例如Integer.MAX_VALUE，您可以允许池容纳任意数量的并发任务。 通常，核心和最大池大小仅在构建时设置，但也可以使用`setCorePoolSize`和`setMaximumPoolSize`进行动态更改。
 
 
 
-作者：徐志毅
-链接：https://www.jianshu.com/p/c41e942bcd64
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 
 
 

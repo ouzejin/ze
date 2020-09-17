@@ -643,6 +643,16 @@ char c = input.next().charAt(0);
 
 
 
+## String常用方法
+
+
+
+> - [String常用方法](https://wiki.lifeisgg.online/archives/Java-方法汇总/#toc_28)
+
+
+
+
+
 ## 创建的两种方式
 
 - 第一种是通过**“字面量”**赋值
@@ -659,37 +669,69 @@ char c = input.next().charAt(0);
 
   
 
-**案例：**
+## 底层原理
+
+
+
+- 直接使用双引号声明出来的`String`对象会直接存储在常量池中，当相同的字符串被创建多次，内存中只保存一份字符串常量值，这就是字符串的"驻留"。
+- 
+
+
+
+
+
+### 案例一：通过字面量来创建String
 
 ```java
-String a = "abcd";
-String b = "abcd";
-System.out.println(a == b); // True
-System.out.println(a.equals(b)); // True
+String s1 = "abc";
+String s2 = "abc";
+System.out.println(s1 == s2); // True
+System.out.println(s1.equals(s2)); // True
 ```
 
-a==b为真，是因为a和b都指向了方法区里面的同一个字符串，引用值相等；
+
+
+采用字面值的方式创建一个字符串时，JVM首先会去字符串池中查找是否存在"abc"这个对象，此时有两种情况
+
+- 如果不存在，则在字符串常量池中创建"abc"这个对象，然后将池中"abc"这个对象的引用地址返回给"abc"对象的引用s1，这样s1会指向字符串常量池中"abc"这个字符串对象；
+- 如果存在，则不创建任何对象，直接将池中"abc"这个对象的地址返回，赋给引用s2。因为s1、s2都是指向同一个字符串池中的"abc"对象，所以结果为true。
+
+
 
 当相同的字符串被创建多次，内存中只保存一份字符串常量值，这就是字符串的"驻留"
 
 
 
-**案例二：**
+### 案例二：通过new对象形式
 
 ```java
-String c = new String("abcd");
-String d = new String("abcd");
-System.out.println(c == d); // False
-System.out.println(c.equals(d)); // True
+String s3 = new String("xyz");
+String s4 = new String("xyz");
+System.out.println(s3 == s4); // False
+System.out.println(s3.equals(s4)); // True
 ```
 
-c==d 为假，是因为c和d引用了对内存中的两个不同的对象，不同的对象，引用值肯定不同
+采用new关键字新建一个字符串对象时，JVM首先在字符串池中查找有没有"xyz"这个字符串对象，
+
+- 如果有，则不在池中再去创建"xyz"这个对象了，直接在堆中创建一个"xyz"字符串对象，然后将堆中的这个"xyz"对象的地址返回赋给引用s3，这样，s3就指向了堆中创建的这个"xyz"字符串对象；
+- 如果没有，则首先在字符串池中创建一个"xyz"字符串对象，然后再在堆中创建一个"xyz"字符串对象，然后将堆中这个"xyz"字符串对象的地址返回赋给s3引用，这样，s3指向了堆中创建的这个"xyz"字符串对象。s4则指向了堆中创建的另一个"xyz"字符串对象。s3 、s4是两个指向不同对象的引用，结果当然是false。
 
 
 
+## Intern的实现原理（JDK1.8）
 
 
 
+```java
+public native String intern();
+```
+
+
+
+这个方法是一个 `native` 的方法，但注释写的非常明了。当调用 intern方法时：
+
+- 如果池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串。
+- 如果不包含，将此String对象添加到池中，并返回此String对象的引用
 
 
 
