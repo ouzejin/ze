@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b7e24f28932ff5ac6609d97d9575ffc1.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/05dbb1416a5a1d0cf280451e95db3b11.json"
         }
     </script>
     <script>
@@ -647,12 +647,13 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p>从上面的代码中可以看出，其返回的是<strong>ThreaPoolExecutor</strong>对象，调用的是ThreaPoolExecutor类四个构造方法中的第一个。</p>
 <p>总结，上面两种创建线程池的方式，其本质都是通过<strong>ThreaPoolExecutor</strong>类的构造方法的方式，所以<strong>ThreaPoolExecutor</strong>是重点。</p>
 <h2>12.3 ThreadPoolExecutor 类分析</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a></li>
+</ul>
+</blockquote>
 <p><figure><img data-width="422" data-height="506" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5e9cc6d398397e1adf83b54bd24b3601.webp" alt="" /></figure></p>
 <p>​       当在execute(Runnable)方法中提交新任务并且少于corePoolSize线程正在运行时，即使其他工作线程处于空闲状态，也会创建一个新线程来处理该请求。 如果有多于corePoolSize但小于maximumPoolSize线程正在运行，则仅当队列已满时才会创建新线程。 通过设置corePoolSize和maximumPoolSize相同，您可以创建一个固定大小的线程池。 通过将maximumPoolSize设置为基本上无界的值，例如Integer.MAX_VALUE，您可以允许池容纳任意数量的并发任务。 通常，核心和最大池大小仅在构建时设置，但也可以使用<code>setCorePoolSize</code>和<code>setMaximumPoolSize</code>进行动态更改。</p>
-<p>作者：徐志毅
-链接：<a href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a>
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2>12.4 线程池执行流程</h2>
 </article>
     </section>
