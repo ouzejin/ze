@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/05dbb1416a5a1d0cf280451e95db3b11.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/7abf83edbc5f8b1c2df3e5909d4eb0c4.json"
         }
     </script>
     <script>
@@ -519,16 +519,13 @@
 <li>浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址</li>
 <li>深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存</li>
 </ul>
-<ol>
-<li></li>
-</ol>
 <h1>String</h1>
 <h2>String常用方法</h2>
 <blockquote><ul>
 <li><a href="https://wiki.lifeisgg.online/archives/Java-方法汇总/#toc_28">String常用方法</a></li>
 </ul>
 </blockquote>
-<h2>创建的两种方式</h2>
+<h2>两种方式创建的底层原理和字符串常量</h2>
 <ul>
 <li><p>第一种是通过<strong>“字面量”</strong>赋值</p>
 <div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span><span class="o">=</span><span class="s">&quot;hello&quot;</span>
@@ -539,8 +536,6 @@
 </pre></div>
 </li>
 </ul>
-<h2>底层原理</h2>
-<h2>- 直接使用双引号声明出来的<code>String</code>对象会直接存储在常量池中，当相同的字符串被创建多次，内存中只保存一份字符串常量值，这就是字符串的"驻留"。</h2>
 <h3>案例一：通过字面量来创建String</h3>
 <div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span><span class="p">;</span>
 <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span><span class="p">;</span>
@@ -561,17 +556,109 @@
 </pre></div>
 <p>采用new关键字新建一个字符串对象时，JVM首先在字符串池中查找有没有"xyz"这个字符串对象，</p>
 <ul>
-<li>如果有，则不在池中再去创建"xyz"这个对象了，直接在堆中创建一个"xyz"字符串对象，然后将堆中的这个"xyz"对象的地址返回赋给引用s3，这样，s3就指向了堆中创建的这个"xyz"字符串对象；</li>
-<li>如果没有，则首先在字符串池中创建一个"xyz"字符串对象，然后再在堆中创建一个"xyz"字符串对象，然后将堆中这个"xyz"字符串对象的地址返回赋给s3引用，这样，s3指向了堆中创建的这个"xyz"字符串对象。s4则指向了堆中创建的另一个"xyz"字符串对象。s3 、s4是两个指向不同对象的引用，结果当然是false。</li>
+<li>如果有：则不在池中再去创建"xyz"这个对象了，直接在堆中创建一个"xyz"字符串对象，然后将堆中的这个"xyz"对象的地址返回赋给引用s3，这样，s3就指向了堆中创建的这个"xyz"字符串对象；</li>
+<li>如果没有：则首先在字符串池中创建一个"xyz"字符串对象，然后再在堆中创建一个"xyz"字符串对象，然后将堆中这个"xyz"字符串对象的地址返回赋给s3引用，这样，s3指向了堆中创建的这个"xyz"字符串对象。s4则指向了堆中创建的另一个"xyz"字符串对象。s3 、s4是两个指向不同对象的引用，结果当然是false。</li>
 </ul>
-<h2>Intern的实现原理（JDK1.8）</h2>
+<h3>案例三：创建了多少对象</h3>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="err">“</span><span class="n">xyz</span><span class="err">”</span><span class="p">);</span>
+</pre></div>
+<p>产生几个对象？一个或两个，如果常量池中原来没有 ”xyz”, 就是两个。</p>
+<ul>
+<li>常量池中没有 <code>”xyz”</code>：就先去字符串常量池创建，然后再去堆中创建实例，所以会创建两个对象</li>
+<li>常量池中有 <code>”xyz”</code>：就直接去堆中创建实例，所以会创建一个对象</li>
+</ul>
+<h2>intern的实现原理（JDK1.8）</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html">https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html</a></li>
+</ul>
+</blockquote>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">native</span> <span class="n">String</span> <span class="nf">intern</span><span class="p">();</span>
 </pre></div>
+<h3>JDK6的intern()</h3>
+<p><figure><img data-width="-1" data-height="-1" src="images/Java基础面试题/jdk6_intern(" alt="" /></figure>.png)</p>
+<h3>JDK7的intern()</h3>
+<p><figure><img data-width="-1" data-height="-1" src="images/Java基础面试题/jdk7_intern(" alt="" /></figure>.png)</p>
 <p>这个方法是一个 <code>native</code> 的方法，但注释写的非常明了。当调用 intern方法时：</p>
 <ul>
-<li>如果池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串。</li>
-<li>如果不包含，将此String对象添加到池中，并返回此String对象的引用</li>
+<li>如果字符串常量池已经包含一个等于此String对象的字符串（值比较用equals(oject)方法确定），则返回池中的字符串对象的地址。</li>
+<li>如果不包含，将此String对象添加到字符串常量池中为新的String对象，并返回字符串常量池中此新的String对象的引用</li>
 </ul>
+<p>JDK 1.7后，intern方法还是会先去查询常量池中是否有已经存在，如果存在，则返回常量池中的引用，这一点与之前没有区别，区别在于，<strong>如果在常量池找不到对应的字符串，则不会再将字符串拷贝到常量池，而只是在常量池中生成一个对原字符串的引用简单的说，就是往常量池放的东西变了：原来在常量池中找不到时，复制一个副本放到常量池，1.7后则是将在堆上的地址引用复制到常量池。</strong></p>
+<h3>举例</h3>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;str&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;01&quot;</span><span class="p">);</span><span class="c1">//创建了&quot;str&quot;和&quot;01&quot;常量，但是没有创建&quot;str01&quot;常量</span>
+<span class="n">str2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&quot;str01&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str2</span><span class="o">==</span><span class="n">str1</span><span class="p">);</span><span class="c1">//true</span>
+</pre></div>
+<blockquote><ol>
+<li>第一行：字符串常量池中生成"str"和"01"，在堆中创建两个String对象，相加后返回在堆为"str01"的新的String对象的引用，<strong>此时常量池没有"str01"对象，只有"str"和"01"</strong></li>
+<li>第二行：调用intern()后，由于字符串常量池中不存在"str01"，所以复制str2地址引用到字符串常量池(1.7后的改动)</li>
+<li>第三行：由于字符串常量池中已存在"str01"，所以str1指向已存在的，即st2所指向的对象</li>
+<li>第四行：两个指向同一个对象所以结果为true</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;str&quot;</span><span class="p">)</span><span class="o">+</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;01&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&quot;str01&quot;</span><span class="p">;</span>
+<span class="n">str2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str2</span><span class="o">==</span><span class="n">str1</span><span class="p">);</span><span class="c1">//false</span>
+</pre></div>
+<blockquote><ol>
+<li>第一行：字符串常量池中生成"str"和"01"，在堆中创建两个String对象，相加后返回值为"str01"的新的String对象</li>
+<li>第二行：由于字符串常量池不存在"str01"，所以此时在字符串常量池中创建新的对象</li>
+<li>第三行：由于已经存在"str01"，所以不会把str2地址引用到字符串常量池，而是返回已经存在的"str01"对象的地址</li>
+<li>第四行：由于str1指向字符串常量池对象，str2指向堆中的对象，所以返回false</li>
+</ol>
+</blockquote>
+<h2>字符串相加原理</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/u010775025/article/details/86507090">https://blog.csdn.net/u010775025/article/details/86507090</a></li>
+</ul>
+</blockquote>
+<h3>三种情况</h3>
+<ul>
+<li>两个或者两个以上的字符串常量相加，在预编译的时候“+”会被优化，相当于把字符串常量自动合成一个字符串常量</li>
+<li>字符串对象的+操作其本质是new了StringBuilder对象进行append操作，拼接后调用toString()返回String对象</li>
+<li><code>final</code>修饰的String在相加的时候等同于<code>字符串常量</code>直接相加，在编译后会直接替换成对应的值</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;Programming&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Programming&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&quot;Program&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">&quot;ming&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="s">&quot;Program&quot;</span> <span class="o">+</span> <span class="s">&quot;ming&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s6</span> <span class="o">=</span> <span class="n">s3</span> <span class="o">+</span> <span class="n">s4</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">s7</span> <span class="o">=</span> <span class="n">s3</span> <span class="o">+</span> <span class="s">&quot;ming&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s5</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s6</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s7</span><span class="p">);</span>
+</pre></div>
+<ul>
+<li><p><strong>常量相加：</strong>全都是常量相加时，会在字符串常量池创建新对象，不会在堆中创建新的对象</p>
+<p><figure><img data-width="863" data-height="245" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/63375975fd5a1a00680896a900a5fb6d.png" alt="" /></figure></p>
+<p>第20~22行，我们通过对比知道，String s5 = "Program" + "ming";在被编译器优化成了String s5 = "Programming";</p>
+<p>也可以得出字符串常量相加，不会用到<code>StringBuilder</code>对象，有一点要注意的是：字符串常量和字符串是不同的概念，字符串常量储存于方法区，而字符串储存于堆(heap)。</p>
+</li>
+</ul>
+<ul>
+<li><p>包含String对象的相加：操作其本质是new了StringBuilder对象进行append操作，拼接后调用toString()返回新的String对象</p>
+<p><figure><img data-width="1025" data-height="172" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/18f4b396dd4c0917c1e2ca7af5966091.png" alt="" /></figure></p>
+<blockquote><ol>
+<li>第24行：使用new 了 StringBuider对象</li>
+<li>第25行：进行StringBuider对象初始化</li>
+<li>第26行：使用append() 方法拼接s3的内容</li>
+<li>第27行：再使用append() 方法拼接s4的内容</li>
+<li>第28行：最后调用toString() 返回String对象</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3>特殊情况</h3>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;ja&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;va&quot;</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span> <span class="o">==</span> <span class="n">s2</span><span class="p">);</span><span class="c1">//false</span>
+</pre></div>
+<p>常理认为，在执行<code>s2.intern()</code>时，由于字符串常量池中不存在，所以会复制引用s2到字符串常量池中去，最后对比指向同一个对象地址为<code>true</code>，但事实上<code>"java"</code>这个字符串在执行此语句之前，字符串常量池中已经存在此字符串</p>
 </article>
     </section>
 

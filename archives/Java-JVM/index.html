@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/05dbb1416a5a1d0cf280451e95db3b11.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/7abf83edbc5f8b1c2df3e5909d4eb0c4.json"
         }
     </script>
     <script>
@@ -148,19 +148,38 @@
 <li><strong>方法区：</strong>用于存储虚拟机加载的类信息，常量，静态变量等数据</li>
 <li><strong>堆：</strong>存放对象实例，所有的对象和数组都要在堆上分配。是JVM所管理的</li>
 </ul>
-<h3>方法区(1.8后为元空间，处于直接内存)</h3>
-<p>属于共享内存区域，存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。虽然Java虚拟机规范把⽅法区描述为堆的⼀个逻辑部分，但 是它却有⼀个别名叫做 Non-Heap（⾮堆），⽬的应该是与 Java 堆区分开来。</p>
-<p>⽅法区也被称为永久代</p>
-<p>运行时常量池：</p>
+<h3>方法区</h3>
+<p>方法区是一个概念，属于共享内存区域，规范为存储<code>已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码</code>等数据。虽然Java虚拟机规范把⽅法区描述为堆的⼀个逻辑部分，但 是它却有⼀个别名叫做 Non-Heap（⾮堆），⽬的应该是与 Java 堆区分开来。</p>
+<h4>⽅法区和永久代的关系</h4>
+<blockquote><p>《Java虚拟机规范》只是规定了有⽅法区这么个概念和它的作⽤，并没有规定如何去实现它。那 么，在不同的 JVM 上⽅法区的实现肯定是不同的了。 ⽅法区和永久代的关系很像Java中接⼝和类 的关系，类实现了接⼝，⽽永久代就是HotSpot虚拟机对虚拟机规范中⽅法区的⼀种实现⽅式。 也 就是说，永久代是HotSpot的概念，⽅法区是Java虚拟机规范中的定义，是⼀种规范，⽽永久代是⼀ 种实现，⼀个是标准⼀个是实现，其他的虚拟机实现并没有永久带这⼀说法。</p>
+</blockquote>
+<h4>版本迭代：</h4>
 <ul>
-<li>在<strong>JDK1.7之前</strong>：运行时常量池逻辑包含字符串常量池存放在方法区, 此时hotspot虚拟机对方法区的实现为<strong>永久代</strong></li>
-<li>在<strong>JDK1.7</strong>：字符串常量池被从方法区拿到了<strong>堆</strong>中, 这里没有提到运行时常量池,也就是说<strong>字符串常量池</strong>被单独拿到<strong>堆</strong>,<strong>运行时常量池剩下的东西</strong>还在<strong>方法区</strong>, 也就是hotspot中的<strong>永久代</strong></li>
-<li>在<strong>JDK1.8</strong>： hotspot移除了<strong>永久代</strong>用<strong>元空间(Metaspace)</strong>取而代之, 这时候<strong>字符串常量池还在堆</strong>, <strong>运行时常量池还在方法区</strong>, 只不过方法区的实现从永久代变成了元空间(Metaspace) </li>
+<li><p>在<strong>JDK1.7之前</strong>：永久代</p>
+<blockquote><p>运行时常量池逻辑包含字符串常量池存放在方法区, 此时hotspot虚拟机对方法区的实现为<strong>永久代</strong></p>
+</blockquote>
+</li>
 </ul>
+<ul>
+<li><p>在<strong>JDK1.7</strong>：永久代和堆</p>
+<blockquote><p>字符串常量池被从方法区拿到了<strong>堆</strong>中, 这里没有提到运行时常量池,也就是说<strong>字符串常量池</strong>被单独拿到<strong>堆</strong>,<strong>运行时常量池剩下的东西</strong>还在<strong>方法区</strong>, 也就是hotspot中的<strong>永久代</strong></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>在<strong>JDK1.8</strong>： 元空间和堆</p>
+<blockquote><p>hotspot移除了<strong>永久代</strong>用<strong>元空间(Metaspace)</strong>取而代之, 这时候<strong>字符串常量池还在堆</strong>, <strong>运行时常量池还在方法区</strong>, 只不过方法区的实现从永久代变成了元空间(Metaspace) ，元空间并不在虚拟机中，而是在本地内存(Direct Memory)</p>
+</blockquote>
+</li>
+</ul>
+<h4>为什么要将永久代(PermGen)替换为元空间(MetaSpace)呢?</h4>
+<p>整个永久代有⼀个 JVM 本身设置固定⼤⼩上线，⽆法进⾏调整，⽽元空间使⽤的是直接内存，受本机 可⽤内存的限制，并且永远不会得到<code>java.lang.OutOfMemoryError</code>。你可以使⽤ -XX： MaxMetaspaceSize 标志设置最⼤元空间⼤⼩，默认值为 unlimited，这意味着它只受系统内存的限 制。 -XX：MetaspaceSize 调整标志定义元空间的初始⼤⼩如果未指定此标志，则 Metaspace 将根 据运⾏时的应⽤程序需求动态地重新调整⼤⼩。 当然这只是其中⼀个原因，还有很多底层的原因，这⾥就不提了。</p>
 <h3>堆</h3>
 <p>Java 虚拟机所管理的内存中最⼤的⼀块，Java 堆是所有线程共享的⼀块内存区域，在虚拟机启动时创 建。此内存区域的唯⼀⽬的就是存放对象实例，⼏乎所有的对象实例以及数组都在这⾥分配内存。 Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（<code>Garbage Collected Heap</code>）.从垃圾回收的 ⻆度，由于现在收集器基本都采⽤分代垃圾收集算法，所以Java堆还可以细分为：新⽣代和⽼年代：再 细致⼀点有：Eden空间、From Survivor、To Survivor空间等。进⼀步划分的⽬的是更好地回收内存， 或者更快地分配内存。</p>
 <p><figure><img data-width="1017" data-height="202" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/2d06f7987f0e7b177f6984d55db88438.jpg" alt="" /></figure></p>
 <p>上图所示的 eden区、s0区、s1区都属于新⽣代，tentired 区属于⽼年代。⼤部分情况，对象都会⾸先 在 Eden 区域分配，在⼀次新⽣代垃圾回收后，如果对象还存活，则会进⼊ s0 或者 s1，并且对象的 年龄还会加 1(Eden区i&gt;Survivor 区后对象的初始年龄变为1)，当它的年龄增加到⼀定程度（默认为15 岁），就会被晋升到⽼年代中。对象晋升到⽼年代的年龄阈值，可以通过参数 - XX:MaxTenuringThreshold 来设置。</p>
+<h2>常量池</h2>
+<p><figure><img data-width="1657" data-height="859" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/2f27957e484984f2dd8d01d3f9352232.png" alt="" /></figure></p>
 <h2>线程私有</h2>
 <ul>
 <li><strong>虚拟机栈：</strong>Java方法执行的内存模型，存储局部变量表(包括成员变量，对象地址，即引用类型)，操作数栈，动态链接，方法出口信息。随线程创建和销毁</li>

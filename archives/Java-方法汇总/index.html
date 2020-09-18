@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/05dbb1416a5a1d0cf280451e95db3b11.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/7abf83edbc5f8b1c2df3e5909d4eb0c4.json"
         }
     </script>
     <script>
@@ -466,6 +466,7 @@
 <li>如果字符串常量池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串的引用值。</li>
 <li>如果不包含，将此String对象添加到池中，并返回字符串常量池此String对象的引用</li>
 </ul>
+<p>JDK 1.7后，intern方法还是会先去查询常量池中是否有已经存在，如果存在，则返回常量池中的引用，这一点与之前没有区别，区别在于，<strong>如果在常量池找不到对应的字符串，则不会再将字符串拷贝到常量池，而只是在常量池中生成一个对原字符串的引用简单的说，就是往常量池放的东西变了：原来在常量池中找不到时，复制一个副本放到常量池，1.7后则是将在堆上的地址引用复制到常量池。</strong></p>
 <h2>boolean contains(String s)</h2>
 <p>该方法是判断字符串中是否有子字符串。如果有则返回true，如果没有则返回false。</p>
 <h2>boolean startsWith(String prefix)</h2>
