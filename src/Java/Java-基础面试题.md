@@ -629,12 +629,6 @@ char c = input.next().charAt(0);
 
 
 
-1. 
-
-
-
-
-
 
 
 
@@ -653,7 +647,7 @@ char c = input.next().charAt(0);
 
 
 
-## 创建的两种方式
+## 两种方式创建的底层原理和字符串常量
 
 - 第一种是通过**“字面量”**赋值
 
@@ -668,15 +662,6 @@ char c = input.next().charAt(0);
   ```
 
   
-
-## 底层原理
-
-
-
-- 直接使用双引号声明出来的`String`对象会直接存储在常量池中，当相同的字符串被创建多次，内存中只保存一份字符串常量值，这就是字符串的"驻留"。
-- 
-
-
 
 
 
@@ -713,12 +698,35 @@ System.out.println(s3.equals(s4)); // True
 
 采用new关键字新建一个字符串对象时，JVM首先在字符串池中查找有没有"xyz"这个字符串对象，
 
-- 如果有，则不在池中再去创建"xyz"这个对象了，直接在堆中创建一个"xyz"字符串对象，然后将堆中的这个"xyz"对象的地址返回赋给引用s3，这样，s3就指向了堆中创建的这个"xyz"字符串对象；
-- 如果没有，则首先在字符串池中创建一个"xyz"字符串对象，然后再在堆中创建一个"xyz"字符串对象，然后将堆中这个"xyz"字符串对象的地址返回赋给s3引用，这样，s3指向了堆中创建的这个"xyz"字符串对象。s4则指向了堆中创建的另一个"xyz"字符串对象。s3 、s4是两个指向不同对象的引用，结果当然是false。
+- 如果有：则不在池中再去创建"xyz"这个对象了，直接在堆中创建一个"xyz"字符串对象，然后将堆中的这个"xyz"对象的地址返回赋给引用s3，这样，s3就指向了堆中创建的这个"xyz"字符串对象；
+- 如果没有：则首先在字符串池中创建一个"xyz"字符串对象，然后再在堆中创建一个"xyz"字符串对象，然后将堆中这个"xyz"字符串对象的地址返回赋给s3引用，这样，s3指向了堆中创建的这个"xyz"字符串对象。s4则指向了堆中创建的另一个"xyz"字符串对象。s3 、s4是两个指向不同对象的引用，结果当然是false。
 
 
 
-## Intern的实现原理（JDK1.8）
+
+
+### 案例三：创建了多少对象
+
+```java
+ String s = new String(“xyz”);
+```
+
+产生几个对象？一个或两个，如果常量池中原来没有 ”xyz”, 就是两个。
+
+- 常量池中没有 `”xyz”`：就先去字符串常量池创建，然后再去堆中创建实例，所以会创建两个对象
+- 常量池中有 `”xyz”`：就直接去堆中创建实例，所以会创建一个对象
+
+
+
+
+
+
+
+## intern的实现原理（JDK1.8）
+
+参考
+
+> - https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html
 
 
 
@@ -728,15 +736,129 @@ public native String intern();
 
 
 
+### JDK6的intern()
+
+![](images/Java基础面试题/jdk6_intern().png)
+
+
+
+### JDK7的intern()
+
+
+
+![](images/Java基础面试题/jdk7_intern().png)
+
+
+
+
+
+
+
 这个方法是一个 `native` 的方法，但注释写的非常明了。当调用 intern方法时：
 
-- 如果池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串。
-- 如果不包含，将此String对象添加到池中，并返回此String对象的引用
+- 如果字符串常量池已经包含一个等于此String对象的字符串（值比较用equals(oject)方法确定），则返回池中的字符串对象的地址。
+- 如果不包含，将此String对象添加到字符串常量池中为新的String对象，并返回字符串常量池中此新的String对象的引用
+
+
+
+JDK 1.7后，intern方法还是会先去查询常量池中是否有已经存在，如果存在，则返回常量池中的引用，这一点与之前没有区别，区别在于，**如果在常量池找不到对应的字符串，则不会再将字符串拷贝到常量池，而只是在常量池中生成一个对原字符串的引用简单的说，就是往常量池放的东西变了：原来在常量池中找不到时，复制一个副本放到常量池，1.7后则是将在堆上的地址引用复制到常量池。**
+
+
+
+### 举例
+
+```java
+String str2 = new String("str") + new String("01");//创建了"str"和"01"常量，但是没有创建"str01"常量
+str2.intern();
+String str1 = "str01";
+System.out.println(str2==str1);//true
+```
+
+> 1. 第一行：字符串常量池中生成"str"和"01"，在堆中创建两个String对象，相加后返回在堆为"str01"的新的String对象的引用，**此时常量池没有"str01"对象，只有"str"和"01"**
+> 2. 第二行：调用intern()后，由于字符串常量池中不存在"str01"，所以复制str2地址引用到字符串常量池(1.7后的改动)
+> 3. 第三行：由于字符串常量池中已存在"str01"，所以str1指向已存在的，即st2所指向的对象
+> 4. 第四行：两个指向同一个对象所以结果为true
+
+
+
+```java
+String str2 = new String("str")+new String("01");
+String str1 = "str01";
+str2.intern();
+System.out.println(str2==str1);//false
+```
+
+> 1. 第一行：字符串常量池中生成"str"和"01"，在堆中创建两个String对象，相加后返回值为"str01"的新的String对象
+> 2. 第二行：由于字符串常量池不存在"str01"，所以此时在字符串常量池中创建新的对象
+> 3. 第三行：由于已经存在"str01"，所以不会把str2地址引用到字符串常量池，而是返回已经存在的"str01"对象的地址
+> 4. 第四行：由于str1指向字符串常量池对象，str2指向堆中的对象，所以返回false
 
 
 
 
 
+## 字符串相加原理
+
+参考
+
+> - https://blog.csdn.net/u010775025/article/details/86507090
 
 
+
+### 三种情况
+
+
+
+- 两个或者两个以上的字符串常量相加，在预编译的时候“+”会被优化，相当于把字符串常量自动合成一个字符串常量
+- 字符串对象的+操作其本质是new了StringBuilder对象进行append操作，拼接后调用toString()返回String对象
+- `final`修饰的String在相加的时候等同于`字符串常量`直接相加，在编译后会直接替换成对应的值
+
+```java
+String s1 = "Programming";
+String s2 = new String("Programming");
+String s3 = "Program";
+String s4 = "ming";
+String s5 = "Program" + "ming";
+String s6 = s3 + s4;
+String s7 = s3 + "ming";
+System.out.println(s1 == s2);
+System.out.println(s1 == s5);
+System.out.println(s1 == s6);
+System.out.println(s1 == s7);
+```
+
+
+
+- **常量相加：**全都是常量相加时，会在字符串常量池创建新对象，不会在堆中创建新的对象
+
+  ![](images/Java基础面试题/String相加字节码.png)
+
+  第20~22行，我们通过对比知道，String s5 = "Program" + "ming";在被编译器优化成了String s5 = "Programming"; 
+
+  也可以得出字符串常量相加，不会用到`StringBuilder`对象，有一点要注意的是：字符串常量和字符串是不同的概念，字符串常量储存于方法区，而字符串储存于堆(heap)。
+
+  
+
+- 包含String对象的相加：操作其本质是new了StringBuilder对象进行append操作，拼接后调用toString()返回新的String对象
+
+  ![](images/Java基础面试题/String相加字节码2.png)
+
+  > 1. 第24行：使用new 了 StringBuider对象
+  > 2. 第25行：进行StringBuider对象初始化
+  > 3. 第26行：使用append() 方法拼接s3的内容
+  > 4. 第27行：再使用append() 方法拼接s4的内容
+  > 5. 第28行：最后调用toString() 返回String对象
+
+
+
+
+
+### 特殊情况
+
+```java
+String s2 = new StringBuilder("ja").append("va").toString();
+System.out.println(s2.intern() == s2);//false
+```
+
+常理认为，在执行`s2.intern()`时，由于字符串常量池中不存在，所以会复制引用s2到字符串常量池中去，最后对比指向同一个对象地址为`true`，但事实上`"java"`这个字符串在执行此语句之前，字符串常量池中已经存在此字符串
 
