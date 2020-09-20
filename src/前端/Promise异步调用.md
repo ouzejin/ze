@@ -6,7 +6,7 @@ date: 2020/07/11 22:10:38
 status: publish
 author: LifeAlsoIsGG
 categories: 
-  - JavaScript
+  - 前端
 tags: 
   - JavaScript
 ---
