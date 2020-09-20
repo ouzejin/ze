@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/JavaScript面试题/</loc>
+    <lastmod>2020-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/面试题整理/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>always</changefreq>
@@ -182,13 +189,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
     <loc>/archives/Promise异步调用/</loc>
     <lastmod>2020-07-11</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
-    <loc>/archives/uni-app/</loc>
-    <lastmod>2020-07-07</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
