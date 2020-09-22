@@ -590,6 +590,129 @@ https://www.cnblogs.com/dolphin0520/p/3780005.html
 
 
 
+## 异常处理的三种方式
+
+参考
+
+> - https://blog.csdn.net/qq_22067469/article/details/82930798
+
+
+
+
+
+### 1. 系统自动抛出异常
+
+当程序语句出现一些逻辑错误、主义错误或者类型转换错误时，系统会自动抛出异常
+
+```java
+public static void main(String[] args) {
+	int a = 5;
+	int b = 0;
+	System.out.println( a / b);
+}
+
+```
+
+运行结果
+
+```java
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at io.renren.modules.sys.controller.SysUserController.main(SysUserController.java:154)
+```
+
+
+
+
+
+### 3. try{ } catch{}抛出异常
+
+在try中放入待执行代码，如果程序正常运行就会执行try中的代码，如果出现异常，就会执行catch中的代码，当然，try后面可以跟多个catch，当通过try catch这种方法抛出异常的时候要注意抛出异常的顺序，异常范围小的放在前面，异常范围大的放在后面，在这里举个例子：
+
+```java
+try{
+                  //待执行的代码
+        } catch (FileNotFoundException e) {
+            System.out.println("找不到文件");
+        } catch (IOException e) {
+            System.out.println("IO操作失败");
+        }
+```
+
+
+
+
+
+### 4. throw
+
+throw是语句抛出一个异常，一般是在代码的内部，当程序出现某种逻辑错误时同程序主动抛出某种特定类型的异常
+
+```java
+public static void main(String[] args) {
+	String str = "NBA";
+	if (str.equals("NBA")) {
+		throw new NumberFormatException();
+	} else {
+		System.out.println(str);
+	}
+}
+
+```
+
+
+
+
+
+
+
+### 5. throws
+
+throws是方法可能会抛出一个异常(用在`声明方法`时，表示该方法可能要抛出异常),当某个方法可能会抛出某种异常时用于throws 声明可能抛出的异常，然后交给上层调用它的方法程序处理
+
+```java
+public static void testThrows() throws NumberFormatException {
+	String str = "NBA";
+	System.out.println(Integer.parseInt(str));
+}
+
+public static void main(String[] args) {
+	try {
+		testThrows();
+	} catch (NumberFormatException e) {
+		e.printStackTrace();
+		System.out.println("非数直类型不能强制类型转换");
+	}
+}
+
+
+```
+
+
+
+### throw与throws的比较
+
+
+
+- throws出现在方法函数头，而throw出现在函数体。
+- throws表示出现异常的一种可能性，并不一定会发生这些异常，throw则是抛出了异常，执行throw则一定抛出了某种异常对象。
+- 两者都是消极处理异常的方式（这里的消极并不是说这种方式不好），只是抛出或者可能抛出异常，但不会由函数去处理异常，真正的处理异常由函数的上层调用处理。
+
+
+
+### 编程习惯
+
+
+
+- 在写程序时，对可能会出现异常的部分通常要用try{…}catch{…}去捕捉它并对它进行处理；
+- 用try{…}catch{…}捕捉了异常之后一定要对在catch{…}中对其进行处理，那怕是最简单的一句输出语句，或栈输入e.printStackTrace();
+- 如果是捕捉IO输入输出流中的异常，一定要在try{…}catch{…}后加finally{…}把输入输出流关闭；
+- 如果在函数体内用throw抛出了某种异常，最好要在函数名中加throws抛异常声明，然后交给调用它的上层函数进行处理。
+
+
+
+
+
+
+
 # 获取⽤键盘输⼊常⽤的两种⽅法
 
 ![](images/Java基础面试题/获取⽤键盘输⼊常⽤的两种⽅法.png)
