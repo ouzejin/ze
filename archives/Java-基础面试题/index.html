@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/61ef536a1fbdba88fa32debdc80b5bcd.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/a49ca65f815f916f7c10c895dcd4c21d.json"
         }
     </script>
     <script>
@@ -499,6 +499,74 @@
 <p><figure><img data-width="830" data-height="447" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ca217f5fec24f2060b557cb55df73b94.png" alt="" /></figure></p>
 <p><figure><img data-width="817" data-height="646" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d81fe61de7d7ab0ebb567364d55ccb95.png" alt="" /></figure></p>
 <p><figure><img data-width="829" data-height="411" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/633321d8b22037b633208d6babd81ef5.png" alt="" /></figure></p>
+<h2>异常处理的三种方式</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/qq_22067469/article/details/82930798">https://blog.csdn.net/qq_22067469/article/details/82930798</a></li>
+</ul>
+</blockquote>
+<h3>1. 系统自动抛出异常</h3>
+<p>当程序语句出现一些逻辑错误、主义错误或者类型转换错误时，系统会自动抛出异常</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>运行结果</p>
+<div class="highlight"><pre><span></span><span class="n">Exception</span> <span class="n">in</span> <span class="n">thread</span> <span class="s">&quot;main&quot;</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ArithmeticException</span><span class="p">:</span> <span class="o">/</span> <span class="n">by</span> <span class="n">zero</span>
+    <span class="n">at</span> <span class="n">io</span><span class="p">.</span><span class="na">renren</span><span class="p">.</span><span class="na">modules</span><span class="p">.</span><span class="na">sys</span><span class="p">.</span><span class="na">controller</span><span class="p">.</span><span class="na">SysUserController</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="n">SysUserController</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="mi">154</span><span class="p">)</span>
+</pre></div>
+<h3>3. try{ } catch{}抛出异常</h3>
+<p>在try中放入待执行代码，如果程序正常运行就会执行try中的代码，如果出现异常，就会执行catch中的代码，当然，try后面可以跟多个catch，当通过try catch这种方法抛出异常的时候要注意抛出异常的顺序，异常范围小的放在前面，异常范围大的放在后面，在这里举个例子：</p>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">{</span>
+                  <span class="c1">//待执行的代码</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;找不到文件&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;IO操作失败&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+</pre></div>
+<h3>4. throw</h3>
+<p>throw是语句抛出一个异常，一般是在代码的内部，当程序出现某种逻辑错误时同程序主动抛出某种特定类型的异常</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;NBA&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;NBA&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">NumberFormatException</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3>5. throws</h3>
+<p>throws是方法可能会抛出一个异常(用在<code>声明方法</code>时，表示该方法可能要抛出异常),当某个方法可能会抛出某种异常时用于throws 声明可能抛出的异常，然后交给上层调用它的方法程序处理</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">testThrows</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">NumberFormatException</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;NBA&quot;</span><span class="p">;</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">testThrows</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;非数直类型不能强制类型转换&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3>throw与throws的比较</h3>
+<ul>
+<li>throws出现在方法函数头，而throw出现在函数体。</li>
+<li>throws表示出现异常的一种可能性，并不一定会发生这些异常，throw则是抛出了异常，执行throw则一定抛出了某种异常对象。</li>
+<li>两者都是消极处理异常的方式（这里的消极并不是说这种方式不好），只是抛出或者可能抛出异常，但不会由函数去处理异常，真正的处理异常由函数的上层调用处理。</li>
+</ul>
+<h3>编程习惯</h3>
+<ul>
+<li>在写程序时，对可能会出现异常的部分通常要用try{…}catch{…}去捕捉它并对它进行处理；</li>
+<li>用try{…}catch{…}捕捉了异常之后一定要对在catch{…}中对其进行处理，那怕是最简单的一句输出语句，或栈输入e.printStackTrace();</li>
+<li>如果是捕捉IO输入输出流中的异常，一定要在try{…}catch{…}后加finally{…}把输入输出流关闭；</li>
+<li>如果在函数体内用throw抛出了某种异常，最好要在函数名中加throws抛异常声明，然后交给调用它的上层函数进行处理。</li>
+</ul>
 <h1>获取⽤键盘输⼊常⽤的两种⽅法</h1>
 <p><figure><img data-width="811" data-height="339" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e2a1a62aa5dccc7e26e905dce17c3bcc.png" alt="" /></figure></p>
 <h2>输入一个字符</h2>
