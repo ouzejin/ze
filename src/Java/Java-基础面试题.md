@@ -317,12 +317,12 @@ public class ExtendDemo {
 
 
 
-**向上转型**
+**向上向下转型**
 
 ```java
 public class MultiDemo {
        public static void main(String[] args) {
-           // 多态的引用，就是向上转型，此时无法使用之类中父类没有的方法
+           // 多态的引用，就是向上转型，此时无法使用子类中父类没有的方法
            Animals dog = new Dog();
            dog.eat();//狗在吃骨头！
            
@@ -358,6 +358,75 @@ public class MultiDemo {
 
 
 ![](images/Java基础面试题/向上转型.png)
+
+
+
+**经典案例**
+
+```java
+class A {
+    public String show(D obj) {
+        return ("A and D");
+    }
+
+    public String show(A obj) {
+        return ("A and A");
+    }
+
+}
+
+class B extends A{
+    public String show(B obj){
+        return ("B and B");
+    }
+
+    public String show(A obj){
+        return ("B and A");
+    }
+}
+
+class C extends B{
+
+}
+
+class D extends B{
+
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        A a1 = new A();
+        A a2 = new B();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+
+        System.out.println("1--" + a1.show(b));
+        System.out.println("2--" + a1.show(c));
+        System.out.println("3--" + a1.show(d));
+        System.out.println("4--" + a2.show(b));
+        System.out.println("5--" + a2.show(c));
+        System.out.println("6--" + a2.show(d));
+        System.out.println("7--" + b.show(b));
+        System.out.println("8--" + b.show(c));
+        System.out.println("9--" + b.show(d));
+    }
+}
+//结果：
+//1--A and A
+//2--A and A
+//3--A and D
+//4--B and A
+//5--B and A
+//6--A and D
+//7--B and B
+//8--B and B
+//9--A and D
+```
+
+当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。如果子类中没有覆盖该方法，那么会去父类中寻找。
+
+
 
 
 

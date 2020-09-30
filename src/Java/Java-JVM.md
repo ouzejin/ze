@@ -486,11 +486,41 @@ JVM每次只会使用eden和其中一块survivor来为对象服务，所以无�
 
 
 
-总之，设置Survivor空间的目的是让那些中等寿命的对象尽量在 Minor GC 时被干掉，最终在总体上减少虚拟机的垃圾收集过程对用户程序的影响。
+总之，设置Survivor空间的目的是让那些中等寿命的对象尽量在 Minor GC 时被干掉，最终在总体上减少虚拟机的垃圾收集过程对用户程序的影响。Survivor的存在意义，**就是减少被送到老年代的对象，进而减少Full GC的发生，Survivor的预筛选保证，只有经历16次Minor GC还能在新生代中存活的对象，才会被送到老年代。**
+
+
+
+
+
+
+
+#### 为什么 Survivor 分区不能是 1 个？
+
+答：回答这个问题有一个前提，就是新生代一般都采用复制算法进行垃圾收集。原始的复制算法是把一块内存一分为二，gc时把存活的对象从一块空间（From space）复制到另外一块空间（To space），再把原先的那块内存（From space）清理干净，最后调换 From space 和 To space 的逻辑角色（这样下一次 gc 的时候还可以按这样的方式进行）。
+
+我们知道，在HotSpot虚拟机里， Eden 空间和 Survivor 空间默认的比例是 8:1 。我们来看看在只有一个 Survivor 空间的情况下，这个 8:1 会有什么问题。此处为了方便说明，我们假设新生代一共为 9 MB 。对象优先在 Eden 区分配，当 Eden 空间满 8 MB 时，触发第一次 Minor GC 。比如说有 0.5 MB 的对象存活，那这 0.5 MB 的对象将由 Eden 区向 Survivor 区复制。这次 Minor GC 过后， Eden 区被清理干净， Survivor 区被占用了 0.5 MB ，还剩 0.5 MB 。到这里一切都很美好，但问题马上就来了：从现在开始所有对象将会在这剩下的 0.5 MB 的空间上被分配，很快就会发现空间不足，于是只好触发下一次 Minor GC 。可以看出在这种情况下，当 Survivor 空间作为对象“出生地”的时候，很容易触发 Minor GC ，这种 8:1 的不对称分配不但没能在总体上降低 Minor GC 的频率，还会把 gc 的时间间隔搞得很不平均。把 Eden : Survivor 设成 1 : 1 也一样，每当对象总大小满 5 MB 的时候都必须触发一次 Minor GC ，唯一的变化是 gc 的时间间隔相对平均了。
+
+上面的论述都是以“新生代使用复制算法”这个既定事实作为前提来讨论的。如果不是这样，比如说新生代采用“标记-清除”或者“标记-整理”算法来实现幸存对象的移动，好像确实是只需要一个 Survivor 就够了。至于主流的虚拟机实现为什么不考虑采用这种方式，我也不是很清楚，或许有实现难度、内存碎片或者执行效率方面的考虑吧。
+
+
 
 
 
 #### 为什么有两个Survivor区
+
+问题很清楚了，无论Eden和 Survivor 的比例怎么设置，在只有一个 Survivor 的情况下，总体上看在新生代空间满一半的时候就会触发一次 Minor GC 。那有没有提升的空间呢？比如说永远在新生代空间满 80% 的时候才触发 Minor GC ？
+
+事实上是可以做到的：我们可以设两个Survivor空间（ From Survivor 和 To Survivor ）。比如，我们把 Eden : From Survivor : To Survivor 空间大小设成 8 : 1 : 1 ，对象总是在 Eden 区出生， From Survivor 保存当前的幸存对象， To Survivor 为空。一次 gc 发生后：
+
+1）Eden 区活着的对象 ＋ From Survivor 存储的对象被复制到 To Survivor ；
+
+2)清空 Eden 和 From Survivor ；
+
+3)颠倒 From Survivor 和 To Survivor 的逻辑关系： From 变 To ， To 变 From 。
+
+可以看出，只有在Eden空间快满的时候才会触发 Minor GC 。而 Eden 空间占新生代的绝大部分，所以 Minor GC 的频率得以降低。当然，使用两个 Survivor 这种方式我们也付出了一定的代价，如 10% 的空间浪费、复制对象的开销等。
+
+
 
 
 
@@ -500,3 +530,39 @@ JVM每次只会使用eden和其中一块survivor来为对象服务，所以无�
 
 ## Minor GC || Full GC(Major GC)
 
+参考
+
+> - https://cloud.tencent.com/developer/article/1336605
+
+
+
+### Minor GC
+
+当分配内存在`Eden`区，Eden区满时会触发
+
+
+
+当触发`Minor GC`时，流程如下
+
+- 此时会调用`复制算法`，将`Eden`区和`From Survivor`区的`存活的对象`复制到`To Survivor`中，清空`Eden`区和`From Survivor`区，并将Survivor两个区进行逻辑互换。如果移动到`To Survivor`中的对象大于To区，则会直接移动到老年代
+
+- 如果存活的对象是从`Eden`区到`To Survivor`，那么将`Age`设为1，如果是`From Survivor`中移动过去，则`Age++`，此时`Age`：
+
+  > - 当此对象没有引用时，判定为死亡对象
+  > - 当Age超过阈值(15)时会移动到`老年代`
+
+
+
+### Full GC
+
+
+
+当触发GC时，会有STW（Stop The World）,即会暂停程序，无法响应
+
+触发条件：
+
+- 调用`System.gc()`时，系统建议执行Full GC，但是不必然执行
+- 老年代空间不足
+- 方法区空间不足
+- 通过Minor GC后进入老年代的平均大小大于老年代的可用内存
+- 由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小

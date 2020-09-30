@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java-容器
-slug: Java-容器
+title: Java-集合容器
+slug: Java-集合容器
 date: 2020/08/23 20:37:41
 status: publish
 author: LifeAlsoIsGG
@@ -9,7 +9,7 @@ categories:
   - Java
 tags: 
   - Java
-  - Java-容器
+  - Java-集合容器
 ---
 
 
@@ -19,6 +19,19 @@ tags:
 
 
 # 容器总览
+
+注
+
+> - 虚线空心三角：继承，例如`AbstractList`继承`List`
+> - 实线空心三角：实现，例如`ArrayList`实现`AbstractList`
+
+
+
+> - 小虚线：接口
+> - 长虚线：抽象类
+> - 实现：实现类
+
+
 
 ![](images/Java容器/Java集合图.jpg)
 
@@ -791,6 +804,37 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 ## 区别
+
+
+
+### ArrayList与List的区别
+
+参考
+
+> - https://www.cnblogs.com/zcscnn/p/7743507.html
+
+
+
+List是一个接口，而ListArray是一个类。ArrayList继承并实现了List。
+
+因此，List接口不能被构造，也就是我们说的不能创建实例对象，但是我们可以像下面那样为List接口创建一个指向自己的对象引用，而ArrayList实现类的实例对象就在这充当了这个指向List接口的对象引用。 
+
+
+
+```java
+List list = new List();//是错误的用法
+List list = new ArrayList();//正确
+```
+
+
+
+这句创建了一个ArrayList实现类的对象后把它上溯到了List接口。此时它就是一个List对象了，它有些ArrayList类具有的，但是List接口没有的属性和方法，它就不能再用了。 而ArrayList list=newArrayList();
+
+创建一对象则保留了ArrayList的所有属性和方法。 
+
+
+
+
 
 
 
