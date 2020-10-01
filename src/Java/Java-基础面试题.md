@@ -236,7 +236,7 @@ class MyClass extends Test {
 
 ## 继承
 
-​		继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。当然，如果在父类中拥有私有属性(private修饰)，则子类是不能被继承的。
+​		继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。当然，如果在父类中拥有私有属性(`private`修饰)，**则子类是不能被继承的。**
 
 只支持单继承，即一个子类只允许有一个父类，但是可以实现多级继承，及子类拥有唯一的父类，而父类还可以再继承。
 
@@ -246,9 +246,9 @@ class MyClass extends Test {
 
 
 
-**使用**
+### 使用
 
-在父子类关系继承中，如果成员变量重名，则创建子类对象时，访问有两种方式。
+在父子类关系继承中，**如果成员变量重名**，则创建子类对象时，访问有两种方式。
 
 - 直接通过子类对象访问成员变量
 
@@ -274,7 +274,7 @@ public class Zi extends FU{
     int numZi = 20;
     int num = 200;
     public void method(){
-        System.out.println("子类成员变量："+numFU);
+        System.out.println("父类成员变量："+numFU);
     }
     public void methodZi(){
         System.out.println("子类方法！");
@@ -307,6 +307,12 @@ public class ExtendDemo {
 
 ## 多态
 
+参考
+
+> - https://blog.csdn.net/qq_31655965/article/details/54746235
+
+
+
 指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。动态绑定（dynamic binding），是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。
 
 **实现方式**
@@ -317,47 +323,204 @@ public class ExtendDemo {
 
 
 
-**向上向下转型**
+### 举例
+
+多态，简而言之就是同一个行为具有多个不同表现形式或形态的能力。比如说，有一杯水，我不知道它是温的、冰的还是烫的，但是我一摸我就知道了。我摸水杯这个动作，对于不同温度的水，就会得到不同的结果。这就是多态。
 
 ```java
-public class MultiDemo {
-       public static void main(String[] args) {
-           // 多态的引用，就是向上转型，此时无法使用子类中父类没有的方法
-           Animals dog = new Dog();
-           dog.eat();//狗在吃骨头！
-           
-           Animals cat = new Cat();
-           cat.eat();//猫在吃鱼！
-           
-           // 如果要调用父类中没有的方法，则要向下转型
-           Dog dogDown = (Dog)dog;
-           dogDown.watchDoor();
-   
-       }
-   }
-   class Animals {
-       public void eat(){
-           System.out.println("动物吃饭！");
-       }
-   }
-   class Dog extends Animals{
-       public void eat(){
-           System.out.println("狗在吃骨头！");
-       }
-       public void watchDoor(){
-           System.out.println("狗看门！");
-       }
-   }
-   class Cat extends Animals{
-       public void eat(){
-           System.out.println("猫在吃鱼！");
-       }
-   }
+public class Water {
+    public void showTem(){
+        System.out.println("我的温度是: 0度");
+    }
+}
+
+public class IceWater extends Water {
+    public void showTem(){
+        System.out.println("我的温度是: 0度");
+    }
+}
+
+public class WarmWater extends Water {
+    public void showTem(){
+        System.out.println("我的温度是: 40度");
+    }
+}
+
+public class HotWater extends Water {
+    public void showTem(){
+        System.out.println("我的温度是: 100度");
+    }
+}
+
+public class TestWater{
+    public static void main(String[] args) {
+        Water w = new WarmWater();
+        w.showTem();
+
+        w = new IceWater();
+        w.showTem();
+
+        w = new HotWater();
+        w.showTem();
+
+    }
+}
+
+//结果:
+//我的温度是: 40度
+//我的温度是: 0度
+//我的温度是: 100度
 ```
+
+这里的方法`showTem()`就相当于你去摸水杯。我们定义的water类型的引用变量w就相当于水杯，你在水杯里放了什么温度的水，那么我摸出来的感觉就是什么。就像代码中的那样，放置不同温度的水，得到的温度也就不同，但水杯是同一个。
+
+
+
+### 分类
+
+
+
+- **重写式多态**：也叫编译时多态。也就是说这种多态再编译时已经确定好了。重载大家都知道，方法名相同而参数列表不同的一组方法就是重载。在调用这种重载的方法时，通过传入不同的参数最后得到不同的结果。
+
+  
+
+- **重载式多态**：也叫运行时多态。这种多态通过动态绑定（dynamic binding）技术来实现，是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。也就是说，只有程序运行起来，你才知道调用的是哪个子类的方法。
+  这种多态通过`函数的重写`以及`向上转型`来实现，我们上面代码中的例子就是一个完整的重写式多态。我们接下来讲的所有多态都是重写式多态，因为它才是面向对象编程中真正的多态。
+
+
+
+### 条件
+
+
+
+- **继承**：在多态中必须存在有继承关系的子类和父类。
+- **重写**：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。
+- **向上转型**：在多态中需要将子类的引用赋给父类对象，只有这样该引用才能够具备技能调用父类的方法和子类的方法。
+
+
+
+### 向上转型
+
+参考
+
+> - https://blog.csdn.net/qq_31655965/article/details/54746235
 
 
 
 ![](images/Java基础面试题/向上转型.png)
+
+
+
+
+
+```java
+public class Animal {
+    public void eat(){
+        System.out.println("animal eatting...");
+    }
+}
+
+public class Cat extends Animal{
+
+    public void eat(){
+
+        System.out.println("我吃鱼");
+    }
+}
+
+public class Dog extends Animal{
+
+    public void eat(){
+
+        System.out.println("我吃骨头");
+    }
+
+    public void run(){
+        System.out.println("我会跑");
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Animal animal = new Cat(); //向上转型
+        animal.eat();
+
+        animal = new Dog();
+        animal.eat();
+    }
+
+}
+
+//结果:
+//我吃鱼
+//我吃骨头
+
+```
+
+
+
+**注意事项**
+
+- 向上转型时，子类单独定义的方法会丢失。比如上面`Dog`类中定义的`run`方法，当`animal`引用指向`Dog`类实例时是访问不到`run`方法的，`animal.run()`会报错。
+- 子类引用不能指向父类对象。`Cat c = (Cat)new Animal()`这样是不行的。
+
+
+
+**好处**
+
+- 减少重复代码，使代码变得简洁。
+- 提高系统扩展性。
+
+坏处
+
+- 无法使用子类特定的方法
+
+使用场景
+
+- 不需要面对子类型，通过提高扩展性，或者使用父类的功能即可完成操作，就是使用向上转型。
+
+
+
+比如我现在有很多种类的动物，要喂它们吃东西。如果不用向上转型，那我需要像下面这样写
+
+```java
+public void eat(Cat c){
+    c.eat();
+}
+
+public void eat(Dog d){
+    d.eat();
+}
+//......
+
+eat(new Cat());
+eat(new Cat());
+eat(new Dog());
+//......
+```
+
+> 此时每增加一种动物就要多写一个方法来接收不同的参数
+
+
+
+如果使用向上转型
+
+```java
+public void eat(Animal a){
+    a.eat();
+}
+
+eat(new Cat());
+eat(new Cat());
+eat(new Dog());
+//.....
+```
+
+> 因为其他动物类是Animal的子类，可以接收，就像`double`类型可以接收`int`，但`int`类型接收`double`就会精度缺失。而且这个时候，如果我又有一种新的动物加进来，我只需要实现它自己的类，让他继承Animal就可以了，而不需要为它单独写一个eat方法
+
+
 
 
 
@@ -376,6 +539,7 @@ class A {
 }
 
 class B extends A{
+  //父类没有此方法，虽然方法名字一样，但是由于参数不同不是重写
     public String show(B obj){
         return ("B and B");
     }
@@ -424,9 +588,86 @@ public class Demo {
 //9--A and D
 ```
 
-当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。如果子类中没有覆盖该方法，那么会去父类中寻找。
+当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。**如果子类中没有覆盖该方法，那么会去父类中寻找**。
+
+> 继承链中对象方法的调用的优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)。
+>
+> 事实上，子类继承了父类的方法，所以所谓super.show(O)时调用的是在子类中继承下来的方法
 
 
+
+解析第四个
+
+> a2为指向B对象的A类的引用类型，当调用`show(B obj)`时，会首先去父类找是否有此方法，如果没有那么即使子类有此方法但不会去调用(超出范围)，因为引用类型决定了能调用的方法(即使不是调用自己类的方法)，所以B类中的`show(B obj)`没有被调用(如果有就会调用子类的`show(B obj)`)。这时候按照顺序会调用`this.show((super)O)`,参数为能向上转型的类型，可以发现A类中有`show(A obj)`，那么就去子类中看是否有此方法，发现有那么调用子类的`show(A obj)`（如果没有就直接调用父类A类的此方法）。所以最后`a2.show(b)`调用的是子类B类方法`show(A obj)`，结果返回`"B and A"`
+
+
+
+解析第九个
+
+> 虽然b的引用类型和指向对象都是B，但是在调用`b.show(d)`是我们以为会调用B类中的`show(B obj)`方法，但由于B继承下来A类中`show(D obj)`方法，相当于B类中有此方法，所以会调用B类中`show(D obj)`。所以结果为`"A and D"`
+
+
+
+### 向下转型
+
+![](images/Java基础面试题/向上转型.png)
+
+
+
+好处
+
+- 不仅能继承父类的方法，还可以使用子类型的特有功能
+
+坏处
+
+- 面对具体的子类型，向下转型具有风险。即容易发生`ClassCastException`，只要转换类型和对象不匹配就会发生。解决方法：使用关键字`instanceof`。
+
+
+
+
+
+```java
+//还是上面的animal和cat dog
+Animal a = new Cat();
+Cat c = ((Cat) a);
+c.eat();
+//输出  我吃鱼
+Dog d = ((Dog) a);
+d.eat();
+// 报错 ： java.lang.ClassCastException：com.chengfan.animal.Cat cannot be cast to com.chengfan.animal.Dog
+Animal a1 = new Animal();
+Cat c1 = ((Cat) a1);
+c1.eat();
+// 报错 ： java.lang.ClassCastException：com.chengfan.animal.Animal cannot be cast to com.chengfan.animal.Cat
+```
+
+> - 向下转型的前提是父类对象指向的是子类对象（也就是说，在向下转型之前，它得先向上转型）
+> - 向下转型只能转型为本类对象（猫是不能变成狗的）。
+
+
+
+为什么要向下转型
+
+```java
+public void eat(Animal a){
+    if(a instanceof Dog){  
+        Dog d = (Dog)a;
+        d.eat();
+        d.run();//狗有一个跑的方法      
+    } 
+    if(a instanceof Cat){  
+        Cat c = (Cat)a;
+        c.eat();
+        System.out.println("我也想跑，但是不会"); //猫会抱怨    
+    } 
+    a.eat();//其他动物只会吃
+}
+
+eat(new Cat());
+eat(new Cat());
+eat(new Dog());
+//.....
+```
 
 
 

@@ -592,6 +592,23 @@ JDK 1.7后，intern方法还是会先去查询常量池中是否有已经存在�
 
 
 
+
+
+## String String.join(String str, String[] strArr)
+
+在指定 String 数组B的每个元素之间串联指定的分隔符 A，从而产生单个串联的字符串
+
+```java
+String[] tmpStr={abc,def,ghi};
+String jn = String.Join("-", tmpStr);
+System.out.println("jn ："jn);
+//jn："abc-def-ghi"
+```
+
+
+
+
+
 ## boolean contains(String s)
 
 该方法是判断字符串中是否有子字符串。如果有则返回true，如果没有则返回false。
@@ -698,7 +715,7 @@ System.out.println(string);          //abc
 
 
 
-### String String.valueOf(char[] charArray);
+### String String.valueOf(Object obj)
 
 将其它类型转换为字符串
 

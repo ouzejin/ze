@@ -146,6 +146,144 @@ Java中，整数使用以上运算符，无论怎么计算，也不会得到小�
 
 
 
+### instanceof：比较一个对象是否为一个类的实例/或某个接口的实现类
+
+参考
+
+> - https://www.cnblogs.com/ysocean/p/8486500.html
+
+
+
+基础用法
+
+```java
+boolean result = obj instanceof Class
+```
+
+其中 `obj` 为一个对象，`Class` 表示一个类或者一个接口，当 `obj` 为 `Class` 的对象，或者是其直接或间接子类，或者是其接口的实现类，结果result 都返回 true，否则返回false。
+
+
+
+原理：
+
+> **编译器会检查 `obj` 是否能转换成右边的`class`类型，如果不能转换则直接报错，如果不能确定类型，则通过编译，具体看运行时定。**
+
+
+
+#### 其他情况
+
+- obj 必须为引用类型，不能是基本类型
+
+  ```java
+  int i = 0;
+  System.out.println(i instanceof Integer);//编译不通过
+  System.out.println(i instanceof Object);//编译不通过
+  ```
+
+  
+
+- obj 为 null
+
+  ```java
+  System.out.println(null instanceof Object);//false
+  ```
+
+  
+
+- obj 为 class 接口的实现类
+
+  ```java
+  
+  ```
+
+  
+
+- 我们可以用 `instanceof` 运算符判断 某个对象是否是 `List` 接口的实现类，如果是返回 true，否则返回 false
+
+  ```java
+  ArrayList arrayList = new ArrayList();
+  System.out.println(arrayList instanceof List);//true
+  
+  List list = new ArrayList();
+  System.out.println(list instanceof ArrayList);//true
+  ```
+
+  
+
+- obj 为 class 类的直接或间接子类
+
+  ```java
+  public class Person {
+   
+  }
+  
+  public class Man extends Person{
+       
+  }
+  
+  Person p1 = new Person();
+  Person p2 = new Man();
+  Man m1 = new Man();
+  System.out.println(p1 instanceof Man);//false
+  System.out.println(p2 instanceof Man);//true
+  System.out.println(m1 instanceof Man);//true
+  ```
+
+
+
+#### 原理
+
+参考
+
+> - https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.20.2
+
+
+
+伪代码描述
+
+```java
+boolean result;
+if (obj == null) {
+  result = false;
+} else {
+  try {
+      T temp = (T) obj; // checkcast
+      result = true;
+  } catch (ClassCastException e) {
+      result = false;
+  }
+}
+```
+
+所以
+
+```java
+Person p1 = new Person();
+ 
+System.out.println(p1 instanceof String);//编译报错
+System.out.println(p1 instanceof List);//false
+System.out.println(p1 instanceof List<?>);//false
+System.out.println(p1 instanceof List<Person>);//编译报错
+```
+
+也就是说有表达式 obj instanceof T，instanceof 运算符的 obj 操作数的类型必须是引用类型或空类型; 否则，会发生编译时错误。 
+
+　　如果 obj 强制转换为 T 时发生编译错误，则关系表达式的 instanceof 同样会产生编译时错误。 在这种情况下，表达式实例的结果永远为false。
+
+　　在运行时，如果 T 的值不为null，并且 obj 可以转换为 T 而不引发ClassCastException，则instanceof运算符的结果为true。 否则结果是错误的
+
+　　简单来说就是：**如果 obj 不为 null 并且 (T) obj 不抛 ClassCastException 异常则该表达式值为 true ，否则值为 false 。**
+
+
+
+总结
+
+> - https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.instanceof
+
+
+
+
+
 ## 2.4 逻辑运算符
 
 ![](images/Java基础知识笔记/逻辑运算符.jpg)
