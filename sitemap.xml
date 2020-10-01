@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/使用EasyExcel导入导出Excel/</loc>
+    <lastmod>2020-10-01</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/JavaScript面试题/</loc>
     <lastmod>2020-09-20</lastmod>
     <changefreq>always</changefreq>
@@ -238,13 +245,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
     <loc>/archives/Docker-deployment/</loc>
     <lastmod>2020-05-31</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
-    <loc>/archives/Import-excel-to-mysql/</loc>
-    <lastmod>2020-05-28</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
