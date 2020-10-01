@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/8638dd5669f0e342bc073585a2025500.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/dab9d9b8e8451c4dbdfb65a2f294612f.json"
         }
     </script>
     <script>
@@ -198,6 +198,105 @@
 <h2>2.3 比较运算符</h2>
 <p><figure><img data-width="1616" data-height="525" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7f46f4b642a4cf4b915f2bc872573e68.jpg" alt="" /></figure></p>
 <p><figure><img data-width="1622" data-height="436" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5a3e2a769fa6d2fb5409a5795d6483bf.jpg" alt="" /></figure></p>
+<h3>instanceof：比较一个对象是否为一个类的实例/或某个接口的实现类</h3>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/ysocean/p/8486500.html">https://www.cnblogs.com/ysocean/p/8486500.html</a></li>
+</ul>
+</blockquote>
+<p>基础用法</p>
+<div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Class</span>
+</pre></div>
+<p>其中 <code>obj</code> 为一个对象，<code>Class</code> 表示一个类或者一个接口，当 <code>obj</code> 为 <code>Class</code> 的对象，或者是其直接或间接子类，或者是其接口的实现类，结果result 都返回 true，否则返回false。</p>
+<p>原理：</p>
+<blockquote><p><strong>编译器会检查 <code>obj</code> 是否能转换成右边的<code>class</code>类型，如果不能转换则直接报错，如果不能确定类型，则通过编译，具体看运行时定。</strong></p>
+</blockquote>
+<h4>其他情况</h4>
+<ul>
+<li><p>obj 必须为引用类型，不能是基本类型</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span> <span class="k">instanceof</span> <span class="n">Integer</span><span class="p">);</span><span class="c1">//编译不通过</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span> <span class="k">instanceof</span> <span class="n">Object</span><span class="p">);</span><span class="c1">//编译不通过</span>
+</pre></div>
+</li>
+</ul>
+<ul>
+<li><p>obj 为 null</p>
+<div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="kc">null</span> <span class="k">instanceof</span> <span class="n">Object</span><span class="p">);</span><span class="c1">//false</span>
+</pre></div>
+</li>
+</ul>
+<ul>
+<li><p>obj 为 class 接口的实现类</p>
+<div class="highlight"><pre><span></span>
+</pre></div>
+</li>
+</ul>
+<ul>
+<li><p>我们可以用 <code>instanceof</code> 运算符判断 某个对象是否是 <code>List</code> 接口的实现类，如果是返回 true，否则返回 false</p>
+<div class="highlight"><pre><span></span><span class="n">ArrayList</span> <span class="n">arrayList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arrayList</span> <span class="k">instanceof</span> <span class="n">List</span><span class="p">);</span><span class="c1">//true</span>
+
+<span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list</span> <span class="k">instanceof</span> <span class="n">ArrayList</span><span class="p">);</span><span class="c1">//true</span>
+</pre></div>
+</li>
+</ul>
+<ul>
+<li><p>obj 为 class 类的直接或间接子类</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Man</span> <span class="kd">extends</span> <span class="n">Person</span><span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="n">Person</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">();</span>
+<span class="n">Person</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Man</span><span class="p">();</span>
+<span class="n">Man</span> <span class="n">m1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Man</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span> <span class="k">instanceof</span> <span class="n">Man</span><span class="p">);</span><span class="c1">//false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p2</span> <span class="k">instanceof</span> <span class="n">Man</span><span class="p">);</span><span class="c1">//true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">m1</span> <span class="k">instanceof</span> <span class="n">Man</span><span class="p">);</span><span class="c1">//true</span>
+</pre></div>
+</li>
+</ul>
+<h4>原理</h4>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.20.2">https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.20.2</a></li>
+</ul>
+</blockquote>
+<p>伪代码描述</p>
+<div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">result</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+      <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="n">obj</span><span class="p">;</span> <span class="c1">// checkcast</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ClassCastException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>所以</p>
+<div class="highlight"><pre><span></span><span class="n">Person</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">();</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span> <span class="k">instanceof</span> <span class="n">String</span><span class="p">);</span><span class="c1">//编译报错</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span> <span class="k">instanceof</span> <span class="n">List</span><span class="p">);</span><span class="c1">//false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span> <span class="k">instanceof</span> <span class="n">List</span><span class="o">&lt;?&gt;</span><span class="p">);</span><span class="c1">//false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span> <span class="k">instanceof</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="p">);</span><span class="c1">//编译报错</span>
+</pre></div>
+<p>也就是说有表达式 obj instanceof T，instanceof 运算符的 obj 操作数的类型必须是引用类型或空类型; 否则，会发生编译时错误。</p>
+<p>　　如果 obj 强制转换为 T 时发生编译错误，则关系表达式的 instanceof 同样会产生编译时错误。 在这种情况下，表达式实例的结果永远为false。</p>
+<p>　　在运行时，如果 T 的值不为null，并且 obj 可以转换为 T 而不引发ClassCastException，则instanceof运算符的结果为true。 否则结果是错误的</p>
+<p>　　简单来说就是：<strong>如果 obj 不为 null 并且 (T) obj 不抛 ClassCastException 异常则该表达式值为 true ，否则值为 false 。</strong></p>
+<p>总结</p>
+<blockquote><ul>
+<li><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.instanceof">https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.instanceof</a></li>
+</ul>
+</blockquote>
 <h2>2.4 逻辑运算符</h2>
 <p><figure><img data-width="1614" data-height="533" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/68172118a846681766f87b06be11f112.jpg" alt="" /></figure></p>
 <p><figure><img data-width="1614" data-height="469" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1075894fbdac4a455fcfebaf072de13a.jpg" alt="" /></figure></p>

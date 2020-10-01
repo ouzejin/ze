@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/8638dd5669f0e342bc073585a2025500.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/dab9d9b8e8451c4dbdfb65a2f294612f.json"
         }
     </script>
     <script>
@@ -300,15 +300,15 @@
 <li>留出访问的对外接口。</li>
 </ul>
 <h2>继承</h2>
-<p>​       继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。当然，如果在父类中拥有私有属性(private修饰)，则子类是不能被继承的。</p>
+<p>​       继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。当然，如果在父类中拥有私有属性(<code>private</code>修饰)，<strong>则子类是不能被继承的。</strong></p>
 <p>只支持单继承，即一个子类只允许有一个父类，但是可以实现多级继承，及子类拥有唯一的父类，而父类还可以再继承。</p>
 <ul>
 <li>子类可以拥有父类的属性和方法。</li>
 <li>子类可以拥有自己的属性和方法。</li>
 <li>子类可以重写覆盖父类的方法。</li>
 </ul>
-<p><strong>使用</strong></p>
-<p>在父子类关系继承中，如果成员变量重名，则创建子类对象时，访问有两种方式。</p>
+<h3>使用</h3>
+<p>在父子类关系继承中，<strong>如果成员变量重名</strong>，则创建子类对象时，访问有两种方式。</p>
 <ul>
 <li><p>直接通过子类对象访问成员变量</p>
 <p>等号左边是谁，就优先使用谁，如果没有就向上找。</p>
@@ -332,7 +332,7 @@
     <span class="kt">int</span> <span class="n">numZi</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span><span class="p">(){</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;子类成员变量：&quot;</span><span class="o">+</span><span class="n">numFU</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;父类成员变量：&quot;</span><span class="o">+</span><span class="n">numFU</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodZi</span><span class="p">(){</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;子类方法！&quot;</span><span class="p">);</span>
@@ -361,6 +361,11 @@
 <span class="p">}</span>
 </pre></div>
 <h2>多态</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/qq_31655965/article/details/54746235">https://blog.csdn.net/qq_31655965/article/details/54746235</a></li>
+</ul>
+</blockquote>
 <p>指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。动态绑定（dynamic binding），是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。</p>
 <p><strong>实现方式</strong></p>
 <ul>
@@ -368,42 +373,163 @@
 <li>继承多态性。</li>
 <li>通过抽象类实现的多态性。</li>
 </ul>
-<p><strong>向上向下转型</strong></p>
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiDemo</span> <span class="p">{</span>
-       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-           <span class="c1">// 多态的引用，就是向上转型，此时无法使用子类中父类没有的方法</span>
-           <span class="n">Animals</span> <span class="n">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="p">();</span>
-           <span class="n">dog</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span><span class="c1">//狗在吃骨头！</span>
+<h3>举例</h3>
+<p>多态，简而言之就是同一个行为具有多个不同表现形式或形态的能力。比如说，有一杯水，我不知道它是温的、冰的还是烫的，但是我一摸我就知道了。我摸水杯这个动作，对于不同温度的水，就会得到不同的结果。这就是多态。</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Water</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showTem</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我的温度是: 0度&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-           <span class="n">Animals</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="p">();</span>
-           <span class="n">cat</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span><span class="c1">//猫在吃鱼！</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IceWater</span> <span class="kd">extends</span> <span class="n">Water</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showTem</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我的温度是: 0度&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-           <span class="c1">// 如果要调用父类中没有的方法，则要向下转型</span>
-           <span class="n">Dog</span> <span class="n">dogDown</span> <span class="o">=</span> <span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="n">dog</span><span class="p">;</span>
-           <span class="n">dogDown</span><span class="p">.</span><span class="na">watchDoor</span><span class="p">();</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WarmWater</span> <span class="kd">extends</span> <span class="n">Water</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showTem</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我的温度是: 40度&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-       <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="kd">class</span> <span class="nc">Animals</span> <span class="p">{</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
-           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;动物吃饭！&quot;</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animals</span><span class="p">{</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
-           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;狗在吃骨头！&quot;</span><span class="p">);</span>
-       <span class="p">}</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">watchDoor</span><span class="p">(){</span>
-           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;狗看门！&quot;</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">extends</span> <span class="n">Animals</span><span class="p">{</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
-           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;猫在吃鱼！&quot;</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HotWater</span> <span class="kd">extends</span> <span class="n">Water</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showTem</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我的温度是: 100度&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestWater</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Water</span> <span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WarmWater</span><span class="p">();</span>
+        <span class="n">w</span><span class="p">.</span><span class="na">showTem</span><span class="p">();</span>
+
+        <span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IceWater</span><span class="p">();</span>
+        <span class="n">w</span><span class="p">.</span><span class="na">showTem</span><span class="p">();</span>
+
+        <span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HotWater</span><span class="p">();</span>
+        <span class="n">w</span><span class="p">.</span><span class="na">showTem</span><span class="p">();</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//结果:</span>
+<span class="c1">//我的温度是: 40度</span>
+<span class="c1">//我的温度是: 0度</span>
+<span class="c1">//我的温度是: 100度</span>
 </pre></div>
+<p>这里的方法<code>showTem()</code>就相当于你去摸水杯。我们定义的water类型的引用变量w就相当于水杯，你在水杯里放了什么温度的水，那么我摸出来的感觉就是什么。就像代码中的那样，放置不同温度的水，得到的温度也就不同，但水杯是同一个。</p>
+<h3>分类</h3>
+<ul>
+<li><strong>重写式多态</strong>：也叫编译时多态。也就是说这种多态再编译时已经确定好了。重载大家都知道，方法名相同而参数列表不同的一组方法就是重载。在调用这种重载的方法时，通过传入不同的参数最后得到不同的结果。</li>
+</ul>
+<ul>
+<li><strong>重载式多态</strong>：也叫运行时多态。这种多态通过动态绑定（dynamic binding）技术来实现，是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。也就是说，只有程序运行起来，你才知道调用的是哪个子类的方法。
+这种多态通过<code>函数的重写</code>以及<code>向上转型</code>来实现，我们上面代码中的例子就是一个完整的重写式多态。我们接下来讲的所有多态都是重写式多态，因为它才是面向对象编程中真正的多态。</li>
+</ul>
+<h3>条件</h3>
+<ul>
+<li><strong>继承</strong>：在多态中必须存在有继承关系的子类和父类。</li>
+<li><strong>重写</strong>：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。</li>
+<li><strong>向上转型</strong>：在多态中需要将子类的引用赋给父类对象，只有这样该引用才能够具备技能调用父类的方法和子类的方法。</li>
+</ul>
+<h3>向上转型</h3>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/qq_31655965/article/details/54746235">https://blog.csdn.net/qq_31655965/article/details/54746235</a></li>
+</ul>
+</blockquote>
 <p><figure><img data-width="1372" data-height="592" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ae6316ac34c01a4db403e8e329d0425b.png" alt="" /></figure></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;animal eatting...&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我吃鱼&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(){</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我吃骨头&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">(){</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我会跑&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="p">();</span> <span class="c1">//向上转型</span>
+        <span class="n">animal</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+
+        <span class="n">animal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="p">();</span>
+        <span class="n">animal</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">//结果:</span>
+<span class="c1">//我吃鱼</span>
+<span class="c1">//我吃骨头</span>
+</pre></div>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>向上转型时，子类单独定义的方法会丢失。比如上面<code>Dog</code>类中定义的<code>run</code>方法，当<code>animal</code>引用指向<code>Dog</code>类实例时是访问不到<code>run</code>方法的，<code>animal.run()</code>会报错。</li>
+<li>子类引用不能指向父类对象。<code>Cat c = (Cat)new Animal()</code>这样是不行的。</li>
+</ul>
+<p><strong>好处</strong></p>
+<ul>
+<li>减少重复代码，使代码变得简洁。</li>
+<li>提高系统扩展性。</li>
+</ul>
+<p>坏处</p>
+<ul>
+<li>无法使用子类特定的方法</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>不需要面对子类型，通过提高扩展性，或者使用父类的功能即可完成操作，就是使用向上转型。</li>
+</ul>
+<p>比如我现在有很多种类的动物，要喂它们吃东西。如果不用向上转型，那我需要像下面这样写</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(</span><span class="n">Cat</span> <span class="n">c</span><span class="p">){</span>
+    <span class="n">c</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(</span><span class="n">Dog</span> <span class="n">d</span><span class="p">){</span>
+    <span class="n">d</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1">//......</span>
+
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Dog</span><span class="p">());</span>
+<span class="c1">//......</span>
+</pre></div>
+<blockquote><p>此时每增加一种动物就要多写一个方法来接收不同的参数</p>
+</blockquote>
+<p>如果使用向上转型</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(</span><span class="n">Animal</span> <span class="n">a</span><span class="p">){</span>
+    <span class="n">a</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Dog</span><span class="p">());</span>
+<span class="c1">//.....</span>
+</pre></div>
+<blockquote><p>因为其他动物类是Animal的子类，可以接收，就像<code>double</code>类型可以接收<code>int</code>，但<code>int</code>类型接收<code>double</code>就会精度缺失。而且这个时候，如果我又有一种新的动物加进来，我只需要实现它自己的类，让他继承Animal就可以了，而不需要为它单独写一个eat方法</p>
+</blockquote>
 <p><strong>经典案例</strong></p>
 <div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">show</span><span class="p">(</span><span class="n">D</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
@@ -417,6 +543,7 @@
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">B</span> <span class="kd">extends</span> <span class="n">A</span><span class="p">{</span>
+  <span class="c1">//父类没有此方法，虽然方法名字一样，但是由于参数不同不是重写</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">show</span><span class="p">(</span><span class="n">B</span> <span class="n">obj</span><span class="p">){</span>
         <span class="k">return</span> <span class="p">(</span><span class="s">&quot;B and B&quot;</span><span class="p">);</span>
     <span class="p">}</span>
@@ -464,7 +591,64 @@
 <span class="c1">//8--B and B</span>
 <span class="c1">//9--A and D</span>
 </pre></div>
-<p>当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。如果子类中没有覆盖该方法，那么会去父类中寻找。</p>
+<p>当父类对象引用变量引用子类对象时，被引用对象的类型决定了调用谁的成员方法，引用变量类型决定可调用的方法。<strong>如果子类中没有覆盖该方法，那么会去父类中寻找</strong>。</p>
+<blockquote><p>继承链中对象方法的调用的优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)。</p>
+<p>事实上，子类继承了父类的方法，所以所谓super.show(O)时调用的是在子类中继承下来的方法</p>
+</blockquote>
+<p>解析第四个</p>
+<blockquote><p>a2为指向B对象的A类的引用类型，当调用<code>show(B obj)</code>时，会首先去父类找是否有此方法，如果没有那么即使子类有此方法但不会去调用(超出范围)，因为引用类型决定了能调用的方法(即使不是调用自己类的方法)，所以B类中的<code>show(B obj)</code>没有被调用(如果有就会调用子类的<code>show(B obj)</code>)。这时候按照顺序会调用<code>this.show((super)O)</code>,参数为能向上转型的类型，可以发现A类中有<code>show(A obj)</code>，那么就去子类中看是否有此方法，发现有那么调用子类的<code>show(A obj)</code>（如果没有就直接调用父类A类的此方法）。所以最后<code>a2.show(b)</code>调用的是子类B类方法<code>show(A obj)</code>，结果返回<code>"B and A"</code></p>
+</blockquote>
+<p>解析第九个</p>
+<blockquote><p>虽然b的引用类型和指向对象都是B，但是在调用<code>b.show(d)</code>是我们以为会调用B类中的<code>show(B obj)</code>方法，但由于B继承下来A类中<code>show(D obj)</code>方法，相当于B类中有此方法，所以会调用B类中<code>show(D obj)</code>。所以结果为<code>"A and D"</code></p>
+</blockquote>
+<h3>向下转型</h3>
+<p><figure><img data-width="1372" data-height="592" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ae6316ac34c01a4db403e8e329d0425b.png" alt="" /></figure></p>
+<p>好处</p>
+<ul>
+<li>不仅能继承父类的方法，还可以使用子类型的特有功能</li>
+</ul>
+<p>坏处</p>
+<ul>
+<li>面对具体的子类型，向下转型具有风险。即容易发生<code>ClassCastException</code>，只要转换类型和对象不匹配就会发生。解决方法：使用关键字<code>instanceof</code>。</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">//还是上面的animal和cat dog</span>
+<span class="n">Animal</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="p">();</span>
+<span class="n">Cat</span> <span class="n">c</span> <span class="o">=</span> <span class="p">((</span><span class="n">Cat</span><span class="p">)</span> <span class="n">a</span><span class="p">);</span>
+<span class="n">c</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="c1">//输出  我吃鱼</span>
+<span class="n">Dog</span> <span class="n">d</span> <span class="o">=</span> <span class="p">((</span><span class="n">Dog</span><span class="p">)</span> <span class="n">a</span><span class="p">);</span>
+<span class="n">d</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="c1">// 报错 ： java.lang.ClassCastException：com.chengfan.animal.Cat cannot be cast to com.chengfan.animal.Dog</span>
+<span class="n">Animal</span> <span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">();</span>
+<span class="n">Cat</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">((</span><span class="n">Cat</span><span class="p">)</span> <span class="n">a1</span><span class="p">);</span>
+<span class="n">c1</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+<span class="c1">// 报错 ： java.lang.ClassCastException：com.chengfan.animal.Animal cannot be cast to com.chengfan.animal.Cat</span>
+</pre></div>
+<blockquote><ul>
+<li>向下转型的前提是父类对象指向的是子类对象（也就是说，在向下转型之前，它得先向上转型）</li>
+<li>向下转型只能转型为本类对象（猫是不能变成狗的）。</li>
+</ul>
+</blockquote>
+<p>为什么要向下转型</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="p">(</span><span class="n">Animal</span> <span class="n">a</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="k">instanceof</span> <span class="n">Dog</span><span class="p">){</span>  
+        <span class="n">Dog</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="n">a</span><span class="p">;</span>
+        <span class="n">d</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+        <span class="n">d</span><span class="p">.</span><span class="na">run</span><span class="p">();</span><span class="c1">//狗有一个跑的方法      </span>
+    <span class="p">}</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="k">instanceof</span> <span class="n">Cat</span><span class="p">){</span>  
+        <span class="n">Cat</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">Cat</span><span class="p">)</span><span class="n">a</span><span class="p">;</span>
+        <span class="n">c</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;我也想跑，但是不会&quot;</span><span class="p">);</span> <span class="c1">//猫会抱怨    </span>
+    <span class="p">}</span> 
+    <span class="n">a</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span><span class="c1">//其他动物只会吃</span>
+<span class="p">}</span>
+
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Cat</span><span class="p">());</span>
+<span class="n">eat</span><span class="p">(</span><span class="k">new</span> <span class="n">Dog</span><span class="p">());</span>
+<span class="c1">//.....</span>
+</pre></div>
 <h1>this | super | final | static关键字</h1>
 <h2>this</h2>
 <ul>
