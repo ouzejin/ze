@@ -40,7 +40,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/使用EasyExcel导入导出Excel/</loc>
+    <loc>/archives/Mybatis逆向工程/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
