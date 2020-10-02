@@ -1,19 +1,19 @@
 ---
 layout: post
-title: 使用EasyExcel导入导出Excel
-slug: 使用EasyExcel导入导出Excel
+title: Mybatis逆向工程
+slug: Mybatis逆向工程
 date: 2020/10/01 22:35:50
 status: publish
 author: LifeAlsoIsGG
 categories: 
   - Spring
-  - SpringBoot
+  - Mybatis
 tags: 
   - SpringBoot
-  - EasyExcel
+  - Mybatis
 
 ---
 
 
 
-1
+mybatis
