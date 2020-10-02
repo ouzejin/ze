@@ -88,6 +88,7 @@ server:
 
 
 ```xml
+		<!-- springboot相关 -->
 		<!-- springboot 基础包 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -124,12 +125,6 @@ server:
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 
-<!--spring-boot-starter-thymeleaf-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-thymeleaf</artifactId>
-     </dependency>
-
 
 		<!-- springboot web开发thymeleaf模板 -->
 		<dependency>
@@ -143,6 +138,13 @@ server:
 			<groupId>org.springframework</groupId>
 			<artifactId>springloaded</artifactId>
 		</dependency>
+
+        <!-- fastdfs -->
+        <dependency>
+            <groupId>com.luhuiguo</groupId>
+            <artifactId>fastdfs-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
 ```
 
 
@@ -154,6 +156,8 @@ server:
       <java.version>1.8</java.version>
       <mybatis.version>2.1.2</mybatis.version>
     </properties>
+
+				<!-- 数据库相关 -->
 
 				<!-- mysql驱动 -->
         <dependency>
@@ -179,6 +183,14 @@ server:
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+<!-- mybatis逆向工程 -->
+<!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+				<dependency>
+    				<groupId>org.mybatis.generator</groupId>
+    				<artifactId>mybatis-generator-core</artifactId>
+    				<version>1.3.7</version>
+				</dependency>
 ```
 
 
@@ -194,11 +206,12 @@ server:
     </properties>
 
 
+				<!-- 工具类 -->
 				<!-- 日志管理 log4j -->
-				<dependency>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-log4j</artifactId>
-				</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j</artifactId>
+        </dependency>
 
 				<!-- fastjson -->
         <dependency>
