@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 02 Oct 2020 05:51:37 +0806</lastBuildDate><pubDate>Fri, 02 Oct 2020 05:51:37 +0806</pubDate><item><title>SQL实战题目</title><link>/archives/SQL实战题目/</link><description>&lt;p&gt;SQL实战题目&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Fri, 02 Oct 2020 10:45:37 +0806</lastBuildDate><pubDate>Fri, 02 Oct 2020 10:45:37 +0806</pubDate><item><title>SQL实战题目</title><link>/archives/SQL实战题目/</link><description>&lt;p&gt;SQL实战题目&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/SQL实战题目/</guid><pubDate>Sat, 05 Sep 2020 18:15:17 +0806</pubDate></item><item><title>SpringMVC面试题</title><link>/archives/SpringMVC面试题/</link><description>&lt;h1&gt;1. 什么是MVC&lt;/h1&gt;
 &lt;p&gt;MVC即&lt;code&gt;Model-View-Controller&lt;/code&gt;，将应用按照&lt;code&gt;Model（模型）&lt;/code&gt;、&lt;code&gt;View（视图）&lt;/code&gt;、&lt;code&gt;Controller（控制）&lt;/code&gt;这样的方式分离。把较为复杂的web应用分成逻辑清晰的几部分，基于请求驱动指的就是使用&lt;code&gt;请求-响应模型&lt;/code&gt;。是为了简化开发，减少出错。还是为了组内开发人员之间的配合。总之就是一种分层工作的办法。&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="871" data-height="600" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/4b2af76e3e0e0d831744ca544c105296.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -325,7 +325,8 @@ server:
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;springboot相关&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- springboot 基础包 --&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!-- springboot相关 --&amp;gt;&lt;/span&gt;
+        &lt;span class="c"&gt;&amp;lt;!-- springboot 基础包 --&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
             &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
             &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
@@ -361,12 +362,6 @@ server:
       &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-aop&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 
-&lt;span class="c"&gt;&amp;lt;!--spring-boot-starter-thymeleaf--&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-       &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-thymeleaf&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-     &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
 
         &lt;span class="c"&gt;&amp;lt;!-- springboot web开发thymeleaf模板 --&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
@@ -380,12 +375,21 @@ server:
             &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
             &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;springloaded&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+        &lt;span class="c"&gt;&amp;lt;!-- fastdfs --&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.luhuiguo&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;fastdfs-spring-boot-starter&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.2.0&lt;span class="nt"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;数据库相关&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
       &lt;span class="nt"&gt;&amp;lt;java.version&amp;gt;&lt;/span&gt;1.8&lt;span class="nt"&gt;&amp;lt;/java.version&amp;gt;&lt;/span&gt;
       &lt;span class="nt"&gt;&amp;lt;mybatis.version&amp;gt;&lt;/span&gt;2.1.2&lt;span class="nt"&gt;&amp;lt;/mybatis.version&amp;gt;&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+                &lt;span class="c"&gt;&amp;lt;!-- 数据库相关 --&amp;gt;&lt;/span&gt;
 
                 &lt;span class="c"&gt;&amp;lt;!-- mysql驱动 --&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
@@ -411,6 +415,14 @@ server:
             &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
             &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-data-redis&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;lt;!-- mybatis逆向工程 --&amp;gt;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;lt;!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core --&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.mybatis.generator&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mybatis-generator-core&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.3.7&lt;span class="nt"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;工具相关&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
@@ -419,11 +431,12 @@ server:
     &lt;span class="nt"&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
 
 
+                &lt;span class="c"&gt;&amp;lt;!-- 工具类 --&amp;gt;&lt;/span&gt;
                 &lt;span class="c"&gt;&amp;lt;!-- 日志管理 log4j --&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-                        &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                        &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-log4j&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-log4j&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 
                 &lt;span class="c"&gt;&amp;lt;!-- fastjson --&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
