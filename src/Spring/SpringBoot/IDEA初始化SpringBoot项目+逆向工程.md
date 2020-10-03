@@ -1,7 +1,7 @@
 ---
 layout: post
-title: IDEA初始化SpringBoot项目
-slug: IDEA初始化SpringBoot项目
+title: IDEA初始化SpringBoot项目+逆向工程
+slug: IDEA初始化SpringBoot项目+逆向工程
 date: 2020/10/01 22:40:15
 status: publish
 author: LifeAlsoIsGG
@@ -178,6 +178,13 @@ server:
             <version>${mybatis.version}</version>
         </dependency>
 
+        <!-- page helper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
         <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -228,12 +235,6 @@ server:
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- page helper -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.10</version>
-        </dependency>
 
         <!-- simpleEmail -->
         <dependency>
