@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/逆向工程的Example使用实现自定义SQL/</loc>
+    <lastmod>2020-10-03</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/IDEA配置Run Dashboard/</loc>
     <lastmod>2020-10-02</lastmod>
     <changefreq>always</changefreq>
@@ -26,7 +33,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/IDEA初始化SpringBoot项目/</loc>
+    <loc>/archives/IDEA初始化SpringBoot项目+逆向工程/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
