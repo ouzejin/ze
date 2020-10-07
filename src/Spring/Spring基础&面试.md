@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Spring面试题
-slug: Spring面试题
+title: Spring基础&面试
+slug: Spring基础&面试
 date: 2020/09/16 14:57:41
 status: publish
 author: LifeAlsoIsGG
@@ -9,7 +9,7 @@ categories:
   - Spring
 tags: 
   - Spring
-  - Spring面试题
+  - Spring基础&面试
 ---
 
 

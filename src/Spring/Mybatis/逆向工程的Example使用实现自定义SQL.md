@@ -9,7 +9,7 @@ categories:
   - Spring
   - Mybatis
 tags: 
-  - SpringBoot
+  - Spring
   - Mybatis
 ---
 
