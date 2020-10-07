@@ -139,12 +139,27 @@ server:
 			<artifactId>springloaded</artifactId>
 		</dependency>
 
-        <!-- fastdfs -->
+		<!--devtools热部署-->
         <dependency>
-            <groupId>com.luhuiguo</groupId>
-            <artifactId>fastdfs-spring-boot-starter</artifactId>
-            <version>0.2.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
         </dependency>
+
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
 ```
 
 
@@ -211,7 +226,8 @@ server:
 ```xml
     <properties>
       <java.version>1.8</java.version>
-      <swagger.version>2.9.2</swagger.version>	
+      <swagger.version>2.9.2</swagger.version>
+      <userAgentUtils.version>1.21</userAgentUtils.version>
     </properties>
 
 
@@ -249,6 +265,14 @@ server:
             <version>2.2.6</version>
         </dependency>
 
+        <!-- 获取客户端信息 -->
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>${userAgentUtils.version}</version>
+        </dependency>
+
+
 				<!--Swagger依赖-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -259,6 +283,13 @@ server:
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- fastdfs -->
+        <dependency>
+            <groupId>com.luhuiguo</groupId>
+            <artifactId>fastdfs-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
         </dependency>
 ```
 
