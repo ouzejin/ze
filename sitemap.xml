@@ -19,6 +19,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Devtools对Springboot热部署/</loc>
+    <lastmod>2020-10-07</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/HttpServletrequest与HttpServletResponse/</loc>
+    <lastmod>2020-10-07</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/SpringMVC基础&面试/</loc>
     <lastmod>2020-10-07</lastmod>
     <changefreq>always</changefreq>
