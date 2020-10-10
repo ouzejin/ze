@@ -49,7 +49,7 @@ tags:
 
 
 
-# 4. 配置application.yml(更新中)
+# 4. 配置`application.yml`(更新中)
 
 在`resources`文件夹下删除`application.properties`,并创建`application.yml`
 
@@ -75,7 +75,7 @@ server:
 
 
 
-# 5. 配置pom.xml依赖(更新中)
+# 5. 配置`pom.xml`依赖(更新中)
 
 参考
 
@@ -249,6 +249,7 @@ server:
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+          	<scope>provided</scope>
         </dependency>
 
 

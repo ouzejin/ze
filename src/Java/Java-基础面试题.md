@@ -855,6 +855,7 @@ https://www.cnblogs.com/dolphin0520/p/3780005.html
 
 参考
 
+> - https://blog.csdn.net/zj15527620802/article/details/88547914
 > - [equals()和hashCode()之间的关系](https://www.cnblogs.com/chenpi/p/5489494.html)
 > - https://www.cnblogs.com/skywang12345/p/3324958.html
 
@@ -1171,7 +1172,7 @@ public native String intern();
 
 ### JDK6的intern()
 
-![](images/Java基础面试题/jdk6_intern().png)
+![](images/Java基础面试题/jdk6_intern.png)
 
 
 
@@ -1179,7 +1180,7 @@ public native String intern();
 
 
 
-![](images/Java基础面试题/jdk7_intern().png)
+![](images/Java基础面试题/jdk7_intern.png)
 
 
 
@@ -1294,4 +1295,8 @@ System.out.println(s2.intern() == s2);//false
 ```
 
 常理认为，在执行`s2.intern()`时，由于字符串常量池中不存在，所以会复制引用s2到字符串常量池中去，最后对比指向同一个对象地址为`true`，但事实上`"java"`这个字符串在执行此语句之前，字符串常量池中已经存在此字符串
+
+
+
+
 
