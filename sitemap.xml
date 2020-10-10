@@ -19,6 +19,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Java-IO/</loc>
+    <lastmod>2020-10-09</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Lombok使用/</loc>
+    <lastmod>2020-10-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Maven中依赖的scope总结/</loc>
+    <lastmod>2020-10-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Devtools对Springboot热部署/</loc>
     <lastmod>2020-10-07</lastmod>
     <changefreq>always</changefreq>
@@ -47,13 +68,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/逆向工程的Example使用实现自定义SQL/</loc>
-    <lastmod>2020-10-03</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
     <loc>/archives/IDEA配置Run Dashboard/</loc>
     <lastmod>2020-10-02</lastmod>
     <changefreq>always</changefreq>
@@ -68,14 +82,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Mybatis逆向工程/</loc>
+    <loc>/archives/Mybatis逆向工程&Example类使用/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
-    <loc>/archives/使用EasyExcel导入导出Excel/</loc>
+    <loc>/archives/EasyExcel导入导出Excel/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

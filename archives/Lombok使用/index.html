@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,wiki" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Kepler" />
+    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/4fff6be024cbe9b77185333803df8e2b.json"
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+                document.body.classList.add('safari')
+            }else{
+                document.body.classList.remove('safari')
+            }
+        });
+    </script>
+    
+<title>Lombok使用 - LifeAlsoIsGG-Wiki</title>
+<meta name="author" content="LifeAlsoIsGG" />
+<meta name="description" content="参考" />
+<meta property="og:title" content="Lombok使用 - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="参考" />
+<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/Lombok使用/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-10-08T22:18:09-00.00" />
+<meta name="twitter:title" content="Lombok使用 - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="参考" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" type="images/x-ico" />
+
+    </head>
+    
+    <body class="content">
+        <header>
+            <div class="container">
+                <section>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png">LifeAlsoIsGG-Wiki</a>
+                </section>
+                <section>
+                    <nav>
+                        <ul>
+                            
+                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                            
+                                <li><a href="https://photos.lifeisgg.online" target="_blank">Photos</a></li>
+                            
+                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                            
+                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+    
+                <section>
+                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
+                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
+                    <button class="search-form-input"><i class="fa fa-search"></i></button>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <div id="pjax-container" class="container">
+                <aside id="navbar" class="no-scrollbar">
+                    
+                    <section class="sidebar-nav">
+                        
+                            <div class="None" ><span><a href="/">Home</a></span></div>
+                        
+                            <div class="None" ><span><a href="/archives/">Archives</a></span></div>
+                        
+                            <div class="None" ><span><a href="/About/">About</a></span></div>
+                        
+                            <div class="None" ><span><a href="/My Project/">My Project</a></span></div>
+                        
+                    </section>
+                    
+                    <section>
+                        
+    <div class=" "><span><a href="/category/Java/">Java</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Java-IO/">Java-IO</a></li><li class=""><a href="/archives/Java-JVM/">Java-JVM</a></li><li class=""><a href="/archives/Java-集合容器/">Java-集合容器</a></li><li class=""><a href="/archives/Java-多线程并发/">Java-多线程并发</a></li><li class=""><a href="/archives/Java-设计模式/">Java-设计模式</a></li><li class=""><a href="/archives/Java-方法汇总/">Java-方法汇总</a></li><li class=""><a href="/archives/Java-基础面试题/">Java-基础面试题</a></li><li class=""><a href="/archives/Java-基础知识笔记/">Java-基础知识笔记</a></li></ul></div><div class="open "><span><a href="/category/Spring/">Spring</a><button class="toggle_sidebar fa"></button></span><ul><div class="open "><span><a href="/category/SpringBoot/">SpringBoot</a><button class="toggle_sidebar fa"></button></span><ul><li class="current"><a href="/archives/Lombok使用/">Lombok使用</a></li><li class=""><a href="/archives/Maven中依赖的scope总结/">Maven中依赖的scope总结</a></li><li class=""><a href="/archives/Devtools对Springboot热部署/">Devtools对Springboot热部署</a></li><li class=""><a href="/archives/IDEA配置Run Dashboard/">IDEA配置Run Dashboard</a></li><li class=""><a href="/archives/IDEA初始化SpringBoot项目+逆向工程/">IDEA初始化SpringBoot项目+逆向工程</a></li><li class=""><a href="/archives/EasyExcel导入导出Excel/">EasyExcel导入导出Excel</a></li><li class=""><a href="/archives/服务器上部署SpringBoot/">服务器上部署SpringBoot</a></li></ul></div><li class=""><a href="/archives/HttpServletrequest与HttpServletResponse/">HttpServletrequest与HttpServletResponse</a></li><li class=""><a href="/archives/SpringMVC基础&面试/">SpringMVC基础&面试</a></li><li class=""><a href="/archives/SpringMVC注解/">SpringMVC注解</a></li><div class=" "><span><a href="/category/Mybatis/">Mybatis</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Mybatis逆向工程&Example类使用/">Mybatis逆向工程&Example类使用</a></li></ul></div><li class=""><a href="/archives/Spring基础&面试/">Spring基础&面试</a></li><div class=" "><span><a href="/category/SpringCloud/">SpringCloud</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/认识SpringCloud/">认识SpringCloud</a></li></ul></div></ul></div><div class=" "><span><a href="/category/前端/">前端</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/JavaScript面试题/">JavaScript面试题</a></li><li class=""><a href="/archives/Promise异步调用/">Promise异步调用</a></li></ul></div><div class=" "><span><a href="/category/面试/">面试</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/面试题整理/">面试题整理</a></li><li class=""><a href="/archives/腾讯移动客户端面经/">腾讯移动客户端面经</a></li><li class=""><a href="/archives/计算机其它面试题/">计算机其它面试题</a></li><li class=""><a href="/archives/Mysql&Redis数据库面试题/">Mysql&Redis数据库面试题</a></li><li class=""><a href="/archives/Spring框架面试题/">Spring框架面试题</a></li><li class=""><a href="/archives/字节跳动面试/">字节跳动面试</a></li><li class=""><a href="/archives/后端面试题/">后端面试题</a></li></ul></div><div class=" "><span><a href="/category/数据库/">数据库</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Mysql面试题/">Mysql面试题</a></li><li class=""><a href="/archives/SQL实战题目/">SQL实战题目</a></li><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/数据结构&算法/">数据结构&算法</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/数据结构&算法笔记/">数据结构&算法笔记</a></li><li class=""><a href="/archives/数据结构&算法题目合集/">数据结构&算法题目合集</a></li></ul></div><div class=" "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Linux常用命令/">Linux常用命令</a></li><li class=""><a href="/archives/xshell connect to Centos7 in VMware/">用xshell连接虚拟机中的Centos7</a></li><div class=" "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install-software/">Docker:Install software</a></li><li class=""><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/My Project/">My Project</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/MyProject-AttendanceMiniprogram/">实验室出入管理小程序</a></li><li class=""><a href="/archives/ActivitySystem/">Javaweb大学活动管理系统</a></li><li class=""><a href="/archives/MyProject-SupermarketSystem/">Java Swing-超市系统</a></li></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/大三下实训期末作业/">大三下实训期末作业</a></li><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
+
+                    </section>
+                    <section hidden class="sidebar-external-link">
+                        
+                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://photos.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                    </section>
+                    <section class="maverick">
+                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
+                    </section>
+                </aside>
+                <div id="content-wrapper">
+                    <div id="content">
+    <section>
+        <h1 class="post-title">Lombok使用</h1>
+        <p class="post-meta">
+            <time>October 08 2020</time>
+            <span class="tags">
+                
+                <span>
+                    <a href="/tag/SpringBoot/">#SpringBoot</a>
+                </span>
+                
+                <span>
+                    <a href="/tag/Lombok/">#Lombok</a>
+                </span>
+                
+                <span>
+                    <a href="/tag/工具/">#工具</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><h1>参考</h1>
+<blockquote><ul>
+<li><a href="https://www.jianshu.com/p/2543c71a8e45">https://www.jianshu.com/p/2543c71a8e45</a></li>
+</ul>
+</blockquote>
+<h1>1. 引入依赖</h1>
+<div class="highlight"><pre><span></span><span class="c">&lt;!-- lombok --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+<h1>2. IDEA下载插件Lombok</h1>
+<h1>3. 常用注解</h1>
+<p>作用于实体类上</p>
+<p><figure><img data-width="1080" data-height="414" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a6937c965ce755ee6aadd42a460390ae.png" alt="" /></figure></p>
+<table>
+<thead><tr>
+<th>注解名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>@Data</strong></td>
+<td>包含@Getter/@Setter，@ToString，@EqualsAndHashCode，@RequiredArgsConstructor</td>
+</tr>
+<tr>
+<td>@Getter/@Setter</td>
+<td>作用类上，生成所有成员变量的getter/setter方法</td>
+</tr>
+<tr>
+<td>@ToString</td>
+<td>重写 <code>toString()</code> 方法。通过of显示某些，通过exclude排除某些。@ToString(of = {"uid"}, exclude = {"password"})</td>
+</tr>
+<tr>
+<td>@EqualsAndHashCode</td>
+<td>自动生成 <code>equals(Object other)</code> 和 <code>hashcode()</code> 方法，可以透过 exclude 排除，也可以使用 of 指定某些字段</td>
+</tr>
+<tr>
+<td>@NoArgsConstructor</td>
+<td>生成一个没有参数的构造器</td>
+</tr>
+<tr>
+<td>@AllArgsConstructor</td>
+<td>生成一个包含所有参数的构造器。一定要加上一个空的无参构造函数。</td>
+</tr>
+<tr>
+<td>@RequiredArgsConstructor</td>
+<td>生成一个包含 "特定参数" 的构造器，特定参数指的是那些有加上 <code>final</code> 修饰词的变量们</td>
+</tr>
+<tr>
+<td>@NonNull</td>
+<td>主要作用于成员变量和参数中，标识不能为空，否则抛出空指针异常</td>
+</tr>
+<tr>
+<td>@Builder</td>
+<td>作用于类上，将类转变为建造者模式</td>
+</tr>
+<tr>
+<td>@Value</td>
+<td>会把所有的变量都设成 <code>final</code>，其他类似<code>@Data</code>但是没有<code>@Setter</code>，适合加在值不希望被改变的类上</td>
+</tr>
+</tbody>
+</table>
+<h2>@Builder</h2>
+<p>自动生成流式 set 值写法，从此之后再也不用写一堆 setter</p>
+<p><figure><img data-width="1080" data-height="448" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6eaa03e44ca76e3cdc75abbf93336349.png" alt="" /></figure></p>
+<p>注意，虽然只要加上 <code>@Builder</code> 注解，我们就能够用流式写法快速设定对象的值，但是 setter 还是必须要写不能省略的，因为 Spring 或是其他框架有很多地方都会用到对象的 getter/setter 对他们取值/赋值</p>
+<p>所以通常是 @Data 和 @Builder 会一起用在同个类上，既方便我们流式写代码，也方便框架做事</p>
+<h2>@Value</h2>
+<p>也是整合包，但是他会把所有的变量都设成 final 的，其他的就跟 @Data 一样，等于同时加了以下注解</p>
+<ul>
+<li>@Getter (注意没有setter)</li>
+<li>@ToString</li>
+<li>@EqualsAndHashCode</li>
+<li>@RequiredArgsConstructor</li>
+</ul>
+<p><figure><img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /></figure></p>
+<p>上面那个 @Data 适合用在 POJO 或 DTO 上，而这个 @Value 注解，则是适合加在值不希望被改变的类上，像是某个类的值当创建后就不希望被更改，只希望我们读它而已，就适合加上 @Value 注解，也就是 @Value for immutable class</p>
+<p>另外注意一下，此 lombok 的注解 @Value 和另一个 Spring 的注解 @Value 撞名，在 import 时不要 import 错了</p>
+</article>
+    </section>
+
+    
+    <section id="content-pager">
+        
+            <div class="next">
+                <a class="card" href="/archives/Java-IO/">
+                    <time>October 09 2020</time>
+                    <span>Java-IO</span>
+                </a>
+            </div>
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/Maven中依赖的scope总结/">
+                    <time>October 08 2020</time>
+                    <span>Maven中依赖的scope总结</span>
+                </a>
+            </div>
+        
+    </section>
+    
+
+    
+        <section id="comments">
+            <div id="vcomments"></div>
+        </section>
+        <script>
+            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u8fd8\u8bf7\u4e0d\u541d\u8d50\u6559"};
+            window.ValineOpt.path = window.location.pathname;
+        </script>
+    
+
+    <script>
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
+    </script>
+</div>
+                    <footer>
+                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        
+    <span class="leancloud_visitors"
+            id="/archives/Lombok使用/" 
+            data-flag-title="Lombok使用">
+            <i class="fa fa-eye"></i> <i style="font-style: normal" class="leancloud-visitors-count"></i> Views
+        </span>
+
+                        <span class="addon">
+<p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
+</span>
+                    </footer>
+                </div>
+                
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
+
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script>
+            function ExSearchCall(item){
+                if (item && item.length) {
+                    $('.ins-close').click(); // 关闭搜索框
+                    $('input.ins-search-input').val(''); // 清空
+                    let url = item.attr('data-url'); // 获取目标页面 URL
+                    $.pjax({url: url, 
+                        container: '#pjax-container',
+                        fragment: '#pjax-container',
+                        timeout: 8000, }); // 发起一次 PJAX 请求
+                }
+            }
+        </script>
+
+        <!--Valine-->
+        
+            <script>
+                var initValine = function () {
+                    if (typeof window.ValineOpt === 'object' && $(window.ValineOpt.el).length) {
+                        new Valine(window.ValineOpt);
+                    }
+                }
+            </script>
+            <script async src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        
+
+        <!--ExSearch-->
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        
+        <!--katex-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.js"></script>
+        <script>
+        mathOpts = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+        
+    </body>
+</html>
