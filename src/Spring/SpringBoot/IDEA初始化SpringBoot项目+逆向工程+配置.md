@@ -1,7 +1,7 @@
 ---
 layout: post
-title: IDEA初始化SpringBoot项目+逆向工程
-slug: IDEA初始化SpringBoot项目+逆向工程
+title: IDEA初始化SpringBoot项目+逆向工程+配置
+slug: IDEA初始化SpringBoot项目+逆向工程+配置
 date: 2020/10/01 22:40:15
 status: publish
 author: LifeAlsoIsGG
@@ -56,19 +56,36 @@ tags:
 application.yml基本配置如下
 
 ```yml
+#指定项目端口号
+server:
+  port: 8001
+
 spring:
   application:
     name: springboot_demo
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/attendance_demo
+    password: 0.00.0
+    url: jdbc:mysql://localhost:3306/labManagement_demo
     driver-class-name: com.mysql.jdbc.Driver
+  #  devtools
+  devtools:         #设置开启热部署
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      #热部署设置延时
+      #poll-interval: 3000ms
+  freemarker:
+    cache: false    #页面不加载缓存，修改即时生效
 
 
-#指定端口号
-server:
-  port: 8001
+#mybatis映射配置
+mybatis:
+	#实体类包
+  type-aliases-package: com.lifeisgg.springboot_demo.pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 ```
 
 
