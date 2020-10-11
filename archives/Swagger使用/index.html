@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/c7e972ea99ded3657782b8ede5cd2570.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/61b50265bfc1e965dca8ad7b2179874a.json"
         }
     </script>
     <script>
@@ -343,8 +343,15 @@
 <p><code>name</code>可以省略</p>
 <p><figure><img data-width="1554" data-height="458" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d01d538d585ec8b2d893bf7dfcd5479e.jpg" alt="" /></figure></p>
 <h2>@ApiImplicitParams()</h2>
-<p>作用于<code>请求方法</code>上，对参数进行说明，包含多个</p>
+<p>作用于<code>请求方法</code>上，对参数进行说明，包含多个<code>@ApiImplicitParam</code></p>
 <p>例如</p>
+<div class="highlight"><pre><span></span><span class="nd">@ApiImplicitParams</span><span class="p">({</span>
+    <span class="nd">@ApiImplicitParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;User&#39;s name&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">dataType</span> <span class="o">=</span> <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="n">paramType</span> <span class="o">=</span> <span class="s">&quot;query&quot;</span><span class="p">),</span>
+    <span class="nd">@ApiImplicitParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;User&#39;s email&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">dataType</span> <span class="o">=</span> <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="n">paramType</span> <span class="o">=</span> <span class="s">&quot;query&quot;</span><span class="p">),</span>
+    <span class="nd">@ApiImplicitParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;User ID&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">dataType</span> <span class="o">=</span> <span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="n">paramType</span> <span class="o">=</span> <span class="s">&quot;query&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="p">,</span> <span class="n">IOException</span> <span class="p">{...}</span>
+</pre></div>
 <h2>@ApiModel()：实体类</h2>
 <p>作用于实体类上</p>
 <table>
@@ -405,7 +412,7 @@
    <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Pet not found&quot;</span><span class="p">)</span> <span class="p">})</span>
 </pre></div>
 <h2>@ApiIgnore：忽略类或方法或实体类属性</h2>
-<p>隐藏</p>
+<p>可作用于类，方法和实体类属性上</p>
 </article>
     </section>
 
