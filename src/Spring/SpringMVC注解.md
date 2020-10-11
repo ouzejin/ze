@@ -159,7 +159,11 @@ RequestMapping是一个用来处理请求地址映射的注解，可用于类或
 
 ## 2.5 @RequestBody
 
-RequestBody 注解用于接收前端传来的实体，接收参数也是对应的实体，比如前端通过 JSON 提交传来两个参数 username 和 password，此时我们需要在后端封装一个实体来接收。在传递的参数比较多的情况下，使用 @RequestBody 接收会非常方便。
+参考
+
+> - https://blog.csdn.net/weixin_38004638/article/details/99655322
+
+RequestBody 注解用于接收`contentType: "application/json;"`的body，接收参数可以是实体，比如前端通过 JSON 提交传来两个参数 username 和 password，此时我们需要在后端封装一个实体来接收。在传递的参数比较多的情况下，使用 @RequestBody 接收会非常方便。
 
 
 

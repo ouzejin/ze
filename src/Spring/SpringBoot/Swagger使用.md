@@ -219,11 +219,22 @@ public void exportExcel(@ApiParam(name="param",value="ApiParam_value",required=t
 
 ## @ApiImplicitParams()
 
-作用于`请求方法`上，对参数进行说明，包含多个
+作用于`请求方法`上，对参数进行说明，包含多个`@ApiImplicitParam`
 
 
 
 例如
+
+```java
+@ApiImplicitParams({
+    @ApiImplicitParam(name = "name", value = "User's name", required = true, dataType = "string", paramType = "query"),
+    @ApiImplicitParam(name = "email", value = "User's email", required = false, dataType = "string", paramType = "query"),
+    @ApiImplicitParam(name = "id", value = "User ID", required = true, dataType = "long", paramType = "query")
+  })
+ public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {...}
+```
+
+
 
 
 
@@ -294,4 +305,4 @@ public class DemoData {
 
 ## @ApiIgnore：忽略类或方法或实体类属性
 
-隐藏
+可作用于类，方法和实体类属性上
