@@ -124,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Mysql面试题/</loc>
+    <loc>/archives/Mysql学习笔记/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
