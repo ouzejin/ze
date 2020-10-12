@@ -273,7 +273,7 @@ public void exportExcel(@ApiParam(name="param",value="ApiParam_value",required=t
 ```java
 @ApiModel(value = "ApiModel_value", description = "ApiModel_description")
 public class DemoData {
-    @ApiModelProperty(value="用户名id",dataType = "String",required = true)
+    @ApiModelProperty(value="用户名id",required = true)
     private Integer id;
 }
 ```
