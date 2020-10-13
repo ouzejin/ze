@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,wiki" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Kepler" />
+    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b25994b67316a92bdb667e920c475979.json"
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+                document.body.classList.add('safari')
+            }else{
+                document.body.classList.remove('safari')
+            }
+        });
+    </script>
+    
+<title>Mysql理论学习笔记 - LifeAlsoIsGG-Wiki</title>
+<meta name="author" content="LifeAlsoIsGG" />
+<meta name="description" content="参考" />
+<meta property="og:title" content="Mysql理论学习笔记 - LifeAlsoIsGG-Wiki" />
+<meta property="og:description" content="参考" />
+<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/Mysql理论学习笔记/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-09-16T18:10:26-00.00" />
+<meta name="twitter:title" content="Mysql理论学习笔记 - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:description" content="参考" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png" type="images/x-ico" />
+
+    </head>
+    
+    <body class="content">
+        <header>
+            <div class="container">
+                <section>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png">LifeAlsoIsGG-Wiki</a>
+                </section>
+                <section>
+                    <nav>
+                        <ul>
+                            
+                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                            
+                                <li><a href="https://photos.lifeisgg.online" target="_blank">Photos</a></li>
+                            
+                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                            
+                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+    
+                <section>
+                    <a hidden class="toggle-toc" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('toc-open')"><i class="fa fa-align-right"></i></a>
+                    <a hidden class="toggle-navbar" target="_self" href="javascript:void(0)" onclick="$(body).toggleClass('navbar-open')"><i class="fa fa-indent"></i></a>
+                    <button class="search-form-input"><i class="fa fa-search"></i></button>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <div id="pjax-container" class="container">
+                <aside id="navbar" class="no-scrollbar">
+                    
+                    <section class="sidebar-nav">
+                        
+                            <div class="None" ><span><a href="/">Home</a></span></div>
+                        
+                            <div class="None" ><span><a href="/archives/">Archives</a></span></div>
+                        
+                            <div class="None" ><span><a href="/About/">About</a></span></div>
+                        
+                            <div class="None" ><span><a href="/My Project/">My Project</a></span></div>
+                        
+                    </section>
+                    
+                    <section>
+                        
+    <div class="open "><span><a href="/category/数据库/">数据库</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/SQL学习笔记/">SQL学习笔记</a></li><li class=""><a href="/archives/Redis学习笔记/">Redis学习笔记</a></li><li class="current"><a href="/archives/Mysql理论学习笔记/">Mysql理论学习笔记</a></li><div class=" "><span><a href="/category/Hadoop/">Hadoop</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Hadoop伪分布式配置/">Hadoop伪分布式配置</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Spring/">Spring</a><button class="toggle_sidebar fa"></button></span><ul><div class=" "><span><a href="/category/SpringBoot/">SpringBoot</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Swagger使用/">Swagger使用</a></li><li class=""><a href="/archives/Lombok使用/">Lombok使用</a></li><li class=""><a href="/archives/Maven中依赖的scope总结/">Maven中依赖的scope总结</a></li><li class=""><a href="/archives/Devtools对Springboot热部署/">Devtools对Springboot热部署</a></li><li class=""><a href="/archives/IDEA配置Run Dashboard/">IDEA配置Run Dashboard</a></li><li class=""><a href="/archives/IDEA初始化SpringBoot项目+逆向工程+配置/">IDEA初始化SpringBoot项目+逆向工程+配置</a></li><li class=""><a href="/archives/EasyExcel导入导出Excel/">EasyExcel导入导出Excel</a></li><li class=""><a href="/archives/服务器上部署SpringBoot/">服务器上部署SpringBoot</a></li></ul></div><div class=" "><span><a href="/category/Mybatis/">Mybatis</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Mybatis学习笔记/">Mybatis学习笔记</a></li><li class=""><a href="/archives/Mybatis逆向工程&Example类使用/">Mybatis逆向工程&Example类使用</a></li></ul></div><li class=""><a href="/archives/HttpServletrequest与HttpServletResponse/">HttpServletrequest与HttpServletResponse</a></li><li class=""><a href="/archives/SpringMVC基础&面试/">SpringMVC基础&面试</a></li><li class=""><a href="/archives/SpringMVC注解/">SpringMVC注解</a></li><li class=""><a href="/archives/Spring基础&面试/">Spring基础&面试</a></li><div class=" "><span><a href="/category/SpringCloud/">SpringCloud</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/认识SpringCloud/">认识SpringCloud</a></li></ul></div></ul></div><div class=" "><span><a href="/category/Java/">Java</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Java-IO/">Java-IO</a></li><li class=""><a href="/archives/Java-JVM/">Java-JVM</a></li><li class=""><a href="/archives/Java-集合容器/">Java-集合容器</a></li><li class=""><a href="/archives/Java-多线程并发/">Java-多线程并发</a></li><li class=""><a href="/archives/Java-设计模式/">Java-设计模式</a></li><li class=""><a href="/archives/Java-方法汇总/">Java-方法汇总</a></li><li class=""><a href="/archives/Java-基础面试题/">Java-基础面试题</a></li><li class=""><a href="/archives/Java-基础知识笔记/">Java-基础知识笔记</a></li></ul></div><div class=" "><span><a href="/category/前端/">前端</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/JavaScript面试题/">JavaScript面试题</a></li><li class=""><a href="/archives/Promise异步调用/">Promise异步调用</a></li></ul></div><div class=" "><span><a href="/category/面试/">面试</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/面试题整理/">面试题整理</a></li><li class=""><a href="/archives/腾讯移动客户端面经/">腾讯移动客户端面经</a></li><li class=""><a href="/archives/计算机其它面试题/">计算机其它面试题</a></li><li class=""><a href="/archives/Mysql&Redis数据库面试题/">Mysql&Redis数据库面试题</a></li><li class=""><a href="/archives/Spring框架面试题/">Spring框架面试题</a></li><li class=""><a href="/archives/字节跳动面试/">字节跳动面试</a></li><li class=""><a href="/archives/后端面试题/">后端面试题</a></li></ul></div><div class=" "><span><a href="/category/数据结构&算法/">数据结构&算法</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/数据结构&算法笔记/">数据结构&算法笔记</a></li><li class=""><a href="/archives/数据结构&算法题目合集/">数据结构&算法题目合集</a></li></ul></div><div class=" "><span><a href="/category/Linux/">Linux</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Linux常用命令/">Linux常用命令</a></li><li class=""><a href="/archives/xshell connect to Centos7 in VMware/">用xshell连接虚拟机中的Centos7</a></li><div class=" "><span><a href="/category/Docker/">Docker</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/Docker:Install-software/">Docker:Install software</a></li><li class=""><a href="/archives/Docker-deployment/">Docker deployment</a></li></ul></div></ul></div><div class=" "><span><a href="/category/My Project/">My Project</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/MyProject-AttendanceMiniprogram/">实验室出入管理小程序</a></li><li class=""><a href="/archives/ActivitySystem/">Javaweb大学活动管理系统</a></li><li class=""><a href="/archives/MyProject-SupermarketSystem/">Java Swing-超市系统</a></li></ul></div><div class=" "><span><a href="/category/Other/">Other</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/大三下实训期末作业/">大三下实训期末作业</a></li><li class=""><a href="/archives/修改Host以访问Github/">修改Host以访问Github</a></li></ul></div><div class=" "><span><a href="/category/Notes/">Notes</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/软考软件设计师笔记/">软考软件设计师笔记</a></li></ul></div><div class=" "><span><a href="/category/Maverick/">Maverick</a><button class="toggle_sidebar fa"></button></span><ul><li class=""><a href="/archives/typography/">Hello World!</a></li></ul></div>
+
+                    </section>
+                    <section hidden class="sidebar-external-link">
+                        
+                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://photos.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                        
+                    </section>
+                    <section class="maverick">
+                        <div><span style="border: 1px solid #d4dadf;"><a href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a></span></div>
+                    </section>
+                </aside>
+                <div id="content-wrapper">
+                    <div id="content">
+    <section>
+        <h1 class="post-title">Mysql理论学习笔记</h1>
+        <p class="post-meta">
+            <time>September 16 2020</time>
+            <span class="tags">
+                
+                <span>
+                    <a href="/tag/数据库/">#数据库</a>
+                </span>
+                
+                <span>
+                    <a href="/tag/Mysql/">#Mysql</a>
+                </span>
+                
+            </span>
+        </p>
+        <article class="yue"><h1>参考</h1>
+<h1>存储引擎</h1>
+<h2>查看MySQL提供的所有存储引擎</h2>
+<div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">engines</span><span class="p">;</span>
+</pre></div>
+<p><figure><img data-width="1790" data-height="500" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a5050001f92f32eb7f05bb2e484ee23c.jpg" alt="" /></figure></p>
+<p>从上图我们可以查看出 MySQL 当前默认的存储引擎是<code>InnoDB</code>,并且在5.7版本所有的存储引擎中只有 <code>InnoDB</code> 是事务性存储引擎，也就是说只有 InnoDB ⽀持事务。</p>
+<h2>查看MySQL当前默认的存储引擎</h2>
+<p>我们也可以通过下⾯的命令查看默认的存储引擎。</p>
+<div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%storage_engine%&#39;</span><span class="p">;</span>
+</pre></div>
+<p>查看表的存储引擎</p>
+<div class="highlight"><pre><span></span><span class="k">show</span> <span class="k">table</span> <span class="n">status</span> <span class="k">like</span> <span class="ss">&quot;table_name&quot;</span> <span class="p">;</span>
+</pre></div>
+<h2>InnoDB四大特性</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/zhs0/p/10528520.html">https://www.cnblogs.com/zhs0/p/10528520.html</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>插入缓冲( insert buffer)</li>
+<li>二次写( double write)</li>
+<li>自适应哈希索引（hash）</li>
+<li>预读( read ahead  ）</li>
+</ul>
+<h2>MyISAM和InnoDB区别</h2>
+<ol>
+<li><strong>是否⽀持⾏级锁</strong> : MyISAM 只有表级锁(table-level locking)，⽽InnoDB ⽀持⾏级锁(rowlevel locking)和表级锁,默认为⾏级锁。</li>
+<li><strong>是否⽀持事务和崩溃后的安全恢复</strong>： MyISAM 强调的是性能，每次查询具有原⼦性,其执⾏速度 ⽐InnoDB类型更快，但是不提供事务⽀持。但是InnoDB 提供事务⽀持事务，外部键等⾼级数据 库功能。 具有<code>事务(commit)</code>、<code>回滚(rollback)</code>和<code>崩溃修复能⼒(crash recovery capabilities)</code> 的<code>事务安全(transaction-safe (ACID compliant))</code>型表。</li>
+<li><strong>是否⽀持外键</strong>： MyISAM不⽀持，⽽InnoDB⽀持。</li>
+<li><strong>索引区别</strong>：<code>InnoDB是聚集索引</code>，使用B+Tree作为索引结构，<code>数据文件是和（主键）索引绑在一起的</code>（表数据文件本身就是按B+Tree组织的一个索引结构），<strong>必须要有主键</strong>，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。<code>MyISAM是非聚集索引</code>，也是使用B+Tree作为索引结构，<code>索引和数据文件是分离的</code>，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。</li>
+<li><strong>表行数计算</strong>：InnoDB不保存表的具体行数，执行select count(*) from table时需要全表扫描。而MyISAM用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度很快（注意不能加有任何WHERE条件）；</li>
+<li><strong>是否⽀持MVCC</strong> ：仅 InnoDB ⽀持。应对⾼并发事务, MVCC⽐单纯的加锁更⾼效;MVCC只在 <code>READ COMMITTED</code> 和 <code>REPEATABLE READ</code> 两个隔离级别下⼯作;MVCC可以使⽤ <code>乐观 (optimistic)锁</code> 和 <code>悲观(pessimistic)锁</code>来实现;各数据库中MVCC实现并不统⼀</li>
+</ol>
+<h2>如何选择</h2>
+<ol>
+<li><p>是否要支持事务，如果要请选择innodb，如果不需要可以考虑MyISAM；</p>
+</li>
+<li><p>如果表中绝大多数都只是读查询，可以考虑MyISAM，如果既有读也有写，请使用InnoDB。</p>
+</li>
+<li><p>系统奔溃后，MyISAM恢复起来更困难，能否接受；</p>
+</li>
+</ol>
+<h1>索引</h1>
+<p>MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
+<p>打个比方，如果合理的设计且使用索引的MySQL是一辆兰博基尼的话，那么没有设计和使用索引的MySQL就是一个人力三轮车。</p>
+<p>拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。</p>
+<p>索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。</p>
+<p>创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为 WHERE 子句的条件)。</p>
+<p>实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。</p>
+<p>上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。</p>
+<p>建立索引会占用磁盘空间的索引文件。</p>
+<h2>缺点</h2>
+<ul>
+<li><strong>时间方面</strong>：创建索引和维护索引要耗费时间,具体地,当对表中的数据进行增加、删除和修改的时候,索引也要动态的维护,会降低增/改/删的执行效率</li>
+<li><strong>空间方面</strong>：索引需要占物理空间</li>
+</ul>
+<h2>种类</h2>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>唯一索引</td>
+<td>不允许有俩行具有相同的值，允许空值</td>
+</tr>
+<tr>
+<td>主键索引</td>
+<td>为了保持数据库表与表之间的关系，不允许空值</td>
+</tr>
+<tr>
+<td>聚集索引</td>
+<td>表中行的物理顺序与键值的逻辑(索引)顺序相同</td>
+</tr>
+<tr>
+<td>非聚集索引</td>
+<td>聚集索引和非聚集索引的根本区别是<strong>表记录的排列顺序和与索引的排列顺序是否一致</strong></td>
+</tr>
+<tr>
+<td>复合索引</td>
+<td>在创建索引时,并不是只能对一列进行创建索引,可以与主键样,讲多个组合为索引</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>全文索引为在字符串数据中进行复杂的词搜索提供有效支持</td>
+</tr>
+</tbody>
+</table>
+<h2>主键索引与唯一索引区别</h2>
+<p>回归到主键本身的特点</p>
+<ol>
+<li>主键是一种约束,唯一索引是一种索引,两者在本质上是不同的</li>
+<li>主键创建后一定包含一个唯一性索引,唯一性索引并不一定就是主键。</li>
+<li>唯一性索引列允许空值,而主键列不允许为空值。  </li>
+<li>主键列在创建时,已经默认为空值++唯一索引了。</li>
+<li>一个表最多只能创建一个主键,但可以创建多个唯一索引。</li>
+<li>主键更适合那些不容易更改的唯一标识,如自动递增列、身份证号等。</li>
+<li>主键可以被其他表引用为外键,而唯一索引不能</li>
+</ol>
+<h2>使用场景</h2>
+<ol>
+<li>当数据多且字段值有相同的值得时候用普通索引</li>
+<li>当字段多且字段值没有重复的时候用唯一索引</li>
+<li>当有多个字段名都经常被查询的话用复合索引</li>
+<li>普通索引不支持空值,唯一索引支持空值。</li>
+<li>但是,若是这张表增删改多而查询较少的话,就不要创建索引了,因为如果</li>
+<li>你绐一列创建了索引,那么对该列进行增删改的时候,都会先访问这一列的索引,</li>
+<li>若是增,则在这一列的索引内以新填入的这个字段名的值为名创建索引的子</li>
+<li>若是改,则会把原来的删掉,再添入一个以这个字段名的新值为名创建索引的子集</li>
+<li>若是删,则会把索引中以这个字段为名的索引的子集删掉</li>
+<li>所以,会对增删改的执行减缓速度</li>
+<li>所以,若是这张表增删改多而查询较少的话,就不要创建索引了。</li>
+<li>更新太频繁地字段不适合创建索引</li>
+<li>不会出现在 where条件中的字段不该建立索引  </li>
+</ol>
+<h2>数据结构：B数索引 | 哈希索引</h2>
+<p>MySQL索引使⽤的数据结构主要有<code>BTree索引</code> 和 <code>哈希索引</code> 。对于哈希索引来说，底层的数据结构就是 哈希表，因此在绝⼤多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；其余⼤部分 场景，建议选择BTree索引。</p>
+<h3>BTree索引</h3>
+<p><strong>B-树：</strong></p>
+<p><figure><img data-width="617" data-height="327" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/00122e990b5de312544ac00ada6d565a.png" alt="" /></figure></p>
+<p>一个节点大小限制在<code>16k</code></p>
+<p><strong>B+树：</strong></p>
+<p><figure><img data-width="676" data-height="362" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8ddd3738ed803502fa21bd1044226348.png" alt="" /></figure></p>
+<p><strong>B+树的特征：</strong></p>
+<ol>
+<li><p>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。</p>
+</li>
+<li><p>所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接，方便区间查找。</p>
+</li>
+<li><p>所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。</p>
+</li>
+</ol>
+<p><strong>B+树的优势：</strong></p>
+<ol>
+<li><p>单一节点存储更多的元素，使得查询的IO次数更少。</p>
+</li>
+<li><p>所有查询都要查找到叶子节点，查询性能稳定。</p>
+</li>
+<li><p>所有叶子节点形成有序链表，便于区间范围查询。</p>
+</li>
+</ol>
+<p>MySQL的BTree索引使⽤的是B树中的B+Tree，但对于主要的两种存储引擎的实现⽅式是不同的。</p>
+<p>MyISAM: B+Tree叶节点的data域存放的是数据记录的地址。在索引检索的时候，⾸先按照B+Tree 搜索算法搜索索引，如果指定的Key存在，则取出其 data 域的值，然后以 data 域的值为地址 读取相应的数据记录。这被称为“⾮聚簇索引”。</p>
+<p>InnoDB: 其数据⽂件本身就是索引⽂件。相⽐MyISAM，索引⽂件和数据⽂件是分离的，其表数据 ⽂件本身就是按B+Tree组织的⼀个索引结构，树的叶节点data域保存了完整的数据记录。这个索 引的key是数据表的主键，因此InnoDB表数据⽂件本身就是主索引。这被称为“聚簇索引（或聚集 索引）”。⽽其余的索引都作为ᬀ助索引，ᬀ助索引的data域存储相应记录主键的值⽽不是地 址，这也是和MyISAM不同的地⽅。在根据主索引搜索时，直接找到key所在的节点即可取出数 据；在根据辅助索引查找时，则需要先取出主键的值，再⾛⼀遍主索引。 因此，在设计表的时 候，不建议使⽤过⻓的字段作为主键，也不建议使⽤⾮单调的字段作为主键，这样会造成主索引 频繁分裂。 PS：整理⾃《Java⼯程师修炼之道》</p>
+<h3>哈希索引</h3>
+<h1>锁</h1>
+<h1>三大范式</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/linjiqin/archive/2012/04/01/2428695.html">https://www.cnblogs.com/linjiqin/archive/2012/04/01/2428695.html</a></li>
+</ul>
+</blockquote>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一范式</strong></td>
+<td>据库表中的所有字段值都是不可分解的原子值</td>
+</tr>
+<tr>
+<td><strong>第二范式</strong></td>
+<td>满足第一范式且确保表中的每列都和主键相关</td>
+</tr>
+<tr>
+<td><strong>第三范式</strong></td>
+<td>满足第二范式且确保每列都和主键列直接相关,而不是间接相关</td>
+</tr>
+</tbody>
+</table>
+<h2>第一范式</h2>
+<p>第一范式的合理遵循需要根据系统的实际需求来定。比如某些数据库系统中需要用到“地址”这个属性，本来直接将“地址”属性设计成一个数据库表的字段就行。但是如果系统经常会访问“地址”属性中的“城市”部分，那么就非要将“地址”这个属性重新拆分为省份、城市、详细地址等多个部分进行存储，这样在对地址中某一部分操作的时候将非常方便。这样设计才算满足了数据库的第一范式，如下表所示。</p>
+<p><figure><img data-width="639" data-height="218" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1c661f33b1d2152775f950a0792b3745.png" alt="" /></figure></p>
+<h2>第二范式</h2>
+<p>第二范式在第一范式的基础之上更进一层。第二范式需要确保数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关（主要针对联合主键而言）。也就是说在一个数据库表中，一个表中只能保存一种数据，不可以把多种数据保存在同一张数据库表中。所以有时候需要<code>中间映射表</code></p>
+<p>比如要设计一个订单信息表，因为订单中可能会有多种商品，所以要将订单编号和商品编号作为数据库表的联合主键，如下表所示。</p>
+<p><figure><img data-width="683" data-height="160" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d72404dbaa8aeae9e75fa84f585affe4.png" alt="" /></figure></p>
+<p>这样就产生一个问题：这个表中是以订单编号和商品编号作为联合主键。<strong>这样在该表中商品名称、单位、商品价格等信息不与该表的主键相关，而仅仅是与商品编号相关</strong>。所以在这里违反了第二范式的设计原则。</p>
+<p>而如果把这个订单信息表进行拆分，把商品信息分离到另一个表中，把订单项目表也分离到另一个表中，就非常完美了。如下所示。</p>
+<p><figure><img data-width="390" data-height="573" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/3af7697ed48518741fc94d742716b35f.png" alt="" /></figure></p>
+<h2>第三范式</h2>
+<p>第三范式需要确保数据表中的每一列数据都和主键直接相关，而不能间接相关。</p>
+<p>比如在设计一个订单数据表的时候，可以将客户编号作为一个外键和订单表建立相应的关系。而不可以在订单表中添加关于客户其它信息（比如姓名、所属公司等）的字段。如下面这两个表所示的设计就是一个满足第三范式的数据库表。</p>
+<p><figure><img data-width="586" data-height="357" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/c4a8e21c01e3adf232d6ec7cd41c8845.png" alt="" /></figure></p>
+<p>再例如，学生选课表，不能把课程的具体信息列放在此表中，应该多开一个表为课程信息表，然后两个表通过课程id映射。</p>
+</article>
+    </section>
+
+    
+    <section id="content-pager">
+        
+            <div class="next">
+                <a class="card" href="/archives/面试题整理/">
+                    <time>September 16 2020</time>
+                    <span>面试题整理</span>
+                </a>
+            </div>
+        
+        
+            <div class="prev">
+                <a class="card" href="/archives/Spring基础&面试/">
+                    <time>September 16 2020</time>
+                    <span>Spring基础&面试</span>
+                </a>
+            </div>
+        
+    </section>
+    
+
+    
+        <section id="comments">
+            <div id="vcomments"></div>
+        </section>
+        <script>
+            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u8fd8\u8bf7\u4e0d\u541d\u8d50\u6559"};
+            window.ValineOpt.path = window.location.pathname;
+        </script>
+    
+
+    <script>
+        document.body.classList.add('content');
+        document.body.classList.remove('archive');
+    </script>
+</div>
+                    <footer>
+                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        
+    <span class="leancloud_visitors"
+            id="/archives/Mysql理论学习笔记/" 
+            data-flag-title="Mysql理论学习笔记">
+            <i class="fa fa-eye"></i> <i style="font-style: normal" class="leancloud-visitors-count"></i> Views
+        </span>
+
+                        <span class="addon">
+<p><a href="http://www.beian.miit.gov.cn">粤ICP备19126168号</a>
+</span>
+                    </footer>
+                </div>
+                
+<aside id="toc-container" class="no-scrollbar">
+    <span><i class="fa fa-align-right"></i> CONTENTS</span>
+    <div id="toc"></div>
+</aside>
+
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script>
+            function ExSearchCall(item){
+                if (item && item.length) {
+                    $('.ins-close').click(); // 关闭搜索框
+                    $('input.ins-search-input').val(''); // 清空
+                    let url = item.attr('data-url'); // 获取目标页面 URL
+                    $.pjax({url: url, 
+                        container: '#pjax-container',
+                        fragment: '#pjax-container',
+                        timeout: 8000, }); // 发起一次 PJAX 请求
+                }
+            }
+        </script>
+
+        <!--Valine-->
+        
+            <script>
+                var initValine = function () {
+                    if (typeof window.ValineOpt === 'object' && $(window.ValineOpt.el).length) {
+                        new Valine(window.ValineOpt);
+                    }
+                }
+            </script>
+            <script async src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        
+
+        <!--ExSearch-->
+        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        
+        <!--katex-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.js"></script>
+        <script>
+        mathOpts = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+        
+    </body>
+</html>
