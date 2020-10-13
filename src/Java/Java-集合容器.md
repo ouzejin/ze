@@ -1114,6 +1114,7 @@ public class HashSet<E>
 > - https://www.cnblogs.com/chentang/p/12670462.html
 > - https://www.cnblogs.com/wytiger/p/10731082.html
 > - https://www.cnblogs.com/yuanblog/p/4441017.html
+> - [最全源码解析](https://blog.csdn.net/v123411739/article/details/78996181?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param)
 
 
 

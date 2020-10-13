@@ -1,20 +1,17 @@
 ---
 layout: post
-title: SQL实战题目
-slug: SQL实战题目
-date: 2020/09/05 18:15:17
+title: Redis学习笔记
+slug: Redis学习笔记
+date: 2020/10/12 20:45:07
 status: publish
 author: LifeAlsoIsGG
 categories: 
   - 数据库
 tags: 
   - 数据库
-  - SQL实战题目
-
+  - Redis
 ---
 
 
 
-
-
-SQL实战题目
+Redis学习笔记
