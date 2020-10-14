@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b25994b67316a92bdb667e920c475979.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/bea495851403c886b802df14b98060a7.json"
         }
     </script>
     <script>
@@ -215,11 +215,11 @@
 </tr>
 <tr>
 <td>聚集索引</td>
-<td>表中行的物理顺序与键值的逻辑(索引)顺序相同</td>
+<td>索引文件和数据文件是<code>绑定</code>的，表中行的物理顺序与键值的逻辑(索引)顺序相同</td>
 </tr>
 <tr>
 <td>非聚集索引</td>
-<td>聚集索引和非聚集索引的根本区别是<strong>表记录的排列顺序和与索引的排列顺序是否一致</strong></td>
+<td>索引文件和数据文件是<code>分离</code>的，聚集索引和非聚集索引的根本区别是<strong>表记录的排列顺序和与索引的排列顺序是否一致</strong></td>
 </tr>
 <tr>
 <td>复合索引</td>
@@ -258,15 +258,20 @@
 <li>更新太频繁地字段不适合创建索引</li>
 <li>不会出现在 where条件中的字段不该建立索引  </li>
 </ol>
-<h2>数据结构：B数索引 | 哈希索引</h2>
+<h2>哈希索引</h2>
 <p>MySQL索引使⽤的数据结构主要有<code>BTree索引</code> 和 <code>哈希索引</code> 。对于哈希索引来说，底层的数据结构就是 哈希表，因此在绝⼤多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；其余⼤部分 场景，建议选择BTree索引。</p>
-<h3>BTree索引</h3>
-<p><strong>B-树：</strong></p>
+<h2>B树索引</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/biggoodloong/article/details/90203301">https://blog.csdn.net/biggoodloong/article/details/90203301</a></li>
+</ul>
+</blockquote>
+<h3>B-树</h3>
 <p><figure><img data-width="617" data-height="327" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/00122e990b5de312544ac00ada6d565a.png" alt="" /></figure></p>
 <p>一个节点大小限制在<code>16k</code></p>
-<p><strong>B+树：</strong></p>
+<h3>B+树</h3>
 <p><figure><img data-width="676" data-height="362" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8ddd3738ed803502fa21bd1044226348.png" alt="" /></figure></p>
-<p><strong>B+树的特征：</strong></p>
+<h3>B+树的特征</h3>
 <ol>
 <li><p>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。</p>
 </li>
@@ -275,7 +280,7 @@
 <li><p>所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。</p>
 </li>
 </ol>
-<p><strong>B+树的优势：</strong></p>
+<h3>B+树的优势</h3>
 <ol>
 <li><p>单一节点存储更多的元素，使得查询的IO次数更少。</p>
 </li>
@@ -285,9 +290,110 @@
 </li>
 </ol>
 <p>MySQL的BTree索引使⽤的是B树中的B+Tree，但对于主要的两种存储引擎的实现⽅式是不同的。</p>
-<p>MyISAM: B+Tree叶节点的data域存放的是数据记录的地址。在索引检索的时候，⾸先按照B+Tree 搜索算法搜索索引，如果指定的Key存在，则取出其 data 域的值，然后以 data 域的值为地址 读取相应的数据记录。这被称为“⾮聚簇索引”。</p>
-<p>InnoDB: 其数据⽂件本身就是索引⽂件。相⽐MyISAM，索引⽂件和数据⽂件是分离的，其表数据 ⽂件本身就是按B+Tree组织的⼀个索引结构，树的叶节点data域保存了完整的数据记录。这个索 引的key是数据表的主键，因此InnoDB表数据⽂件本身就是主索引。这被称为“聚簇索引（或聚集 索引）”。⽽其余的索引都作为ᬀ助索引，ᬀ助索引的data域存储相应记录主键的值⽽不是地 址，这也是和MyISAM不同的地⽅。在根据主索引搜索时，直接找到key所在的节点即可取出数 据；在根据辅助索引查找时，则需要先取出主键的值，再⾛⼀遍主索引。 因此，在设计表的时 候，不建议使⽤过⻓的字段作为主键，也不建议使⽤⾮单调的字段作为主键，这样会造成主索引 频繁分裂。 PS：整理⾃《Java⼯程师修炼之道》</p>
-<h3>哈希索引</h3>
+<h3>MyISAM实现方式：非聚簇索引</h3>
+<p>B+Tree叶节点的data域存放的是<code>数据记录的地址</code>。在索引检索的时候，⾸先按照B+Tree 搜索算法搜索索引，如果指定的Key存在，则取出其 data 域的值，然后以 data 域的值为地址 读取相应的数据记录。这被称为“<code>⾮聚簇索引</code>”。</p>
+<p>MyISAM的索引文件仅仅保存<code>数据记录的地址</code>。在MyISAM中，<code>主键索引</code>和<code>辅助索引</code>在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的key可以重复。</p>
+<p><figure><img data-width="664" data-height="534" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/0900840c8e75a663adcbd9a6a8358037.png" alt="" /></figure></p>
+<p>这里设表一共有三列，假设我们以Col1为主键，图myisam1是一个MyISAM表的主索引（Primary key）示意。可以看出MyISAM的索引文件仅仅保存<code>数据记录的地址</code>。</p>
+<h4>辅助索引：</h4>
+<p>在MyISAM中，主索引和辅助索引在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的key可以重复。 如果我们在Col2上建立一个辅助索引，则此索引的结构如下图所示：</p>
+<p><figure><img data-width="664" data-height="534" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9b63e9e845c7fe1ac2465ee0b3025bed.png" alt="" /></figure></p>
+<h3>InnoDB实现方式：聚簇索引</h3>
+<p><code>其数据⽂件本身就是索引⽂件</code>。相⽐MyISAM的索引⽂件和数据⽂件是分离的，其<code>表数据⽂件本身就是按B+Tree组织的⼀个索引结构</code>，树的叶节点data域保存了完整的数据记录。这个索 引的key是数据表的主键，因此InnoDB表数据⽂件本身就是主索引。这被称为“聚簇索引（或聚集 索引）”。⽽其余的索引都作为辅助索引，辅助索引的data域存储相应记录<code>主键的值⽽不是地址</code>，这也是和MyISAM不同的地⽅。在根据主索引搜索时，直接找到key所在的节点即可取出数 据；在根据辅助索引查找时，则需要先取出主键索引的值，再⾛⼀遍主索引。 因此，在设计表的时 候，<code>不建议使⽤过⻓的字段作为主键，也不建议使⽤⾮单调的字段作为主键</code>，这样会造成<code>主索引频繁分裂</code>。 PS：整理⾃《Java⼯程师修炼之道》</p>
+<p><figure><img data-width="543" data-height="241" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/40de50e76b72adafc777cb12fd257578.png" alt="" /></figure></p>
+<p>以上是InnoDB主索引（同时也是数据文件）的示意图，可以看到叶节点包含了完整的数据记录。这种索引叫做<strong>聚集索引</strong>。因为InnoDB的数据文件本身要按主键聚集，所以InnoDB要求表必须有主键（MyISAM可以没有），如果没有显式指定，则MySQL系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整形。</p>
+<h4>辅助索引：</h4>
+<p>InnoDB的所有辅助索引都引用主键作为data域，在使用时会先找到主键索引，然后再根据主键索引再来找到叶子节点数据。例如，下图为定义在Col3上的一个辅助索引</p>
+<p><figure><img data-width="543" data-height="222" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/625b79bd11a34ac5bd9d28b8285607fd.png" alt="" /></figure></p>
+<p><strong>InnoDB 表是基于聚簇索引建立的</strong>。因此InnoDB 的索引能提供一种非常快速的主键查找性能。不过，它的辅助索引（Secondary Index， 也就是非主键索引）也会包含主键列， <strong>所以，如果主键定义的比较大，其他索引也将很大。如果想在表上定义很多索引，则争取尽量把主键定义得小一些。</strong> InnoDB 不会压缩索引。</p>
+<h4>注意点</h4>
+<table>
+<thead><tr>
+<th>注意点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不建议使用过长的字段作为主键</td>
+<td>因为所有辅助索引都引用主索引，过长的主索引会令辅助索引变得过大</td>
+</tr>
+<tr>
+<td>不建议使用单调字段作为主键</td>
+<td>因为InnoDB数据文件本身是一颗B+Tree，非单调的主键会造成在插入新记录时数据文件为了维持B+Tree的特性而频繁的分裂调整，十分低效，而使用自增字段作为主键则是一个很好的选择</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>InnoDB索引</strong>和<strong>MyISAM索引</strong>的区别</h3>
+<p>主索引的区别，InnoDB的数据文件本身就是索引文件(<code>聚簇索引</code>)。而MyISAM的索引和数据是分开的(<code>非聚簇索引</code>)。</p>
+<p>辅助索引的区别：InnoDB的辅助索引data域存储相应记录主键的值而不是地址。而MyISAM的辅助索引和主索引没有多大区别</p>
+<h1>事务</h1>
+<p>事务是逻辑上的⼀组操作，要么都执⾏，要么都不执⾏。 事务最经典也经常被拿出来说例⼦就是转账了。假如⼩明要给⼩红转账1000元，这个转账会涉及到两个 关键操作就是：将⼩明的余额减少1000元，将⼩红的余额增加1000元。万⼀在这两个操作之间突然出现 错误⽐如银⾏系统崩溃，导致⼩明余额减少⽽⼩红的余额没有增加，这样就不对了。事务就是保证这两 个关键操作要么都成功，要么都要失败。</p>
+<h2>四大特性</h2>
+<p><figure><img data-width="1068" data-height="610" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/279bdf8bbc67273c4067bf24ad69aad1.jpg" alt="" /></figure></p>
+<ul>
+<li><strong>原⼦性（Atomicity）</strong>： 事务是最⼩的执⾏单位，不允许分割。事务的原⼦性确保动作要么全部 完成，要么完全不起作⽤； </li>
+<li><strong>⼀致性（Consistency）</strong>： 执⾏事务前后，数据保持⼀致，多个事务对同⼀个数据读取的结果是 相同的； </li>
+<li><strong>隔离性（Isolation）</strong>： 并发访问数据库时，⼀个⽤户的事务不被其他事务所⼲扰，各并发事务之间数据库是独⽴的； </li>
+<li><strong>持久性（Durability）</strong>： ⼀个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发⽣故障也不应该对其有任何影响。</li>
+</ul>
+<h2>并发事务带来的问题</h2>
+<ul>
+<li><strong>脏读（Dirty read）</strong>: 当⼀个事务正在访问数据并且对数据进⾏了修改，⽽这种修改还没有提交 到数据库中，这时另外⼀个事务也访问了这个数据，然后使⽤了这个数据。因为这个数据是还没 有提交的数据，那么另外⼀个事务读到的这个数据是“脏数据”，依据“脏数据”所做的操作可能是 不正确的。 </li>
+<li><strong>丢失修改（Lost to modify）</strong>: 指在⼀个事务读取⼀个数据时，另外⼀个事务也访问了该数据， 那么在第⼀个事务中修改了这个数据后，第⼆个事务也修改了这个数据。这样第⼀个事务内的修 改结果就被丢失，因此称为丢失修改。 例如：事务1读取某表中的数据A=20，事务2也读取 A=20，事务1修改A=A-1，事务2也修改A=A-1，最终结果A=19，事务1的修改被丢失。 </li>
+<li><strong>不可重复读（Unrepeatableread</strong>）: 指在⼀个事务内多次读同⼀数据。在这个事务还没有结束 时，另⼀个事务也访问该数据。那么，在第⼀个事务中的两次读数据之间，由于第⼆个事务的修改导致第⼀个事务两次读取的数据可能不太⼀样。这就发⽣了在⼀个事务内两次读到的数据是不 ⼀样的情况，因此称为不可重复读。 </li>
+<li><strong>幻读（Phantom read）</strong>: 幻读与不可重复读类似。它发⽣在⼀个事务（T1）读取了⼏⾏数据，接 着另⼀个并发事务（T2）插⼊了⼀些数据时。在随后的查询中，第⼀个事务（T1）就会发现多了 ⼀些原本不存在的记录，就好像发⽣了幻觉⼀样，所以称为幻读。</li>
+</ul>
+<p>不可重复读和幻读区别：</p>
+<blockquote><p>不可重复读的重点是修改⽐如多次读取⼀条记录发现其中某些列的值被修改，幻读的重点在于新增或者 删除⽐如多次读取⼀条记录发现记录增多或减少了。</p>
+</blockquote>
+<h2>事务隔离级别</h2>
+<p>SQL 标准定义了四个隔离级别：</p>
+<ul>
+<li><strong>READ-UNCOMMITTED(读取未提交)</strong>： 最低的隔离级别，允许读取尚未提交的数据变更，可能会导 致脏读、幻读或不可重复读。 </li>
+<li><strong>READ-COMMITTED(读取已提交)</strong>： 允许读取并发事务已经提交的数据，可以阻⽌脏读，但是幻读 或不可重复读仍有可能发⽣。 </li>
+<li><strong>REPEATABLE-READ(可重复读)</strong>： 对同⼀字段的多次读取结果都是⼀致的，除⾮数据是被本身事务 ⾃⼰所修改，可以阻⽌脏读和不可重复读，但幻读仍有可能发⽣。 </li>
+<li><strong>SERIALIZABLE(可串⾏化)</strong>： 最⾼的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个 执⾏，这样事务之间就完全不可能产⽣⼲扰，也就是说，该级别可以防⽌脏读、不可重复读以及 幻读。</li>
+</ul>
+<table>
+<thead><tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>READ-UNCOMMITTED</strong></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>READ-COMMITTED</strong></td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>REPEATABLE-READ</strong></td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>SERIALIZABLE</strong></td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<p>MySQL InnoDB 存储引擎的默认⽀持的隔离级别是 <code>REPEATABLE-READ（可重读）</code>。</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">@@</span><span class="n">tx_isolation</span>
+</pre></div>
+<p>这⾥需要注意的是：与 SQL 标准不同的地⽅在于 InnoDB 存储引擎在 <code>REPEATABLE-READ（可重读）</code> 事 务隔离级别下使⽤的是<code>Next-Key Lock</code> 锁算法，<code>因此可以避免幻读的产⽣</code>，这与其他数据库系统(如 SQL Server) 是不同的。所以说InnoDB 存储引擎的默认⽀持的隔离级别是 REPEATABLE-READ（可重 读） 已经可以完全保证事务的隔离性要求，即达到了 SQL标准的 SERIALIZABLE(可串⾏化) 隔离级 别。因为<code>隔离级别越低，事务请求的锁越少</code>，所以⼤部分数据库系统的隔离级别都是 <code>READCOMMITTED(读取提交内容)</code> ，但是你要知道的是InnoDB 存储引擎默认使⽤ REPEATABLE-READ（可重 读） 并不会有任何性能损失。 InnoDB 存储引擎在 <code>分布式事务</code> 的情况下⼀般会⽤到 <code>SERIALIZABLE(可串⾏化)</code> 隔离级别。</p>
 <h1>锁</h1>
 <h1>三大范式</h1>
 <p>参考</p>
