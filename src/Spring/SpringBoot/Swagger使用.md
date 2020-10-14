@@ -92,7 +92,11 @@ public class SwaggerConfig {
 
 
 
-输入http://localhost:8001/swagger-ui.html#/即可访问
+输入http://localhost:8001/swagger-ui.html
+
+
+
+![](images/Swagger使用/swagger页面.jpg)
 
 
 
