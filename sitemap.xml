@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Java-反射/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Java-JDK8新特性/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>always</changefreq>
