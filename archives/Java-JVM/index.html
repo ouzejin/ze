@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/dcf556c688f1aee3a6a302118efafdc0.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/986910622a53a8837dd8d8f21e4ba8c9.json"
         }
     </script>
     <script>
@@ -200,6 +200,7 @@
 <h3>1.3.1 虚拟机栈</h3>
 <p>与程序计数器⼀样，Java虚拟机栈也是线程私有的，它的⽣命周期和线程相同，描述的是 Java ⽅法执 ⾏的内存模型，每次⽅法调⽤的数据都是通过栈传递的。</p>
 <p>Java 内存可以粗糙的区分为堆内存（Heap）和栈内存(Stack),其中栈就是现在说的虚拟机栈，或者说 是虚拟机栈中局部变量表部分。 （实际上，Java虚拟机栈是由⼀个个<strong>栈帧</strong>组成，⽽每个栈帧中都拥 有：<strong>局部变量表、操作数栈、动态链接、⽅法出⼝信息。</strong>）</p>
+<p>无论是本地方法栈，还是虚拟机栈，都是线程私有的，当一个线程启动的时候，jvm就会给这个线程分配一个栈，然后每当你调用一个方法的时候，jvm就会往这个栈压入一个栈帧，方法调用完毕，栈帧出栈。注意，一个栈能容纳的栈帧是固定的，有默认的值，当然你也可以通过-Xss去调。但这个栈里面的引用所指向堆内存空间是可以扩展的。简而言之，一个栈的栈帧数目是确定的，而与该栈相关联的堆内存是可以动态扩展的，这些是前提。</p>
 <p>局部变量表主要存放了编译器可知的各种数据类型（boolean、byte、char、short、int、float、 long、double）、对象引⽤（reference类型，它不同于对象本身，可能是⼀个指向对象起始地址的引 ⽤指针，也可能是指向⼀个代表对象的句柄或其他与此对象相关的位置）。</p>
 <p>Java 虚拟机栈会出现两种异常：<code>StackOverFlowError</code> 和 <code>OutOfMemoryError</code>。</p>
 <blockquote><ul>
@@ -494,7 +495,7 @@
 <li><p>假如进行Minor GC时发现，存活的对象在<code>ToSpace</code>区中存不下，那么把存活的对象存入老年代</p>
 <p><figure><img data-width="1100" data-height="961" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/14504f0b89b44b27c299328fb8497324.png" alt="" /></figure></p>
 </li>
-<li><p><strong>大对象直接进入老年代</strong>：假设新创建的对象很大，比如为5M(这个值可以通过PretenureSizeThreshold这个参数进行设置，默认3M)，那么即使<code>Eden区</code>有足够的空间来存放，也不会存放在<code>Eden区</code>，而是直接存入<code>老年代</code></p>
+<li><p><strong>大对象直接进入老年代</strong>：假设新创建的对象很大，比如为5M(这个值可以通过<code>PretenureSizeThreshold</code>这个参数进行设置，默认3M)，那么即使<code>Eden区</code>有足够的空间来存放，也不会存放在<code>Eden区</code>，而是直接存入<code>老年代</code></p>
 <p><figure><img data-width="965" data-height="561" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ac7793d9b2351307528eebbe0022f15f.png" alt="" /></figure></p>
 </li>
 <li><p><strong>长期存活的对象将进入老年代</strong>：此外，如果对象在<code>Eden</code>出生并且经过1次<code>Minor GC</code>后仍然存活，并且能被<code>To区</code>容纳，那么将被移动到<code>To区</code>，并且把对象的年龄设置为<code>1</code>，对象没"熬过"一次<code>Minor GC</code>(没有被回收，也没有因为<code>To区</code>没有空间而被移动到<code>老年代</code>中)，年龄就<code>增加一岁</code>，当它的年龄增加到一定程度(默认<code>15岁</code>，也可以配置参数<code>-XX:MaxTenuringThreshold</code>)，就会被晋升到<code>老年代</code>中</p>
@@ -515,9 +516,18 @@
 </ul>
 <p>如果<code>Full GC</code>后还有无法给新创建的对象分配内存，或者无法移动那些需要进入<code>老年代</code>中的对象，那么<code>JVM</code>抛出<code>OutOfMemoryError</code></p>
 <h3>3.5.3 空间分配担保</h3>
-<p>在发生<code>Minor GC</code>之前，虚拟机会先检查<code>老年代最大可用的连续空间</code>是否大于<code>新生代所有对象总空间</code>，如果这个条件成立，那么<code>Minor GC</code>可以确保是<code>安全</code>的。如果不成立，则虚拟机会查看<code>HandlerPromotionFailure</code>这个参数设置的值(true或flase)是否允许担保失败(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行<code>Minor GC</code>，出了事我负责)。如果允许，那么会继续检查<code>老年代</code>最大可用的连续空间是否大于历次晋升到<code>老年代</code>对象的平均大小，如果大于，将尝试进行一次<code>Minor GC</code>，尽管这次<code>Minor GC</code>是有风险的；如果小于，或者<code>HandlerPromotionFailure</code>为<code>false</code>，那么这次<code>Minor GC</code>将升级为<code>Full GC</code></p>
-<p>如果<code>老年代最大可用的连续空间</code>大于历次晋升到老年代对象的平均大小，那么在<code>HandlerPromotionFailure</code>为<code>true</code>的情况下，可以尝试进行一次<code>Minor GC</code>，但这是有风险的，如果本次将要晋升到老年代的对象很多，那么<code>Minor GC</code>还是无法执行，此时还得改为<code>Full GC</code>。</p>
-<p><code>HandlerPromotionFailure</code>为<code>true</code>时，如果某次需要转移到老年代中的对象确实很多，老年代无法容纳，那么也会先尝试进行一次Minor GC，Minor GC无法执行时再进行Full GC，这样虽然绕了圈子，但我们还是建议把这个参数设置为true，因为我们要尽量避免Full GC。</p>
+<p>在发生<code>Minor GC</code>之前，虚拟机会先检查<code>老年代最大可用的连续空间</code>是否大于<code>新生代所有对象总空间</code>：</p>
+<ul>
+<li><p>如果成立：那么<code>Minor GC</code>可以确保是<code>安全</code>的。</p>
+</li>
+<li><p>如果不成立：则虚拟机会查看<code>HandlerPromotionFailure</code>这个参数设置的值(<code>true</code>或<code>flase</code>)是否允许担保失败(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行<code>Minor GC</code>，出了事我负责)。如果允许，那么会继续检查<code>老年代最大可用的连续空间</code>是否大于<code>历次晋升到老年代对象的平均大小</code>，如果大于，将尝试进行一次<code>Minor GC</code>，尽管这次<code>Minor GC</code>是有风险的；如果小于，或者<code>HandlerPromotionFailure</code>为<code>false</code>，那么这次<code>Minor GC</code>将升级为<code>Full GC</code></p>
+</li>
+</ul>
+<p>如果<code>老年代最大可用的连续空间</code>大于<code>历次晋升到老年代对象的平均大小</code>，那么在<code>HandlerPromotionFailure</code>为<code>true</code>的情况下，可以尝试进行一次<code>Minor GC</code>，但这是有风险的，如果本次将要晋升到老年代的对象很多，那么<code>Minor GC</code>还是无法执行，此时还得改为<code>Full GC</code>。</p>
+<p><code>HandlerPromotionFailure</code>为<code>true</code>时，如果某次需要转移到老年代中的对象确实很多，老年代无法容纳，那么也会先尝试进行一次<code>Minor GC</code>，<code>Minor GC</code>无法执行时再进行<code>Full GC</code>，这样虽然绕了圈子，但我们还是建议把这个参数设置为<code>true</code>，因为我们要尽量避免<code>Full GC</code>。</p>
+<h3>3.5.4 为什么要进行空间担保/风险是什么？</h3>
+<p>前面提到过，新生代使用复制收集算法，但是为了内存利用率。只使用其中一个Survivor空间来作为轮换备份，因此当出现大量对象在Minor GC后仍然存活的情况（最极端的情况是内存回收之后，新生代中所有的对象都存活），就需要老年代进行分配担保，把Survivor无法容纳的对象直接进入老年代。老年代要进行这样的担保，前提是老年代本身还有容纳这些对象的剩余空间，一共有多少对象存活下来在实际完成内存回收之前是无法明确知道的，所以只好取之前每一次回收晋升到老年代对象容量的平均大小值作为经验值，与老年代的剩余空间进行比较，决定是否进行Full GC来让老年代腾出更多空间。</p>
+<p>取平均值进行比较其实仍然是一种动态概率的手段，也就是说，如果某次Minor GC存活后的对象突增，远远高于平均值的话，依然会导致担保失败。如果出现<code>HandlerPromotionFailure</code>失败，那就只好在失败后重新发起一次FULL GC。虽然担保失败时绕的圈子是最大的，但大部分情况下都还是将<code>HandlerPromotionFailure</code>开关打开，避免<code>Full GC</code>过于频繁。</p>
 <h1>4. 收集器</h1>
 <p>参考</p>
 <blockquote><ul>
