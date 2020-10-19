@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/b459e0c9bb95b523da3b80398a5a76f3.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/dcf556c688f1aee3a6a302118efafdc0.json"
         }
     </script>
     <script>
@@ -471,20 +471,40 @@
 </blockquote>
 <h3>3.5.1 Minor GC</h3>
 <p>当分配内存在<code>Eden</code>区，Eden区满时会触发</p>
-<p>当触发<code>Minor GC</code>时，流程如下</p>
-<ul>
-<li><p>此时会调用<code>复制算法</code>，将<code>Eden</code>区和<code>From Survivor</code>区的<code>存活的对象</code>复制到<code>To Survivor</code>中，清空<code>Eden</code>区和<code>From Survivor</code>区，并将Survivor两个区进行逻辑互换。如果移动到<code>To Survivor</code>中的对象大于To区，则会直接移动到老年代</p>
+<h4>Minor GC流程</h4>
+<ol>
+<li><p>假设现在Heap内存大小为20M，其中年轻代为10M，老年代为10M，年轻代中Eden区6M，From区2M，To区2M，新创建的对象首先往Eden区分配，当再次分配一个对象，假设大小为1M，此时Eden区已经没有足够空间来给这个对象分配内存，如图所示：</p>
+<p><figure><img data-width="1127" data-height="489" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/716f89075d49a3b5f3b05a1d368b0297.png" alt="" /></figure></p>
 </li>
-<li><p>如果存活的对象是从<code>Eden</code>区到<code>To Survivor</code>，那么将<code>Age</code>设为1，如果是<code>From Survivor</code>中移动过去，则<code>Age++</code>，此时<code>Age</code>：</p>
-<blockquote><ul>
-<li>当此对象没有引用时，判定为死亡对象</li>
-<li>当Age超过阈值(15)时会移动到<code>老年代</code></li>
-</ul>
-</blockquote>
+<li><p>这时候触发一次<code>Minor GC</code>，把<code>Eden</code>区的存活对象转移到<code>From</code>区，<code>非存活对象</code>进行清理，然后给新创建的对象分配空间，存入<code>Eden</code>区</p>
+<p><figure><img data-width="1099" data-height="482" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/57177c3ff754f4ea6e1df99b201ba857.png" alt="" /></figure></p>
 </li>
-</ul>
+<li><p>随着分配对象的增多，<code>Eden</code>区的空间又不足了：</p>
+<p><figure><img data-width="1117" data-height="489" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/8c984fbe34c14d6f3d21366ec861957b.png" alt="" /></figure></p>
+</li>
+<li><p>这时候再触发一次<code>Minor GC</code>，清理掉<code>Eden</code>区和<code>S1</code>区的死亡对象，把<code>Eden</code>区和<code>S1</code>存活对象转移到<code>S2</code>区，然后再给新对象分配内存：</p>
+<p><figure><img data-width="1111" data-height="479" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f4adff5ba2184967bec42b9ed9e01a09.png" alt="" /></figure></p>
+</li>
+<li><p><code>From</code>区和<code>To</code>区是相对的关系，哪个区中有对象，哪个区就是<code>From</code>区，比如，再进行一次<code>Minor GC</code>，会把存活对象转移到<code>S1</code>区，再为转移之前，<code>S2</code>区是<code>From</code>区，<code>S1</code>区是<code>To</code>区，转移后，<code>S2</code>区中没有存活对象，变为<code>To</code>区，而<code>S1</code>区变为<code>From</code>区。如果存活的对象是从<code>Eden</code>区到<code>To Survivor</code>，那么将<code>Age</code>设为1，如果是<code>From Survivor</code>中移动过去，则<code>Age++</code>。</p>
+<p><figure><img data-width="1076" data-height="968" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9c4931d88a02c27f60eeb7e1e8c56ef4.png" alt="" /></figure></p>
+</li>
+</ol>
+<h4>对象进入老年代的4种情况</h4>
+<ol>
+<li><p>假如进行Minor GC时发现，存活的对象在<code>ToSpace</code>区中存不下，那么把存活的对象存入老年代</p>
+<p><figure><img data-width="1100" data-height="961" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/14504f0b89b44b27c299328fb8497324.png" alt="" /></figure></p>
+</li>
+<li><p><strong>大对象直接进入老年代</strong>：假设新创建的对象很大，比如为5M(这个值可以通过PretenureSizeThreshold这个参数进行设置，默认3M)，那么即使<code>Eden区</code>有足够的空间来存放，也不会存放在<code>Eden区</code>，而是直接存入<code>老年代</code></p>
+<p><figure><img data-width="965" data-height="561" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ac7793d9b2351307528eebbe0022f15f.png" alt="" /></figure></p>
+</li>
+<li><p><strong>长期存活的对象将进入老年代</strong>：此外，如果对象在<code>Eden</code>出生并且经过1次<code>Minor GC</code>后仍然存活，并且能被<code>To区</code>容纳，那么将被移动到<code>To区</code>，并且把对象的年龄设置为<code>1</code>，对象没"熬过"一次<code>Minor GC</code>(没有被回收，也没有因为<code>To区</code>没有空间而被移动到<code>老年代</code>中)，年龄就<code>增加一岁</code>，当它的年龄增加到一定程度(默认<code>15岁</code>，也可以配置参数<code>-XX:MaxTenuringThreshold</code>)，就会被晋升到<code>老年代</code>中</p>
+</li>
+<li><p><strong>动态对象年龄判定</strong>：还有一种情况，如果在<code>From空间</code>中，相同年龄所有对象的大小总和大于<code>From</code>和<code>To空间</code>总和的一半，那么年龄大于等于该年龄的对象就会被移动到<code>老年代</code>，而不用等到<code>15岁</code>(默认)：</p>
+<p><figure><img data-width="959" data-height="950" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1e7829fd90ea234c1a52fa23eeb3ef9a.png" alt="" /></figure></p>
+</li>
+</ol>
 <h3>3.5.2 Full GC</h3>
-<p>当触发GC时，会有STW（Stop The World）,即会暂停程序，无法响应</p>
+<p>当触发GC时，会有<code>STW</code>（Stop The World）,即会暂停程序，无法响应</p>
 <p>触发条件：</p>
 <ul>
 <li>调用<code>System.gc()</code>时，系统建议执行Full GC，但是不必然执行</li>
@@ -493,6 +513,11 @@
 <li>通过Minor GC后进入老年代的平均大小大于老年代的可用内存</li>
 <li>由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</li>
 </ul>
+<p>如果<code>Full GC</code>后还有无法给新创建的对象分配内存，或者无法移动那些需要进入<code>老年代</code>中的对象，那么<code>JVM</code>抛出<code>OutOfMemoryError</code></p>
+<h3>3.5.3 空间分配担保</h3>
+<p>在发生<code>Minor GC</code>之前，虚拟机会先检查<code>老年代最大可用的连续空间</code>是否大于<code>新生代所有对象总空间</code>，如果这个条件成立，那么<code>Minor GC</code>可以确保是<code>安全</code>的。如果不成立，则虚拟机会查看<code>HandlerPromotionFailure</code>这个参数设置的值(true或flase)是否允许担保失败(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行<code>Minor GC</code>，出了事我负责)。如果允许，那么会继续检查<code>老年代</code>最大可用的连续空间是否大于历次晋升到<code>老年代</code>对象的平均大小，如果大于，将尝试进行一次<code>Minor GC</code>，尽管这次<code>Minor GC</code>是有风险的；如果小于，或者<code>HandlerPromotionFailure</code>为<code>false</code>，那么这次<code>Minor GC</code>将升级为<code>Full GC</code></p>
+<p>如果<code>老年代最大可用的连续空间</code>大于历次晋升到老年代对象的平均大小，那么在<code>HandlerPromotionFailure</code>为<code>true</code>的情况下，可以尝试进行一次<code>Minor GC</code>，但这是有风险的，如果本次将要晋升到老年代的对象很多，那么<code>Minor GC</code>还是无法执行，此时还得改为<code>Full GC</code>。</p>
+<p><code>HandlerPromotionFailure</code>为<code>true</code>时，如果某次需要转移到老年代中的对象确实很多，老年代无法容纳，那么也会先尝试进行一次Minor GC，Minor GC无法执行时再进行Full GC，这样虽然绕了圈子，但我们还是建议把这个参数设置为true，因为我们要尽量避免Full GC。</p>
 <h1>4. 收集器</h1>
 <p>参考</p>
 <blockquote><ul>
@@ -584,6 +609,35 @@
 </tbody>
 </table>
 <h2>4.2 老年代垃圾收集器</h2>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>串行/并行/并发</th>
+<th>回收算法</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SerialOldGC</td>
+<td>串行</td>
+<td>标记整理</td>
+<td>单cpu</td>
+</tr>
+<tr>
+<td>ParNewOldGC</td>
+<td>并行</td>
+<td>标记整理</td>
+<td>多cpu</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>并发，几乎不会暂停用户线程</td>
+<td>标记清除</td>
+<td>多cpu且与用户线程共存</td>
+</tr>
+</tbody>
+</table>
 <h3>4.2.1 Serial Old串行收集器-标记整理算法</h3>
 <p>Serial Old是Serial收集器的老年代版本，它同样是一个<code>单线程(串行)收集器</code>，使用标记整理算法。这个收集器的主要意义也是在于给<strong>Client模式下的虚拟机使用</strong>。</p>
 <p>如果在Server模式下，主要两大用途：</p>
@@ -621,35 +675,6 @@
 </ul>
 </blockquote>
 <h2>4.3 新生代和老年代收集器</h2>
-<table>
-<thead><tr>
-<th>名称</th>
-<th>串行/并行/并发</th>
-<th>回收算法</th>
-<th>适用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SerialOldGC</td>
-<td>串行</td>
-<td>标记整理</td>
-<td>单cpu</td>
-</tr>
-<tr>
-<td>ParNewOldGC</td>
-<td>并行</td>
-<td>标记整理</td>
-<td>多cpu</td>
-</tr>
-<tr>
-<td>CMS</td>
-<td>并发，几乎不会暂停用户线程</td>
-<td>标记清除</td>
-<td>多cpu且与用户线程共存</td>
-</tr>
-</tbody>
-</table>
 <h3>4.3.1 G1收集器-标记整理算法</h3>
 <p><code>JDK1.7</code>后全新的回收器, 用于取代CMS收集器。是比前面的更优秀，真正有突破的一款垃圾收集器。</p>
 <p>其实在G1中还是保留了分代的概念，但是实际上已经在<code>新生代</code>和<code>老年代</code>中没有物理隔离了。在G1中，内存空间被分割成一个个的<code>Region</code>区，所谓<code>新生代</code>和<code>老年代</code>，都是由一个个<code>region</code>组成的。同时G1也不需要跟别的收集器一起配合使用，自己就可以搞定所有内存区域。整体上来讲不是一个分代收集器，是一个<code>通吃收集器</code>。这也是JVM内存管理和垃圾收集的一个发展趋势。从后面<code>zgc</code>中我们可以更清晰的看到这个变化。</p>

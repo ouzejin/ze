@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-10-18T08:33:39.871325+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Devtools对Springboot热部署/</id><title>Devtools对Springboot热部署</title><updated>2020-10-18T08:33:39.871713+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;这种方式是属于项目重启（速度比较快的项目重启），会清空session中的值，也就是如果有用户登陆的话，项目重启后需要重新登陆。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-10-19T06:48:19.889383+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Devtools对Springboot热部署/</id><title>Devtools对Springboot热部署</title><updated>2020-10-19T06:48:19.889651+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;这种方式是属于项目重启（速度比较快的项目重启），会清空session中的值，也就是如果有用户登陆的话，项目重启后需要重新登陆。&lt;/p&gt;
 &lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/chachapaofan/article/details/88697452"&gt;https://blog.csdn.net/chachapaofan/article/details/88697452&lt;/a&gt;&lt;/li&gt;
@@ -60,7 +60,7 @@
 
 &lt;pre&gt;&lt;code&gt;spring.devtools.restart.poll-interval=3000ms
 spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
-</content><link href="/archives/Devtools对Springboot热部署/" rel="alternate"/><published>2020-10-07T23:05:45+08:06</published></entry><entry><id>/archives/Maven中依赖的scope总结/</id><title>Maven中依赖的scope总结</title><updated>2020-10-18T08:33:39.871685+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Devtools对Springboot热部署/" rel="alternate"/><published>2020-10-07T23:05:45+08:06</published></entry><entry><id>/archives/Maven中依赖的scope总结/</id><title>Maven中依赖的scope总结</title><updated>2020-10-19T06:48:19.889632+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/cnweike/article/details/52221410?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;Maven POM中的各种scope的行为总结&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -77,7 +77,7 @@ spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;于provided scope很像。唯一的区别在于，在system scope中，你需要告诉Maven如何去找到这个依赖。如果你要引用的依赖在Maven仓库中不存在时，就可以用这个scope。不推荐使用system依赖。&lt;/p&gt;
 &lt;h1&gt;import&lt;/h1&gt;
 &lt;p&gt;从其它的pom文件中导入依赖设置。&lt;/p&gt;
-</content><link href="/archives/Maven中依赖的scope总结/" rel="alternate"/><published>2020-10-08T15:56:11+08:06</published></entry><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-10-18T08:33:39.871657+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Maven中依赖的scope总结/" rel="alternate"/><published>2020-10-08T15:56:11+08:06</published></entry><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-10-19T06:48:19.889612+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.jianshu.com/p/2543c71a8e45"&gt;https://www.jianshu.com/p/2543c71a8e45&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -159,12 +159,12 @@ spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;上面那个 @Data 适合用在 POJO 或 DTO 上，而这个 @Value 注解，则是适合加在值不希望被改变的类上，像是某个类的值当创建后就不希望被更改，只希望我们读它而已，就适合加上 @Value 注解，也就是 @Value for immutable class&lt;/p&gt;
 &lt;p&gt;另外注意一下，此 lombok 的注解 @Value 和另一个 Spring 的注解 @Value 撞名，在 import 时不要 import 错了&lt;/p&gt;
-</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-10-18T08:33:39.871627+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
-</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-10-18T08:33:39.871598+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
+</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-10-19T06:48:19.889592+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
+</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-10-19T06:48:19.889573+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
 &lt;h1&gt;INSERT&lt;/h1&gt;
 &lt;h1&gt;UPDATE&lt;/h1&gt;
 &lt;h1&gt;DELETE&lt;/h1&gt;
-</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-10-18T08:33:39.871569+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-10-19T06:48:19.889553+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/u014231523/article/details/54562695"&gt;https://blog.csdn.net/u014231523/article/details/54562695&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/"&gt;https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/&lt;/a&gt;&lt;/li&gt;
@@ -439,8 +439,8 @@ spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@ApiIgnore：忽略类或方法或实体类属性&lt;/h2&gt;
 &lt;p&gt;可作用于类，方法和实体类属性上&lt;/p&gt;
-</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-10-18T08:33:39.871540+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
-</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-10-18T08:33:39.871509+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-10-19T06:48:19.889533+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
+</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-10-19T06:48:19.889510+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.runoob.com/mysql/mysql-tutorial.html"&gt;MYSQL菜鸟教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -505,6 +505,6 @@ spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;INDEX&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="k"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-10-18T08:33:39.871468+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
-</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-10-18T08:33:39.871405+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
+</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-10-19T06:48:19.889486+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
+</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-10-19T06:48:19.889441+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
 </content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry></feed>
