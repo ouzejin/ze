@@ -1,66 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2020 08:12:39 +0806</lastBuildDate><pubDate>Tue, 20 Oct 2020 08:12:39 +0806</pubDate><item><title>Devtools对Springboot热部署</title><link>/archives/Devtools对Springboot热部署/</link><description>&lt;p&gt;这种方式是属于项目重启（速度比较快的项目重启），会清空session中的值，也就是如果有用户登陆的话，项目重启后需要重新登陆。&lt;/p&gt;
-&lt;h1&gt;参考&lt;/h1&gt;
-&lt;blockquote&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://blog.csdn.net/chachapaofan/article/details/88697452"&gt;https://blog.csdn.net/chachapaofan/article/details/88697452&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://blog.csdn.net/isea533/article/details/70495714"&gt;https://blog.csdn.net/isea533/article/details/70495714&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;1. 引入依赖&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;lt;!--devtools热部署--&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-devtools&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;optional&amp;gt;&lt;/span&gt;true&lt;span class="nt"&gt;&amp;lt;/optional&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;runtime&lt;span class="nt"&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-
-&lt;span class="nt"&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;fork&amp;gt;&lt;/span&gt;true&lt;span class="nt"&gt;&amp;lt;/fork&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;addResources&amp;gt;&lt;/span&gt;true&lt;span class="nt"&gt;&amp;lt;/addResources&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;2. 配置application.yml&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;spring:
-  devtools:
-    restart:
-      enabled: true  #设置开启热部署
-      additional-paths: src/main/java #重启目录
-      exclude: WEB-INF/**
-  freemarker:
-    cache: false    #页面不加载缓存，修改即时生效&lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;3. IDEA配置&lt;/h1&gt;
-&lt;h2&gt;3.1 第一步&lt;/h2&gt;
-&lt;p&gt;File-Settings-Compiler-Build Project automatically&lt;/p&gt;
-&lt;p&gt;&lt;figure&gt;&lt;img data-width="1920" data-height="1034" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5cac57d0e8a8f4ba2a277a1aa00bf5ea.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;3.2 第二步&lt;/h2&gt;
-&lt;p&gt;ctrl + shift + alt + / ,选择Registry,勾上 Compiler autoMake allow when app running&lt;/p&gt;
-&lt;p&gt;&lt;figure&gt;&lt;img data-width="813" data-height="673" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d421f738a77ad87d24dfe72a4a548199.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;4. 热部署&lt;/h1&gt;
-&lt;p&gt;修改文件后&lt;code&gt;Ctrl + F9&lt;/code&gt;，即Build Project便会快速重启项目&lt;/p&gt;
-&lt;h1&gt;5. 其他问题&lt;/h1&gt;
-&lt;h2&gt;解决 spring boot devtool热部暑后出现访问404问题&lt;/h2&gt;
-&lt;p&gt;参考&lt;/p&gt;
-&lt;blockquote&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.cnblogs.com/yxfcnbg/p/11510426.html"&gt;https://www.cnblogs.com/yxfcnbg/p/11510426.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。&lt;/p&gt;
-&lt;p&gt;解决方案如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spring.devtools.restart.poll-interval=3000ms
-spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Devtools对Springboot热部署/</guid><pubDate>Wed, 07 Oct 2020 23:05:45 +0806</pubDate></item><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2020 13:53:51 +0806</lastBuildDate><pubDate>Tue, 20 Oct 2020 13:53:51 +0806</pubDate><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/cnweike/article/details/52221410?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;Maven POM中的各种scope的行为总结&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -507,4 +446,18 @@ spring.devtools.restart.quiet-period=2999ms&lt;/code&gt;&lt;/pre&gt;
 &lt;/pre&gt;&lt;/div&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/SQL学习笔记/</guid><pubDate>Mon, 12 Oct 2020 20:47:17 +0806</pubDate></item><item><title>Java-JDK8新特性</title><link>/archives/Java-JDK8新特性/</link><description>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-JDK8新特性/</guid><pubDate>Thu, 15 Oct 2020 20:39:47 +0806</pubDate></item><item><title>Java-反射</title><link>/archives/Java-反射/</link><description>&lt;p&gt;Java-反射&lt;/p&gt;
-</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-反射/</guid><pubDate>Fri, 16 Oct 2020 16:49:15 +0806</pubDate></item></channel></rss>
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-反射/</guid><pubDate>Fri, 16 Oct 2020 16:49:15 +0806</pubDate></item><item><title>腾讯云学习笔记</title><link>/archives/腾讯云学习笔记/</link><description>&lt;h1&gt;学习目录&lt;/h1&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1561" data-height="818" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7fb7d1214526fc6fa168ca53729368f6.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1&gt;1. 云计算基础介绍&lt;/h1&gt;
+&lt;h2&gt;1.1 企业自定EDC&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1710" data-height="923" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ea19e18e4f66cb412f4734e67bd34538.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;数据中心等级&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1689" data-height="907" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/737e29bcdc399fd4c3eb358299cb736d.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.2 IDC托管/租用&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Internet Data Center&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1671" data-height="944" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7bbd9060a212487a9d1ed4efeba78876.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.3 云计算对比&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1621" data-height="950" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e68d1a01f94b0a05acb08e59ba5ecd3c.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.4 什么是云计算&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1704" data-height="921" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5ca845aeed57568db53b5997c99a5174.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/腾讯云学习笔记/</guid><pubDate>Tue, 20 Oct 2020 16:12:14 +0806</pubDate></item></channel></rss>
