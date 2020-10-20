@@ -467,7 +467,9 @@ SingleTon.INSTANCE
 
 
 
-# 2. 工厂模式
+
+
+# 2. 工厂/抽象工厂模式
 
 `创建型模式`
 
@@ -476,4 +478,28 @@ SingleTon.INSTANCE
 工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。
 
 在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。
+
+
+
+参考
+
+> - https://www.runoob.com/design-pattern/factory-pattern.html
+> - 反射在工厂模式的使用：https://www.cnblogs.com/ssrs-wanghao/articles/8993338.html
+
+
+
+用反射的工厂
+
+```java
+    public static <T extends Shape> T getShape(Class<T> clz){
+        T t = null;
+        try {
+            t = (T) Class.forName(clz.getName()).newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return t;
+
+    }
+```
 
