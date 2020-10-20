@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2020 13:53:51 +0806</lastBuildDate><pubDate>Tue, 20 Oct 2020 13:53:51 +0806</pubDate><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2020 14:53:33 +0806</lastBuildDate><pubDate>Tue, 20 Oct 2020 14:53:33 +0806</pubDate><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/cnweike/article/details/52221410?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;Maven POM中的各种scope的行为总结&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -460,4 +460,25 @@
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1621" data-height="950" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e68d1a01f94b0a05acb08e59ba5ecd3c.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2&gt;1.4 什么是云计算&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1704" data-height="921" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5ca845aeed57568db53b5997c99a5174.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.5 云计算参考模型&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1648" data-height="930" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d585cf6d026aed2937a5983ece993262.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.6 云计算关键特点&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1614" data-height="858" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/b3154a6ba916b2459427930be0f55b16.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.7 云计算服务模式&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1642" data-height="946" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/45234ec16f3fc050e42e0e28b83d53dd.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;云计算技术架构&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1623" data-height="918" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/2c8cc005d86c87687f2508c5fc4c003c.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.8 云计算四种部署方式&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1575" data-height="847" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9b16f0f3d3fb7b3066087c85c6d2b960.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;1.8.1 公有云和私有云区别&lt;/h3&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1632" data-height="907" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5d6915508a8b0a1549a49ccf98ce515d.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;1.8.2 混合云&lt;/h3&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1616" data-height="921" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/b7db25646e42ecf5fa90e829e290c919.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;1.8.3 行业云&lt;/h3&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1680" data-height="882" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/26455ffde9bf64367c0a13b629b9e1cd.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.9 云计算关键技术&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1224" data-height="670" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7fe14040d4dd9ecefac934baec5a5cee.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;1.9.1 计算虚拟化原理&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1636" data-height="885" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/0abcf9484a93b5b1e3b5ee2e79e683aa.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;计算虚拟化分类&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/腾讯云学习笔记/</guid><pubDate>Tue, 20 Oct 2020 16:12:14 +0806</pubDate></item></channel></rss>
