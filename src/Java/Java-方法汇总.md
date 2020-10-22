@@ -396,13 +396,23 @@ Iterator<Map.Entry<String,String>> it = es.iterator();
 
 
 
+# 2. 数组Arrays
+
+Arrays类位于java.util 包中，主要包含了操纵数组的各种方法
+
+
+
+参考
+
+> - https://www.cnblogs.com/bokedizhi97/p/12814850.html
 
 
 
 
 
 
-# 2. String字符串
+
+# 3. String字符串
 
 
 
@@ -775,7 +785,7 @@ String s = sb.toString();
 
 
 
-# 3. 封装类型
+# 4. 封装类型
 
 
 
@@ -814,11 +824,11 @@ Double最小值是：4.9E-324
 
 
 
-## 3.1 Integer
+## 4.1 Integer
 
 
 
-## 静态成员变量
+### 静态成员变量
 
 ```java
 int max = Integer.MAX_VALUE;
@@ -834,29 +844,26 @@ int最小值是：-2147483648
 
 
 
-## 构造方法
+### 构造方法
 
 
 
-### Integer(int i)
-
-
-
-### Integer(String str)
-
-常用的构造方法Integer(String s)是将数字格式的字符串，传递到Integer类的构造方法中，创建Integer对象，包装的是一个字符串。将构造方法中的字符串转成基本数据类型，调用非静态方法。
+- Integer(int i)
+- Integer(String str)：常用的构造方法Integer(String s)是将数字格式的字符串，传递到Integer类的构造方法中，创建Integer对象，包装的是一个字符串。将构造方法中的字符串转成基本数据类型，调用非静态方法。
 
 
 
 
 
-## int intValue()
+
+
+### int intValue()
 
 将Integer转换为int类型
 
 
 
-## String Integer.toString(int , int radix)
+### String Integer.toString(int , int radix)
 
 Integer类中的静态方法toString()转换成字符串,将int整数转成指定的进制数radix
 
@@ -871,7 +878,7 @@ System.out.println(dest);//100000
 
 
 
-## int Integer.parseInt(String s)
+### int Integer.parseInt(String s)
 
 用于将字符串转换成基本数据类型(int)，要求字符串必须是数字格式.
 
@@ -883,7 +890,7 @@ System.out.println(i/2);//1009
 
 
 
-## int Integer.parseInt(String s,int radix)
+### int Integer.parseInt(String s,int radix)
 
 将字符串s按照radix进行转换相应的进制数，然后运行的结果都是以十进制的形式打印。
 
