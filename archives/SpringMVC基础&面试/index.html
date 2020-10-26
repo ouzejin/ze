@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/c1edcfb6cb5fc7cb91d20e97a709a338.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/c4391976634b66976875f051b9239293.json"
         }
     </script>
     <script>
@@ -177,27 +177,23 @@
 </ul>
 <h1>7. SpringMVC工作流程</h1>
 <p><figure><img data-width="1195" data-height="659" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/43a507768e3a02998c8e67620f7c1534.jpg" alt="" /></figure></p>
-<ol>
-<li>用户向服务端发送一次请求，这个请求会先到前端控制器<code>DispatcherServlet</code>(也叫中央控制器)。</li>
+<blockquote><ol>
+<li><p>用户向服务端发送一次请求，这个请求会先到前端控制器<code>DispatcherServlet</code>(也叫中央控制器)。</p>
+</li>
+<li><p><code>DispatcherServlet</code>接收到请求后会调用<code>HandlerMapping</code>处理器映射器来，根据配置或注解获取不同的<code>Handle</code>，并返回给<code>DispatcherServlet</code>。由此得知，该请求该由哪个<code>Controller</code>来处理（并未调用Controller，只是得知）</p>
+</li>
+<li><p><code>DispatcherServlet</code>调用<code>HandlerAdapter</code>处理器适配器，告诉处理器适配器应该要去执行哪个<code>Controller</code></p>
+</li>
+<li><p><code>HandlerAdapter</code>处理器适配器去执行<code>Controller</code>并得到<code>ModelAndView</code>(数据和视图)，并层层返回给<code>DispatcherServlet</code></p>
+</li>
+<li><p><code>DispatcherServlet</code>将<code>ModelAndView</code>交给<code>ViewReslover</code>视图解析器解析，然后返回真正的视图<code>View</code>。</p>
+</li>
+<li><p><code>DispatcherServlet</code>将模型数据填充到视图中</p>
+</li>
+<li><p><code>DispatcherServlet</code>将结果响应给用户</p>
+</li>
 </ol>
-<ol>
-<li><code>DispatcherServlet</code>接收到请求后会调用<code>HandlerMapping</code>处理器映射器来，根据配置或注解获取不同的<code>Handle</code>，并返回给<code>DispatcherServlet</code>。由此得知，该请求该由哪个<code>Controller</code>来处理（并未调用Controller，只是得知）</li>
-</ol>
-<ol>
-<li><code>DispatcherServlet</code>调用<code>HandlerAdapter</code>处理器适配器，告诉处理器适配器应该要去执行哪个<code>Controller</code></li>
-</ol>
-<ol>
-<li><code>HandlerAdapter</code>处理器适配器去执行<code>Controller</code>并得到<code>ModelAndView</code>(数据和视图)，并层层返回给<code>DispatcherServlet</code></li>
-</ol>
-<ol>
-<li><code>DispatcherServlet</code>将<code>ModelAndView</code>交给<code>ViewReslover</code>视图解析器解析，然后返回真正的视图<code>View</code>。</li>
-</ol>
-<ol>
-<li><code>DispatcherServlet</code>将模型数据填充到视图中</li>
-</ol>
-<ol>
-<li><code>DispatcherServlet</code>将结果响应给用户</li>
-</ol>
+</blockquote>
 <h1>8. Spring控制器是什么设计模式，有什么问题，为什么是这个模式</h1>
 <p>是<strong>单例模式</strong>，所以在多线程访问的时候有线程安全问题不要用同步会影晌性能的。解决方案是在控制器里面不能写字段成员变量。使用单例模式是为了性能（无需频繁初始化），同时也没有必要使用多例模式。万一必须要定义一个非静态成员变量时候，则通过注解<code>@Scope("prototype")</code>，将其设置为多例模式</p>
 </article>
