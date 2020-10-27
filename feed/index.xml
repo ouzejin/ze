@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Mon, 26 Oct 2020 06:41:09 +0806</lastBuildDate><pubDate>Mon, 26 Oct 2020 06:41:09 +0806</pubDate><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Tue, 27 Oct 2020 17:40:31 +0806</lastBuildDate><pubDate>Tue, 27 Oct 2020 17:40:31 +0806</pubDate><item><title>Maven中依赖的scope总结</title><link>/archives/Maven中依赖的scope总结/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/cnweike/article/details/52221410?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;Maven POM中的各种scope的行为总结&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -447,6 +447,13 @@
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/SQL学习笔记/</guid><pubDate>Mon, 12 Oct 2020 20:47:17 +0806</pubDate></item><item><title>Java-JDK8新特性</title><link>/archives/Java-JDK8新特性/</link><description>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-JDK8新特性/</guid><pubDate>Thu, 15 Oct 2020 20:39:47 +0806</pubDate></item><item><title>Java-反射</title><link>/archives/Java-反射/</link><description>&lt;p&gt;Java-反射&lt;/p&gt;
 </description><author>1138312802@qq.com (LifeAlsoIsGG)</author><guid isPermaLink="true">/archives/Java-反射/</guid><pubDate>Fri, 16 Oct 2020 16:49:15 +0806</pubDate></item><item><title>腾讯云学习笔记</title><link>/archives/腾讯云学习笔记/</link><description>&lt;h1&gt;学习目录&lt;/h1&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="https://main.qcloudimg.com/raw/1c7701b98daad4d66b7ab7039cd8ff6a/腾讯云从业者认证-知识点列表V1.0.pdf"&gt;知识点目录1.0&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="https://main.qcloudimg.com/raw/84235eeb1c66575eb7fa536e88b0934f/腾讯云从业者认证-知识点列表V1.2.pdf"&gt;知识点目录1.2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1561" data-height="818" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/7fb7d1214526fc6fa168ca53729368f6.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1&gt;1. 云计算基础介绍&lt;/h1&gt;
 &lt;h2&gt;1.1 企业自定EDC&lt;/h2&gt;
