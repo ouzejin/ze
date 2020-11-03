@@ -404,7 +404,7 @@ Arrays类位于java.util 包中，主要包含了操纵数组的各种方法
 
 参考
 
-> - https://www.cnblogs.com/bokedizhi97/p/12814850.html
+> - https://blog.csdn.net/u013256816/article/details/50924762
 
 
 
@@ -909,6 +909,11 @@ System.out.println(i2);//10
 
 
 
+# 5. 随机数Random()
+
+参考
+
+> - https://blog.csdn.net/qq_36850813/article/details/90900744
 
 
 
@@ -917,30 +922,3 @@ System.out.println(i2);//10
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 对于该
-
-### 

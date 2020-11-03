@@ -190,6 +190,14 @@ tags:
 
 
 
+```shell
+mybatis-generator:generate
+```
+
+
+
+
+
 点击Run后会生成三个文件夹，以表User为例子
 
 > - entity
