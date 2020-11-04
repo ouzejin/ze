@@ -227,6 +227,33 @@ public void exportExcel(@ApiParam(name="param",value="ApiParam_value",required=t
 
 
 
+
+
+### @ApiImplicitParam
+
+| 属性         | 描述                                           |
+| ------------ | :--------------------------------------------- |
+| name         | 对应参数名                                     |
+| value        | 对参数进行说明                                 |
+| required     | 参数是否必须传                                 |
+| paramType    | 参数放在哪个地方，具体值在下方                 |
+| dataType     | 参数类型，默认String，其它值dataType="Integer" |
+| defaultValue | 参数的默认值                                   |
+
+
+
+#### paramType参数
+
+| 值     | 描述                                            |
+| ------ | :---------------------------------------------- |
+| header | 请求参数的获取：@RequestHeader                  |
+| query  | 请求参数的获取：@RequestParam                   |
+| path   | 用于restful接口， 请求参数的获取：@PathVariable |
+| body   | @RequestBody                                    |
+| form   | 表单                                            |
+
+
+
 例如
 
 ```java
