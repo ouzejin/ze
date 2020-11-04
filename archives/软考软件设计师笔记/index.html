@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/52b7c736494065c90e5aeed8bedb4ce5.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/11d2336e5457ffb6d7f59fca6290f68b.json"
         }
     </script>
     <script>
@@ -140,7 +140,7 @@
             </span>
         </p>
         <article class="yue"><h1>一.计算机系统知识</h1>
-<h2>1.1原码反码补码移码</h2>
+<h2>1.1 原码反码补码移码</h2>
 <p>正数时</p>
 <blockquote><p>原=反=补</p>
 </blockquote>
@@ -148,21 +148,40 @@
 <blockquote><p>原转反：符号位不变，其余取反</p>
 <p>反转补：最低位加1</p>
 </blockquote>
-<p>移码：当偏移量为2的n-1次方时，<strong>将补码符号位取反即可</strong></p>
+<p>移码：当偏移量为2的n-1次方时，<strong>将补码符号位取反即可</strong>，移码只用于表示浮点数的阶码，所以只用于整数。</p>
 <p><strong>零只有唯一补码</strong></p>
-<h2>1.2定点数浮点数</h2>
+<h2>1.2 定点数浮点数</h2>
+<p>定点数指小数点位置不变的数，分为定点整数和定点小数。<strong>小数点不需要存储位</strong></p>
 <p>浮点数表示方法</p>
 
 <pre><code>N = M*R^E</code></pre>
-<p>M为尾数，R为基数，E为阶码</p>
+<blockquote><ul>
+<li>M为尾数：决定了浮点数的表示精度</li>
+<li>R为基数</li>
+<li>E为阶码：指出了小数点在数据中的位置，决定了浮点数的表示范围大小，若超出计算机的表达范围，则溢出</li>
+</ul>
+</blockquote>
+<p>其中r是浮点数阶码的底，与尾数的基数相同，通常r=2。E和M都是带符号的定点数，E叫做阶 码，M叫做尾数。浮点数的一般格式如图所示，浮点数的底是隐含的，在整个机器数中不出现。阶 码的符号位为Es，阶码的大小反映了在数N中小数点的实际位置；尾数的符号位为Ms，它也是整个 浮点数的符号位，表示了该浮点数的正、负。</p>
+<h3>浮点数计算</h3>
+<p>在数学中，要表示一个很大的数时，我们常常使用一种称为科学计数法的方式：</p>
+<p>N=M*Re</p>
+<p>其中M称为尾数，e是指数，R为基数。</p>
+<p>浮点数就是使用这种方法来表示大范围的数，其中指数一般是2，8，16。而且对于特定机器而 言，指数是固定不变的，所以在浮点数中指数并不出现。从这个表达式可以看出：浮点数表示的精 读取决于尾数的宽度，范围取决于基数的大小和指数的宽度。</p>
+<p>浮点数的运算主要有三个步骤：对阶、尾数计数、结果格式化。</p>
+<blockquote><ol>
+<li>对阶：首先计算两个数的指数差，把指数小的向指数大的对齐，并将尾数右移指数差的位数，这样两 个浮点数就完成了对阶的操作。可以看出，对阶的过程可能使得指数小的浮点数失去一些有效位。 如果两个浮点数阶数相差很大，大于指数小的浮点数的尾数宽度，那么对阶后那个浮点数的尾数就 变成了0，即当做机器零处理了。 具体方法是：<strong>阶码小的那个尾数右移，移位的次数等于参 加运算的两个数的阶码之差</strong>。</li>
+<li>尾数计算：对阶完成后，两个浮点数尾数就如同定点数，计算过程同定点数计算。 </li>
+<li>结果格式化：尾数计算后，可能会产生溢出，此时将尾数右移，同时指数加1，如果指数加1后发生了溢出， 上一节 本书简介 下一节 第 1章：计算机硬件基础知识 作者：希赛教育软考学院 来源：希赛网 2014年05月04日 一点一练 则表示两个浮点数的运算发生了溢出。 如果尾数计算没有溢出，则尾数不断左移，同时指数减1，直到尾数为格式化数。如果这个过程 中，指数小于机器能表达的最小数，则将结果置“机器零”，这种情况称为下溢。</li>
+</ol>
+</blockquote>
 <h2>1.3校验码</h2>
-<p><strong>确保数据传送无误</strong></p>
+<p>确保数据传送无误，码距是指一个编码系统中任意两个合法编码之间至少有多少个二进制位不同</p>
 <blockquote><ul>
 <li>提高硬件电路的可靠性</li>
 <li>提高代码的检验能力</li>
 </ul>
 </blockquote>
-<p><strong>奇偶校验码</strong>：</p>
+<h3>1.3.1 奇偶校验码</h3>
 <p>使码距为2</p>
 <blockquote><ul>
 <li>水平奇偶校验码</li>
@@ -170,15 +189,24 @@
 <li>水平垂直奇偶校验码</li>
 </ul>
 </blockquote>
-<p><strong>海明码</strong>：在数据位之间插入k个校验码，扩大码距来实现检错和纠错，</p>
+<h3>1.3.2 海明码</h3>
+<p>在数据位之间插入k个校验码，<strong>扩大码距来实现检错和纠错</strong>，</p>
 <p>设数据位是n位，校验位k位，则满足</p>
 
 <pre><code>2的k次方 -1 &gt;= n+k</code></pre>
-<p><strong>循环冗余校验码(CRC)</strong></p>
+<h3>1.3.3 循环冗余校验码(CRC)</h3>
 <p>校验码越长，该代码校验能力越强，采用模2运算，其加减运算的规则是按位运算，不发生借位和进位</p>
-<p><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/循环冗余校验码.jpg" alt="" /></figure></p>
-<p>使用模2运算</p>
-<p><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/模2运算.png" alt="" /></figure></p>
+<p>使用模2运算不计其进位，使用异或，即相同为0，不相同为1</p>
+<p>例如</p>
+<p><figure><img data-width="982" data-height="657" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/029dd9fe40202df1b7a02215d69eeb42.jpg" alt="" /></figure></p>
+<p>步骤</p>
+<blockquote><ul>
+<li>根据多项式得出被除数为11011</li>
+<li>除数后面补0，补的数量为被除数的数量-1</li>
+<li>进行模2异或运算</li>
+<li>将余数填充到除数后面替代补上去的0</li>
+</ul>
+</blockquote>
 <h2>1.4计算机系统硬件组成</h2>
 <p><strong>组成</strong></p>
 <ul>
@@ -188,7 +216,7 @@
 <li>输入设备</li>
 <li>输出设备</li>
 </ul>
-<p><strong>中央处理单元(CPU)</strong></p>
+<h3>1.4.1 中央处理单元(CPU)</h3>
 <p>主要功能</p>
 <blockquote><ul>
 <li>指令控制</li>
@@ -205,7 +233,7 @@
 <li><strong>算术逻辑单元(ALU)</strong>:运算器重要组成部件，负责处理数据，实现对数据的算术运算和逻辑运算</li>
 <li><strong>累加寄存器(AC)</strong>:通用寄存器，当ALU工作时，提供一个工作区</li>
 <li><strong>数据缓冲寄存器(DR)</strong>:在对存储器进行读写操作室，用DR暂时存放由由内存储器读写的一条指令或一个数据字，并将不同时间段内读写的数据隔离开来</li>
-<li><strong>状态条件寄存器(PSW)</strong>:主要分为状态标志和控制标志，这些标志通常分别由一位触发器保存，反映了当前指令执行完成之后的状态。一个算术操作产生一个运算结果，一个逻辑产生一个判决</li>
+<li><strong>状态条件寄存器(PSW)</strong>:主要分为<code>状态标志</code>和<code>控制标志</code>，这些标志通常分别由一位触发器保存，反映了当前指令执行完成之后的状态。一个算术操作产生一个运算结果，一个逻辑产生一个判决</li>
 </ul>
 </blockquote>
 <ul>
@@ -223,16 +251,62 @@
 </li>
 </ul>
 </blockquote>
-<h2> </h2>
+<p>CPU与外设之间交换数据的方式</p>
+<blockquote><ul>
+<li><p>直接程序控制方式</p>
+<blockquote><ul>
+<li>无条件传送：外设总是准备好的，可以无条件接受CPU输入输出的数据</li>
+<li>程序查询：需要CPU查询外设的状态，判断是否准备好</li>
+</ul>
+</blockquote>
+</li>
+<li><p>中断方式：当IO与外设交换数据时，CPU无需等待，也不必查询IO状态，可以处理其他任务。当完成数据传输后，会向CPU发送中断信号</p>
+</li>
+<li><p>直接存储器存取方式：与上面两个需要CPU执行程序不同，通过硬件实现主存与IO设备的直接数据传送，不需要CPU干涉</p>
+</li>
+<li><p>通道控制方式</p>
+</li>
+</ul>
+</blockquote>
 <h2>1.5存储系统</h2>
 <p><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/存储器层次结构.jpg" alt="" /></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/存储器分类.jpg" alt="" /></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/Cache.jpg" alt="" /></figure></p>
+<h3>1.5.1 按位置分类</h3>
+<blockquote><ul>
+<li>内存</li>
+<li>外存</li>
+</ul>
+</blockquote>
+<h3>1.5.2 按材料分类</h3>
+<blockquote><ul>
+<li>磁存储器</li>
+<li>半导体存储器</li>
+<li>光存储器</li>
+</ul>
+</blockquote>
+<h3>1.5.3 按工作方式</h3>
+<blockquote><ul>
+<li>读写存储器</li>
+<li>只读存储器</li>
+</ul>
+</blockquote>
+<h3>1.5.4 按访问方式分类</h3>
+<blockquote><ul>
+<li>按地址访问</li>
+<li>按内容访问:例如相联存储器</li>
+</ul>
+</blockquote>
+<h3>1.5.5 按寻址方式访问</h3>
+<blockquote><ul>
+<li>随机存储器(RAM)</li>
+<li>顺序存储器(SAM)</li>
+<li>直接存储器(DAM)：在<code>主存与外设</code>之间建立了直接的数据通路</li>
+</ul>
+</blockquote>
 <p><strong>相联存储器</strong>：按内容访问的存储器，通过关键字比较，可用在高速缓冲存储器中，在虚拟存储器中用来做段表等，还可用在数据库中</p>
 <p><strong>高速缓存(Cache)</strong></p>
 <p>目的：提高存储器平均访问速度，使存储器速度与cpu速度相匹配，地址变换和数据块的替换算法均由<strong>硬件</strong>实现。通常被集成到cpu的寄存器中，容小，速快，成高</p>
-<p><img src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\eb46ffa6605438fbf1f9d0c44576302.jpg" alt="eb46ffa6605438fbf1f9d0c44576302" style="zoom:200%;" /></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\1154ece620d69877639b8f915ed8507.jpg" alt="1154ece620d69877639b8f915ed8507" /><figcaption>1154ece620d69877639b8f915ed8507</figcaption></figure></p>
 <p>常用的虚拟存储器由<strong>主存-辅存</strong>组成</p>
 <h2>1.6输入输出技术</h2>
 <p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\1e2be5cc42d5d632c6753c57672438d.jpg" alt="1e2be5cc42d5d632c6753c57672438d" /><figcaption>1e2be5cc42d5d632c6753c57672438d</figcaption></figure></p>
@@ -242,31 +316,77 @@
 <p>系统总线：ISA,EISA,PCI</p>
 <p>外部总线：PS-232-C,SCSI,USB,IEEE-1394</p>
 <h2>1.8指令系统</h2>
+<h3>1.8.1 寻址方式</h3>
+<p>操作数有效地址</p>
+<blockquote><ul>
+<li>立即寻址：操作数直接写入指令</li>
+<li>寄存器寻址：吧操作数放入里面</li>
+<li>直接寻址：指令所需的操作时放在内存中，在指令中直接给出该操作数的有效地址EA即内存地址，只要将EA放入PC程序计数器就可以找到操作数</li>
+<li>寄存器间接寻址：操作数在存储器中，操作数有效地址用四个寄存器之一来指定</li>
+<li>寄存器相对寻址：操作数在存储器中，操作数有效地址是一个基址寄存器</li>
+<li>基址加变址寻址方式</li>
+<li>相对基址加变址寻址</li>
+</ul>
+</blockquote>
 <p><strong>CISC和RISC</strong></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\f29dff9cf6c26fed69daae8d74966c3.jpg" alt="f29dff9cf6c26fed69daae8d74966c3" /><figcaption>f29dff9cf6c26fed69daae8d74966c3</figcaption></figure></p>
-<p><strong>吞吐率</strong></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200201145311489.png" alt="image-20200201145311489" /><figcaption>image-20200201145311489</figcaption></figure></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200201145358391.png" alt="image-20200201145358391" /><figcaption>image-20200201145358391</figcaption></figure></p>
-<h2>1.9题目总结</h2>
+<h3>1.8.1 CISC</h3>
+<p>复杂指令集计算机</p>
+<p>进一步增强原有指令的功能，用更为复杂的新指令取代，实现软件功能的硬化，导致机器指令庞大</p>
+<h3>1.8.2 RISC</h3>
+<p>精简指令计算机</p>
+<p>特点</p>
+<blockquote><ul>
+<li>重叠寄存器窗口技术</li>
+<li>优化编译技术，使用了大量寄存器。合理分配寄存器，提高寄存器的使用效率及减少访存次数</li>
+<li>超流水线及超标量技术，提高流水线速度</li>
+<li>硬布线逻辑与微程序技术</li>
+</ul>
+</blockquote>
+<h3>1.8.3 吞吐率</h3>
+
+<pre><code>p=1/max{t1，t2，t3}</code></pre>
+<p><figure><img data-width="1191" data-height="783" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/25521089bef64e716a944b3f92926f01.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1113" data-height="681" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f7f53ed298411da44155902a6ce03098.jpg" alt="" /></figure></p>
+<p>需要的时间为，选取最长子过程2ns，乘于100条，还要经过1+2ns才到下一个流水线，所以<code>2*100+3=203</code></p>
+<p>吞吐率为：<code>100/2*100+3=203</code></p>
+<p>流水线加速比:</p>
+<p><figure><img data-width="1036" data-height="512" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d40a3b87ffafc97a0d33b7ce08815939.jpg" alt="" /></figure></p>
+<p>不适用流水线时间：<code>(2+2+1)*100</code></p>
+<p>流水线效率</p>
+<p><figure><img data-width="1228" data-height="720" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6ad6f08fc91f745fbb5e7bb836eb6d38.jpg" alt="" /></figure></p>
+<h2>1.9 进制转换</h2>
+<blockquote><ul>
+<li>十进制转R进制使用短除法即可</li>
+<li>二进制转八进制：每三个数转换为一个数</li>
+<li>二进制转十六进制：每四个数转换为一个数</li>
+</ul>
+</blockquote>
+<p><figure><img data-width="1090" data-height="791" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/72a57e2a7030f9f2364be1de678f7851.jpg" alt="" /></figure></p>
+<h2>1.10题目总结</h2>
 <ol>
 <li>cache与主存的地址映像由<strong>硬件</strong>自动完成</li>
 <li>指令寄存器位数取决于<strong>指令字长</strong></li>
-<li>逻辑异或：相等结果为0否则结果为1</li>
-<li>计算机字长32位，内存容量2GB，按字编址，寻址范围为<strong>2GB/32位</strong></li>
+<li>逻辑异或：相等结果为0否则结果为1。运算结果的两个符号位不同时，说明结果溢出</li>
+<li>计算机字长32位，内存容量2GB，按字编址，一个字长为4个字节，即每个存储字包含4个可寻址的字节，因此有2GB/(2的(log2/4)次方)，为512MB</li>
 <li>常用虚存储器由<strong>主存-辅存</strong>组成</li>
 <li>中断向量可提供<strong>中断服务程序的入口地址</strong></li>
 <li>实现多级中断嵌套，使用<strong>堆栈</strong>保护断点和现场</li>
+<li>DMA模式下，在<code>主存与外设</code>之间建立了直接的数据通路</li>
 <li>CRC格式为k+r</li>
 <li>定点表示法，<strong>小数点不用存储位</strong></li>
 <li>某无条件转移汇编采用<strong>直接寻址</strong>，则该指令功能将指令中的地址码送入<strong>PC(程序计数器)</strong></li>
-<li>IO接口与主存采用<strong>统一编址</strong>，则输入输出操作是通过<strong>访存</strong>来完(统一编址是指IO端口与主存使用同一个地址空间进行统一编址)</li>
-<li><strong>总线复用</strong>，指数据和地址在同一个总线上传输的方式，可以<strong>减少总线中信号线的数量</strong></li>
+<li>IO接口与主存采用<strong>统一编址</strong>，则输入输出操作是通过<code>访存</code>来完(统一编址是指IO端口与主存使用同一个地址空间进行统一编址)</li>
+<li><strong>总线复用</strong>，指数据和地址在同一个总线上传输的方式，可以<code>减少总线中信号线的数量</code></li>
 <li>CPU寄存器中，<strong>指令寄存器</strong>对用户是完全透明的</li>
+<li>若某计算机采用8位整数补码表示数据，则范围为<code>-128~127</code>，否则溢出</li>
+<li>系统总线(内总线)有：ISA,EISA,PCI，SCSI是并行外总线</li>
+<li>主存地址与Cache地址之间的转换工作由<code>硬件</code>完成</li>
+<li>地址0000BFFFH-0000A000H计算存储单元为<code>0000BFFFH-0000A000H+1</code>，要转换为十进制</li>
+<li>操作数作为指令的一部分直接写在指令中即为<code>立即寻址</code>，把目标操作数存入寄存器为<code>寄存器寻址</code></li>
 </ol>
 <h1>二.程序语言基础知识</h1>
 <p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203165448772.png" alt="image-20200203165448772" /><figcaption>image-20200203165448772</figcaption></figure></p>
 <h2>2.1编译过程</h2>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203165528889.png" alt="image-20200203165528889" /><figcaption>image-20200203165528889</figcaption></figure></p>
 <p><strong>前端部分(与机器无关)</strong></p>
 <blockquote><p>词法分析，语法分析，语义分析，中间代码生成</p>
 </blockquote>
@@ -278,9 +398,6 @@
 <p><strong>实参可以使常量变量或表达式</strong></p>
 <p><strong>常用中间代码有</strong>：后缀式，三元式子，四元式和树</p>
 <h2>2.2文法</h2>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203165552527.png" alt="image-20200203165552527" /><figcaption>image-20200203165552527</figcaption></figure></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203171254677.png" alt="image-20200203171254677" /><figcaption>image-20200203171254677</figcaption></figure></p>
-<p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203172027367.png" alt="image-20200203172027367" /><figcaption>image-20200203172027367</figcaption></figure></p>
 <h2>2.3有限自动机</h2>
 <p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203202245045.png" alt="image-20200203202245045" /><figcaption>image-20200203202245045</figcaption></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203202745308.png" alt="image-20200203202745308" /><figcaption>image-20200203202745308</figcaption></figure></p>
@@ -293,21 +410,64 @@
 <p><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200203204332603.png" alt="image-20200203204332603" /><figcaption>image-20200203204332603</figcaption></figure></p>
 <h2>2.7题目总结</h2>
 <ol>
-<li>将高级语言翻译为机器语言程序的过程中，常引入<strong>中间代码</strong>，好处是<strong>有利于进行与机器无关的优化处理，以及提高编译程序的可移植性</strong></li>
-<li>对高级语言源程序进行编译过程中，有穷自动机(NFA或DFA)是进行<strong>词法分析</strong></li>
+<li><p>引用调用传递的是实参的<code>名称</code></p>
+</li>
+<li><p>算术表达式的后缀式不包括括号，运算符放在两个对象的后面</p>
+</li>
+<li><p>将高级语言翻译为机器语言程序的过程中，常引入<code>中间代码</code>，好处是<strong>有利于进行与机器无关的优化处理，以及提高编译程序的可移植性</strong></p>
+</li>
+<li><p>对高级语言源程序进行编译过程中，<code>有穷自动机(NFA或DFA)</code>是进行<code>词法分析</code></p>
+</li>
+<li><blockquote><ul>
 <li>弱类型语言指不需要进行变量或对象类型声明的语言，例如<strong>python</strong></li>
-<li><strong>编译程序</strong>和<strong>解释程序</strong>的相同点：在词法，语法，语义分析方面工作原理基本相同。不同点：在运行用户程序时，<strong>解释程序</strong>直接执行源程序或源程序的内部形式(中间代码)，因此不产生目标程序，而<strong>编译程序</strong>将源程序翻译成<strong>目标程序</strong></li>
-<li>在对高级语言源程序进行编译过程中，为源程序变量所分配的存储单元的地址属于<strong>逻辑地址</strong></li>
-<li>声明语句和可执行语句，对<strong>声明语句</strong>，主要是将需要的信息正确的填入合理组织的<strong>符号表</strong>中，对<strong>可执行语句</strong>，<strong>则是翻译成中间代码或目标代码</strong></li>
-<li><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\ee8515f502545f979a1700618a7570a.jpg" alt="ee8515f502545f979a1700618a7570a" /><figcaption>ee8515f502545f979a1700618a7570a</figcaption></figure></li>
-<li><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\181ddb72e78983b3c16ce1261c5778d.jpg" alt="181ddb72e78983b3c16ce1261c5778d" /><figcaption>181ddb72e78983b3c16ce1261c5778d</figcaption></figure></li>
-<li><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Roaming\Typora\typora-user-images\image-20200204200910126.png" alt="image-20200204200910126" /><figcaption>image-20200204200910126</figcaption></figure></li>
-<li><figure><img data-width="-1" data-height="-1" src="C:\Users\a1138\AppData\Local\Temp\WeChat Files\6a0a282dee4f33a207c78e7a076fdca.jpg" alt="6a0a282dee4f33a207c78e7a076fdca" /><figcaption>6a0a282dee4f33a207c78e7a076fdca</figcaption></figure></li>
-<li><strong>数据类型说明</strong><ul>
+<li>强类型语言：例如java，C/C++,C#</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>编译程序</strong>和<strong>解释程序</strong></p>
+<blockquote><ul>
+<li>相同点：在词法，语法，语义分析方面工作原理基本相同。</li>
+<li>不同点：在运行用户程序时，<strong>解释程序</strong>直接执行源程序或源程序的内部形式(中间代码)，因此不产生目标程序，而<strong>编译程序</strong>进行词法语法分析等将源程序翻译成<strong>目标程序</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p>在对高级语言源程序进行<code>编译过程</code>中，为源程序变量所分配的存储单元的地址属于<code>逻辑地址</code></p>
+</li>
+<li><p>声明语句和可执行语句，对<code>声明语句</code>，主要是将需要的信息正确的填入合理组织的<code>符号表</code>中，对<code>可执行语句</code>，则是翻译成<code>中间代码或目标代码</code></p>
+</li>
+<li><p>语言<code>L={a的m次方*b的n次方 | m&gt;=0,n&gt;=1}</code>的正规表达式是<code>a星号bb星号</code></p>
+</li>
+<li><p>二维数组时有a[i,j]，当<code>i==j</code>时按行存储与按列存储无关</p>
+</li>
+<li><p>传值和传地址</p>
+<blockquote><ul>
+<li>传值是：实参值传给形参，必须是变量，常量或表达式</li>
+<li>传地址时：实参值传给形参，必须是引用类型</li>
+</ul>
+</blockquote>
+</li>
+<li><p>源程序执行错误</p>
+<p>编译正确的程序可能包含语法和语义错误</p>
+<blockquote><ul>
+<li><p>静态错误：编译阶段发现的程序错误，分为语法错误和静态语义错误，</p>
+<blockquote><ul>
+<li>语法错误：单词拼写错误，括号不匹配</li>
+<li>静态语义错误：语义分析时发现的运算符与运算对象不合法等错误</li>
+</ul>
+</blockquote>
+</li>
+<li><p>动态错误(语义错误)：如除数为0，数组下标错误等</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>数据类型说明</strong></p>
+<blockquote><ul>
 <li>说明数据占用的内存和存放形式以分配存储单元</li>
 <li>对参与计算的对象进行检查</li>
 <li>规定数据的取值范围及能够的运算</li>
 </ul>
+</blockquote>
 </li>
 </ol>
 <h1>三.操作系统知识</h1>
@@ -354,9 +514,9 @@
 <h3>3.2.1前趋图</h3>
 <h3>3.2.2进程的同步与互斥</h3>
 <p><figure><img data-width="-1" data-height="-1" src="https://github.com/LifeAlsoIsGG/ruankaoNote/blob/master/images/软考软件设计师笔记/%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BA%92%E6%96%A5.jpg?raw=true" alt="" /></figure></p>
-<h3>3.2.3PV操作</h3>
+<h3>3.2.3 PV操作</h3>
 <p><strong>定义</strong></p>
-<p><figure><img data-width="-1" data-height="-1" src="https://github.com/LifeAlsoIsGG/ruankaoNote/blob/master/images/软考软件设计师笔记/PV%E6%93%8D%E4%BD%9C.jpg?raw=true" alt="" /></figure></p>
+<p><figure><img data-width="826" data-height="569" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/ce5bed3eec77dcc64edf5b00e5089b94.jpg" alt="" /></figure></p>
 <p><strong>例题</strong></p>
 <p><figure><img data-width="-1" data-height="-1" src="https://github.com/LifeAlsoIsGG/ruankaoNote/blob/master/images/软考软件设计师笔记/PV%E6%93%8D%E4%BD%9C%E4%BE%8B%E9%A2%98.jpg?raw=true" alt="" /></figure></p>
 <p><figure><img data-width="-1" data-height="-1" src="https://github.com/LifeAlsoIsGG/ruankaoNote/blob/master/images/软考软件设计师笔记/PV%E6%93%8D%E4%BD%9C%E4%BE%8B%E9%A2%982.jpg?raw=true" alt="" /></figure></p>
@@ -518,8 +678,8 @@
 </ul>
 <h2>3.7题目总结</h2>
 <ol>
-<li><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/3.7例题1.jpg" alt="" /></figure></li>
-<li><figure><img data-width="-1" data-height="-1" src="images/软考软件设计师笔记/3.7例题2.jpg" alt="" /></figure></li>
+<li>当信号量S的值为-3时，表示系统中有3个进程等待使用</li>
+<li></li>
 </ol>
 <h1>四.系统开发和运行</h1>
 <h2>4.1基础知识</h2>
