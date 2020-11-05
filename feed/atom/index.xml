@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-05T03:02:57.000510+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-11-05T03:02:57.000923+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-05T09:58:45.441990+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-11-05T09:58:45.442385+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.jianshu.com/p/2543c71a8e45"&gt;https://www.jianshu.com/p/2543c71a8e45&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -88,13 +88,13 @@
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;上面那个 @Data 适合用在 POJO 或 DTO 上，而这个 @Value 注解，则是适合加在值不希望被改变的类上，像是某个类的值当创建后就不希望被更改，只希望我们读它而已，就适合加上 @Value 注解，也就是 @Value for immutable class&lt;/p&gt;
 &lt;p&gt;另外注意一下，此 lombok 的注解 @Value 和另一个 Spring 的注解 @Value 撞名，在 import 时不要 import 错了&lt;/p&gt;
-</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-05T03:02:57.000893+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
-</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-05T03:02:57.000863+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
+</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-05T09:58:45.442357+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
+</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-05T09:58:45.442329+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
 &lt;h1&gt;INSERT&lt;/h1&gt;
 &lt;p&gt;插入后获取主键，&lt;a href="https://blog.csdn.net/qq_36614559/article/details/80257228?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;参考&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;UPDATE&lt;/h1&gt;
 &lt;h1&gt;DELETE&lt;/h1&gt;
-</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-05T03:02:57.000834+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-05T09:58:45.442300+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/u014231523/article/details/54562695"&gt;https://blog.csdn.net/u014231523/article/details/54562695&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/"&gt;https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/&lt;/a&gt;&lt;/li&gt;
@@ -326,7 +326,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;dataType&lt;/td&gt;
-&lt;td style="text-align:left"&gt;参数类型，默认String，其它值dataType="Integer"&lt;/td&gt;
+&lt;td style="text-align:left"&gt;参数类型，默认String，其它值dataType="Integer"，也可以写实体类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dataTypeClass&lt;/td&gt;
+&lt;td style="text-align:left"&gt;用类当做参数类型，但试过无效&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;defaultValue&lt;/td&gt;
@@ -428,13 +432,15 @@
 &lt;h2&gt;@ApiResponses：返回码描述&lt;/h2&gt;
 &lt;p&gt;作用于请求方法。设置返回码和响应的描述信息，&lt;code&gt;@ApiResponses&lt;/code&gt;可以设置多个&lt;code&gt;@ApiResponse&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;例如&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@ApiResponses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Invalid ID supplied&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-   &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pet not found&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@ApiResponses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+            &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Invalid ID supplied&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pet not found&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@ApiIgnore：忽略类或方法或实体类属性&lt;/h2&gt;
 &lt;p&gt;可作用于类，方法和实体类属性上&lt;/p&gt;
-</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-05T03:02:57.000803+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
-</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-05T03:02:57.000773+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-05T09:58:45.442271+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
+</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-05T09:58:45.442241+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.runoob.com/mysql/mysql-tutorial.html"&gt;MYSQL菜鸟教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -499,9 +505,9 @@
 &lt;p&gt;你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;INDEX&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="k"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-05T03:02:57.000742+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
-</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-05T03:02:57.000708+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
-</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-05T03:02:57.000671+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
+</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-05T09:58:45.442211+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
+</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-05T09:58:45.442180+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
+</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-05T09:58:45.442145+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="https://main.qcloudimg.com/raw/1c7701b98daad4d66b7ab7039cd8ff6a/腾讯云从业者认证-知识点列表V1.0.pdf"&gt;知识点目录1.0&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -749,5 +755,5 @@
 &lt;h2&gt;腾讯云安全产品&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1277" data-height="776" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/efd77e28eaf03af28b899968faa5b352.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1276" data-height="490" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/304883b4bd818655f9add3bbad6bc57f.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry><entry><id>/archives/Java-时间处理/</id><title>Java-时间处理</title><updated>2020-11-05T03:02:57.000604+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-时间处理&lt;/p&gt;
+</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry><entry><id>/archives/Java-时间处理/</id><title>Java-时间处理</title><updated>2020-11-05T09:58:45.442080+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-时间处理&lt;/p&gt;
 </content><link href="/archives/Java-时间处理/" rel="alternate"/><published>2020-11-04T17:31:40+08:06</published></entry></feed>

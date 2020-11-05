@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Thu, 05 Nov 2020 03:02:57 +0806</lastBuildDate><pubDate>Thu, 05 Nov 2020 03:02:57 +0806</pubDate><item><title>Lombok使用</title><link>/archives/Lombok使用/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>LifeAlsoIsGG-Wiki</title><link>/</link><description>Do not go gentle in that good night</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</url><title>LifeAlsoIsGG-Wiki</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Thu, 05 Nov 2020 09:58:45 +0806</lastBuildDate><pubDate>Thu, 05 Nov 2020 09:58:45 +0806</pubDate><item><title>Lombok使用</title><link>/archives/Lombok使用/</link><description>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.jianshu.com/p/2543c71a8e45"&gt;https://www.jianshu.com/p/2543c71a8e45&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -326,7 +326,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;dataType&lt;/td&gt;
-&lt;td style="text-align:left"&gt;参数类型，默认String，其它值dataType="Integer"&lt;/td&gt;
+&lt;td style="text-align:left"&gt;参数类型，默认String，其它值dataType="Integer"，也可以写实体类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dataTypeClass&lt;/td&gt;
+&lt;td style="text-align:left"&gt;用类当做参数类型，但试过无效&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;defaultValue&lt;/td&gt;
@@ -428,8 +432,10 @@
 &lt;h2&gt;@ApiResponses：返回码描述&lt;/h2&gt;
 &lt;p&gt;作用于请求方法。设置返回码和响应的描述信息，&lt;code&gt;@ApiResponses&lt;/code&gt;可以设置多个&lt;code&gt;@ApiResponse&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;例如&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@ApiResponses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Invalid ID supplied&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-   &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pet not found&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@ApiResponses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+            &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Invalid ID supplied&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="nd"&gt;@ApiResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pet not found&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@ApiIgnore：忽略类或方法或实体类属性&lt;/h2&gt;
 &lt;p&gt;可作用于类，方法和实体类属性上&lt;/p&gt;

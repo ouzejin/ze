@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/fffcdcc4d80630643e148e1a88fb844d.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/4c0bd624effdac2c9760006a61b91a51.json"
         }
     </script>
     <script>
@@ -371,7 +371,11 @@
 </tr>
 <tr>
 <td>dataType</td>
-<td style="text-align:left">参数类型，默认String，其它值dataType="Integer"</td>
+<td style="text-align:left">参数类型，默认String，其它值dataType="Integer"，也可以写实体类</td>
+</tr>
+<tr>
+<td>dataTypeClass</td>
+<td style="text-align:left">用类当做参数类型，但试过无效</td>
 </tr>
 <tr>
 <td>defaultValue</td>
@@ -473,8 +477,10 @@
 <h2>@ApiResponses：返回码描述</h2>
 <p>作用于请求方法。设置返回码和响应的描述信息，<code>@ApiResponses</code>可以设置多个<code>@ApiResponse</code></p>
 <p>例如</p>
-<div class="highlight"><pre><span></span><span class="nd">@ApiResponses</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span> <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Invalid ID supplied&quot;</span><span class="p">),</span>
-   <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Pet not found&quot;</span><span class="p">)</span> <span class="p">})</span>
+<div class="highlight"><pre><span></span><span class="nd">@ApiResponses</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span> 
+            <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Invalid ID supplied&quot;</span><span class="p">),</span>
+            <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Pet not found&quot;</span><span class="p">)</span> 
+    <span class="p">})</span>
 </pre></div>
 <h2>@ApiIgnore：忽略类或方法或实体类属性</h2>
 <p>可作用于类，方法和实体类属性上</p>
