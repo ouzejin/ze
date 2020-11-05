@@ -1,22 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-04T02:28:25.697588+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Maven中依赖的scope总结/</id><title>Maven中依赖的scope总结</title><updated>2020-11-04T02:28:25.697995+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
-&lt;blockquote&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://blog.csdn.net/cnweike/article/details/52221410?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;Maven POM中的各种scope的行为总结&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;compile&lt;/h1&gt;
-&lt;p&gt;默认的scope。任何定义在compile scope下的依赖将会在所有的class paths下可用。maven工程会将其打包到最终的artifact中。如果你构建一个WAR类型的artifact，那么在compile scope下引用的JAR文件将会被集成到WAR文件内。&lt;/p&gt;
-&lt;h1&gt;provided&lt;/h1&gt;
-&lt;p&gt;这个scope假定对应的依赖会由运行这个应用的JDK或者容器来提供。最好的例子就是servlet API。任何在provided scope下定义的依赖在构建时的类路径里是可用的，但是不会被打包到最终的artifact中。如果是一个WAR的文件，servlet API在构建时的类路径里是可用的，但是并不会被打包到WAR文件中。&lt;/p&gt;
-&lt;h1&gt;runtime&lt;/h1&gt;
-&lt;p&gt;在runtime scope下定义的依赖只会在运行期可用，而在构建期的类路径下不可用。这些依赖将会被打包到最终的artifact中。比如你有一个基于web的应用需要在运行时访问MySQL数据库。你的代码没有任何MySQL数据库驱动的硬依赖。你的代码仅仅是基于JDBC API来编写，在构建期并不需要MySQL数据库驱动。然而，在运行期，就需要相应的驱动来操作MySQL数据库了。因此，这个驱动应该被打包到最终的artifact中。&lt;/p&gt;
-&lt;h1&gt;test&lt;/h1&gt;
-&lt;p&gt;只用于测试变异的依赖（比如JUnit），execution必须定义在test scope下。这些依赖不会被打包到最终的artifact中。&lt;/p&gt;
-&lt;h1&gt;system&lt;/h1&gt;
-&lt;p&gt;于provided scope很像。唯一的区别在于，在system scope中，你需要告诉Maven如何去找到这个依赖。如果你要引用的依赖在Maven仓库中不存在时，就可以用这个scope。不推荐使用system依赖。&lt;/p&gt;
-&lt;h1&gt;import&lt;/h1&gt;
-&lt;p&gt;从其它的pom文件中导入依赖设置。&lt;/p&gt;
-</content><link href="/archives/Maven中依赖的scope总结/" rel="alternate"/><published>2020-10-08T15:56:11+08:06</published></entry><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-11-04T02:28:25.697966+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-05T03:02:57.000510+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Lombok使用/</id><title>Lombok使用</title><updated>2020-11-05T03:02:57.000923+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.jianshu.com/p/2543c71a8e45"&gt;https://www.jianshu.com/p/2543c71a8e45&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -87,6 +70,13 @@
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1080" data-height="448" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6eaa03e44ca76e3cdc75abbf93336349.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;注意，虽然只要加上 &lt;code&gt;@Builder&lt;/code&gt; 注解，我们就能够用流式写法快速设定对象的值，但是 setter 还是必须要写不能省略的，因为 Spring 或是其他框架有很多地方都会用到对象的 getter/setter 对他们取值/赋值&lt;/p&gt;
 &lt;p&gt;所以通常是 @Data 和 @Builder 会一起用在同个类上，既方便我们流式写代码，也方便框架做事&lt;/p&gt;
+&lt;p&gt;属性&lt;code&gt;toBuilder=true&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改实体，要求实体上添加@Builder(toBuilder=true)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;userInfo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;userInfo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;toBuilder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;OK&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;email&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;xxx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@Value&lt;/h2&gt;
 &lt;p&gt;也是整合包，但是他会把所有的变量都设成 final 的，其他的就跟 @Data 一样，等于同时加了以下注解&lt;/p&gt;
 &lt;ul&gt;
@@ -98,12 +88,13 @@
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;上面那个 @Data 适合用在 POJO 或 DTO 上，而这个 @Value 注解，则是适合加在值不希望被改变的类上，像是某个类的值当创建后就不希望被更改，只希望我们读它而已，就适合加上 @Value 注解，也就是 @Value for immutable class&lt;/p&gt;
 &lt;p&gt;另外注意一下，此 lombok 的注解 @Value 和另一个 Spring 的注解 @Value 撞名，在 import 时不要 import 错了&lt;/p&gt;
-</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-04T02:28:25.697936+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
-</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-04T02:28:25.697907+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
+</content><link href="/archives/Lombok使用/" rel="alternate"/><published>2020-10-08T22:18:09+08:06</published></entry><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-05T03:02:57.000893+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
+</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-05T03:02:57.000863+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
 &lt;h1&gt;INSERT&lt;/h1&gt;
+&lt;p&gt;插入后获取主键，&lt;a href="https://blog.csdn.net/qq_36614559/article/details/80257228?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;参考&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;UPDATE&lt;/h1&gt;
 &lt;h1&gt;DELETE&lt;/h1&gt;
-</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-04T02:28:25.697876+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-05T03:02:57.000834+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/u014231523/article/details/54562695"&gt;https://blog.csdn.net/u014231523/article/details/54562695&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/"&gt;https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/&lt;/a&gt;&lt;/li&gt;
@@ -442,8 +433,8 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@ApiIgnore：忽略类或方法或实体类属性&lt;/h2&gt;
 &lt;p&gt;可作用于类，方法和实体类属性上&lt;/p&gt;
-</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-04T02:28:25.697845+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
-</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-04T02:28:25.697815+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-05T03:02:57.000803+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
+</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-05T03:02:57.000773+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.runoob.com/mysql/mysql-tutorial.html"&gt;MYSQL菜鸟教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -508,9 +499,9 @@
 &lt;p&gt;你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;INDEX&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="k"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-04T02:28:25.697782+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
-</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-04T02:28:25.697746+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
-</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-04T02:28:25.697679+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
+</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-05T03:02:57.000742+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
+</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-05T03:02:57.000708+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-反射&lt;/p&gt;
+</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-05T03:02:57.000671+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="https://main.qcloudimg.com/raw/1c7701b98daad4d66b7ab7039cd8ff6a/腾讯云从业者认证-知识点列表V1.0.pdf"&gt;知识点目录1.0&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -758,4 +749,5 @@
 &lt;h2&gt;腾讯云安全产品&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1277" data-height="776" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/efd77e28eaf03af28b899968faa5b352.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1276" data-height="490" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/304883b4bd818655f9add3bbad6bc57f.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry></feed>
+</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry><entry><id>/archives/Java-时间处理/</id><title>Java-时间处理</title><updated>2020-11-05T03:02:57.000604+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-时间处理&lt;/p&gt;
+</content><link href="/archives/Java-时间处理/" rel="alternate"/><published>2020-11-04T17:31:40+08:06</published></entry></feed>
