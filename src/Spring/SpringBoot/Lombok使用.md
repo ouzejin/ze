@@ -86,9 +86,26 @@ tags:
 
 ![](images/Lombok使用/@Builder.png)
 
+
+
 注意，虽然只要加上 `@Builder` 注解，我们就能够用流式写法快速设定对象的值，但是 setter 还是必须要写不能省略的，因为 Spring 或是其他框架有很多地方都会用到对象的 getter/setter 对他们取值/赋值
 
 所以通常是 @Data 和 @Builder 会一起用在同个类上，既方便我们流式写代码，也方便框架做事
+
+
+
+属性`toBuilder=true`
+
+修改实体，要求实体上添加@Builder(toBuilder=true)
+
+```java
+userInfo = userInfo.toBuilder()
+        .name("OK")
+        .email("xxx")
+        .build();
+```
+
+
 
 
 
