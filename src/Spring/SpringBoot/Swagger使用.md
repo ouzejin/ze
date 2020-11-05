@@ -231,14 +231,15 @@ public void exportExcel(@ApiParam(name="param",value="ApiParam_value",required=t
 
 ### @ApiImplicitParam
 
-| 属性         | 描述                                           |
-| ------------ | :--------------------------------------------- |
-| name         | 对应参数名                                     |
-| value        | 对参数进行说明                                 |
-| required     | 参数是否必须传                                 |
-| paramType    | 参数放在哪个地方，具体值在下方                 |
-| dataType     | 参数类型，默认String，其它值dataType="Integer" |
-| defaultValue | 参数的默认值                                   |
+| 属性          | 描述                                                         |
+| ------------- | :----------------------------------------------------------- |
+| name          | 对应参数名                                                   |
+| value         | 对参数进行说明                                               |
+| required      | 参数是否必须传                                               |
+| paramType     | 参数放在哪个地方，具体值在下方                               |
+| dataType      | 参数类型，默认String，其它值dataType="Integer"，也可以写实体类 |
+| dataTypeClass | 用类当做参数类型，但试过无效                                 |
+| defaultValue  | 参数的默认值                                                 |
 
 
 
@@ -330,8 +331,10 @@ public class DemoData {
 例如
 
 ```java
-@ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid ID supplied"),
-   @ApiResponse(code = 404, message = "Pet not found") })
+    @ApiResponses(value = { 
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Pet not found") 
+    })
 ```
 
 
