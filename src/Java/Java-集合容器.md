@@ -1645,6 +1645,36 @@ public V put(K key, V value) {
 
 ## 3.3 ConcurrentHashMap
 
+参考
+
+> - https://www.cnblogs.com/chengxiao/p/6842045.html
+> - https://www.jianshu.com/p/d0b37b927c48
+
+
+
+ConcurrentHashMap是Java并发包中提供的一个线程安全且高效的HashMap实现，ConcurrentHashMap在并发编程的场景中使用频率非常之高，本文就来分析下ConcurrentHashMap的实现原理，并对其实现原理进行分析（JDK1.7).
+
+
+
+众所周知，哈希表是中非常高效，复杂度为O(1)的数据结构，在Java开发中，我们最常见到最频繁使用的就是HashMap和HashTable，但是在线程竞争激烈的并发场景中使用都不够合理。
+
+
+
+> - **HashMap** ：先说HashMap，HashMap是**线程不安全**的，在并发环境下，可能会形成**环状链表**（扩容时可能造成，具体原因自行百度google或查看源码分析），导致get操作时，cpu空转，所以，在并发环境中使用HashMap是非常危险的。
+> - **HashTable** ： HashTable和HashMap的实现原理几乎一样，差别无非是**1.HashTable不允许key和value为null；2.HashTable是线程安全的。**但是HashTable线程安全的策略实现代价却太大了，简单粗暴，get/put所有相关操作都是synchronized的，这相当于给整个哈希表加了一把**大锁**，多线程访问时候，只要有一个线程访问或操作该对象，那其他线程只能阻塞，相当于将所有的操作**串行化**，在竞争激烈的并发场景中性能就会非常差。
+
+
+
+HashTable性能差主要是由于所有操作需要竞争同一把锁，而如果容器中有多把锁，每一把锁锁一段数据，这样在多线程访问时不同段的数据时，就不会存在锁竞争了，这样便可以有效地提高并发效率。这就是ConcurrentHashMap所采用的"**分段锁**"思想。
+
+
+
+![](images/Java容器/ConcurrentHashMap分段锁.png)
+
+
+
+
+
 如何实现线程安全
 
 ![](images/Java容器/ConcurrentHashMap线程安全的原理.png)
@@ -1673,8 +1703,6 @@ public V put(K key, V value) {
 
 
 
-
-
 ### HashMap与Hashtable区别
 
 
@@ -1684,3 +1712,8 @@ public V put(K key, V value) {
 > 3. **对Null key 和Null value的⽀持**： HashMap 中，null 可以作为键，这样的键只有⼀个，可以 有⼀个或多个键所对应的值为 null。。但是在 HashTable 中 put 进的键值只要有⼀个 null， 直接抛出 NullPointerException。 
 > 4. **初始容量⼤⼩和每次扩充容量⼤⼩的不同** ： ①创建时如果不指定容量初始值，Hashtable 默认 的初始⼤⼩为11，之后每次扩充，容量变为原来的2n+1。HashMap 默认的初始化⼤⼩为16。之后 每次扩充，容量变为原来的2倍。②创建时如果给定了容量初始值，那么 Hashtable 会直接使⽤ 你给定的⼤⼩，⽽ HashMap 会将其扩充为2的幂次⽅⼤⼩（HashMap 中的 tableSizeFor() ⽅ 法保证，下⾯给出了源代码）。也就是说 HashMap 总是使⽤2的幂作为哈希表的⼤⼩,后⾯会介 绍到为什么是2的幂次⽅。 
 > 5. 底层数据结构： JDK1.8 以后的 HashMap 在解决哈希冲突时有了巨⼤的变化，当链表⻓度⼤于 阈值（默认为8）时，将链表转化为红⿊树，以减少搜索时间。Hashtable 没有这样的机制。
+
+
+
+### ConcurrentHashMap 和 Hashtable 的区别
+
