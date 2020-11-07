@@ -807,6 +807,8 @@ ArrayList中可以存放null元素，indexof是返回elementData数组中值相�
 
 
 
+
+
 ### ArrayList与List的区别
 
 参考
@@ -963,6 +965,14 @@ public class HashSet<E>
 
 
 
+当你把对象加⼊ HashSet 时，HashSet会先计算对象的 hashcode 值来判断对象加⼊的位置，同时也会 与其他加⼊的对象的hashcode值作⽐᫾，如果没有相符的hashcode，HashSet会假设对象没有重复出 现。但是如果发现有相同hashcode值的对象，这时会调⽤ equals（） ⽅法来检查hashcode相等的对 象是否真的相同。如果两者相同，HashSet就不会让加⼊操作成功。（摘⾃我的Java启蒙书《Head fist java》第⼆版）
+
+
+
+
+
+
+
 - 如果此set中尚未包含指定元素，则添加指定元素。 
 - 更确切地讲，如果此 set 没有包含满足(e\==null ? e2\==null : e.equals(e2)) 的元素e2，则向此set 添加指定的元素e。 
 - 如果此set已包含该元素，则该调用不更改set并返回false。 
@@ -980,6 +990,18 @@ public class HashSet<E>
     return map.put(e, PRESENT)==null;  
     }  
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1609,6 +1631,12 @@ public V put(K key, V value) {
 
 
 
+
+
+
+
+
+
 ## 3.2 LinkedHashMap
 
 
@@ -1629,8 +1657,30 @@ public V put(K key, V value) {
 
 
 
-## 3.3 Hashtable
+
+
+
+
+
+
+
 
 
 
 ## 区别
+
+
+
+
+
+
+
+### HashMap与Hashtable区别
+
+
+
+> 1. **线程是否安全**： HashMap 是⾮线程安全的，HashTable 是线程安全的；HashTable 内部的⽅法 基本都经过 synchronized 修饰。（如果你要保证线程安全的话就使⽤ ConcurrentHashMap 吧！）； 
+> 2. **效率**： 因为线程安全的问题，HashMap 要⽐ HashTable 效率⾼⼀点。另外，HashTable 基本被 淘汰，不要在代码中使⽤它； 
+> 3. **对Null key 和Null value的⽀持**： HashMap 中，null 可以作为键，这样的键只有⼀个，可以 有⼀个或多个键所对应的值为 null。。但是在 HashTable 中 put 进的键值只要有⼀个 null， 直接抛出 NullPointerException。 
+> 4. **初始容量⼤⼩和每次扩充容量⼤⼩的不同** ： ①创建时如果不指定容量初始值，Hashtable 默认 的初始⼤⼩为11，之后每次扩充，容量变为原来的2n+1。HashMap 默认的初始化⼤⼩为16。之后 每次扩充，容量变为原来的2倍。②创建时如果给定了容量初始值，那么 Hashtable 会直接使⽤ 你给定的⼤⼩，⽽ HashMap 会将其扩充为2的幂次⽅⼤⼩（HashMap 中的 tableSizeFor() ⽅ 法保证，下⾯给出了源代码）。也就是说 HashMap 总是使⽤2的幂作为哈希表的⼤⼩,后⾯会介 绍到为什么是2的幂次⽅。 
+> 5. 底层数据结构： JDK1.8 以后的 HashMap 在解决哈希冲突时有了巨⼤的变化，当链表⻓度⼤于 阈值（默认为8）时，将链表转化为红⿊树，以减少搜索时间。Hashtable 没有这样的机制。
