@@ -1717,3 +1717,7 @@ HashTable性能差主要是由于所有操作需要竞争同一把锁，而如�
 
 ### ConcurrentHashMap 和 Hashtable 的区别
 
+ConcurrentHashMap 和 Hashtable 的区别主要体现在实现线程安全的⽅式上不同。 
+
+> - 底层数据结构： JDK1.7的 ConcurrentHashMap 底层采⽤ 分段的数组+链表 实现，JDK1.8 采⽤ 的数据结构跟HashMap1.8的结构⼀样，数组+链表/红⿊⼆叉树。Hashtable 和 JDK1.8 之前的 HashMap 的底层数据结构类似都是采⽤ 数组+链表 的形式，数组是 HashMap 的主体，链表则是 主要为了解决哈希冲突⽽存在的； 
+> - 实现线程安全的⽅式（重要）： ① 在JDK1.7的时候，ConcurrentHashMap（分段锁） 对整个桶 数组进⾏了分割分段(Segment)，每⼀把锁只锁容器其中⼀部分数据，多线程访问容器⾥不同数 据段的数据，就不会存在锁竞争，提⾼并发访问率。 到了 JDK1.8 的时候已经摒弃了Segment的 概念，⽽是直接⽤ Node 数组+链表+红⿊树的数据结构来实现，并发控制使⽤ synchronized 和 CAS 来操作。（JDK1.6以后 对 synchronized锁做了很多优化） 整个看起来就像是优化过且线 程安全的 HashMap，虽然在JDK1.8中还能看到 Segment 的数据结构，但是已经简化了属性，只 是为了兼容旧版本；② Hashtable(同⼀把锁) :使⽤ synchronized 来保证线程安全，效率⾮常 低下。当⼀个线程访问同步⽅法时，其他线程也访问同步⽅法，可能会进⼊阻塞或轮询状态，如 使⽤ put 添加元素，另⼀个线程不能使⽤ put 添加元素，也不能使⽤ get，竞争会越来越激烈 效率越低。
