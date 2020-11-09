@@ -59,35 +59,128 @@ tags:
 > - @EnableSwagger2
 
 ```java
+package com.pactera.sz.cmb202102.config;
+
+
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
+import com.google.common.base.Function;
+import com.google.common.base.Optional;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.RequestHandler;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
+
+
+/**
+ * @WebName: SwaggerConfig
+ * @Description: TODO
+ * @author: Chen Long
+ * @date: 2020/9/17  15:25
+ * “Welcome,my master”
+ */
+
 @Configuration
 @EnableSwagger2
+@EnableSwaggerBootstrapUI
 public class SwaggerConfig {
-//                    .apis(RequestHandlerSelectors.basePackage("com.lifeisgg.springboot_demo.controller"))
-    public Docket buildDocket(){
+
+    // 定义分隔符
+    private static final String SPLITOR = ";";
+
+    private static final String project = "com.pactera.sz.cmb202102.";
+    private static final String ChargeModule = "com.pactera.sz.cmb202102.charge";
+    private static final String householdServiceModule = "com.pactera.sz.cmb202102.householdservice";
+    private static final String financeServiceModule = "com.pactera.sz.cmb202102.financeservice";
+    private static final String statisticsServiceModule = "com.pactera.sz.cmb202102.statisticsservice";
+    private static final String managementModule = "com.pactera.sz.cmb202102";
+
+    /**
+     * 创建API应用
+     * api() 增加API相关信息
+     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，
+     * 本例采用指定扫描的包路径来定义指定要建立API的目录。
+     *
+     * @return
+     */
+
+
+
+    @Bean
+    public Docket merchantDocket(){
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("商户管理平台模块")
                 .apiInfo(apiInfo())
                 .select()
-                //.apis(RequestHandlerSelectors.basePackage("com.lifeisgg.springboot_demo.controller"))
+                .apis(scanBasePackage(ChargeModule + SPLITOR + householdServiceModule + SPLITOR + financeServiceModule + SPLITOR + statisticsServiceModule))
                 .paths(PathSelectors.any())
-                .build()
-                //是否将参数显示在请求后面
-                .enableUrlTemplating(true);
+                .build();
 
+        //是否将参数显示在请求后面
+    }
+
+    @Bean
+    public Docket systemDocket(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("系统后台管理模块")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(scanBasePackage(managementModule))
+                .paths(PathSelectors.any())
+                .build();
+        //是否将参数显示在请求后面
     }
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("SpringbootDemo")
-                .description("SpringbootDemo-Swagger2")
-                .termsOfServiceUrl("localhost:8001")
-                .contact(new Contact("Chen Long", "https://wiki.lifeisgg.online/", "1138312802@qq.com"))
+                .title("CMB202102-Swagger")
+                .description("CMB202102实训项目-后台管理系统/商户管理平台")
+                .termsOfServiceUrl("localhost:8000")
+                .contact(new Contact("WebSite", "http://localhost:8081/login", "1138312802@qq.com"))
                 .version("Beta")
                 .license("MIT")
                 .licenseUrl("")
                 .build();
 
     }
+
+
+    /**
+     * 切割扫描的包生成Predicate<RequestHandler>
+     * @param basePackage
+     * @return
+     */
+    public static Predicate<RequestHandler> scanBasePackage(final String basePackage) {
+        if(basePackage.length() == 0){
+            throw new NullPointerException("basePackage不能为空，多个包扫描使用"+SPLITOR+"分隔");
+        }
+        String[] controllerPack = basePackage.split(SPLITOR);
+        Predicate<RequestHandler> predicate = null;
+        for (int i = controllerPack.length -1; i >= 0 ; i--) {
+            String strBasePackage = controllerPack[i];
+            Predicate<RequestHandler> tempPredicate = RequestHandlerSelectors.basePackage(strBasePackage);
+            predicate = predicate == null ? tempPredicate : Predicates.or(tempPredicate,predicate);
+        }
+        if(predicate == null){
+            throw new NullPointerException("basePackage配置不正确，多个包扫描使用"+SPLITOR+"分隔");
+        }
+        return predicate;
+    }
+
+
 }
+
+
 ```
 
 
@@ -97,6 +190,16 @@ public class SwaggerConfig {
 
 
 ![](images/Swagger使用/swagger页面.jpg)
+
+
+
+
+
+## 多包扫描
+
+参考
+
+> - https://www.jianshu.com/p/b5068f121a49
 
 
 
@@ -346,3 +449,55 @@ public class DemoData {
 ## @ApiIgnore：忽略类或方法或实体类属性
 
 可作用于类，方法和实体类属性上
+
+
+
+
+
+
+
+# 集成swagger-bootstrap-ui
+
+功能更强大bootstrap风格的UI界面
+
+
+
+
+
+## 导入依赖
+
+```java
+        <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+```
+
+
+
+
+
+## 在SwaggerConfig上开启注解
+
+```java
+@EnableSwaggerBootstrapUI
+```
+
+
+
+
+
+## 访问网址
+
+http://localhost:8000/doc.html
+
+
+
+![](images/Swagger使用/SwaggerBootstrapUI使用.jpg)
+
+
+
+
+
