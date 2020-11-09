@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-08T16:27:17.304387+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-08T16:27:17.304804+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
-</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-08T16:27:17.304774+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><id>/</id><title>LifeAlsoIsGG-Wiki</title><updated>2020-11-09T17:03:06.123778+08:06</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email></author><link href="/" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><logo>https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png</logo><subtitle>Do not go gentle in that good night</subtitle><entry><id>/archives/Java-IO/</id><title>Java-IO</title><updated>2020-11-09T17:03:06.124321+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;javaio流&lt;/p&gt;
+</content><link href="/archives/Java-IO/" rel="alternate"/><published>2020-10-09T14:25:20+08:06</published></entry><entry><id>/archives/Mybatis学习笔记/</id><title>Mybatis学习笔记</title><updated>2020-11-09T17:03:06.124271+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;SELECT&lt;/h1&gt;
 &lt;h1&gt;INSERT&lt;/h1&gt;
 &lt;p&gt;插入后获取主键，&lt;a href="https://blog.csdn.net/qq_36614559/article/details/80257228?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param"&gt;参考&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;UPDATE&lt;/h1&gt;
 &lt;h1&gt;DELETE&lt;/h1&gt;
-</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-08T16:27:17.304745+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Mybatis学习笔记/" rel="alternate"/><published>2020-10-10T15:05:06+08:06</published></entry><entry><id>/archives/Swagger使用/</id><title>Swagger使用</title><updated>2020-11-09T17:03:06.124220+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/u014231523/article/details/54562695"&gt;https://blog.csdn.net/u014231523/article/details/54562695&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/"&gt;https://leongfeng.github.io/2017/02/20/springboot-springfox-swagger2markup-spring-restdoc/&lt;/a&gt;&lt;/li&gt;
@@ -33,38 +33,135 @@
 &lt;li&gt;@EnableSwagger2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@Configuration&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;com.pactera.sz.cmb202102.config&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.google.common.base.Function&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.google.common.base.Optional&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.google.common.base.Predicate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.google.common.base.Predicates&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.springframework.context.annotation.Bean&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.RequestHandler&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.builders.ApiInfoBuilder&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.builders.PathSelectors&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.builders.RequestHandlerSelectors&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.service.ApiInfo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.service.Contact&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.spi.DocumentationType&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.spring.web.plugins.Docket&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;springfox.documentation.swagger2.annotations.EnableSwagger2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+
+
+&lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt; * @WebName: SwaggerConfig&lt;/span&gt;
+&lt;span class="cm"&gt; * @Description: TODO&lt;/span&gt;
+&lt;span class="cm"&gt; * @author: Chen Long&lt;/span&gt;
+&lt;span class="cm"&gt; * @date: 2020/9/17  15:25&lt;/span&gt;
+&lt;span class="cm"&gt; * “Welcome,my master”&lt;/span&gt;
+&lt;span class="cm"&gt; */&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Configuration&lt;/span&gt;
 &lt;span class="nd"&gt;@EnableSwagger2&lt;/span&gt;
+&lt;span class="nd"&gt;@EnableSwaggerBootstrapUI&lt;/span&gt;
 &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SwaggerConfig&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="c1"&gt;//                    .apis(RequestHandlerSelectors.basePackage(&amp;quot;com.lifeisgg.springboot_demo.controller&amp;quot;))&lt;/span&gt;
-    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Docket&lt;/span&gt; &lt;span class="nf"&gt;buildDocket&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// 定义分隔符&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;SPLITOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;ChargeModule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102.charge&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;householdServiceModule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102.householdservice&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;financeServiceModule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102.financeservice&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;statisticsServiceModule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102.statisticsservice&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;managementModule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.pactera.sz.cmb202102&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;     * 创建API应用&lt;/span&gt;
+&lt;span class="cm"&gt;     * api() 增加API相关信息&lt;/span&gt;
+&lt;span class="cm"&gt;     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，&lt;/span&gt;
+&lt;span class="cm"&gt;     * 本例采用指定扫描的包路径来定义指定要建立API的目录。&lt;/span&gt;
+&lt;span class="cm"&gt;     *&lt;/span&gt;
+&lt;span class="cm"&gt;     * @return&lt;/span&gt;
+&lt;span class="cm"&gt;     */&lt;/span&gt;
+
+
+
+    &lt;span class="nd"&gt;@Bean&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Docket&lt;/span&gt; &lt;span class="nf"&gt;merchantDocket&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Docket&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DocumentationType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SWAGGER_2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;groupName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;商户管理平台模块&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;apiInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;apiInfo&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;select&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-                &lt;span class="c1"&gt;//.apis(RequestHandlerSelectors.basePackage(&amp;quot;com.lifeisgg.springboot_demo.controller&amp;quot;))&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;apis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scanBasePackage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ChargeModule&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;SPLITOR&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;householdServiceModule&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;SPLITOR&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;financeServiceModule&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;SPLITOR&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;statisticsServiceModule&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;paths&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PathSelectors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;any&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-                &lt;span class="c1"&gt;//是否将参数显示在请求后面&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;enableUrlTemplating&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
+        &lt;span class="c1"&gt;//是否将参数显示在请求后面&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Bean&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Docket&lt;/span&gt; &lt;span class="nf"&gt;systemDocket&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Docket&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DocumentationType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SWAGGER_2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;groupName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;系统后台管理模块&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;apiInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;apiInfo&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;select&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;apis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scanBasePackage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;managementModule&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;paths&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PathSelectors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;any&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="c1"&gt;//是否将参数显示在请求后面&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
     &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;ApiInfo&lt;/span&gt; &lt;span class="nf"&gt;apiInfo&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ApiInfoBuilder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;SpringbootDemo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;description&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;SpringbootDemo-Swagger2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;termsOfServiceUrl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;localhost:8001&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Contact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Chen Long&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;https://wiki.lifeisgg.online/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1138312802@qq.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;CMB202102-Swagger&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;description&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;CMB202102实训项目-后台管理系统/商户管理平台&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;termsOfServiceUrl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;localhost:8000&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Contact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;WebSite&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://localhost:8081/login&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1138312802@qq.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;version&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Beta&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;license&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;MIT&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;licenseUrl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
                 &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
     &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;     * 切割扫描的包生成Predicate&amp;lt;RequestHandler&amp;gt;&lt;/span&gt;
+&lt;span class="cm"&gt;     * @param basePackage&lt;/span&gt;
+&lt;span class="cm"&gt;     * @return&lt;/span&gt;
+&lt;span class="cm"&gt;     */&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Predicate&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;RequestHandler&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;scanBasePackage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;basePackage&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;basePackage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+            &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;NullPointerException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;basePackage不能为空，多个包扫描使用&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;SPLITOR&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;分隔&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;controllerPack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;basePackage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SPLITOR&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;Predicate&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;RequestHandler&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;predicate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;controllerPack&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;strBasePackage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;controllerPack&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;Predicate&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;RequestHandler&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;tempPredicate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RequestHandlerSelectors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;basePackage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;strBasePackage&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;predicate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;predicate&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;tempPredicate&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Predicates&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;or&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tempPredicate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;predicate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;predicate&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+            &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;NullPointerException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;basePackage配置不正确，多个包扫描使用&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;SPLITOR&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;分隔&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;predicate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;输入&lt;a href="http://localhost:8001/swagger-ui.html"&gt;http://localhost:8001/swagger-ui.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1651" data-height="795" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f0e2c3b5c5e4a081fc645e8a65c25a1b.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;多包扫描&lt;/h2&gt;
+&lt;p&gt;参考&lt;/p&gt;
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jianshu.com/p/b5068f121a49"&gt;https://www.jianshu.com/p/b5068f121a49&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;h1&gt;常用注解&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;&lt;tr&gt;
@@ -350,7 +447,23 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;@ApiIgnore：忽略类或方法或实体类属性&lt;/h2&gt;
 &lt;p&gt;可作用于类，方法和实体类属性上&lt;/p&gt;
-</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-08T16:27:17.304716+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
+&lt;h1&gt;集成swagger-bootstrap-ui&lt;/h1&gt;
+&lt;p&gt;功能更强大bootstrap风格的UI界面&lt;/p&gt;
+&lt;h2&gt;导入依赖&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui --&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;dependency&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;groupId&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;xiaoymin&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;groupId&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;artifactId&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;swagger&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;artifactId&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mf"&gt;1.9.6&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;dependency&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;在SwaggerConfig上开启注解&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nd"&gt;@EnableSwaggerBootstrapUI&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;访问网址&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://localhost:8000/doc.html"&gt;http://localhost:8000/doc.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img data-width="1914" data-height="936" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/288cb1b1437f1c9637c86bf342e7ab02.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
+</content><link href="/archives/Swagger使用/" rel="alternate"/><published>2020-10-10T18:29:09+08:06</published></entry><entry><id>/archives/Redis学习笔记/</id><title>Redis学习笔记</title><updated>2020-11-09T17:03:06.124185+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis学习笔记&lt;/p&gt;
 &lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;amp;mid=2247484858&amp;amp;idx=1&amp;amp;sn=8e222ea6115e0b69cac91af14d2caf36&amp;amp;chksm=cea24a71f9d5c367148dccec3d5ddecf5ecd8ea096b5c5ec32f22080e66ac3c343e99151c9e0&amp;amp;token=1082669959&amp;amp;lang=zh_CN&amp;amp;scene=21#wechat_redirect"&gt;redis 总结——重构版&lt;/a&gt;&lt;/li&gt;
@@ -474,7 +587,7 @@
 &lt;h2&gt;为什么要用 redis 而不用 map/guava 做缓存?&lt;/h2&gt;
 &lt;p&gt;缓存分为&lt;code&gt;本地缓存&lt;/code&gt;和&lt;code&gt;分布式缓存&lt;/code&gt;。以 Java 为例，使用自带的 map 或者 guava 实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着 jvm 的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。&lt;/p&gt;
 &lt;p&gt;使用 redis 或 memcached 之类的称为分布式缓存，在多实例的情况下，各实例共用一份缓存数据，缓存具有一致性。缺点是需要保持 redis 或 memcached服务的高可用，整个程序架构上较为复杂。&lt;/p&gt;
-</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-08T16:27:17.304685+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/Redis学习笔记/" rel="alternate"/><published>2020-10-12T20:45:07+08:06</published></entry><entry><id>/archives/SQL学习笔记/</id><title>SQL学习笔记</title><updated>2020-11-09T17:03:06.124149+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.runoob.com/mysql/mysql-tutorial.html"&gt;MYSQL菜鸟教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -539,8 +652,8 @@
 &lt;p&gt;你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;INDEX&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="k"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-08T16:27:17.304655+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
-</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-08T16:27:17.304624+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
+</content><link href="/archives/SQL学习笔记/" rel="alternate"/><published>2020-10-12T20:47:17+08:06</published></entry><entry><id>/archives/Java-JDK8新特性/</id><title>Java-JDK8新特性</title><updated>2020-11-09T17:03:06.124114+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-JDK8新特性&lt;/p&gt;
+</content><link href="/archives/Java-JDK8新特性/" rel="alternate"/><published>2020-10-15T20:39:47+08:06</published></entry><entry><id>/archives/Java-反射/</id><title>Java-反射</title><updated>2020-11-09T17:03:06.124078+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/huangliniqng/article/details/88554510"&gt;https://blog.csdn.net/huangliniqng/article/details/88554510&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.jianshu.com/p/9be58ee20dee"&gt;https://www.jianshu.com/p/9be58ee20dee&lt;/a&gt;&lt;/li&gt;
@@ -805,7 +918,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-08T16:27:17.304590+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
+</content><link href="/archives/Java-反射/" rel="alternate"/><published>2020-10-16T16:49:15+08:06</published></entry><entry><id>/archives/腾讯云学习笔记/</id><title>腾讯云学习笔记</title><updated>2020-11-09T17:03:06.124041+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;h1&gt;学习目录&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="https://main.qcloudimg.com/raw/1c7701b98daad4d66b7ab7039cd8ff6a/腾讯云从业者认证-知识点列表V1.0.pdf"&gt;知识点目录1.0&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1053,8 +1166,8 @@
 &lt;h2&gt;腾讯云安全产品&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1277" data-height="776" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/efd77e28eaf03af28b899968faa5b352.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img data-width="1276" data-height="490" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/304883b4bd818655f9add3bbad6bc57f.jpg" alt="" /&gt;&lt;/figure&gt;&lt;/p&gt;
-</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry><entry><id>/archives/Java-时间处理/</id><title>Java-时间处理</title><updated>2020-11-08T16:27:17.304554+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-时间处理&lt;/p&gt;
-</content><link href="/archives/Java-时间处理/" rel="alternate"/><published>2020-11-04T17:31:40+08:06</published></entry><entry><id>/archives/Redis实现单点登录/</id><title>Redis实现单点登录</title><updated>2020-11-08T16:27:17.304483+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis实现单点登录&lt;/p&gt;
+</content><link href="/archives/腾讯云学习笔记/" rel="alternate"/><published>2020-10-20T16:12:14+08:06</published></entry><entry><id>/archives/Java-时间处理/</id><title>Java-时间处理</title><updated>2020-11-09T17:03:06.123998+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Java-时间处理&lt;/p&gt;
+</content><link href="/archives/Java-时间处理/" rel="alternate"/><published>2020-11-04T17:31:40+08:06</published></entry><entry><id>/archives/Redis实现单点登录/</id><title>Redis实现单点登录</title><updated>2020-11-09T17:03:06.123888+00:00</updated><author><name>LifeAlsoIsGG</name><email>1138312802@qq.com</email><uri>https://blog.lifeisgg.online</uri></author><content>&lt;p&gt;Redis实现单点登录&lt;/p&gt;
 &lt;h1&gt;参考&lt;/h1&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/qq_32534441/article/details/90264485"&gt;https://blog.csdn.net/qq_32534441/article/details/90264485&lt;/a&gt;&lt;/li&gt;
