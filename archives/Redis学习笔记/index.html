@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/57c5ebe9388981a0423fb1f5532a9b3a.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/886bb10e15a76b74bbda79b2b70a19bf.json"
         }
     </script>
     <script>
@@ -144,6 +144,7 @@
 <blockquote><ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247484858&amp;idx=1&amp;sn=8e222ea6115e0b69cac91af14d2caf36&amp;chksm=cea24a71f9d5c367148dccec3d5ddecf5ecd8ea096b5c5ec32f22080e66ac3c343e99151c9e0&amp;token=1082669959&amp;lang=zh_CN&amp;scene=21#wechat_redirect">redis 总结——重构版</a></li>
 <li><a href="https://www.cnblogs.com/jasontec/p/9699242.html">https://www.cnblogs.com/jasontec/p/9699242.html</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide">https://github.com/Snailclimb/JavaGuide</a></li>
 </ul>
 </blockquote>
 <h1>简介</h1>
@@ -156,6 +157,56 @@
 <h2>高并发</h2>
 <p>直接操作缓存能够承受的请求是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去，这样用户的一部分请求会直接到缓存这里而不用经过数据库。</p>
 <p><figure><img data-width="554" data-height="469" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5c917bb9d9fb7894344b3c1727d9e6ca.webp" alt="" /></figure></p>
+<h2>为什么要⽤ redis ⽽不⽤ map/guava 做缓存?</h2>
+<p>缓存分为本地缓存和分布式缓存。以 Java 为例，使⽤⾃带的 map 或者 guava 实现的是本地缓存，最主要的特点是轻量以及快速，⽣命周期随着 jvm 的销毁⽽结束，并且在多实例的情况下，每个实例都 需要各⾃保存⼀份缓存，缓存不具有⼀致性。 使⽤ redis 或 memcached 之类的称为分布式缓存，在多实例的情况下，各实例共⽤⼀份缓存数据，缓 存具有⼀致性。缺点是需要保持 redis 或 memcached服务的⾼可⽤，整个程序架构上较为复杂。</p>
+<h1>redis 的线程模型</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/m0_37524661/article/details/87086267">https://blog.csdn.net/m0_37524661/article/details/87086267</a></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1666100733546359034&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1666100733546359034&amp;wfr=spider&amp;for=pc</a></li>
+</ul>
+</blockquote>
+<p><figure><img data-width="1546" data-height="628" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5b855bc48530fe0b28a14f7d0d7f613c.png" alt="" /></figure></p>
+<h2>redis单线程模型指的是什么</h2>
+<p>Redis基于<code>Reactor</code>模式开发了网络事件处理器，这个处理器被称为<code>文件事件处理器</code>。它的组成结构为4部分：</p>
+<blockquote><ul>
+<li><p>多个套接字</p>
+</li>
+<li><p>IO多路复用程序</p>
+<blockquote><ul>
+<li>参考：</li>
+</ul>
+</blockquote>
+</li>
+<li><p>文件事件分派器</p>
+</li>
+<li><p>事件处理器</p>
+</li>
+</ul>
+</blockquote>
+<p>redis 内部使⽤⽂件事件处理器 <code>file event handler</code> ，这个<code>⽂件事件处理器</code>是<code>单线程</code>的，所以 redis 才叫做<code>单线程模型</code>。它采⽤ <code>IO 多路复⽤机</code>制同时监听多个 <code>socket</code>，根据 <code>socket</code> 上的事件 来选择对应的事件处理器进⾏处理</p>
+<p>Redis客户端对服务端的每次调用都经历了<code>发送命令</code>，<code>执行命令</code>，<code>返回结果</code>三个过程。其中执行命令阶段，由于Redis是<code>单线程</code>来处理命令的，所有每一条到达服务端的命令不会立刻执行，所有的命令都会进入一个队列中，然后逐个被执行。并且多个客户端发送的命令的执行<code>顺序是不确定</code>的。但是可以确定的是不会有两条命令被同时执行，不会产生并发问题，这就是Redis的单线程基本模型。</p>
+<blockquote><p>目前redis的网络处理方面时多线程，但是核心模块方面还是单线程</p>
+</blockquote>
+<h2>redis是单线程模型为什么效率还这么高？</h2>
+<blockquote><ol>
+<li><strong>纯内存访问</strong>：数据存放在内存中，内存的响应时间大约是100纳秒，这是Redis每秒万亿级别访问的重要基础。</li>
+<li><strong>非阻塞I/O</strong>：Redis采用epoll做为I/O多路复用技术的实现，再加上Redis自身的事件处理模型将epoll中的连接，读写，关闭都转换为了时间，不在I/O上浪费过多的时间。</li>
+<li>单线程避免了线程切换和竞态产生的消耗。</li>
+<li>Redis采用单线程模型，每条命令执行如果占用大量时间，会造成其他线程阻塞，对于Redis这种高性能服务是致命的，所以Redis是面向高速执行的数据库</li>
+</ol>
+</blockquote>
+<h2>rector模式简介</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/crazymakercircle/p/9833847.html">https://www.cnblogs.com/crazymakercircle/p/9833847.html</a></li>
+</ul>
+</blockquote>
+<h2>为什么网络处理要引入多线程？</h2>
+<p>之前的段落说了，Redis 的瓶颈并不在 CPU，而在内存和网络。</p>
+<p>内存不够的话，可以加内存或者做数据结构优化和其他优化等，但网络的性能优化才是大头，网络 IO 的读写在 Redis 整个执行期间占用了大部分的 CPU 时间，如果把网络处理这部分做成多线程处理方式，那对整个 Redis 的性能会有很大的提升。</p>
+<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1bb687254efee437331a4cbe63980e5a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a01610012eec76c9bea5ec1a659e2e12.jpg" alt="" /></figure></p>
 <h1>常⻅数据结构以及使⽤场景分析</h1>
 <table>
 <thead><tr>
@@ -165,23 +216,24 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>String</td>
+<td>set,get,decr,incr,mget</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>Hash</td>
+<td>hget,hset,hgetall</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>List</td>
+<td>lpush,rpush,lpop,rpop,lrange</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>Set</td>
+<td>sadd,spop,smembers,sunion</td>
 </tr>
 <tr>
-<td></td>
+<td>ZSet（Sorted Set）</td>
+<td>zadd,zrange,zrem,zcard</td>
 </tr>
 </tbody>
 </table>
@@ -189,10 +241,11 @@
 <blockquote><p>常⽤命令: set,get,decr,incr,mget 等。</p>
 </blockquote>
 <p>String数据结构是简单的key-value类型，value其实不仅可以是String，也可以是数字。 常规keyvalue缓存应⽤； 常规计数：微博数，粉丝数等。</p>
+<p>string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象 。</p>
 <h2>Hash</h2>
 <blockquote><p>常⽤命令： hget,hset,hgetall 等。</p>
 </blockquote>
-<p>hash 是⼀个 string 类型的 field 和 value 的映射表，hash 特别适合⽤于存储对象，后续操作的时 候，你可以直接仅仅修改这个对象中的某个字段的值。 ⽐如我们可以 hash 数据结构来存储⽤户信 息，商品信息等等。⽐如下⾯我就⽤ hash 类型存放了我本⼈的⼀些信息：</p>
+<p>hash 是⼀个 string 类型的 <code>field</code> 和 <code>value</code> 的映射表，hash 特别适合⽤于存储对象，后续操作的时 候，你可以直接仅仅修改这个对象中的某个字段的值。 ⽐如我们可以 hash 数据结构来存储⽤户信 息，商品信息等等。⽐如下⾯我就⽤ hash 类型存放了我本⼈的⼀些信息：</p>
 <div class="highlight"><pre><span></span><span class="err">key=JavaUser</span><span class="mi">293847</span>
 <span class="err">value=</span><span class="p">{</span>
  <span class="err">“id”:</span> <span class="err">1,</span>
@@ -204,52 +257,279 @@
 <h2>List</h2>
 <blockquote><p>常⽤命令: lpush,rpush,lpop,rpop,lrange等</p>
 </blockquote>
-<p>list 就是链表，Redis list 的应⽤场景⾮常多，也是Redis最重要的数据结构之⼀，⽐如微博的关注 列表，粉丝列表，消息列表等功能都可以⽤Redis的 list 结构来实现。 Redis list 的实现为⼀个双向链表，即可以⽀持反向查找和遍历，更⽅便操作，不过带来了部分额外 的内存开销。 另外可以通过 lrange 命令，就是从某个元素开始读取多少个元素，可以基于 list 实现分⻚查询，这 个很棒的⼀个功能，基于 redis 实现简单的⾼性能分⻚，可以做类似微博那种下拉不断分⻚的东⻄ （⼀⻚⼀⻚的往下⾛），性能⾼。</p>
+<p>Redis list 的实现为⼀个<code>双向链表</code>。Redis list 的应⽤场景⾮常多，也是Redis最重要的数据结构之⼀，⽐如微博的关注 列表，粉丝列表，消息列表等功能都可以⽤Redis的 list 结构来实现。 Redis list 的实现为⼀个双向链表，即可以⽀持反向查找和遍历，更⽅便操作，不过带来了部分额外 的内存开销。 另外可以通过 lrange 命令，就是从某个元素开始读取多少个元素，可以基于 list 实现分⻚查询，这 个很棒的⼀个功能，基于 redis 实现简单的⾼性能分⻚，可以做类似微博那种下拉不断分⻚的东⻄ （⼀⻚⼀⻚的往下⾛），性能⾼。</p>
+<p>在 key 对应 list 的头部添加字符串元素</p>
+<div class="highlight"><pre><span></span><span class="n">lpush</span> <span class="n">name</span> <span class="n">value</span>
+</pre></div>
+<p>在 key 对应 list 的尾部添加字符串元素</p>
+<div class="highlight"><pre><span></span><span class="n">rpush</span> <span class="n">name</span> <span class="n">value</span>
+</pre></div>
+<p>key 对应 list 中删除 count 个和 value 相同的元素</p>
+<div class="highlight"><pre><span></span><span class="n">lrem</span> <span class="n">name</span> <span class="n">index</span>
+</pre></div>
+<p>返回 key 对应 list 的长度</p>
+<div class="highlight"><pre><span></span><span class="n">llen</span> <span class="n">name</span>
+</pre></div>
 <h2>Set</h2>
 <blockquote><p>常⽤命令： sadd,spop,smembers,sunion 等</p>
 </blockquote>
 <p>set 对外提供的功能与list类似是⼀个列表的功能，特殊之处在于 set 是可以⾃动排重的。 当你需要存储⼀个列表数据，⼜不希望出现重复数据时，set是⼀个很好的选择，并且set提供了判断某 个成员是否在⼀个set集合内的重要接⼝，这个也是list所不能提供的。可以基于 set 轻易实现交集、 并集、差集的操作。 ⽐如：在微博应⽤中，可以将⼀个⽤户所有的关注⼈存在⼀个集合中，将其所有粉丝存在⼀个集合。 Redis可以⾮常⽅便的实现如共同关注、共同粉丝、共同喜好等功能。这个过程也就是求交集的过程， 具体命令如下：</p>
 <div class="highlight"><pre><span></span><span class="err">sinterstore</span> <span class="err">key</span><span class="mi">1</span> <span class="err">key</span><span class="mi">2</span> <span class="err">key</span><span class="mi">3</span> <span class="err">将交集存在key</span><span class="mi">1</span><span class="err">内</span>
 </pre></div>
-<h2>Sorted Set</h2>
+<h2>ZSet（Sorted Set）</h2>
 <blockquote><p>常⽤命令： zadd,zrange,zrem,zcard等</p>
 </blockquote>
 <p>和set相⽐，sorted set增加了⼀个权重参数score，使得集合中的元素能够按score进⾏有序排列。 举例： 在直播系统中，实时排⾏信息包含直播间在线⽤户列表，各种礼物排⾏榜，弹幕消息（可以理 解为按消息维度的消息排⾏榜）等信息，适合使⽤ Redis 中的 Sorted Set 结构进⾏存储。</p>
 <h1>Redis过期时间</h1>
 <p>Redis中有个设置时间过期的功能，即对存储在 redis 数据库中的值可以设置⼀个过期时间。作为⼀个 缓存数据库，这是⾮常实⽤的。如我们⼀般项⽬中的 token 或者⼀些登录信息，尤其是短信验证码都 是有时间限制的，按照传统的数据库处理⽅式，⼀般都是⾃⼰判断过期，这样⽆疑会严重影响项⽬性 能。</p>
-<p>我们 set key 的时候，都可以给⼀个 expire time，就是过期时间，通过过期时间我们可以指定这个 key 可以存活的时间。</p>
-<p>如果假设你设置了⼀批 key 只能存活1个⼩时，那么接下来1⼩时后，redis是怎么对这批key进⾏删除 的？</p>
+<p>我们 set key 的时候，都可以给⼀个 <code>expire time</code>，就是过期时间，通过过期时间我们可以指定这个 key 可以存活的时间。 也可以在运行时给存在的键设置剩余的生存时间，不设置则默认为<code>-1</code>，设置为-1时表示<code>永久存储</code>。</p>
+<p>如果假设你创建一个 <code>Timer</code>，设置了⼀批 key 只能存活1个⼩时，那么接下来1⼩时后，redis是怎么对这批key进⾏删除 的？</p>
 <blockquote><ul>
-<li>定期删除：redis默认是每隔 100ms 就随机抽取⼀些设置了过期时间的key，检查其是否过期， 如果过期就删除。注意这⾥是随机抽取的。为什么要随机呢？你想⼀想假如 redis 存了⼏⼗万 个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，就会给 CPU 带来很⼤的负载！ </li>
-<li>惰性删除 ：定期删除可能会导致很多过期 key 到了时间并没有被删除掉。所以就有了惰性删 除。假如你的过期 key，靠定期删除没有被删除掉，还停留在内存⾥，除⾮你的系统去查⼀下那 个 key，才会被redis给删除掉。这就是所谓的惰性删除，也是够懒的哈！ 但是仅仅通过设置过期时间还是有问题的。我们想⼀下：如果定期删除漏掉了很多过期 key，然后你也 没及时去查，也就没⾛惰性删除，此时会怎么样？如果⼤量过期key堆积在内存⾥，导致redis内存块耗 尽了。怎么解决这个问题呢？ redis 内存淘汰机制。</li>
+<li><strong>定期删除</strong>：redis默认是每隔 <code>100ms</code> 就随机抽取⼀些设置了过期时间的key，检查其是否过期， 如果过期就删除。注意这⾥是随机抽取的。为什么要随机呢？你想⼀想假如 redis 存了⼏⼗万 个 key ，每隔100ms就遍历所有的设置过期时间的 key 的话，这时候需要的是Cpu处理能力，而不是内存，就会给 CPU 带来很⼤的负载！ </li>
+<li><strong>惰性删除</strong> ：定期删除可能会导致很多过期 key 到了时间并没有被删除掉。所以就有了惰性删除。假如你的过期 key，靠定期删除没有被删除掉，还停留在内存⾥，除⾮你的系统去查⼀下那 个 key，才会被redis给删除掉。这就是所谓的惰性删除，也是够懒的哈！ 但是仅仅通过设置过期时间还是有问题的。</li>
 </ul>
 </blockquote>
 <p>但是仅仅通过设置过期时间还是有问题的。我们想⼀下：如果定期删除漏掉了很多过期 key，然后你也 没及时去查，也就没⾛惰性删除，此时会怎么样？如果⼤量过期key堆积在内存⾥，导致redis内存块耗 尽了。怎么解决这个问题呢？ redis 内存淘汰机制。</p>
 <h1>Redis内存淘汰机制</h1>
-<p>redis 提供 6种数据淘汰策略：</p>
-<blockquote><ol>
-<li>volatile-lru：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使⽤的数 据淘汰 </li>
-<li>volatile-ttl：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘 汰 </li>
-<li>volatile-random：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰 </li>
-<li>allkeys-lru：当内存不⾜以容纳新写⼊数据时，在键空间中，移除最近最少使⽤的key（这个是 最常⽤的）</li>
-<li>allkeys-random：从数据集（server.db[i].dict）中任意选择数据淘汰 </li>
-<li>no-eviction：禁⽌驱逐数据，也就是说当内存不⾜以容纳新写⼊数据时，新写⼊操作会报错。 这个应该没⼈使⽤吧！</li>
-</ol>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/weixin_43184769/article/details/90523923">https://blog.csdn.net/weixin_43184769/article/details/90523923</a></li>
+<li><a href="https://blog.csdn.net/qq_28018283/article/details/80764518">https://blog.csdn.net/qq_28018283/article/details/80764518</a></li>
+<li>配置文件： <a href="http://download.redis.io/redis-stable/redis.conf">http://download.redis.io/redis-stable/redis.conf</a></li>
+</ul>
 </blockquote>
-<p>4.0版本后增加以下两种：</p>
-<blockquote><ol>
-<li>volatile-lfu：从已设置过期时间的数据集(server.db[i].expires)中挑选最不经常使⽤的数据 淘汰 </li>
-<li><ol>
-<li>allkeys-lfu：当内存不⾜以容纳新写⼊数据时，在键空间中，移除最不经常使⽤的key</li>
-</ol>
-</li>
-</ol>
+<p>思考一下，如果定期删除漏掉了很多过期的key，而我们也没有再去访问它，如果不加处理，很可能导致内存耗尽。</p>
+<p>什么时候触发</p>
+<p>Redis配置文件中可以设置<code>maxmemory</code>，内存的最大使用量，到达限度时会执行<code>内存淘汰机制</code></p>
+<h2>内存置换策略</h2>
+<p>没有配置时，<code>默认为no-eviction</code></p>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>volatile-lru</td>
+<td>从<code>已设置过期时间的数据集</code>中挑选<code>最近最少使用</code>的数据淘汰</td>
+</tr>
+<tr>
+<td>volatile-lfu（4.0版本）</td>
+<td>从<code>已设置过期时间的数据集</code>中挑选<code>最不经常</code>使用的数据淘汰</td>
+</tr>
+<tr>
+<td>volatile-ttl</td>
+<td>从<code>已设置过期时间的数据集</code>中挑选<code>将要过期</code>的数据淘汰</td>
+</tr>
+<tr>
+<td>volatile-random</td>
+<td>从<code>已设置过期时间的数据集</code>中挑选<code>任意数据</code>淘汰</td>
+</tr>
+<tr>
+<td>allkeys-lru</td>
+<td>当<code>内存不足</code>写入新数据时淘汰<code>最近最少</code>使用的Key</td>
+</tr>
+<tr>
+<td>allkeys-random</td>
+<td>当<code>内存不足</code>写入新数据时<code>随机选择</code>key淘汰</td>
+</tr>
+<tr>
+<td>allkeys-lfu（4.0版本）</td>
+<td>当<code>内存不足</code>写入新数据时移除<code>最不经常使用</code>的Key</td>
+</tr>
+<tr>
+<td>no-eviction（禁止驱逐数据）</td>
+<td>当<code>内存不足</code>写入新数据时，写入操作会报错，同时不删除数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote><ul>
+<li>volatile为前缀的策略都是从已过期的数据集中进行淘汰。</li>
+<li>allkeys为前缀的策略都是面向所有key进行淘汰。</li>
+<li>LRU（least recently used）最少最近用到的。</li>
+<li>LFU（Least Frequently Used）最不常用的。</li>
+<li>TTL（Time To Live）</li>
+<li>它们的触发条件都是Redis使用的内存达到阈值时。</li>
+</ul>
 </blockquote>
+<h2>淘汰机制的实现</h2>
+<p>既然是淘汰，那就需要把这些数据给删除，然后保存新的。Redis 删除失效主键的方法主要有两种：</p>
+<h3>消极方法( passive way)</h3>
+<p>在主键被访问时如果发现它已经失效,那么就删除它。 redis在实现<code>GET</code>、<code>MGET</code>、<code>HGET</code>、 LRANGE等所有涉及到读取数据的命令时都会调<code>expirelfNeeded</code>,它存在的意义就是在读取数据之前先检查一下它有没有失效,如果失效了就删除</p>
+<p><code>expirelfNeeded</code>函数中调用的另外一个函数 <code>propagateExpire</code>,这个函数用来在正式删除<code>失效主键</code>,并且<code>广播</code>告诉其他地方,目的地有俩</p>
+<blockquote><ul>
+<li><code>AOF</code>文件,将删除失效主键的这一操作以 DEL Key的标准命令格式记录下来</li>
+<li>另一个就是发送到当前 Redis服务器的所有 <code>Slave</code>,同样将删除失效主键的这操作以 <code>DEL Key</code>的标准命令格式告知这些<code>Slave</code>删除各自的失效主键</li>
+</ul>
+</blockquote>
+<h3>积极方法( active way)</h3>
+<p>周期性地探测,发现失效就删除。消极方法的缺点是,如果keγ迟迟不被访问,就会占用很多内存空间,所以才有积极方式</p>
+<h3>主动删除</h3>
+<p>当內存超过 <code>maxmemoryl</code>限定时,触发主动清理策略,该策略由启动参数的配置决定</p>
 <h1>Redis持久化机制</h1>
 <blockquote><p>怎么保证 redis 挂掉之后再重启数据可以进⾏恢复</p>
 </blockquote>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a></li>
+</ul>
+</blockquote>
+<p>很多时候我们需要持久化数据也就是将内存中的数据写⼊到硬盘⾥⾯，⼤部分原因是为了之后重⽤数据 （⽐如重启机器、机器故障之后恢复数据），或者是为了防⽌系统故障⽽将数据备份到⼀个远程位置。 Redis不同于Memcached的很重⼀点就是，Redis⽀持<code>持久化</code>，⽽且⽀持两种不同的持久化操作。</p>
+<blockquote><ul>
+<li>RDB（Redis DataBase 快照）</li>
+<li>AOF（Append Only File）</li>
+</ul>
+</blockquote>
+<h2>RDB（Redis DataBase 快照）</h2>
+<p>Redis可以通过创建快照来获得存储在内存⾥⾯的数据在某个时间点上的副本。Redis创建快照之后，可 以对快照进⾏备份，可以将快照复制到其他服务器从⽽创建具有相同数据的服务器副本（Redis主从结 构，主要⽤来提⾼Redis性能），还可以将快照留在原地以便重启服务器的时候使⽤。</p>
+<p>优点</p>
+<blockquote><ul>
+<li>RDB文件紧凑，全量备份，非常适合用于进行备份和灾难恢复。</li>
+<li>在使用bgsave生成RDB文件的时候，redis主进程会fork()一个子进程来处理所有保存工作，主进程不需要进行任何磁盘IO操作。</li>
+<li>RDB 在恢复大数据集时的速度比 AOF 的恢复速度要快。</li>
+</ul>
+</blockquote>
+<p>缺点</p>
+<blockquote><ul>
+<li>RDB快照是一次<code>全量备份</code>，存储的是内存数据的<code>二进制序列化</code>形式，存储上非常紧凑。当进行快照持久化时，会开启一个子进程专门负责快照持久化，子进程会拥有父进程的<code>内存数据</code>，父进程修改内存子进程<code>不会反应</code>出来，所以在<code>快照持久化期间修改的数据不会被保存</code>，可能丢失数据。</li>
+</ul>
+</blockquote>
+<p>快照持久化是Redis<code>默认采⽤</code>的持久化⽅式,触发方式如下：</p>
+<blockquote><ul>
+<li>save</li>
+<li>bgsave</li>
+<li>自动化</li>
+</ul>
+</blockquote>
+<h3>触发方式：save</h3>
+<p>该命令会阻塞当前Redis服务器，执行save命令期间，Redis不能处理其他命令，直到RDB过程完成为止。具体流程如下：</p>
+<p><figure><img data-width="640" data-height="356" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/070dee4a1e209b4a551e32762fec5b15.jpg" alt="" /></figure></p>
+<p>执行完成时候如果存在老的<code>RDB</code>文件，就把新的替代掉旧的。我们的客户端可能都是几万或者是几十万，这种方式显然不可取。</p>
+<h3>触发方式：bgsave</h3>
+<p>执行该命令时，Redis会在后台<code>异步</code>进行快照操作，快照同时还可以<code>响应客户端请求</code>。具体流程如下：</p>
+<p><figure><img data-width="640" data-height="337" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/76113d45a86cd56714ed45cc7d269887.jpg" alt="" /></figure></p>
+<p>具体操作是Redis进程执行<code>fork</code>操作<code>创建子进程</code>，RDB持久化过程由<code>子进程负责</code>，完成后自动结束。阻塞只发生在<code>fork</code>阶段，一般时间很短。基本上 Redis 内部所有的RDB操作都是采用 <code>bgsave</code> 命令。</p>
+<h3>触发方式：自动触发</h3>
+<p>自动触发是由我们的配置文件来完成的。在<code>redis.conf</code>配置文件中，里面有如下配置，我们可以去设置：</p>
+<p><strong>①save</strong></p>
+<p>这里是用来配置触发 Redis的 <code>RDB</code> 持久化条件，也就是什么时候将内存中的数据保存到硬盘。比如“save m n”。表示m秒内数据集存在n次修改时，自动触发<code>bgsave</code>。</p>
+<p>默认如下配置：</p>
+<div class="highlight"><pre><span></span><span class="n">save</span> <span class="n">m</span> <span class="n">n</span>
+
+<span class="err">#</span><span class="n">在900秒</span><span class="p">(</span><span class="mi">15</span><span class="n">分钟</span><span class="p">)</span><span class="n">之后</span><span class="err">，</span><span class="n">如果</span><span class="err">⾄</span><span class="n">少有1个key发</span><span class="err">⽣</span><span class="n">变化</span><span class="err">，</span><span class="n">Redis就会</span><span class="err">⾃</span><span class="n">动触发BGSAVE命令创建快照</span><span class="err">。</span>
+<span class="n">save</span> <span class="mi">900</span> <span class="mi">1</span> 
+
+<span class="err">#</span><span class="n">在300秒</span><span class="p">(</span><span class="mi">5</span><span class="n">分钟</span><span class="p">)</span><span class="n">之后</span><span class="err">，</span><span class="n">如果</span><span class="err">⾄</span><span class="n">少有10个key发</span><span class="err">⽣</span><span class="n">变化</span><span class="err">，</span><span class="n">Redis就会</span><span class="err">⾃</span><span class="n">动触发BGSAVE命令创建快照</span><span class="err">。</span>
+<span class="n">save</span> <span class="mi">300</span> <span class="mi">10</span> 
+
+<span class="err">#</span><span class="n">在60秒</span><span class="p">(</span><span class="mi">1</span><span class="n">分钟</span><span class="p">)</span><span class="n">之后</span><span class="err">，</span><span class="n">如果</span><span class="err">⾄</span><span class="n">少有10000个key发</span><span class="err">⽣</span><span class="n">变化</span><span class="err">，</span><span class="n">Redis就会</span><span class="err">⾃</span><span class="n">动触发BGSAVE命令创建快照</span><span class="err">。</span>
+<span class="n">save</span> <span class="mi">60</span> <span class="mi">10000</span>
+</pre></div>
+<p><strong>②stop-writes-on-bgsave-error ：</strong>默认值为yes。当启用了RDB且最后一次后台保存数据失败，Redis是否停止接收数据。这会让用户意识到数据没有正确持久化到磁盘上，否则没有人会注意到灾难（disaster）发生了。如果Redis重启了，那么又可以重新开始接收数据了</p>
+<p><strong>③rdbcompression ；</strong>默认值是yes。对于存储到磁盘中的快照，可以设置是否进行压缩存储。</p>
+<p><strong>④rdbchecksum ：</strong>默认值是yes。在存储快照后，我们还可以让redis使用CRC64算法来进行数据校验，但是这样做会增加大约10%的性能消耗，如果希望获取到最大的性能提升，可以关闭此功能。</p>
+<p><strong>⑤dbfilename ：</strong>设置快照的文件名，默认是 dump.rdb</p>
+<p><strong>⑥dir：</strong>设置快照文件的存放路径，这个配置项一定是个目录，而不能是文件名。</p>
+<h3>save和bgsave的区别</h3>
+<p><figure><img data-width="640" data-height="277" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/85ba179062e425e4a80283d1bcbd000e.jpg" alt="" /></figure></p>
+<h2>AOF（Append Only File）</h2>
+<p>与<code>快照持久化</code>相⽐，<code>AOF持久化</code> 的<code>实时性</code>更好，因此已成为主流的持久化⽅案。默认情况下Redis没有 开启<code>AOF（append only file）</code>⽅式的持久化。</p>
+<p>可以通过<code>appendonly</code>参数开启：</p>
+<h3>持久化原理</h3>
+<p><figure><img data-width="640" data-height="322" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9f1bd6d7ebccedcffc5286d43fb7c0e0.jpg" alt="" /></figure></p>
+<p>每当有一个写命令过来时，就直接保存在我们的<code>AOF</code>文件中。</p>
+<h3>文件重写原理</h3>
+<p>AOF的方式也同时带来了另一个问题。持久化文件会变的越来越大。为了压缩<code>AOF</code>的持久化文件。redis提供了<code>bgrewriteaof</code>命令。将内存中的数据以命令的方式保存到临时文件中，同时会<code>fork</code>出一条<code>新进程</code>来将文件重写。</p>
+<p><figure><img data-width="640" data-height="286" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1ee6baafe21dfd33aa375f440d4ee67d.jpg" alt="" /></figure></p>
+<p>重写<code>AOF</code>文件的操作，并没有读取旧的<code>AOF</code>文件，而是将整个内存中的数据库内容用命令的方式重写了一个<code>新的AOF文件</code>，这点和<code>快照</code>有点类似。</p>
+<div class="highlight"><pre><span></span><span class="n">appendonly</span> <span class="n">yes</span>
+</pre></div>
+<p>开启AOF持久化后每执⾏⼀条会更改Redis中的数据的命令，Redis就会将该命令通过<code>write</code>写⼊硬盘中的<code>AOF</code>⽂件，通俗的理解就是<code>日志记录</code>。 <code>AOF</code>⽂件的保存位置和<code>RDB</code>⽂件的位置相同，都是通过<code>dir</code>参数设置的，默认的⽂件名是 <code>appendonly.aof</code>。</p>
+<div class="highlight"><pre><span></span><span class="n">appendfsync</span> <span class="n">always</span> <span class="err">#</span><span class="n">每次有数据修改发</span><span class="err">⽣</span><span class="n">时都会写</span><span class="err">⼊</span><span class="n">AOF</span><span class="err">⽂</span><span class="n">件</span><span class="p">,</span><span class="n">这样会严重降低Redis的速度</span>
+
+<span class="n">appendfsync</span> <span class="n">everysec</span> <span class="err">#</span><span class="n">每秒钟同步</span><span class="err">⼀</span><span class="n">次</span><span class="err">，</span><span class="n">显示地将多个写命令同步到硬盘</span>
+
+<span class="n">appendfsync</span> <span class="n">no</span> <span class="err">#</span><span class="n">让操作系统决定何时进</span><span class="err">⾏</span><span class="n">同步</span>
+</pre></div>
+<p>为了兼顾数据和写⼊性能，⽤户可以考虑 <code>appendfsync everysec</code>选项 ，让Redis每秒同步⼀次AOF⽂ 件，Redis性能⼏乎没受到任何影响。⽽且这样即使出现系统崩溃，⽤户最多只会丢失⼀秒之内产⽣的 数据。当硬盘忙于执⾏写⼊操作的时候，Redis还会优雅的放慢⾃⼰的速度以便适应硬盘的最⼤写⼊速度。</p>
+<h2>Redis 4.0 对于持久化机制的优化</h2>
+<p>Redis 4.0 开始⽀持 <code>RDB</code> 和 <code>AOF</code> 的<code>混合持久化</code>（默认关闭，可以通过配置项开启）</p>
+<div class="highlight"><pre><span></span><span class="n">aof</span><span class="o">-</span><span class="n">use</span><span class="o">-</span><span class="n">rdbpreamble</span>
+</pre></div>
+<p>如果把混合持久化打开，<code>AOF</code> 重写的时候就直接把 <code>RDB</code> 的内容写到 <code>AOF ⽂件开头</code>。这样做的好处是可 以结合 <code>RDB</code> 和 <code>AOF</code> 的优点, 快速加载同时避免丢失过多的数据。当然缺点也是有的， <code>AOF</code> ⾥⾯的 <code>RDB</code> 部分是压缩格式不再是 <code>AOF</code> 格式，可读性较差。</p>
 <h1>Redis事务</h1>
-<h1>缓存雪崩和缓存穿透问题解决⽅案</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.runoob.com/redis/redis-transactions.html">https://www.runoob.com/redis/redis-transactions.html</a></li>
+</ul>
+</blockquote>
+<p>Redis 通过 <code>MULTI</code>、<code>EXEC</code>、<code>WATCH</code> 等命令来实现<code>事务(transaction)</code>功能。Redis 事务的本质是一组命令的集合。事务支持一次执行多个命令，一个事务中所有命令都会被序列化。在事务执行过程，会按照顺序串行化执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令序列中。</p>
+<h2>特点</h2>
+<blockquote><ul>
+<li>Redis事务没有隔离级别的概念：批量操作在发送 <code>EXEC</code> 命令前被放入队列缓存，并不会被实际执行，也就不存在事务内的查询要看到事务里的更新，事务外查询不能看到。</li>
+<li>Redis事务不保证原子性：Redis中，<code>单条命令是原子性执行的</code>，但事务不保证<code>原子性</code>，且没有回滚。事务中任意命令执行失败，其余的命令仍会被执行。</li>
+<li>在事务执行过程，其他客户端提交的命令请求不会插入到事务执行命令序列中。</li>
+</ul>
+</blockquote>
+<h2>阶段</h2>
+<blockquote><ul>
+<li>开始事务。</li>
+<li>命令入队。</li>
+<li>执行事务。</li>
+</ul>
+</blockquote>
+<h2>相关命令参考</h2>
+<blockquote><ul>
+<li><a href="https://www.runoob.com/redis/redis-transactions.html">https://www.runoob.com/redis/redis-transactions.html</a></li>
+</ul>
+</blockquote>
+<h1>缓存雪崩 | 缓存穿透 | 缓存击穿</h1>
+<blockquote><ul>
+<li><strong>缓存穿透</strong>：key对应的数据在数据源并不存在，每次针对此key的请求从<code>缓存</code>获取不到，请求都会到<code>数据源</code>，从而可能<code>压垮数据源</code>。举个例⼦：某个⿊客故意制造我们缓存中不存在的 key 发起⼤量请求，导致⼤量请 求落到数据库，若黑客利用此漏洞进行攻击可能压垮数据库。</li>
+<li><strong>缓存击穿</strong>：key对应的数据存在，但在redis中<code>过期</code>，此时若有大量并发请求过来，这些请求发现缓存过期一般都会从后端DB加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端DB压垮。</li>
+<li><strong>缓存雪崩</strong>：当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，也会给后端系统(比如DB)带来很大压力，所以，后⾯的请求都会落到数据库上，造成数据库短时间内承受⼤量请求⽽崩掉。</li>
+</ul>
+</blockquote>
+<h2>缓存穿透</h2>
+<p>缓存穿透说简单点就是⼤量请求的 key 根本不存在于缓存中，导致请求直接到了数据库上，根本没有 经过缓存这⼀层。举个例⼦：某个⿊客故意制造我们缓存中不存在的 key 发起⼤量请求，导致⼤量请 求落到数据库。</p>
+<h3>原理</h3>
+<p>正常缓存处理流程</p>
+<p><figure><img data-width="772" data-height="790" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e850c5479e8633d745652cb429297f9a.jpg" alt="" /></figure></p>
+<p>缓存穿透处理流程</p>
+<p><figure><img data-width="738" data-height="787" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/17f07d5544e76b28c320f700c2f494d8.jpg" alt="" /></figure></p>
+<h3>解决办法</h3>
+<p>一个一定不存在缓存及查询不到的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义。</p>
+<p>最基本的就是⾸先做好<code>参数校验</code>，⼀些<code>不合法的参数</code>请求直接抛出异常信息返回给客户端。⽐如查询的 数据库 id 不能⼩于 0、传⼊的邮箱格式不对的时候直接返回错误消息给客户端等等。</p>
+<p>如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行缓存，但它的过期时间会很短，最长不超过五分钟</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Object</span> <span class="nf">getObjectInclNullById</span><span class="p">(</span><span class="n">Integer</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// 从缓存中获取数据</span>
+ <span class="n">Object</span> <span class="n">cacheValue</span> <span class="o">=</span> <span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+ <span class="c1">// 缓存为空</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">cacheValue</span> <span class="n">WX</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// 从数据库中获取</span>
+ <span class="n">Object</span> <span class="n">storageValue</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+ <span class="c1">// 缓存空对象</span>
+ <span class="n">cache</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">storageValue</span><span class="p">);</span>
+ <span class="c1">// 如果存储数据为空，需要设置⼀个过期时间(300秒)</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">storageValue</span> <span class="n">WX</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// 必须设置过期时间，否则有被攻击的⻛险</span>
+ <span class="n">cache</span><span class="p">.</span><span class="na">expire</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>
+ <span class="p">}</span>
+ <span class="k">return</span> <span class="n">storageValue</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="k">return</span> <span class="n">cacheValue</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<h3>布隆过滤器（bloom filter）</h3>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/master/docs/dataStructures-algorithms/data-structure/bloom-filter.md">https://github.com/Snailclimb/JavaGuide/blob/master/docs/dataStructures-algorithms/data-structure/bloom-filter.md</a></li>
+</ul>
+</blockquote>
+<p>布隆过滤器是⼀个⾮常神奇的数据结构，通过它我们可以⾮常⽅便地判断⼀个给定数 据是否存在与海量数据中。我们需要的就是判断 <code>key</code> 是否合法，有没有感觉布隆过滤器就是我们想要 找的那个“⼈”。具体是这样做的：把<code>所有可能存在的请求的值</code>都存放在布隆过滤器中，当⽤户请求过来，我会先判断⽤户发来的请求的值是否存在于布隆过滤器中。不存在的话，直接返回请求参数错误信 息给客户端，存在的话才会⾛下⾯的流程。</p>
+<p><figure><img data-width="757" data-height="934" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/cb0129d9bb302199a18c332e934edea3.jpg" alt="" /></figure></p>
+<h2>缓存雪崩</h2>
 <h1>区别</h1>
 <h2>redis 和 memcached 的区别</h2>
 <blockquote><ol>
@@ -260,9 +540,6 @@
 </ol>
 </blockquote>
 <p><figure><img data-width="1207" data-height="741" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f67a0c75bb3b9fb63323c66f68e5f3cd.jpg" alt="" /></figure></p>
-<h2>为什么要用 redis 而不用 map/guava 做缓存?</h2>
-<p>缓存分为<code>本地缓存</code>和<code>分布式缓存</code>。以 Java 为例，使用自带的 map 或者 guava 实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着 jvm 的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。</p>
-<p>使用 redis 或 memcached 之类的称为分布式缓存，在多实例的情况下，各实例共用一份缓存数据，缓存具有一致性。缺点是需要保持 redis 或 memcached服务的高可用，整个程序架构上较为复杂。</p>
 </article>
     </section>
 
