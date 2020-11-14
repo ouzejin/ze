@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/886bb10e15a76b74bbda79b2b70a19bf.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/74edd151c788f0da6895d4b6fe038d0e.json"
         }
     </script>
     <script>
@@ -145,9 +145,15 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247484858&amp;idx=1&amp;sn=8e222ea6115e0b69cac91af14d2caf36&amp;chksm=cea24a71f9d5c367148dccec3d5ddecf5ecd8ea096b5c5ec32f22080e66ac3c343e99151c9e0&amp;token=1082669959&amp;lang=zh_CN&amp;scene=21#wechat_redirect">redis 总结——重构版</a></li>
 <li><a href="https://www.cnblogs.com/jasontec/p/9699242.html">https://www.cnblogs.com/jasontec/p/9699242.html</a></li>
 <li><a href="https://github.com/Snailclimb/JavaGuide">https://github.com/Snailclimb/JavaGuide</a></li>
+<li><a href="http://redisdoc.com/">Redis中文文档</a></li>
 </ul>
 </blockquote>
 <h1>简介</h1>
+<p>Redis的全称是<code>Remote Dictionary Server</code>,本质上是一个 <code>Key-Value</code>类型的内存数据库,很像 <code>memcached</code>,整个数据库统统加载在内存当中进行操作,定期通过异步操作把数据库数据<code>fush</code>到<code>硬盘</code>上进行保存。</p>
+<h2>优点</h2>
+<p>因为是<code>纯内存</code>操作, Redis的性能非常出色,每秒可以处理超过<code>10万次读写操作</code>是已知性能最快的<code>Key- Value DB</code>。Redis的出色之处不仅仅是性能, Redis最大的魅力是支持保存<code>多种数据结构</code>,此外<code>单个value</code>的最大限制是<code>1GB</code>,不像 <code>memcached</code>只能保存<code>1MB</code>的数据,因此 Redis可以用来实现很多有用的功能。比方说用他的<code>Lst</code>来做<code>FIFO双向链表</code>,实现一个轻量级的高性能消息队列服务用他的Set可以做高性能的tag系统等等另外 Redis也可以对存入的<code>Key-Vaue</code>设置<code>expire</code>时间,因此也可以被当作一个功能加强版的 memcached来用。</p>
+<h2>缺点</h2>
+<p>Redis的主要缺点是<code>数据库容量</code>受到<code>物理内存</code>的限制,不能用作<code>海量数据的高性能读写</code>,因此 Redis适合的场景主要局限在较小数据量的高性能操作和运算上。</p>
 <p>简单来说 redis 就是⼀个数据库，不过与传统数据库不同的是 redis 的数据是存在内存中的，所以读 写速度⾮常快，因此 redis 被⼴泛应⽤于缓存⽅向。另外，redis 也经常⽤来做<code>分布式锁</code>。redis 提 供了多种数据类型来⽀持不同的业务场景。除此之外，redis ⽀持事务 、持久化、LUA脚本、LRU驱动 事件、多种集群⽅案。</p>
 <h1>为什么要用 redis /为什么要用缓存</h1>
 <p>主要从“<code>高性能</code>”和“<code>高并发</code>”这两点来看待这个问题。</p>
@@ -485,9 +491,14 @@
 </ul>
 </blockquote>
 <h1>缓存雪崩 | 缓存穿透 | 缓存击穿</h1>
+<p>参考</p>
 <blockquote><ul>
+<li><a href="https://blog.csdn.net/fanrenxiang/article/details/80542580">https://blog.csdn.net/fanrenxiang/article/details/80542580</a></li>
+<li><a href="https://www.cnblogs.com/xichji/p/11286443.html">https://www.cnblogs.com/xichji/p/11286443.html</a></li>
+</ul>
+<ul>
 <li><strong>缓存穿透</strong>：key对应的数据在数据源并不存在，每次针对此key的请求从<code>缓存</code>获取不到，请求都会到<code>数据源</code>，从而可能<code>压垮数据源</code>。举个例⼦：某个⿊客故意制造我们缓存中不存在的 key 发起⼤量请求，导致⼤量请 求落到数据库，若黑客利用此漏洞进行攻击可能压垮数据库。</li>
-<li><strong>缓存击穿</strong>：key对应的数据存在，但在redis中<code>过期</code>，此时若有大量并发请求过来，这些请求发现缓存过期一般都会从后端DB加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端DB压垮。</li>
+<li><strong>缓存击穿</strong>：是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个<code>key</code>在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，这个时候大并发的请求可能会瞬间把后端DB压垮，就像在一个屏障上凿开了一个洞。</li>
 <li><strong>缓存雪崩</strong>：当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，也会给后端系统(比如DB)带来很大压力，所以，后⾯的请求都会落到数据库上，造成数据库短时间内承受⼤量请求⽽崩掉。</li>
 </ul>
 </blockquote>
@@ -506,13 +517,13 @@
  <span class="c1">// 从缓存中获取数据</span>
  <span class="n">Object</span> <span class="n">cacheValue</span> <span class="o">=</span> <span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
  <span class="c1">// 缓存为空</span>
- <span class="k">if</span> <span class="p">(</span><span class="n">cacheValue</span> <span class="n">WX</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">cacheValue</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
  <span class="c1">// 从数据库中获取</span>
  <span class="n">Object</span> <span class="n">storageValue</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
  <span class="c1">// 缓存空对象</span>
  <span class="n">cache</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">storageValue</span><span class="p">);</span>
  <span class="c1">// 如果存储数据为空，需要设置⼀个过期时间(300秒)</span>
- <span class="k">if</span> <span class="p">(</span><span class="n">storageValue</span> <span class="n">WX</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">storageValue</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
  <span class="c1">// 必须设置过期时间，否则有被攻击的⻛险</span>
  <span class="n">cache</span><span class="p">.</span><span class="na">expire</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>
  <span class="p">}</span>
@@ -529,13 +540,88 @@
 </blockquote>
 <p>布隆过滤器是⼀个⾮常神奇的数据结构，通过它我们可以⾮常⽅便地判断⼀个给定数 据是否存在与海量数据中。我们需要的就是判断 <code>key</code> 是否合法，有没有感觉布隆过滤器就是我们想要 找的那个“⼈”。具体是这样做的：把<code>所有可能存在的请求的值</code>都存放在布隆过滤器中，当⽤户请求过来，我会先判断⽤户发来的请求的值是否存在于布隆过滤器中。不存在的话，直接返回请求参数错误信 息给客户端，存在的话才会⾛下⾯的流程。</p>
 <p><figure><img data-width="757" data-height="934" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/cb0129d9bb302199a18c332e934edea3.jpg" alt="" /></figure></p>
+<h2>缓存击穿</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/chengege/p/11073166.html">https://www.cnblogs.com/chengege/p/11073166.html</a></li>
+</ul>
+</blockquote>
+<p>key可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题。</p>
+<h3>互斥锁(mutex key)</h3>
+<p>业界比较常用的做法，是使用<code>mutex</code>。简单地来说，就是在缓存失效的时候（判断拿出来的值为空），不是立即去<code>load db</code>，而是先使用缓存工具的某些带成功操作返回值的操作（比如<code>Redis</code>的<code>SETNX</code>或者<code>Memcache</code>的<code>ADD</code>）去<code>set</code>一个<code>mutex key</code>，当操作返回成功时，再进行<code>load db</code>的操作并<code>回设缓存</code>；否则，就重试整个<code>get</code>缓存的方法。就是只让一个线程构建<code>缓存</code>，其他线程等待构建缓存的线程执行完，重新从缓存获取数据就可以了。</p>
+<p><figure><img data-width="384" data-height="336" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/c9f36956bf690cf2a3e9ab93779375af.png" alt="" /></figure></p>
 <h2>缓存雪崩</h2>
+<p>简介：缓存同⼀时间⼤⾯积的失效，所以，后⾯的请求都会落到数据库上，造成数据库短时间内承受⼤ 量请求⽽崩掉。</p>
+<blockquote><ul>
+<li>事前：尽量保证整个 redis 集群的⾼可⽤性，发现机器宕机尽快补上。选择合适的内存淘汰策 略。 </li>
+<li>事中：本地ehcache缓存 + hystrix限流&amp;降级，避免MySQL崩掉 </li>
+<li>事后：利⽤ redis 持久化机制保存的数据尽快恢复缓存</li>
+</ul>
+<ul>
+<li>设置key永不失效（热点数据）；</li>
+<li>设置key缓存失效时候尽可能错开；</li>
+<li>使用多级缓存机制，比如同时使用redsi和memcache缓存，请求-&gt;redis-&gt;memcache-&gt;db；</li>
+<li>购买第三方可靠性高的Redis云服务器；</li>
+</ul>
+</blockquote>
+<p><figure><img data-width="1482" data-height="921" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/3113f61e5fdcd5a4ec713c4c68ef7e95.jpg" alt="" /></figure></p>
+<h1>如何解决 Redis 的并发竞争 Key 问题</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.jianshu.com/p/41d3a673425d">https://www.jianshu.com/p/41d3a673425d</a></li>
+<li><a href="https://blog.csdn.net/qq_42253147/article/details/94446727">https://blog.csdn.net/qq_42253147/article/details/94446727</a></li>
+</ul>
+</blockquote>
+<p>这里的并发指的是多个redis的client同时set key引起的并发问题，也就是多个系统同时对⼀个 key 进⾏操作，但是最后执⾏的顺序 和我们期望的顺序不同，这样也就导致了结果的不同！</p>
+<p>方案</p>
+<blockquote><ul>
+<li><strong>分布式锁+时间戳</strong></li>
+<li><strong>消息队列MQ</strong></li>
+</ul>
+</blockquote>
+<h2>分布式锁+时间戳</h2>
+<h3>如果对这个key操作，不要求顺序</h3>
+<p>这种情况下，准备一个分布式锁，大家去抢锁，抢到锁就做<code>set</code>操作即可，比较简单。加锁的目的实际上就是把<code>并行读写</code>改成<code>串行读写</code>的方式，从而来避免资源竞争。</p>
+<h3>如果对这个key操作，要求顺序</h3>
+<p>假设有一个<code>key1</code></p>
+<blockquote><ul>
+<li>系统A需要将key1设置为valueA</li>
+<li>系统B需要将key1设置为valueB</li>
+<li>系统C需要将key1设置为valueC</li>
+</ul>
+</blockquote>
+<p>期望按照key1的value值按照 <code>valueA–&gt;valueB–&gt;valueC</code>的顺序变化。这种时候我们在数据写入数据库的时候，需要保存一个<code>时间戳</code>。假设<code>时间戳</code>如下</p>
+<blockquote><ul>
+<li>系统A key 1 {valueA 3:00}</li>
+<li>系统B key 1 {valueB 3:05}</li>
+<li>系统C key 1 {valueC 3:10}</li>
+</ul>
+</blockquote>
+<p>那么，假设这会<code>系统B</code>先抢到锁，将<code>key1</code>设置为<code>{valueB 3:05}</code>。接下来系统A抢到锁，发现自己的valueA的时间戳早于缓存中的时间戳，那就不做<code>set</code>操作了。以此类推</p>
+<h3>什么是分布式锁</h3>
+<p>因为传统的加锁的做法（如java的synchronized和Lock）这里没用，只适合单点。因为这是分布式环境，需要的是分布式锁。</p>
+<p>当然，分布式锁可以基于很多种方式实现，比如zookeeper、redis等，</p>
+<p>不管哪种方式实现，基本原理是不变的：<strong>用一个状态值表示锁，对锁的占用和释放通过状态值来标识</strong>。</p>
+<h3>分布式锁的实现</h3>
+<p>主要用到的redis函数是<code>setnx()</code></p>
+<p>利用<code>SETNX</code>非常简单地实现<code>分布式锁</code>。例如：某客户端要获得一个名字<code>youzhi</code>的锁，客户端使用下面的命令进行获取：</p>
+<div class="highlight"><pre><span></span>SETNX lock.youzhi&lt;current Unix <span class="nb">time</span> + lock timeout + <span class="m">1</span>&gt;
+</pre></div>
+<blockquote><ul>
+<li>如返回1，则该客户端获得锁，把<code>lock.youzhi</code>的键值设置为时间值表示该键已被锁定，该客户端最后可以通过<code>DEL lock.foo</code>来释放该锁。</li>
+<li>如返回0，表明该锁已被其他客户端取得，这时我们可以先返回或进行重试等对方完成或等待锁超时。</li>
+</ul>
+</blockquote>
+<h2>消息队列</h2>
+<p>在并发量过大的情况下,可以通过<code>消息中间件</code>进行处理,把<code>并行读写</code>进行<code>串行化</code>。</p>
+<p>把<code>Redis.set</code>操作放在队列中使其串行化,必须的一个一个执行。</p>
+<p>这种方式在一些高并发的场景中算是一种通用的解决方案。</p>
 <h1>区别</h1>
 <h2>redis 和 memcached 的区别</h2>
 <blockquote><ol>
-<li>redis⽀持更丰富的数据类型（⽀持更复杂的应⽤场景）：Redis不仅仅⽀持简单的k/v类型的数 据，同时还提供list，set，zset，hash等数据结构的存储。memcache⽀持简单的数据类型， String。 </li>
-<li>Redis⽀持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进⾏使 ⽤,⽽Memecache把数据全部存在内存之中。 </li>
-<li>集群模式：memcached没有原⽣的集群模式，需要依靠客户端来实现往集群中分⽚写⼊数据；但 是 redis ⽬前是原⽣⽀持 cluster 模式的. </li>
+<li><strong>redis⽀持更丰富的数据类型（⽀持更复杂的应⽤场景）</strong>：Redis不仅仅⽀持简单的k/v类型的数 据，同时还提供list，set，zset，hash等数据结构的存储。memcache⽀持简单的数据类型， String。 </li>
+<li><strong>Redis⽀持数据的持久化</strong>：可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进⾏使 ⽤,⽽Memecache把数据全部存在内存之中。 </li>
+<li><strong>集群模式</strong>：memcached没有原⽣的集群模式，需要依靠客户端来实现往集群中分⽚写⼊数据；但 是 redis ⽬前是原⽣⽀持 cluster 模式的. </li>
 <li>Memcached是多线程，⾮阻塞IO复⽤的⽹络模型；Redis使⽤单线程的多路 IO 复⽤模型。</li>
 </ol>
 </blockquote>
