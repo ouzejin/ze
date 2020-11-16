@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/74edd151c788f0da6895d4b6fe038d0e.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/fc87aef795875cf7b6d9a44adfe3246e.json"
         }
     </script>
     <script>
@@ -34,16 +34,16 @@
     
 <title>Java-多线程并发 - LifeAlsoIsGG-Wiki</title>
 <meta name="author" content="LifeAlsoIsGG" />
-<meta name="description" content="1. 线程、程序、进程的基本概念" />
+<meta name="description" content="参考" />
 <meta property="og:title" content="Java-多线程并发 - LifeAlsoIsGG-Wiki" />
-<meta property="og:description" content="1. 线程、程序、进程的基本概念" />
+<meta property="og:description" content="参考" />
 <meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/Java-多线程并发/" />
 <meta property="og:image" content="" />
 <meta property="article:published_time" content="2020-08-23T20:36:25-00.00" />
 <meta name="twitter:title" content="Java-多线程并发 - LifeAlsoIsGG-Wiki" />
-<meta name="twitter:description" content="1. 线程、程序、进程的基本概念" />
+<meta name="twitter:description" content="参考" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:image" content="" />
 
@@ -139,7 +139,12 @@
                 
             </span>
         </p>
-        <article class="yue"><h1>1. 线程、程序、进程的基本概念</h1>
+        <article class="yue"><h1>参考</h1>
+<blockquote><ul>
+<li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java 并发和多线程教程-雅各布博客</a></li>
+</ul>
+</blockquote>
+<h1>1. 线程、程序、进程的基本概念</h1>
 <p><figure><img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d4057bed69eb6b5479b6a48d1a7c2c0e.png" alt="" /></figure></p>
 <h1>2. 使⽤多线程可能带来什么问题?</h1>
 <p>并发编程的⽬的就是为了能提⾼程序的执⾏效率提⾼程序运⾏速度，但是并发编程并不总是能提⾼程序 运⾏速度的，⽽且并发编程可能会遇到很多问题，⽐如：<strong>内存泄漏、上下⽂切换、死锁还有受限于硬件 和软件的资源闲置问题</strong>。</p>
@@ -633,9 +638,14 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 </ul>
 <p>我们再来看中间的两个构造方法，和第一个的区别在于，<strong>第二个和第三个指定了创建线程的工厂和线程池满时的处理策略。</strong></p>
 <h3>12.2.3 第二种方式：通过Executor 框架的⼯具类Executors来实现</h3>
-<p><strong>FixedThreadPool</strong> ： 该⽅法返回⼀个固定线程数量的线程池。该线程池中的线程数量始终不 变。当有⼀个新的任务提交时，线程池中若有空闲线程，则⽴即执⾏。若没有，则新的任务会被 暂存在⼀个任务队列中，待有线程空闲时，便处理在任务队列中的任务。</p>
-<p><strong>SingleThreadExecutor</strong>： ⽅法返回⼀个只有⼀个线程的线程池。若多余⼀个任务被提交到该线 程池，任务会被保存在⼀个任务队列中，待线程空闲，按先⼊先出的顺序执⾏队列中的任务。</p>
-<p><strong>CachedThreadPool</strong>： 该⽅法返回⼀个可根据实际情况调整线程数量的线程池。线程池的线程数 量不确定，但若有空闲线程可以复⽤，则会优先使⽤可复⽤的线程。若所有线程均在⼯作，⼜有 新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执⾏完毕后，将返回线程池进 ⾏复⽤。</p>
+<blockquote><ul>
+<li><strong>FixedThreadPool</strong> ： 该⽅法返回⼀个固定线程数量的线程池。该线程池中的线程数量始终不 变。当有⼀个新的任务提交时，线程池中若有空闲线程，则⽴即执⾏。若没有，则新的任务会被 暂存在⼀个任务队列中，待有线程空闲时，便处理在任务队列中的任务。 </li>
+<li><p><strong>SingleThreadExecutor</strong>： ⽅法返回⼀个只有⼀个线程的线程池。若多余⼀个任务被提交到该线 程池，任务会被保存在⼀个任务队列中，待线程空闲，按先⼊先出的顺序执⾏队列中的任务。</p>
+</li>
+<li><p><strong>CachedThreadPool</strong>： 该⽅法返回⼀个可根据实际情况调整线程数量的线程池。线程池的线程数 量不确定，但若有空闲线程可以复⽤，则会优先使⽤可复⽤的线程。若所有线程均在⼯作，⼜有 新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执⾏完毕后，将返回线程池进 ⾏复⽤。</p>
+</li>
+</ul>
+</blockquote>
 <p><figure><img data-width="1318" data-height="465" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9ab5c33c267c8c4798c49e8c80cc444a.jpg" alt="" /></figure></p>
 <p><figure><img data-width="1481" data-height="565" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/bf725b88075ac76f472e830dad25353a.jpg" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">ExecutorService</span> <span class="nf">newFixedThreadPool</span><span class="p">(</span><span class="kt">int</span> <span class="n">nThreads</span><span class="p">)</span> <span class="p">{</span>
@@ -655,6 +665,309 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p><figure><img data-width="422" data-height="506" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5e9cc6d398397e1adf83b54bd24b3601.webp" alt="" /></figure></p>
 <p>​       当在execute(Runnable)方法中提交新任务并且少于corePoolSize线程正在运行时，即使其他工作线程处于空闲状态，也会创建一个新线程来处理该请求。 如果有多于corePoolSize但小于maximumPoolSize线程正在运行，则仅当队列已满时才会创建新线程。 通过设置corePoolSize和maximumPoolSize相同，您可以创建一个固定大小的线程池。 通过将maximumPoolSize设置为基本上无界的值，例如Integer.MAX_VALUE，您可以允许池容纳任意数量的并发任务。 通常，核心和最大池大小仅在构建时设置，但也可以使用<code>setCorePoolSize</code>和<code>setMaximumPoolSize</code>进行动态更改。</p>
 <h2>12.4 线程池执行流程</h2>
+<h1>13. java.util.concurrent</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/starbxx/article/details/95333992">https://blog.csdn.net/starbxx/article/details/95333992</a></li>
+<li><a href="http://tutorials.jenkov.com/java-util-concurrent/index.html">Jakob Jenkov博客</a></li>
+<li><a href="https://blog.csdn.net/defonds/article/details/44021605">Jakob Jenkov博客中文翻译</a></li>
+<li><a href="https://blog.csdn.net/dichengyan0013/article/details/102347395?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param">java并发包java.util.concurrent详解博客导航</a></li>
+</ul>
+</blockquote>
+<p><code>java.util.concurrent</code> 是在<code>并发编程</code>中很常用的实用工具类，称为<code>JUC</code>。</p>
+<p>在java.util下的集合都是发生<code>fail-fast</code>，而在java.util.concurrent下的发生的都是<code>fail-safe</code></p>
+<h2>线程池相关类</h2>
+<p><figure><img data-width="825" data-height="397" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/939c3767c9ee135867fe487afa0aa465.png" alt="" /></figure></p>
+<h2>阻塞队列相关类</h2>
+<p><figure><img data-width="1129" data-height="258" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/d21a8deda5c6b815005e4a66f56b5225.png" alt="" /></figure></p>
+<h2>ConcurrentMap类</h2>
+<p><figure><img data-width="458" data-height="275" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f677f35f3ad461cfef66e51b627ec66c.png" alt="" /></figure></p>
+<h2>多线程其他类</h2>
+<p><figure><img data-width="1132" data-height="327" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/81654f5803e043e95d873336b7d8f497.png" alt="" /></figure></p>
+<h2>CAS</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/v123411739/article/details/79561458">https://blog.csdn.net/v123411739/article/details/79561458</a></li>
+</ul>
+</blockquote>
+<h3>概述</h3>
+<p><code>CAS（Compare-and-Swap）</code>，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了<code>CAS</code>技术。CAS也是现在面试经常问的问题，本文将深入的介绍CAS的原理。</p>
+<h1>14. ThreadLocal</h1>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.cnblogs.com/fsmly/p/11020641.html">https://www.cnblogs.com/fsmly/p/11020641.html</a></li>
+<li><a href="https://www.jianshu.com/p/3c5d7f09dfbd">https://www.jianshu.com/p/3c5d7f09dfbd</a></li>
+</ul>
+</blockquote>
+<h2>简介</h2>
+<p>多线程访问同一个共享变量的时候容易出现并发问题，特别是多个线程对一个变量进行写入的时候，为了保证线程安全，一般使用者在访问共享变量的时候需要进行额外的同步措施才能保证线程安全性。ThreadLocal是除了加锁这种同步方式之外的一种保证一种规避多线程访问出现线程不安全的方法，当我们在创建一个变量后，如果每个线程对其进行访问的时候访问的都是线程自己的变量这样就不会存在线程不安全问题。</p>
+<p><code>ThreadLocal</code>是JDK包提供的，它提供线程本地变量，如果创建一个<code>ThreadLocal变量</code>，那么访问这个变量的每个线程都会有这个变量的一个<code>副本</code>，在实际多线程操作的时候，操作的是<code>自己本地内存中的变量</code>，从而规避了线程安全问题，如下图所示</p>
+<p>其实，<code>ThreadLocal</code>并不是一个<code>Thread</code>，而是<code>Thread</code>的<code>局部变量</code>，也许把它命名为<code>ThreadLocalVariable</code>更容易让人理解一些。</p>
+<p>当使用<code>ThreadLocal</code>维护变量时，ThreadLocal为每个使用该变量的线程提供<code>独立的变量副本</code>，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。</p>
+<p><figure><img data-width="667" data-height="305" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/3b2a35b1e3fbaddccb522210af5bb4a3.png" alt="" /></figure></p>
+<h2>如何使用/原理</h2>
+<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
+<p>threadlocal使用方法很简单</p>
+<div class="highlight"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sThreadLocal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">sThreadLocal</span><span class="p">.</span><span class="na">set</span><span class="p">()</span>
+<span class="n">sThreadLocal</span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+</pre></div>
+<p><code>threadlocal</code>而是一个线程内部的存储类，可以在<code>指定线程内存储数据</code>，数据存储以后，只有指定线程可以得到存储数据，官方解释如下。</p>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * This class provides thread-local variables.  These variables differ from</span>
+<span class="cm"> * their normal counterparts in that each thread that accesses one (via its</span>
+<span class="cm"> * {@code get} or {@code set} method) has its own, independently initialized</span>
+<span class="cm"> * copy of the variable.  {@code ThreadLocal} instances are typically private</span>
+<span class="cm"> * static fields in classes that wish to associate state with a thread (e.g.,</span>
+<span class="cm"> * a user ID or Transaction ID).</span>
+<span class="cm"> */</span>
+</pre></div>
+<p>大致意思就是<code>ThreadLocal</code>提供了<code>线程内存储变量</code>的能力，这些变量不同之处在于<code>每一个线程读取的变量是对应的互相独立的</code>。通过<code>get</code>和<code>set</code>方法就可以得到<code>当前线程对应的值</code>。</p>
+<p>做个不恰当的比喻，从表面上看<code>ThreadLocal</code>相当于维护了一个<code>map</code>，<code>key</code>就是当前的线程，<code>value</code>就是需要存储的对象。</p>
+<p>这里的这个比喻是不恰当的，实际上是<code>ThreadLocal</code>的<code>静态内部类ThreadLocalMap</code>为每个<code>Thread</code>都维护了<code>一个数组table</code>，<code>ThreadLocal</code>确定了一个数组下标，而这个下标就是<code>value</code>存储的对应位置。。</p>
+<p>作为一个存储数据的类，关键点就在<code>get</code>和<code>set</code>方法。</p>
+<h2>set()方法</h2>
+<div class="highlight"><pre><span></span><span class="c1">//set 方法</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//获取当前线程</span>
+      <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">();</span>
+      <span class="c1">//实际存储的数据结构类型</span>
+      <span class="n">ThreadLocalMap</span> <span class="n">map</span> <span class="o">=</span> <span class="n">getMap</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+      <span class="c1">//如果存在map就直接set，没有则创建map并set</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">map</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+          <span class="n">map</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+      <span class="k">else</span>
+          <span class="n">createMap</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="c1">//getMap方法</span>
+<span class="n">ThreadLocalMap</span> <span class="nf">getMap</span><span class="p">(</span><span class="n">Thread</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//thred中维护了一个ThreadLocalMap</span>
+      <span class="k">return</span> <span class="n">t</span><span class="p">.</span><span class="na">threadLocals</span><span class="p">;</span>
+ <span class="p">}</span>
+
+<span class="c1">//createMap</span>
+<span class="kt">void</span> <span class="nf">createMap</span><span class="p">(</span><span class="n">Thread</span> <span class="n">t</span><span class="p">,</span> <span class="n">T</span> <span class="n">firstValue</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//实例化一个新的ThreadLocalMap，并赋值给线程的成员变量threadLocals</span>
+      <span class="n">t</span><span class="p">.</span><span class="na">threadLocals</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocalMap</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">firstValue</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>从上面代码可以看出每个线程持有一个<code>ThreadLocalMap</code>对象。每一个新的线程<code>Thread</code>都会实例化一个<code>ThreadLocalMap</code>并赋值给<code>成员变量threadLocals</code>，使用时若已经存在<code>threadLocals</code>则直接使用已经存在的对象。</p>
+<h2>ThreadLocalMap</h2>
+<div class="highlight"><pre><span></span><span class="c1">//Entry为ThreadLocalMap静态内部类，对ThreadLocal的弱引用</span>
+<span class="c1">//同时让ThreadLocal和储值形成key-value的关系</span>
+<span class="kd">static</span> <span class="kd">class</span> <span class="nc">Entry</span> <span class="kd">extends</span> <span class="n">WeakReference</span><span class="o">&lt;</span><span class="n">ThreadLocal</span><span class="o">&lt;?&gt;&gt;</span> <span class="p">{</span>
+    <span class="cm">/** The value associated with this ThreadLocal. */</span>
+    <span class="n">Object</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="n">Entry</span><span class="p">(</span><span class="n">ThreadLocal</span><span class="o">&lt;?&gt;</span> <span class="n">k</span><span class="p">,</span> <span class="n">Object</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+           <span class="kd">super</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//ThreadLocalMap构造方法</span>
+<span class="n">ThreadLocalMap</span><span class="p">(</span><span class="n">ThreadLocal</span><span class="o">&lt;?&gt;</span> <span class="n">firstKey</span><span class="p">,</span> <span class="n">Object</span> <span class="n">firstValue</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//内部成员数组，INITIAL_CAPACITY值为16的常量</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entry</span><span class="o">[</span><span class="n">INITIAL_CAPACITY</span><span class="o">]</span><span class="p">;</span>
+        <span class="c1">//位运算，结果与取模相同，计算出需要存放的位置</span>
+        <span class="c1">//threadLocalHashCode比较有趣，这里计算出索引值</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">firstKey</span><span class="p">.</span><span class="na">threadLocalHashCode</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">INITIAL_CAPACITY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="c1">//new一个新的Entry并赋值table数组中计算出来的索引值</span>
+        <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entry</span><span class="p">(</span><span class="n">firstKey</span><span class="p">,</span> <span class="n">firstValue</span><span class="p">);</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">setThreshold</span><span class="p">(</span><span class="n">INITIAL_CAPACITY</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>通过上面的代码不难看出在实例化<code>ThreadLocalMap</code>时创建了一个<code>长度为16的Entry数组</code>。通过<code>hashCode</code>与<code>length</code>位运算确定出一个<code>索引值i</code>，这个i就是<code>被存储在table数组中的位置</code>。</p>
+<p>前面讲过每个线程<code>Thread</code>持有一个<code>ThreadLocalMap</code>类型的实例<code>threadLocals</code>，结合此处的构造方法可以理解成每个线程Thread都持有一个Entry型的数组table，而一切的读取过程都是通过操作这个数组table完成的。</p>
+<p><em>显然table是set和get的焦点，在看具体的set和get方法前，先看下面这段代码。</em></p>
+<div class="highlight"><pre><span></span><span class="c1">//在某一线程声明了ABC三种类型的ThreadLocal</span>
+<span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">sThreadLocalA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span> <span class="n">sThreadLocalB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span> <span class="n">sThreadLocalC</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+<p>由前面我们知道对于一个<code>Thread</code>来说只有持有一个<code>ThreadLocalMap</code>，所以<code>ABC</code>对应同一个<code>ThreadLocalMap对象</code>。为了管理<code>ABC</code>，于是将他们存储在<code>一个数组的不同位置</code>，而这个数组就是上面提到的<code>Entry型的数组table</code>。</p>
+<p>那么问题来了，<code>ABC</code>在<code>table</code>中的位置是如何确定的？为了能正常够正常的访问对应的值，肯定存在一种方法计算出确定的<code>索引值i</code>，show me code。</p>
+<div class="highlight"><pre><span></span><span class="c1">//ThreadLocalMap中set方法。</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="n">ThreadLocal</span><span class="o">&lt;?&gt;</span> <span class="n">key</span><span class="p">,</span> <span class="n">Object</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// We don&#39;t use a fast path as with get() because it is at</span>
+            <span class="c1">// least as common to use set() to create new entries as</span>
+            <span class="c1">// it is to replace existing ones, in which case, a fast</span>
+            <span class="c1">// path would fail more often than not.</span>
+
+            <span class="n">Entry</span><span class="o">[]</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">table</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">tab</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+            <span class="c1">//获取索引值，这个地方是比较特别的地方</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="na">threadLocalHashCode</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+
+            <span class="c1">//遍历tab如果已经存在则更新值</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Entry</span> <span class="n">e</span> <span class="o">=</span> <span class="n">tab</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+                 <span class="n">e</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+                 <span class="n">e</span> <span class="o">=</span> <span class="n">tab</span><span class="o">[</span><span class="n">i</span> <span class="o">=</span> <span class="n">nextIndex</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span><span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">ThreadLocal</span><span class="o">&lt;?&gt;</span> <span class="n">k</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">e</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+                    <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">replaceStaleEntry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                    <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="c1">//如果上面没有遍历成功则创建新值</span>
+            <span class="n">tab</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Entry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="o">++</span><span class="n">size</span><span class="p">;</span>
+            <span class="c1">//满足条件数组扩容x2</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cleanSomeSlots</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">sz</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span>
+                <span class="n">rehash</span><span class="p">();</span>
+        <span class="p">}</span>
+</pre></div>
+<p>在<code>ThreadLocalMap</code>中的<code>set</code>方法与构造方法能看到以下代码片段。</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="na">threadLocalHashCode</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">firstKey</span><span class="p">.</span><span class="na">threadLocalHashCode</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">INITIAL_CAPACITY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+<p>简而言之就是将<code>threadLocalHashCode</code>进行一个位运算（取模）得到索引i，</p>
+<p><code>threadLocalHashCode</code>代码如下：</p>
+<div class="highlight"><pre><span></span><span class="c1">//ThreadLocal中threadLocalHashCode相关代码.</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">threadLocalHashCode</span> <span class="o">=</span> <span class="n">nextHashCode</span><span class="p">();</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The next hash code to be given out. Updated atomically. Starts at</span>
+<span class="cm">     * zero.</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">AtomicInteger</span> <span class="n">nextHashCode</span> <span class="o">=</span>
+        <span class="k">new</span> <span class="n">AtomicInteger</span><span class="p">();</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The difference between successively generated hash codes - turns</span>
+<span class="cm">     * implicit sequential thread-local IDs into near-optimally spread</span>
+<span class="cm">     * multiplicative hash values for power-of-two-sized tables.</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">HASH_INCREMENT</span> <span class="o">=</span> <span class="mh">0x61c88647</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Returns the next hash code.</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">nextHashCode</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//自增</span>
+        <span class="k">return</span> <span class="n">nextHashCode</span><span class="p">.</span><span class="na">getAndAdd</span><span class="p">(</span><span class="n">HASH_INCREMENT</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+<p>因为static的原因，在每次<code>new ThreadLocal</code>时因为<code>threadLocalHashCode</code>的初始化，会使<code>threadLocalHashCode</code>值自增一次，增量为<code>0x61c88647</code>。</p>
+<p><code>0x61c88647</code>是斐波那契散列乘数,它的优点是通过它<code>散列(hash)</code>出来的结果分布会比较均匀，可以很大程度上避免<code>hash冲突</code>，</p>
+<p>以很大程度上避免<code>hash冲突</code>，已初始<code>容量16</code>为例，hash并与15位运算计算数组下标结果如下：</p>
+<table>
+<thead><tr>
+<th style="text-align:center">hashCode</th>
+<th style="text-align:center">数组下标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0x61c88647</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">0xc3910c8e</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td style="text-align:center">0x255992d5</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">0x8722191c</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">0xe8ea9f63</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">0x4ab325aa</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">0xac7babf1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0xe443238</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">0x700cb87f</td>
+<td style="text-align:center">15</td>
+</tr>
+</tbody>
+</table>
+<p>总结如下：</p>
+<blockquote><ol>
+<li>对于某一<code>ThreadLocal</code>来讲，他的<code>索引值i</code>是确定的，在不同线程之间访问时访问的是不同的table数组的同一位置即都为table[i]，只不过这个不同线程之间的table是独立的。</li>
+<li>对于同一线程的不同<code>ThreadLocal</code>来讲，这些<code>ThreadLocal</code>实例共享一个<code>table</code>数组，然后每个<code>ThreadLocal</code>实例在<code>table</code>中的<code>索引i</code>是不同的。</li>
+</ol>
+</blockquote>
+<h2>get()方法</h2>
+<div class="highlight"><pre><span></span><span class="c1">//ThreadLocal中get方法</span>
+<span class="kd">public</span> <span class="n">T</span> <span class="nf">get</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">();</span>
+    <span class="n">ThreadLocalMap</span> <span class="n">map</span> <span class="o">=</span> <span class="n">getMap</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">map</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ThreadLocalMap</span><span class="p">.</span><span class="na">Entry</span> <span class="n">e</span> <span class="o">=</span> <span class="n">map</span><span class="p">.</span><span class="na">getEntry</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;unchecked&quot;</span><span class="p">)</span>
+            <span class="n">T</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="n">e</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">setInitialValue</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">//ThreadLocalMap中getEntry方法</span>
+<span class="kd">private</span> <span class="n">Entry</span> <span class="nf">getEntry</span><span class="p">(</span><span class="n">ThreadLocal</span><span class="o">&lt;?&gt;</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+       <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="na">threadLocalHashCode</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+       <span class="n">Entry</span> <span class="n">e</span> <span class="o">=</span> <span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">e</span><span class="p">;</span>
+       <span class="k">else</span>
+            <span class="k">return</span> <span class="n">getEntryAfterMiss</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+   <span class="p">}</span>
+</pre></div>
+<p>理解了<code>set</code>方法，<code>get</code>方法也就清楚明了，无非是通过计算出索引直接从数组对应位置读取即可。</p>
+<p>在进行<code>get</code>之前，必须先<code>set</code>，否则会报<code>空指针异常</code>，当然也可以初始化一个，但是必须重写<code>initialValue()</code>方法。</p>
+<h2>内存泄漏问题</h2>
+<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
+<p>上面这张图详细的揭示了<code>ThreadLocal</code>和<code>Thread</code>以及<code>ThreadLocalMap</code>三者的关系。</p>
+<blockquote><ul>
+<li>Thread中有一个map，就是ThreadLocalMap</li>
+<li>ThreadLocalMap的key是ThreadLocal，值是我们自己设定的。</li>
+<li>ThreadLocal是一个弱引用，当为null时，会被当成垃圾回收</li>
+</ul>
+</blockquote>
+<p>重点来了，突然我们<code>ThreadLocal</code>是<code>null</code>了，也就是要被<code>垃圾回收器</code>回收了，但是此时我们的<code>ThreadLocalMap</code>生命周期和<code>Thread</code>的一样，它不会回收，这时候就出现了一个现象。那就是<code>ThreadLocalMap</code>的<code>key</code>没了，但是<code>value</code>还在，这就造成了<code>内存泄漏</code>。</p>
+<p>解决办法：使用完<code>ThreadLocal</code>后，执行<code>remove</code>操作，避免出现<code>内存溢出</code>情况。</p>
+<h2>特性</h2>
+<p><code>ThreadLocal</code>和<code>Synchronized</code>都是为了解决<code>多线程中相同变量的访问冲突</code>问题，不同的点是</p>
+<blockquote><ul>
+<li><code>Synchronized</code>是通过线程等待，<code>牺牲时间</code>来解决访问冲突</li>
+<li>ThreadLocal是通过每个线程单独一份存储空间，牺牲空间来解决冲突，并且相比于<code>Synchronized</code>，<code>ThreadLocal</code>具有<code>线程隔离</code>的效果，只有在线程内才能获取到对应的值，线程外则不能访问到想要的值。</li>
+</ul>
+</blockquote>
+<p>正因为ThreadLocal的线程隔离特性，使他的应用场景相对来说更为特殊一些。在android中Looper、ActivityThread以及AMS中都用到了<code>ThreadLocal</code>。当某些数据是以线程为作用域并且不同线程具有不同的数据副本的时候，就可以考虑采用<code>ThreadLocal</code>。</p>
+<h1>其他面试题</h1>
+<h2>i++线程安全吗</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/weixin_39446980/article/details/90597576">https://blog.csdn.net/weixin_39446980/article/details/90597576</a></li>
+<li><a href="https://blog.csdn.net/zbw18297786698/article/details/53420780?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">https://blog.csdn.net/zbw18297786698/article/details/53420780?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param</a></li>
+</ul>
+</blockquote>
 </article>
     </section>
 

@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/74edd151c788f0da6895d4b6fe038d0e.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/fc87aef795875cf7b6d9a44adfe3246e.json"
         }
     </script>
     <script>
@@ -1278,7 +1278,6 @@
 <li><a href="https://blog.csdn.net/weixin_43689776/article/details/99999126?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">JDK1.8中HashMap如何应对hash冲突</a></li>
 </ul>
 </blockquote>
-<h3>jdk1.8之前并发操作hashmap时为什么会有死循环的问题？</h3>
 <h3>为什么HashMap线程不安全</h3>
 <p>参考</p>
 <blockquote><ul>
@@ -1286,11 +1285,44 @@
 </ul>
 </blockquote>
 <p><strong>总结</strong></p>
-<ul>
-<li>在JDK1.7中，当并发执行扩容操作时会造成环形链和数据丢失的情况。</li>
-<li><strong>在JDK1.8中</strong>，在并发执行put操作时会发生数据覆盖的情况。</li>
+<blockquote><ul>
+<li><strong>在JDK1.7中</strong>：当并发执行扩容操作时会造成环形链和数据丢失的情况。</li>
+<li><strong>在JDK1.8中</strong>：在并发执行put操作时会发生数据覆盖的情况。</li>
 </ul>
+</blockquote>
+<h3>为什么用红黑树不用AVL树</h3>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://blog.csdn.net/21aspnet/article/details/88939297">https://blog.csdn.net/21aspnet/article/details/88939297</a></li>
+</ul>
+</blockquote>
+<p>AVL</p>
+<blockquote><p>完全平衡二叉树</p>
+</blockquote>
+<p>最主要的一点是：</p>
+<p>在<code>CurrentHashMap</code>中是加锁了的，实际上是读写锁，如果写冲突就会等待，如果插入时间过长必然等待时间更长，而红黑树相对AVL树他的插入更快！</p>
+<p>红黑树和AVL树都是<strong>最常用的平衡二叉搜索树</strong>，它们的查找、删除、修改都是O(lgn) time</p>
+<p>AVL树和红黑树有几点比较和区别：</p>
+<blockquote><ul>
+<li>AVL树是更加严格的平衡，因此可以提供更快的查找速度，一般读取查找密集型任务，适用AVL树。</li>
+<li>红黑树更适合于插入修改密集型任务。</li>
+<li>通常，AVL树的旋转比红黑树的旋转更加难以平衡和调试。</li>
+</ul>
+</blockquote>
+<p><strong>总结：</strong></p>
+<blockquote><ul>
+<li>AVL以及红黑树是高度平衡的树数据结构。它们非常相似，真正的区别在于在任何添加/删除操作时完成的旋转操作次数。</li>
+<li>两种实现都缩放为a O(lg N)，其中N是叶子的数量，但实际上AVL树在查找密集型任务上更快：利用更好的平衡，树遍历平均更短。另一方面，插入和删除方面，AVL树速度较慢：需要更高的旋转次数才能在修改时正确地重新平衡数据结构。</li>
+<li>在AVL树中，从根到任何叶子的最短路径和最长路径之间的差异最多为1。在红黑树中，差异可以是2倍。</li>
+<li>两个都给O（log n）查找，但平衡AVL树可能需要O（log n）旋转，而红黑树将需要最多两次旋转使其达到平衡（尽管可能需要检查O（log n）节点以确定旋转的位置）。旋转本身是O（1）操作，因为你只是移动指针。</li>
+</ul>
+</blockquote>
 <h2>3.2 LinkedHashMap</h2>
+<p>参考</p>
+<blockquote><ul>
+<li><a href="https://www.imooc.com/article/22931">https://www.imooc.com/article/22931</a></li>
+</ul>
+</blockquote>
 <h2>3.3 ConcurrentHashMap</h2>
 <p>参考</p>
 <blockquote><ul>
@@ -1298,7 +1330,7 @@
 <li><a href="https://www.jianshu.com/p/d0b37b927c48">https://www.jianshu.com/p/d0b37b927c48</a></li>
 </ul>
 </blockquote>
-<p>ConcurrentHashMap是Java并发包中提供的一个线程安全且高效的HashMap实现，ConcurrentHashMap在并发编程的场景中使用频率非常之高，本文就来分析下ConcurrentHashMap的实现原理，并对其实现原理进行分析（JDK1.7).</p>
+<p>ConcurrentHashMap是Java并发包<code>java.util.concurrent</code>中提供的一个线程安全且高效的HashMap实现，ConcurrentHashMap在并发编程的场景中使用频率非常之高，本文就来分析下<code>ConcurrentHashMap</code>的实现原理，并对其实现原理进行分析（JDK1.7).</p>
 <p>众所周知，哈希表是中非常高效，复杂度为O(1)的数据结构，在Java开发中，我们最常见到最频繁使用的就是HashMap和HashTable，但是在线程竞争激烈的并发场景中使用都不够合理。</p>
 <blockquote><ul>
 <li><strong>HashMap</strong> ：先说HashMap，HashMap是<strong>线程不安全</strong>的，在并发环境下，可能会形成<strong>环状链表</strong>（扩容时可能造成，具体原因自行百度google或查看源码分析），导致get操作时，cpu空转，所以，在并发环境中使用HashMap是非常危险的。</li>
