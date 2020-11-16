@@ -16,6 +16,12 @@ tags:
 
 
 
+# 参考
+
+> - [Java 并发和多线程教程-雅各布博客](http://tutorials.jenkov.com/java-concurrency/index.html)
+
+
+
 
 
 #  1. 线程、程序、进程的基本概念
@@ -772,11 +778,10 @@ public ThreadPoolExecutor(int corePoolSize,
 
 ### 12.2.3 第二种方式：通过Executor 框架的⼯具类Executors来实现
 
-**FixedThreadPool** ： 该⽅法返回⼀个固定线程数量的线程池。该线程池中的线程数量始终不 变。当有⼀个新的任务提交时，线程池中若有空闲线程，则⽴即执⾏。若没有，则新的任务会被 暂存在⼀个任务队列中，待有线程空闲时，便处理在任务队列中的任务。 
-
-**SingleThreadExecutor**： ⽅法返回⼀个只有⼀个线程的线程池。若多余⼀个任务被提交到该线 程池，任务会被保存在⼀个任务队列中，待线程空闲，按先⼊先出的顺序执⾏队列中的任务。 
-
-**CachedThreadPool**： 该⽅法返回⼀个可根据实际情况调整线程数量的线程池。线程池的线程数 量不确定，但若有空闲线程可以复⽤，则会优先使⽤可复⽤的线程。若所有线程均在⼯作，⼜有 新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执⾏完毕后，将返回线程池进 ⾏复⽤。
+> - **FixedThreadPool** ： 该⽅法返回⼀个固定线程数量的线程池。该线程池中的线程数量始终不 变。当有⼀个新的任务提交时，线程池中若有空闲线程，则⽴即执⾏。若没有，则新的任务会被 暂存在⼀个任务队列中，待有线程空闲时，便处理在任务队列中的任务。 
+> - **SingleThreadExecutor**： ⽅法返回⼀个只有⼀个线程的线程池。若多余⼀个任务被提交到该线 程池，任务会被保存在⼀个任务队列中，待线程空闲，按先⼊先出的顺序执⾏队列中的任务。 
+>
+> - **CachedThreadPool**： 该⽅法返回⼀个可根据实际情况调整线程数量的线程池。线程池的线程数 量不确定，但若有空闲线程可以复⽤，则会优先使⽤可复⽤的线程。若所有线程均在⼯作，⼜有 新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执⾏完毕后，将返回线程池进 ⾏复⽤。
 
 ![](images/Java多线程并发/Executos工具类的方法.jpg)
 
@@ -821,3 +826,478 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 
 ## 12.4 线程池执行流程
+
+
+
+
+
+
+
+# 13. java.util.concurrent
+
+参考
+
+> - https://blog.csdn.net/starbxx/article/details/95333992
+> - [Jakob Jenkov博客](http://tutorials.jenkov.com/java-util-concurrent/index.html)
+> - [Jakob Jenkov博客中文翻译](https://blog.csdn.net/defonds/article/details/44021605)
+> - [java并发包java.util.concurrent详解博客导航](https://blog.csdn.net/dichengyan0013/article/details/102347395?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param)
+
+
+
+`java.util.concurrent` 是在`并发编程`中很常用的实用工具类，称为`JUC`。
+
+
+
+在java.util下的集合都是发生`fail-fast`，而在java.util.concurrent下的发生的都是`fail-safe`
+
+
+
+
+
+## 线程池相关类
+
+
+
+![](images/Java多线程并发/线程池相关类.png)
+
+
+
+
+
+## 阻塞队列相关类
+
+![](images/Java多线程并发/阻塞队列相关类.png)
+
+
+
+
+
+## ConcurrentMap类
+
+![](images/Java多线程并发/ConcurrentMap类.png)
+
+
+
+
+
+## 多线程其他类
+
+![](images/Java多线程并发/多线程其他类.png)
+
+
+
+
+
+
+
+
+
+
+
+## CAS
+
+参考
+
+> - https://blog.csdn.net/v123411739/article/details/79561458
+
+
+
+
+
+### 概述
+
+`CAS（Compare-and-Swap）`，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了`CAS`技术。CAS也是现在面试经常问的问题，本文将深入的介绍CAS的原理。
+
+
+
+
+
+
+
+# 14. ThreadLocal
+
+参考
+
+> - https://www.cnblogs.com/fsmly/p/11020641.html
+> - https://www.jianshu.com/p/3c5d7f09dfbd
+
+
+
+
+
+## 简介
+
+多线程访问同一个共享变量的时候容易出现并发问题，特别是多个线程对一个变量进行写入的时候，为了保证线程安全，一般使用者在访问共享变量的时候需要进行额外的同步措施才能保证线程安全性。ThreadLocal是除了加锁这种同步方式之外的一种保证一种规避多线程访问出现线程不安全的方法，当我们在创建一个变量后，如果每个线程对其进行访问的时候访问的都是线程自己的变量这样就不会存在线程不安全问题。
+
+
+
+`ThreadLocal`是JDK包提供的，它提供线程本地变量，如果创建一个`ThreadLocal变量`，那么访问这个变量的每个线程都会有这个变量的一个`副本`，在实际多线程操作的时候，操作的是`自己本地内存中的变量`，从而规避了线程安全问题，如下图所示
+
+
+
+其实，`ThreadLocal`并不是一个`Thread`，而是`Thread`的`局部变量`，也许把它命名为`ThreadLocalVariable`更容易让人理解一些。
+
+当使用`ThreadLocal`维护变量时，ThreadLocal为每个使用该变量的线程提供`独立的变量副本`，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。
+
+
+
+![](images/Java多线程并发/ThreadLocal简介.png)
+
+
+
+
+
+## 如何使用/原理
+
+
+
+![](images/Java多线程并发/ThreadLocal和Thread以及ThreadLocalMap三者的关系.jpg)
+
+
+
+
+
+threadlocal使用方法很简单
+
+```java
+static final ThreadLocal<T> sThreadLocal = new ThreadLocal<T>();
+sThreadLocal.set()
+sThreadLocal.get()
+```
+
+`threadlocal`而是一个线程内部的存储类，可以在`指定线程内存储数据`，数据存储以后，只有指定线程可以得到存储数据，官方解释如下。
+
+```java
+/**
+ * This class provides thread-local variables.  These variables differ from
+ * their normal counterparts in that each thread that accesses one (via its
+ * {@code get} or {@code set} method) has its own, independently initialized
+ * copy of the variable.  {@code ThreadLocal} instances are typically private
+ * static fields in classes that wish to associate state with a thread (e.g.,
+ * a user ID or Transaction ID).
+ */
+```
+
+
+
+大致意思就是`ThreadLocal`提供了`线程内存储变量`的能力，这些变量不同之处在于`每一个线程读取的变量是对应的互相独立的`。通过`get`和`set`方法就可以得到`当前线程对应的值`。
+
+
+
+做个不恰当的比喻，从表面上看`ThreadLocal`相当于维护了一个`map`，`key`就是当前的线程，`value`就是需要存储的对象。
+
+这里的这个比喻是不恰当的，实际上是`ThreadLocal`的`静态内部类ThreadLocalMap`为每个`Thread`都维护了`一个数组table`，`ThreadLocal`确定了一个数组下标，而这个下标就是`value`存储的对应位置。。
+
+作为一个存储数据的类，关键点就在`get`和`set`方法。
+
+
+
+## set()方法
+
+```java
+//set 方法
+public void set(T value) {
+      //获取当前线程
+      Thread t = Thread.currentThread();
+      //实际存储的数据结构类型
+      ThreadLocalMap map = getMap(t);
+      //如果存在map就直接set，没有则创建map并set
+      if (map != null)
+          map.set(this, value);
+      else
+          createMap(t, value);
+  }
+  
+//getMap方法
+ThreadLocalMap getMap(Thread t) {
+      //thred中维护了一个ThreadLocalMap
+      return t.threadLocals;
+ }
+ 
+//createMap
+void createMap(Thread t, T firstValue) {
+      //实例化一个新的ThreadLocalMap，并赋值给线程的成员变量threadLocals
+      t.threadLocals = new ThreadLocalMap(this, firstValue);
+}
+```
+
+
+
+从上面代码可以看出每个线程持有一个`ThreadLocalMap`对象。每一个新的线程`Thread`都会实例化一个`ThreadLocalMap`并赋值给`成员变量threadLocals`，使用时若已经存在`threadLocals`则直接使用已经存在的对象。
+
+
+
+
+
+## ThreadLocalMap
+
+```java
+//Entry为ThreadLocalMap静态内部类，对ThreadLocal的弱引用
+//同时让ThreadLocal和储值形成key-value的关系
+static class Entry extends WeakReference<ThreadLocal<?>> {
+    /** The value associated with this ThreadLocal. */
+    Object value;
+
+    Entry(ThreadLocal<?> k, Object v) {
+           super(k);
+            value = v;
+    }
+}
+
+//ThreadLocalMap构造方法
+ThreadLocalMap(ThreadLocal<?> firstKey, Object firstValue) {
+        //内部成员数组，INITIAL_CAPACITY值为16的常量
+        table = new Entry[INITIAL_CAPACITY];
+        //位运算，结果与取模相同，计算出需要存放的位置
+        //threadLocalHashCode比较有趣，这里计算出索引值
+        int i = firstKey.threadLocalHashCode & (INITIAL_CAPACITY - 1);
+        //new一个新的Entry并赋值table数组中计算出来的索引值
+        table[i] = new Entry(firstKey, firstValue);
+        size = 1;
+        setThreshold(INITIAL_CAPACITY);
+}
+```
+
+通过上面的代码不难看出在实例化`ThreadLocalMap`时创建了一个`长度为16的Entry数组`。通过`hashCode`与`length`位运算确定出一个`索引值i`，这个i就是`被存储在table数组中的位置`。
+
+
+
+前面讲过每个线程`Thread`持有一个`ThreadLocalMap`类型的实例`threadLocals`，结合此处的构造方法可以理解成每个线程Thread都持有一个Entry型的数组table，而一切的读取过程都是通过操作这个数组table完成的。
+
+
+
+*显然table是set和get的焦点，在看具体的set和get方法前，先看下面这段代码。*
+
+
+
+```java
+//在某一线程声明了ABC三种类型的ThreadLocal
+ThreadLocal<A> sThreadLocalA = new ThreadLocal<A>();
+ThreadLocal<B> sThreadLocalB = new ThreadLocal<B>();
+ThreadLocal<C> sThreadLocalC = new ThreadLocal<C>();
+```
+
+
+
+由前面我们知道对于一个`Thread`来说只有持有一个`ThreadLocalMap`，所以`ABC`对应同一个`ThreadLocalMap对象`。为了管理`ABC`，于是将他们存储在`一个数组的不同位置`，而这个数组就是上面提到的`Entry型的数组table`。
+
+那么问题来了，`ABC`在`table`中的位置是如何确定的？为了能正常够正常的访问对应的值，肯定存在一种方法计算出确定的`索引值i`，show me code。
+
+
+
+```java
+  //ThreadLocalMap中set方法。
+  private void set(ThreadLocal<?> key, Object value) {
+
+            // We don't use a fast path as with get() because it is at
+            // least as common to use set() to create new entries as
+            // it is to replace existing ones, in which case, a fast
+            // path would fail more often than not.
+
+            Entry[] tab = table;
+            int len = tab.length;
+            //获取索引值，这个地方是比较特别的地方
+            int i = key.threadLocalHashCode & (len-1);
+
+            //遍历tab如果已经存在则更新值
+            for (Entry e = tab[i];
+                 e != null;
+                 e = tab[i = nextIndex(i, len)]) {
+                ThreadLocal<?> k = e.get();
+
+                if (k == key) {
+                    e.value = value;
+                    return;
+                }
+
+                if (k == null) {
+                    replaceStaleEntry(key, value, i);
+                    return;
+                }
+            }
+            
+            //如果上面没有遍历成功则创建新值
+            tab[i] = new Entry(key, value);
+            int sz = ++size;
+            //满足条件数组扩容x2
+            if (!cleanSomeSlots(i, sz) && sz >= threshold)
+                rehash();
+        }
+```
+
+
+
+在`ThreadLocalMap`中的`set`方法与构造方法能看到以下代码片段。
+
+
+
+```java
+int i = key.threadLocalHashCode & (len-1)
+int i = firstKey.threadLocalHashCode & (INITIAL_CAPACITY - 1)
+```
+
+
+
+简而言之就是将`threadLocalHashCode`进行一个位运算（取模）得到索引i，
+
+
+
+`threadLocalHashCode`代码如下：
+
+```java
+    //ThreadLocal中threadLocalHashCode相关代码.
+    
+    private final int threadLocalHashCode = nextHashCode();
+
+    /**
+     * The next hash code to be given out. Updated atomically. Starts at
+     * zero.
+     */
+    private static AtomicInteger nextHashCode =
+        new AtomicInteger();
+
+    /**
+     * The difference between successively generated hash codes - turns
+     * implicit sequential thread-local IDs into near-optimally spread
+     * multiplicative hash values for power-of-two-sized tables.
+     */
+    private static final int HASH_INCREMENT = 0x61c88647;
+
+    /**
+     * Returns the next hash code.
+     */
+    private static int nextHashCode() {
+        //自增
+        return nextHashCode.getAndAdd(HASH_INCREMENT);
+    }
+```
+
+
+
+因为static的原因，在每次`new ThreadLocal`时因为`threadLocalHashCode`的初始化，会使`threadLocalHashCode`值自增一次，增量为`0x61c88647`。
+
+
+
+`0x61c88647`是斐波那契散列乘数,它的优点是通过它`散列(hash)`出来的结果分布会比较均匀，可以很大程度上避免`hash冲突`，
+
+
+
+以很大程度上避免`hash冲突`，已初始`容量16`为例，hash并与15位运算计算数组下标结果如下：
+
+|  hashCode  | 数组下标 |
+| :--------: | :------: |
+| 0x61c88647 |    7     |
+| 0xc3910c8e |    14    |
+| 0x255992d5 |    5     |
+| 0x8722191c |    12    |
+| 0xe8ea9f63 |    3     |
+| 0x4ab325aa |    10    |
+| 0xac7babf1 |    1     |
+| 0xe443238  |    8     |
+| 0x700cb87f |    15    |
+
+
+
+总结如下：
+
+
+
+> 1. 对于某一`ThreadLocal`来讲，他的`索引值i`是确定的，在不同线程之间访问时访问的是不同的table数组的同一位置即都为table[i]，只不过这个不同线程之间的table是独立的。
+> 2. 对于同一线程的不同`ThreadLocal`来讲，这些`ThreadLocal`实例共享一个`table`数组，然后每个`ThreadLocal`实例在`table`中的`索引i`是不同的。
+
+
+
+
+
+## get()方法
+
+```java
+//ThreadLocal中get方法
+public T get() {
+    Thread t = Thread.currentThread();
+    ThreadLocalMap map = getMap(t);
+    if (map != null) {
+        ThreadLocalMap.Entry e = map.getEntry(this);
+        if (e != null) {
+            @SuppressWarnings("unchecked")
+            T result = (T)e.value;
+            return result;
+        }
+    }
+    return setInitialValue();
+}
+    
+//ThreadLocalMap中getEntry方法
+private Entry getEntry(ThreadLocal<?> key) {
+       int i = key.threadLocalHashCode & (table.length - 1);
+       Entry e = table[i];
+       if (e != null && e.get() == key)
+            return e;
+       else
+            return getEntryAfterMiss(key, i, e);
+   }
+```
+
+理解了`set`方法，`get`方法也就清楚明了，无非是通过计算出索引直接从数组对应位置读取即可。
+
+在进行`get`之前，必须先`set`，否则会报`空指针异常`，当然也可以初始化一个，但是必须重写`initialValue()`方法。
+
+
+
+
+
+## 内存泄漏问题
+
+![](images/Java多线程并发/ThreadLocal和Thread以及ThreadLocalMap三者的关系.jpg)
+
+
+
+上面这张图详细的揭示了`ThreadLocal`和`Thread`以及`ThreadLocalMap`三者的关系。
+
+> - Thread中有一个map，就是ThreadLocalMap
+> - ThreadLocalMap的key是ThreadLocal，值是我们自己设定的。
+> - ThreadLocal是一个弱引用，当为null时，会被当成垃圾回收
+
+
+
+重点来了，突然我们`ThreadLocal`是`null`了，也就是要被`垃圾回收器`回收了，但是此时我们的`ThreadLocalMap`生命周期和`Thread`的一样，它不会回收，这时候就出现了一个现象。那就是`ThreadLocalMap`的`key`没了，但是`value`还在，这就造成了`内存泄漏`。
+
+
+
+解决办法：使用完`ThreadLocal`后，执行`remove`操作，避免出现`内存溢出`情况。
+
+
+
+## 特性
+
+`ThreadLocal`和`Synchronized`都是为了解决`多线程中相同变量的访问冲突`问题，不同的点是
+
+
+
+> - `Synchronized`是通过线程等待，`牺牲时间`来解决访问冲突
+> - ThreadLocal是通过每个线程单独一份存储空间，牺牲空间来解决冲突，并且相比于`Synchronized`，`ThreadLocal`具有`线程隔离`的效果，只有在线程内才能获取到对应的值，线程外则不能访问到想要的值。
+
+
+
+正因为ThreadLocal的线程隔离特性，使他的应用场景相对来说更为特殊一些。在android中Looper、ActivityThread以及AMS中都用到了`ThreadLocal`。当某些数据是以线程为作用域并且不同线程具有不同的数据副本的时候，就可以考虑采用`ThreadLocal`。
+
+
+
+
+
+
+
+# 其他面试题
+
+
+
+
+
+
+
+## i++线程安全吗
+
+参考
+
+> - https://blog.csdn.net/weixin_39446980/article/details/90597576
+> - https://blog.csdn.net/zbw18297786698/article/details/53420780?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
