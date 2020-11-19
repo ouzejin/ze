@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/fc87aef795875cf7b6d9a44adfe3246e.json"
+            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/7f4642c09ec48b4668a4b1dffaa32a4d.json"
         }
     </script>
     <script>
@@ -674,7 +674,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <li><a href="https://blog.csdn.net/dichengyan0013/article/details/102347395?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param">java并发包java.util.concurrent详解博客导航</a></li>
 </ul>
 </blockquote>
-<p><code>java.util.concurrent</code> 是在<code>并发编程</code>中很常用的实用工具类，称为<code>JUC</code>。</p>
+<p><code>java.util.concurrent</code> 是在<code>并发编程</code>中很常用的实用工具类，称为<code>JUC</code>，在<code>JDK5</code>中开始发布</p>
 <p>在java.util下的集合都是发生<code>fail-fast</code>，而在java.util.concurrent下的发生的都是<code>fail-safe</code></p>
 <h2>线程池相关类</h2>
 <p><figure><img data-width="825" data-height="397" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/939c3767c9ee135867fe487afa0aa465.png" alt="" /></figure></p>
@@ -688,10 +688,104 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p>参考</p>
 <blockquote><ul>
 <li><a href="https://blog.csdn.net/v123411739/article/details/79561458">https://blog.csdn.net/v123411739/article/details/79561458</a></li>
+<li><a href="https://www.jianshu.com/p/ab2c8fce878b">https://www.jianshu.com/p/ab2c8fce878b</a></li>
 </ul>
 </blockquote>
 <h3>概述</h3>
-<p><code>CAS（Compare-and-Swap）</code>，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了<code>CAS</code>技术。CAS也是现在面试经常问的问题，本文将深入的介绍CAS的原理。</p>
+<p><code>CAS（Compare-and-Swap）</code>，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了<code>CAS</code>技术。CAS是一种<code>无锁算法</code>，CAS有3个操作数</p>
+<blockquote><ul>
+<li>内存值V</li>
+<li>旧的预期值A</li>
+<li>要修改的新值B。</li>
+</ul>
+</blockquote>
+<p>当且仅当<code>预期值A</code>和<code>内存值V</code>相同时(说明此时内存中的值没有被其他线程改变)，将<code>内存值V</code>修改为<code>B</code>，否则什么都不做。</p>
+<p>CAS比较与交换的伪代码可以表示为：</p>
+<blockquote><p>do{</p>
+<p>​ 备份旧数据；</p>
+<p>​ 基于旧数据构造新数据；</p>
+<p>}while(!CAS( 内存地址，备份的旧数据，新数据 ))</p>
+</blockquote>
+<p><figure><img data-width="320" data-height="171" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e5a5b640a0f10fc5f4c10d6595df458f.jpg" alt="" /></figure></p>
+<p>参考<code>getAndAddInt</code>方法源码</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getAndAddInt</span><span class="p">(</span><span class="n">Object</span> <span class="n">var1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">var4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">var5</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">var5</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getIntVolatile</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">compareAndSwapInt</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var5</span><span class="p">,</span> <span class="n">var5</span> <span class="o">+</span> <span class="n">var4</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="n">var5</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+<p>注：t1，t2线程是同时更新<code>同一变量56的值</code></p>
+<p>因为t1和t2线程都同时去访问<code>同一变量56</code>，所以他们会把<strong>主内存的值完全拷贝一份到自己的工作内存空间</strong>，所以t1和t2线程的预期值都为<code>56</code>。</p>
+<p>假设t1在与t2线程竞争中线程t1能去更新变量的值，而其他线程都失败。（失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次发起尝试）。t1线程去更新变量值改为57，然后写到内存中。此时对于t2来说，内存值变为了57，与预期值56不一致，就操作失败了（想改的值不再是原来的值）。</p>
+<p>（上图通俗的解释是：CPU去更新一个值，但如果想改的值不再是原来的值，操作就失败，因为很明显，有其它操作先改变了这个值。）</p>
+<p>就是指当两者进行比较时</p>
+<blockquote><ul>
+<li>如果相等，则证明共享数据没有被修改，替换成新值，然后继续往下运行；</li>
+<li>如果不相等，说明共享数据已经被修改，放弃已经所做的操作，然后重新执行刚才的操作。</li>
+</ul>
+</blockquote>
+<p>容易看出 CAS 操作是基于共享数据不会被修改的假设，采用了类似于数据库的<code>commit-retry</code> 的模式。当同步冲突出现的机会很少时，这种假设能带来较大的性能提升。</p>
+<h3>使用例子/源码</h3>
+<p>创建一个<code>AtomicInteger</code>类型来测试多线程多同一个变量的自增操作</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">AtomicInteger</span> <span class="n">race</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">increase</span><span class="p">()</span> <span class="p">{</span>
+        <span class="cm">/*race++;并非原子操作，经过下面三个步骤，取值，+1，写值*/</span>
+        <span class="n">race</span><span class="p">.</span><span class="na">getAndIncrement</span><span class="p">();</span>
+    <span class="p">}</span>
+</pre></div>
+<p>getAndIncrement()源码</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getAndIncrement</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">unsafe</span><span class="p">.</span><span class="na">getAndAddInt</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">valueOffset</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+<p>getAndAddInt源码</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getAndAddInt</span><span class="p">(</span><span class="n">Object</span> <span class="n">var1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">var4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">var5</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">var5</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getIntVolatile</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">compareAndSwapInt</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var5</span><span class="p">,</span> <span class="n">var5</span> <span class="o">+</span> <span class="n">var4</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="n">var5</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+<p>可以看到最后底层调用的是<code>compareAndSwapInt()</code>，如果 CAS 失败，会一直进行尝试</p>
+<h3>CAS缺点</h3>
+<p>CAS虽然很高效的解决了原子操作问题，但是CAS仍然存在三大问题。</p>
+<blockquote><ol>
+<li><p><strong>循环时间长开销很大</strong>：CAS 通常是配合无限循环一起使用的，我们可以看到 <code>getAndAddInt</code> 方法执行时，如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。</p>
+</li>
+<li><p><strong>只能保证一个变量的原子操作</strong>：当对一个变量执行操作时，我们可以使用<code>循环 CAS</code> 的方式来保证原子操作，但是对<code>多个变量</code>操作时，CAS 目前无法直接保证操作的原子性。但是我们可以通过以下两种办法来解决：1）使用互斥锁来保证原子性；2）将多个变量封装成对象，通过 <code>AtomicReference</code> 来保证原子性。</p>
+</li>
+<li><p><strong>ABA问题</strong>：CAS 的使用流程通常如下：1）首先从地址 V 读取值 A；2）根据 A 计算目标值 B；3）通过 CAS 以原子的方式将地址 V 中的值从 A 修改为 B。</p>
+<p>但是在第1步中读取的值是A，并且在第3步修改成功了，我们就能说它的值在第1步和第3步之间没有被其他线程改变过了吗?</p>
+<p><strong>如果在这段期间它的值曾经被改成了B，后来又被改回为A</strong>，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“<code>AtomicStampedReference</code>”，它可以通过控制<code>变量值的版本</code>来保证CAS的正确性。</p>
+<p>因此，在使用CAS前要考虑清楚“ABA”问题是否会影响<code>程序并发的正确性</code>，如果需要解决ABA问题，改用<code>传统的互斥同步</code>可能会比原子类更高效。</p>
+</li>
+</ol>
+</blockquote>
+<h3>CAS开销</h3>
+<h3>CAS在JDK中的应用</h3>
+<p>在原子类变量中，如<code>java.util.concurrent.atomic</code>中的<code>AtomicXXX</code>，都使用了这些底层的JVM支持为数字类型的引用类型提供一种高效的CAS操作，而在<code>java.util.concurrent</code>中的大多数类在实现时都直接或间接的使用了这些原子变量类。</p>
+<p>Java 1.8中<code>AtomicInteger.incrementAndGet()</code>的实现源码为：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">incrementAndGet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">unsafe</span><span class="p">.</span><span class="na">getAndAddInt</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">valueOffset</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getAndAddInt</span><span class="p">(</span><span class="n">Object</span> <span class="n">var1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">var4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">var5</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">var5</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getIntVolatile</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">compareAndSwapInt</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var5</span><span class="p">,</span> <span class="n">var5</span> <span class="o">+</span> <span class="n">var4</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="n">var5</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+<p>由此可见，<code>AtomicInteger.incrementAndGet</code>的实现用了<code>乐观锁</code>技术，调用了类<code>sun.misc.Unsafe</code>库里面的 <code>CAS</code>算法，用<code>CPU指令</code>来实现<code>无锁自增</code>。所以，<code>AtomicInteger.incrementAndGet</code>的自增比用<code>synchronized</code>的锁效率倍增。</p>
 <h1>14. ThreadLocal</h1>
 <p>参考</p>
 <blockquote><ul>
