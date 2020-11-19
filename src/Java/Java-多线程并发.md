@@ -844,7 +844,7 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 
 
-`java.util.concurrent` 是在`并发编程`中很常用的实用工具类，称为`JUC`。
+`java.util.concurrent` 是在`并发编程`中很常用的实用工具类，称为`JUC`，在`JDK5`中开始发布
 
 
 
@@ -899,6 +899,7 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 参考
 
 > - https://blog.csdn.net/v123411739/article/details/79561458
+> - https://www.jianshu.com/p/ab2c8fce878b
 
 
 
@@ -906,7 +907,171 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 ### 概述
 
-`CAS（Compare-and-Swap）`，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了`CAS`技术。CAS也是现在面试经常问的问题，本文将深入的介绍CAS的原理。
+`CAS（Compare-and-Swap）`，即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了`CAS`技术。CAS是一种`无锁算法`，CAS有3个操作数
+
+> - 内存值V
+> - 旧的预期值A
+> - 要修改的新值B。
+
+
+
+当且仅当`预期值A`和`内存值V`相同时(说明此时内存中的值没有被其他线程改变)，将`内存值V`修改为`B`，否则什么都不做。
+
+
+
+CAS比较与交换的伪代码可以表示为：
+
+> do{
+>
+> ​	备份旧数据；
+>
+> ​	基于旧数据构造新数据；
+>
+> }while(!CAS( 内存地址，备份的旧数据，新数据 ))
+
+
+
+
+
+![](images/Java多线程并发/CAS算法理解.jpg)
+
+
+
+参考`getAndAddInt`方法源码
+
+```java
+    public final int getAndAddInt(Object var1, long var2, int var4) {
+        int var5;
+        do {
+            var5 = this.getIntVolatile(var1, var2);
+        } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
+
+        return var5;
+    }
+```
+
+
+
+
+
+注：t1，t2线程是同时更新`同一变量56的值`
+
+因为t1和t2线程都同时去访问`同一变量56`，所以他们会把**主内存的值完全拷贝一份到自己的工作内存空间**，所以t1和t2线程的预期值都为`56`。
+
+假设t1在与t2线程竞争中线程t1能去更新变量的值，而其他线程都失败。（失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次发起尝试）。t1线程去更新变量值改为57，然后写到内存中。此时对于t2来说，内存值变为了57，与预期值56不一致，就操作失败了（想改的值不再是原来的值）。
+
+（上图通俗的解释是：CPU去更新一个值，但如果想改的值不再是原来的值，操作就失败，因为很明显，有其它操作先改变了这个值。）
+
+
+
+就是指当两者进行比较时
+
+> - 如果相等，则证明共享数据没有被修改，替换成新值，然后继续往下运行；
+> - 如果不相等，说明共享数据已经被修改，放弃已经所做的操作，然后重新执行刚才的操作。
+
+
+
+容易看出 CAS 操作是基于共享数据不会被修改的假设，采用了类似于数据库的`commit-retry` 的模式。当同步冲突出现的机会很少时，这种假设能带来较大的性能提升。
+
+
+
+
+
+### 使用例子/源码
+
+创建一个`AtomicInteger`类型来测试多线程多同一个变量的自增操作
+
+```java
+    public static AtomicInteger race = new AtomicInteger(0);
+
+    public static void increase() {
+        /*race++;并非原子操作，经过下面三个步骤，取值，+1，写值*/
+        race.getAndIncrement();
+    }
+```
+
+
+
+getAndIncrement()源码
+
+```java
+    public final int getAndIncrement() {
+        return unsafe.getAndAddInt(this, valueOffset, 1);
+    }
+```
+
+
+
+getAndAddInt源码
+
+```java
+    public final int getAndAddInt(Object var1, long var2, int var4) {
+        int var5;
+        do {
+            var5 = this.getIntVolatile(var1, var2);
+        } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
+
+        return var5;
+    }
+```
+
+
+
+可以看到最后底层调用的是`compareAndSwapInt()`，如果 CAS 失败，会一直进行尝试
+
+
+
+
+
+### CAS缺点
+
+CAS虽然很高效的解决了原子操作问题，但是CAS仍然存在三大问题。
+
+> 1. **循环时间长开销很大**：CAS 通常是配合无限循环一起使用的，我们可以看到 `getAndAddInt` 方法执行时，如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。
+>
+> 2. **只能保证一个变量的原子操作**：当对一个变量执行操作时，我们可以使用`循环 CAS` 的方式来保证原子操作，但是对`多个变量`操作时，CAS 目前无法直接保证操作的原子性。但是我们可以通过以下两种办法来解决：1）使用互斥锁来保证原子性；2）将多个变量封装成对象，通过 `AtomicReference` 来保证原子性。
+>
+> 3. **ABA问题**：CAS 的使用流程通常如下：1）首先从地址 V 读取值 A；2）根据 A 计算目标值 B；3）通过 CAS 以原子的方式将地址 V 中的值从 A 修改为 B。
+>
+>    但是在第1步中读取的值是A，并且在第3步修改成功了，我们就能说它的值在第1步和第3步之间没有被其他线程改变过了吗?
+>
+>    **如果在这段期间它的值曾经被改成了B，后来又被改回为A**，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“`AtomicStampedReference`”，它可以通过控制`变量值的版本`来保证CAS的正确性。
+>
+>    因此，在使用CAS前要考虑清楚“ABA”问题是否会影响`程序并发的正确性`，如果需要解决ABA问题，改用`传统的互斥同步`可能会比原子类更高效。
+
+
+
+### CAS开销
+
+
+
+### CAS在JDK中的应用
+
+在原子类变量中，如`java.util.concurrent.atomic`中的`AtomicXXX`，都使用了这些底层的JVM支持为数字类型的引用类型提供一种高效的CAS操作，而在`java.util.concurrent`中的大多数类在实现时都直接或间接的使用了这些原子变量类。
+
+
+
+Java 1.8中`AtomicInteger.incrementAndGet()`的实现源码为：
+
+```java
+    public final int incrementAndGet() {
+        return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
+    }
+
+
+    public final int getAndAddInt(Object var1, long var2, int var4) {
+        int var5;
+        do {
+            var5 = this.getIntVolatile(var1, var2);
+        } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
+
+        return var5;
+    }
+```
+
+
+
+由此可见，`AtomicInteger.incrementAndGet`的实现用了`乐观锁`技术，调用了类`sun.misc.Unsafe`库里面的 `CAS`算法，用`CPU指令`来实现`无锁自增`。所以，`AtomicInteger.incrementAndGet`的自增比用`synchronized`的锁效率倍增。
 
 
 
