@@ -26,6 +26,7 @@ Redis学习笔记
 > - https://www.cnblogs.com/jasontec/p/9699242.html
 > - https://github.com/Snailclimb/JavaGuide
 > - [Redis中文文档](http://redisdoc.com/)
+> - [【狂神说Java】Redis最新超详细版教程通俗易懂](https://www.bilibili.com/video/BV1S54y1R7SB)
 
 
 
