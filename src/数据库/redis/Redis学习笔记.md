@@ -34,7 +34,7 @@ Redis学习笔记
 
 # 简介
 
-Redis的全称是`Remote Dictionary Server`,本质上是一个 `Key-Value`类型的内存数据库,很像 `memcached`,整个数据库统统加载在内存当中进行操作,定期通过异步操作把数据库数据`fush`到`硬盘`上进行保存。
+Redis的全称是`Remote Dictionary Server`，即`远程字典服务`，本质上是一个 `Key-Value`类型的内存数据库,很像 `memcached`,整个数据库统统加载在内存当中进行操作,定期通过异步操作把数据库数据`fush`到`硬盘`上进行保存。
 
 
 
