@@ -7,6 +7,7 @@ status: publish
 author: LifeAlsoIsGG
 categories: 
   - 数据库
+  - Redis
 tags: 
   - 数据库
   - Redis
