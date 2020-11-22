@@ -19,6 +19,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/Redis部署与使用/</loc>
+    <lastmod>2020-11-21</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/Redis实现单点登录/</loc>
     <lastmod>2020-11-08</lastmod>
     <changefreq>always</changefreq>
