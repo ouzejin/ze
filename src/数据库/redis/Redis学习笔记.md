@@ -35,7 +35,9 @@ Redis学习笔记
 
 # 简介
 
-Redis的全称是`Remote Dictionary Server`，即`远程字典服务`，本质上是一个 `Key-Value`类型的内存数据库,很像 `memcached`,整个数据库统统加载在内存当中进行操作,定期通过异步操作把数据库数据`fush`到`硬盘`上进行保存。
+Redis的全称是`Remote Dictionary Server`，即`远程字典服务`。官方原话如下：
+
+Redis是一个开源(BSD许可)的,内存中的数据结构存储系统,它可以用作`数据库`、`缓存`和`消息中间件MQ`。它支持多种类型的数据结构,如字符串( strings),散列( hashes),列表( lists),集合(sets),有序集合( sorted sets)与范围查询,bitmaps, hyperloglogs和地理空间( geospatial)索引半径查询。 Redis内置了复制( replication),LUA脚本(Luascripting),LRU驱动事件( LRU eviction),事务( transactions)和不同级别的磁盘持久化( persistence),并通过Reds哨兵( Sentinel)和自动分区( Cluster)提供高可用性( high availability)。
 
 
 
@@ -138,6 +140,8 @@ Redis客户端对服务端的每次调用都经历了`发送命令`，`执行命
 
 ## redis是单线程模型为什么效率还这么高？
 
+
+
 > 1. **纯内存访问**：数据存放在内存中，内存的响应时间大约是100纳秒，这是Redis每秒万亿级别访问的重要基础。
 > 2. **非阻塞I/O**：Redis采用epoll做为I/O多路复用技术的实现，再加上Redis自身的事件处理模型将epoll中的连接，读写，关闭都转换为了时间，不在I/O上浪费过多的时间。
 > 3. 单线程避免了线程切换和竞态产生的消耗。
@@ -159,7 +163,7 @@ Redis客户端对服务端的每次调用都经历了`发送命令`，`执行命
 
 ## 为什么网络处理要引入多线程？
 
-之前的段落说了，Redis 的瓶颈并不在 CPU，而在内存和网络。
+之前的段落说了，Redis 的瓶颈并不在 CPU，而在`内存`和`网络I/O`。
 
 内存不够的话，可以加内存或者做数据结构优化和其他优化等，但网络的性能优化才是大头，网络 IO 的读写在 Redis 整个执行期间占用了大部分的 CPU 时间，如果把网络处理这部分做成多线程处理方式，那对整个 Redis 的性能会有很大的提升。
 
