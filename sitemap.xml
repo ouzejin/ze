@@ -19,7 +19,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Redis部署与使用/</loc>
+    <loc>/archives/Redis实现高并发秒杀系统/</loc>
+    <lastmod>2020-11-30</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>/archives/Redis部署与基本使用/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -68,7 +75,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Redis学习笔记/</loc>
+    <loc>/archives/Redis理论学习笔记/</loc>
     <lastmod>2020-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -152,14 +159,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-    <loc>/archives/Mybatis逆向工程&Example类使用/</loc>
+    <loc>/archives/EasyExcel导入导出Excel/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
-    <loc>/archives/EasyExcel导入导出Excel/</loc>
+    <loc>/archives/Mybatis逆向工程&Example类使用/</loc>
     <lastmod>2020-10-01</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
