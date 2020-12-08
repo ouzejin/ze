@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Redis学习笔记
-slug: Redis学习笔记
+title: Redis理论学习笔记
+slug: Redis理论学习笔记
 date: 2020/10/12 20:45:07
 status: publish
 author: LifeAlsoIsGG
