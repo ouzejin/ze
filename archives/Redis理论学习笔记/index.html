@@ -6,20 +6,20 @@
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Maverick,LifeAlsoIsGG,Galileo,wiki" />
+    <meta name="keywords" content="Maverick,ZE,Galileo,wiki" />
     <meta name="generator" content="Maverick 1.1" />
     <meta name="template" content="Kepler" />
-    <link rel="alternate" type="application/rss+xml" title="LifeAlsoIsGG-Wiki &raquo; RSS 2.0" href="/feed/index.xml" />
-    <link rel="alternate" type="application/atom+xml" title="LifeAlsoIsGG-Wiki &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -32,17 +32,17 @@
         });
     </script>
     
-<title>Redis理论学习笔记 - LifeAlsoIsGG-Wiki</title>
+<title>Redis理论学习笔记 - ze</title>
 <meta name="author" content="LifeAlsoIsGG" />
 <meta name="description" content="Redis学习笔记" />
-<meta property="og:title" content="Redis理论学习笔记 - LifeAlsoIsGG-Wiki" />
+<meta property="og:title" content="Redis理论学习笔记 - ze" />
 <meta property="og:description" content="Redis学习笔记" />
-<meta property="og:site_name" content="LifeAlsoIsGG-Wiki" />
+<meta property="og:site_name" content="ze" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/Redis理论学习笔记/" />
 <meta property="og:image" content="" />
 <meta property="article:published_time" content="2020-10-12T20:45:07-00.00" />
-<meta name="twitter:title" content="Redis理论学习笔记 - LifeAlsoIsGG-Wiki" />
+<meta name="twitter:title" content="Redis理论学习笔记 - ze" />
 <meta name="twitter:description" content="Redis学习笔记" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:image" content="" />
@@ -59,19 +59,19 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/avatar.png">LifeAlsoIsGG-Wiki</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
                         <ul>
                             
-                                <li><a href="https://blog.lifeisgg.online" target="_blank">Blog</a></li>
+                                <li><a href="https://blog.ze.online" target="_blank">Blog</a></li>
                             
-                                <li><a href="https://photos.lifeisgg.online" target="_blank">Photos</a></li>
+                                <li><a href="https://photos.ze.online" target="_blank">Photos</a></li>
                             
-                                <li><a href="https://github.com/LifeAlsoIsGG" target="_blank">GitHub</a></li>
+                                <li><a href="https://github.com/ouzejin" target="_blank">GitHub</a></li>
                             
-                                <li><a href="https://twitter.com/LifeAlsoIsGG" target="_blank">Twitter</a></li>
+                                <li><a href="https://twitter.com/ouzejin" target="_blank">Twitter</a></li>
                             
                         </ul>
                     </nav>
@@ -108,13 +108,13 @@
                     </section>
                     <section hidden class="sidebar-external-link">
                         
-                            <div class="external"><span><a href="https://blog.lifeisgg.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                            <div class="external"><span><a href="https://blog.ze.online">Blog</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
                         
-                            <div class="external"><span><a href="https://photos.lifeisgg.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                            <div class="external"><span><a href="https://photos.ze.online">Photos</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
                         
-                            <div class="external"><span><a href="https://github.com/LifeAlsoIsGG">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                            <div class="external"><span><a href="https://github.com/ouzejin">GitHub</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
                         
-                            <div class="external"><span><a href="https://twitter.com/LifeAlsoIsGG">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
+                            <div class="external"><span><a href="https://twitter.com/ouzejin">Twitter</a><button class="go-external"><i class="fa fa-external-link"></i></button></span></div>
                         
                     </section>
                     <section class="maverick">
@@ -161,10 +161,10 @@
 <p>主要从“<code>高性能</code>”和“<code>高并发</code>”这两点来看待这个问题。</p>
 <h2>高性能</h2>
 <p>假如用户第一次访问数据库中的某些数据。这个过程会比较慢，因为是从硬盘上读取的。将该用户访问的数据存在数缓存中，这样下一次再访问这些数据的时候就可以直接从缓存中获取了。操作缓存就是直接操作内存，所以速度相当快。如果数据库中的对应数据改变的之后，同步改变缓存中相应的数据即可！</p>
-<p><figure><img data-width="729" data-height="469" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/6a09b66b66ab2e4e7f56d05a035372e6.webp" alt="" /></figure></p>
+<p><figure><img data-width="729" data-height="469" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/6a09b66b66ab2e4e7f56d05a035372e6.webp" alt="" /></figure></p>
 <h2>高并发</h2>
 <p>直接操作缓存能够承受的请求是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去，这样用户的一部分请求会直接到缓存这里而不用经过数据库。</p>
-<p><figure><img data-width="554" data-height="469" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5c917bb9d9fb7894344b3c1727d9e6ca.webp" alt="" /></figure></p>
+<p><figure><img data-width="554" data-height="469" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/5c917bb9d9fb7894344b3c1727d9e6ca.webp" alt="" /></figure></p>
 <h2>为什么要⽤ redis ⽽不⽤ map/guava 做缓存?</h2>
 <p>缓存分为本地缓存和分布式缓存。以 Java 为例，使⽤⾃带的 map 或者 guava 实现的是本地缓存，最主要的特点是轻量以及快速，⽣命周期随着 jvm 的销毁⽽结束，并且在多实例的情况下，每个实例都 需要各⾃保存⼀份缓存，缓存不具有⼀致性。 使⽤ redis 或 memcached 之类的称为分布式缓存，在多实例的情况下，各实例共⽤⼀份缓存数据，缓 存具有⼀致性。缺点是需要保持 redis 或 memcached服务的⾼可⽤，整个程序架构上较为复杂。</p>
 <h1>redis 的线程模型</h1>
@@ -174,7 +174,7 @@
 <li><a href="https://baijiahao.baidu.com/s?id=1666100733546359034&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1666100733546359034&amp;wfr=spider&amp;for=pc</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="1546" data-height="628" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/5b855bc48530fe0b28a14f7d0d7f613c.png" alt="" /></figure></p>
+<p><figure><img data-width="1546" data-height="628" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/5b855bc48530fe0b28a14f7d0d7f613c.png" alt="" /></figure></p>
 <h2>redis单线程模型指的是什么</h2>
 <p>Redis基于<code>Reactor</code>模式开发了网络事件处理器，这个处理器被称为<code>文件事件处理器</code>。它的组成结构为4部分：</p>
 <blockquote><ul>
@@ -209,8 +209,8 @@
 <h2>为什么网络处理要引入多线程？</h2>
 <p>之前的段落说了，Redis 的瓶颈并不在 CPU，而在<code>内存</code>和<code>网络I/O</code>。</p>
 <p>内存不够的话，可以加内存或者做数据结构优化和其他优化等，但网络的性能优化才是大头，网络 IO 的读写在 Redis 整个执行期间占用了大部分的 CPU 时间，如果把网络处理这部分做成多线程处理方式，那对整个 Redis 的性能会有很大的提升。</p>
-<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1bb687254efee437331a4cbe63980e5a.jpg" alt="" /></figure></p>
-<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/a01610012eec76c9bea5ec1a659e2e12.jpg" alt="" /></figure></p>
+<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/1bb687254efee437331a4cbe63980e5a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="600" data-height="400" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a01610012eec76c9bea5ec1a659e2e12.jpg" alt="" /></figure></p>
 <h1>常⻅数据结构以及使⽤场景分析</h1>
 <table>
 <thead><tr>
@@ -408,11 +408,11 @@
 </blockquote>
 <h3>触发方式：save</h3>
 <p>该命令会阻塞当前Redis服务器，执行save命令期间，Redis不能处理其他命令，直到RDB过程完成为止。具体流程如下：</p>
-<p><figure><img data-width="640" data-height="356" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/070dee4a1e209b4a551e32762fec5b15.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="356" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/070dee4a1e209b4a551e32762fec5b15.jpg" alt="" /></figure></p>
 <p>执行完成时候如果存在老的<code>RDB</code>文件，就把新的替代掉旧的。我们的客户端可能都是几万或者是几十万，这种方式显然不可取。</p>
 <h3>触发方式：bgsave</h3>
 <p>执行该命令时，Redis会在后台<code>异步</code>进行快照操作，快照同时还可以<code>响应客户端请求</code>。具体流程如下：</p>
-<p><figure><img data-width="640" data-height="337" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/76113d45a86cd56714ed45cc7d269887.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="337" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/76113d45a86cd56714ed45cc7d269887.jpg" alt="" /></figure></p>
 <p>具体操作是Redis进程执行<code>fork</code>操作<code>创建子进程</code>，RDB持久化过程由<code>子进程负责</code>，完成后自动结束。阻塞只发生在<code>fork</code>阶段，一般时间很短。基本上 Redis 内部所有的RDB操作都是采用 <code>bgsave</code> 命令。</p>
 <h3>触发方式：自动触发</h3>
 <p>自动触发是由我们的配置文件来完成的。在<code>redis.conf</code>配置文件中，里面有如下配置，我们可以去设置：</p>
@@ -436,16 +436,16 @@
 <p><strong>⑤dbfilename ：</strong>设置快照的文件名，默认是 dump.rdb</p>
 <p><strong>⑥dir：</strong>设置快照文件的存放路径，这个配置项一定是个目录，而不能是文件名。</p>
 <h3>save和bgsave的区别</h3>
-<p><figure><img data-width="640" data-height="277" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/85ba179062e425e4a80283d1bcbd000e.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="277" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/85ba179062e425e4a80283d1bcbd000e.jpg" alt="" /></figure></p>
 <h2>AOF（Append Only File）</h2>
 <p>与<code>快照持久化</code>相⽐，<code>AOF持久化</code> 的<code>实时性</code>更好，因此已成为主流的持久化⽅案。默认情况下Redis没有 开启<code>AOF（append only file）</code>⽅式的持久化。</p>
 <p>可以通过<code>appendonly</code>参数开启：</p>
 <h3>持久化原理</h3>
-<p><figure><img data-width="640" data-height="322" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/9f1bd6d7ebccedcffc5286d43fb7c0e0.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="322" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/9f1bd6d7ebccedcffc5286d43fb7c0e0.jpg" alt="" /></figure></p>
 <p>每当有一个写命令过来时，就直接保存在我们的<code>AOF</code>文件中。</p>
 <h3>文件重写原理</h3>
 <p>AOF的方式也同时带来了另一个问题。持久化文件会变的越来越大。为了压缩<code>AOF</code>的持久化文件。redis提供了<code>bgrewriteaof</code>命令。将内存中的数据以命令的方式保存到临时文件中，同时会<code>fork</code>出一条<code>新进程</code>来将文件重写。</p>
-<p><figure><img data-width="640" data-height="286" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/1ee6baafe21dfd33aa375f440d4ee67d.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="286" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/1ee6baafe21dfd33aa375f440d4ee67d.jpg" alt="" /></figure></p>
 <p>重写<code>AOF</code>文件的操作，并没有读取旧的<code>AOF</code>文件，而是将整个内存中的数据库内容用命令的方式重写了一个<code>新的AOF文件</code>，这点和<code>快照</code>有点类似。</p>
 <div class="highlight"><pre><span></span><span class="n">appendonly</span> <span class="n">yes</span>
 </pre></div>
@@ -504,9 +504,9 @@
 <p>缓存穿透说简单点就是⼤量请求的 key 根本不存在于缓存中，导致请求直接到了数据库上，根本没有 经过缓存这⼀层。举个例⼦：某个⿊客故意制造我们缓存中不存在的 key 发起⼤量请求，导致⼤量请 求落到数据库。</p>
 <h3>原理</h3>
 <p>正常缓存处理流程</p>
-<p><figure><img data-width="772" data-height="790" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/e850c5479e8633d745652cb429297f9a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="772" data-height="790" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e850c5479e8633d745652cb429297f9a.jpg" alt="" /></figure></p>
 <p>缓存穿透处理流程</p>
-<p><figure><img data-width="738" data-height="787" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/17f07d5544e76b28c320f700c2f494d8.jpg" alt="" /></figure></p>
+<p><figure><img data-width="738" data-height="787" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/17f07d5544e76b28c320f700c2f494d8.jpg" alt="" /></figure></p>
 <h3>解决办法</h3>
 <p>一个一定不存在缓存及查询不到的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义。</p>
 <p>最基本的就是⾸先做好<code>参数校验</code>，⼀些<code>不合法的参数</code>请求直接抛出异常信息返回给客户端。⽐如查询的 数据库 id 不能⼩于 0、传⼊的邮箱格式不对的时候直接返回错误消息给客户端等等。</p>
@@ -537,7 +537,7 @@
 </ul>
 </blockquote>
 <p>布隆过滤器是⼀个⾮常神奇的数据结构，通过它我们可以⾮常⽅便地判断⼀个给定数 据是否存在与海量数据中。我们需要的就是判断 <code>key</code> 是否合法，有没有感觉布隆过滤器就是我们想要 找的那个“⼈”。具体是这样做的：把<code>所有可能存在的请求的值</code>都存放在布隆过滤器中，当⽤户请求过来，我会先判断⽤户发来的请求的值是否存在于布隆过滤器中。不存在的话，直接返回请求参数错误信 息给客户端，存在的话才会⾛下⾯的流程。</p>
-<p><figure><img data-width="757" data-height="934" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/cb0129d9bb302199a18c332e934edea3.jpg" alt="" /></figure></p>
+<p><figure><img data-width="757" data-height="934" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/cb0129d9bb302199a18c332e934edea3.jpg" alt="" /></figure></p>
 <h2>缓存击穿</h2>
 <p>参考</p>
 <blockquote><ul>
@@ -547,7 +547,7 @@
 <p>key可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题。</p>
 <h3>互斥锁(mutex key)</h3>
 <p>业界比较常用的做法，是使用<code>mutex</code>。简单地来说，就是在缓存失效的时候（判断拿出来的值为空），不是立即去<code>load db</code>，而是先使用缓存工具的某些带成功操作返回值的操作（比如<code>Redis</code>的<code>SETNX</code>或者<code>Memcache</code>的<code>ADD</code>）去<code>set</code>一个<code>mutex key</code>，当操作返回成功时，再进行<code>load db</code>的操作并<code>回设缓存</code>；否则，就重试整个<code>get</code>缓存的方法。就是只让一个线程构建<code>缓存</code>，其他线程等待构建缓存的线程执行完，重新从缓存获取数据就可以了。</p>
-<p><figure><img data-width="384" data-height="336" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/c9f36956bf690cf2a3e9ab93779375af.png" alt="" /></figure></p>
+<p><figure><img data-width="384" data-height="336" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/c9f36956bf690cf2a3e9ab93779375af.png" alt="" /></figure></p>
 <h2>缓存雪崩</h2>
 <p>简介：缓存同⼀时间⼤⾯积的失效，所以，后⾯的请求都会落到数据库上，造成数据库短时间内承受⼤ 量请求⽽崩掉。</p>
 <blockquote><ul>
@@ -562,7 +562,7 @@
 <li>购买第三方可靠性高的Redis云服务器；</li>
 </ul>
 </blockquote>
-<p><figure><img data-width="1482" data-height="921" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/3113f61e5fdcd5a4ec713c4c68ef7e95.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1482" data-height="921" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/3113f61e5fdcd5a4ec713c4c68ef7e95.jpg" alt="" /></figure></p>
 <h1>如何解决 Redis 的并发竞争 Key 问题</h1>
 <p>参考</p>
 <blockquote><ul>
@@ -623,7 +623,7 @@
 <li>Memcached是多线程，⾮阻塞IO复⽤的⽹络模型；Redis使⽤单线程的多路 IO 复⽤模型。</li>
 </ol>
 </blockquote>
-<p><figure><img data-width="1207" data-height="741" src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/archives/assets/f67a0c75bb3b9fb63323c66f68e5f3cd.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1207" data-height="741" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/f67a0c75bb3b9fb63323c66f68e5f3cd.jpg" alt="" /></figure></p>
 </article>
     </section>
 
@@ -653,7 +653,7 @@
             <div id="vcomments"></div>
         </section>
         <script>
-            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u8fd8\u8bf7\u4e0d\u541d\u8d50\u6559"};
+            window.ValineOpt = {"enable": true, "el": "#vcomments", "appId": "0j0KcckWXNcj4LM9RWVh1nKN-gzGzoHsz", "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv", "visitor": true, "recordIP": true, "placeholder": "\u7565\u61c2"};
             window.ValineOpt.path = window.location.pathname;
         </script>
     
@@ -664,7 +664,7 @@
     </script>
 </div>
                     <footer>
-                        <span>Copyright © 2020 LifeAlsoIsGG</span>
+                        <span>Copyright © 2020 ze</span>
                         
     <span class="leancloud_visitors"
             id="/archives/Redis理论学习笔记/" 
@@ -691,7 +691,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -719,11 +719,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -734,7 +734,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/lifealsoisgg/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>
