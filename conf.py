@@ -18,7 +18,7 @@ template="Kepler"
 
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "ze/Wiki@gh-pages"
+    "repo": "ouzejin/ze@gh-pages"
 }
 
 valine = {
