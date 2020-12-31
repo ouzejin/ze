@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -334,7 +334,7 @@
 </blockquote>
 <h2><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">03. 剑指 Offer 03. 数组中重复的数字</a></h2>
 <p><code>HashSet去重</code></p>
-<p><figure><img data-width="894" data-height="577" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/802795ff6fd465912d8637513225e90b.jpg" alt="" /></figure></p>
+<p><figure><img data-width="894" data-height="577" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/802795ff6fd465912d8637513225e90b.jpg" alt="" /></figure></p>
 <h3>第一种：使用HastSet去重，遍历添加时如果返回为<code>false</code>则说明重复则直接返回此数</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findRepeatNumber</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">dic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
@@ -364,7 +364,7 @@
 </pre></div>
 <h2><a href="https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/submissions/">04. 剑指 Offer 04. 二维数组中的查找</a></h2>
 <p><code>标志位法</code> <code>线性查找</code></p>
-<p><figure><img data-width="952" data-height="624" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/994ef9a9ac4f574c55000892213a844b.jpg" alt="" /></figure></p>
+<p><figure><img data-width="952" data-height="624" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/994ef9a9ac4f574c55000892213a844b.jpg" alt="" /></figure></p>
 <h3>线性查找</h3>
 <p>​       由于给定的二维数组具备每行从左到右递增以及每列从上到下递增的特点，当访问到一个元素时，可以排除数组中的部分元素。</p>
 <p>从二维数组的右上角开始查找。如果当前元素等于目标值，则返回 true。如果当前元素大于目标值，则移到左边一列。如果当前元素小于目标值，则移到下边一行。</p>
@@ -474,7 +474,7 @@
 <h3>第三种：使用集合等遍历逆序添加</h3>
 <h2><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/">07. 剑指 Offer 07. 重建二叉树</a></h2>
 <p><code>递归法</code> <code>二叉树</code> <code>分治思想</code></p>
-<p><figure><img data-width="872" data-height="721" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a2f22b7ead2498457aaf012ba96bff71.jpg" alt="" /></figure></p>
+<p><figure><img data-width="872" data-height="721" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/a2f22b7ead2498457aaf012ba96bff71.jpg" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
     <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">dic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     <span class="kt">int</span><span class="o">[]</span> <span class="n">po</span><span class="p">;</span>
@@ -699,7 +699,7 @@
 </pre></div>
 <h2><a href="https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/">52. 剑指 Offer 52. 两个链表的第一个公共节点</a></h2>
 <p><code>双指针</code></p>
-<p><figure><img data-width="742" data-height="241" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/6ad62b42d92d74f7d02cb384920cf6a9.png" alt="" /></figure></p>
+<p><figure><img data-width="742" data-height="241" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/6ad62b42d92d74f7d02cb384920cf6a9.png" alt="" /></figure></p>
 <p>使用双指针，注意结点的数字相同不代表结点对象相同</p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ListNode</span> <span class="p">{</span>
       <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
@@ -815,7 +815,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -843,11 +843,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -858,7 +858,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

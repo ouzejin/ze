@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -145,7 +145,7 @@
 </ul>
 </blockquote>
 <h1>1. 线程、程序、进程的基本概念</h1>
-<p><figure><img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d4057bed69eb6b5479b6a48d1a7c2c0e.png" alt="" /></figure></p>
+<p><figure><img data-width="796" data-height="304" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d4057bed69eb6b5479b6a48d1a7c2c0e.png" alt="" /></figure></p>
 <h1>2. 使⽤多线程可能带来什么问题?</h1>
 <p>并发编程的⽬的就是为了能提⾼程序的执⾏效率提⾼程序运⾏速度，但是并发编程并不总是能提⾼程序 运⾏速度的，⽽且并发编程可能会遇到很多问题，⽐如：<strong>内存泄漏、上下⽂切换、死锁还有受限于硬件 和软件的资源闲置问题</strong>。</p>
 <h1>3. Java多线程的四种实现方式&amp;启动原理</h1>
@@ -155,7 +155,7 @@
 <li><a href="https://www.jianshu.com/p/7950ea349dbb">https://www.jianshu.com/p/7950ea349dbb</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="1200" data-height="554" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d96b311c61ab3bae5233342fd6a14d36.webp" alt="" /></figure></p>
+<p><figure><img data-width="1200" data-height="554" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d96b311c61ab3bae5233342fd6a14d36.webp" alt="" /></figure></p>
 <p><strong>无返回值</strong>，run()返回为void</p>
 <ul>
 <li>继承Thread类：<strong>重写run()方法</strong></li>
@@ -377,9 +377,9 @@
 </pre></div>
 <h1>4. 线程的⽣命周期和状态?</h1>
 <p>Java 线程在运⾏的⽣命周期中的指定时刻只可能处于下⾯ 6 种不同状态的其中⼀个状态（图源《Java 并发编程艺术》4.1.4 节）。</p>
-<p><figure><img data-width="1563" data-height="447" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d8d7d93ef573be1d42bfdc591ad383bd.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1563" data-height="447" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d8d7d93ef573be1d42bfdc591ad383bd.jpg" alt="" /></figure></p>
 <p>线程在⽣命周期中并不是固定处于某⼀个状态⽽是随着代码的执⾏在不同状态之间切换。Java 线程状 态变迁如下图所示（图源《Java 并发编程艺术》4.1.4 节）：</p>
-<p><figure><img data-width="1239" data-height="817" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/8e336ddb8ed187ca3540856527b39c69.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1239" data-height="817" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/8e336ddb8ed187ca3540856527b39c69.jpg" alt="" /></figure></p>
 <p>由上图可以看出：线程创建之后它将处于 <strong>NEW（新建） 状态</strong>，<strong>调⽤ start() ⽅法后开始运⾏</strong>，线程 这时候处于 <strong>READY（可运⾏） 状态</strong>。可运⾏状态的线程获得了 <strong>CPU 时间⽚（timeslice）</strong>后就处于 <strong>RUNNING（运⾏）</strong> 状态。</p>
 <p>当线程执⾏ wait() ⽅法之后，线程进⼊ WAITING（等待） 状态。进⼊等待状态的线程需要依靠其他 线程的通知才能够返回到运⾏状态，⽽ TIME_WAITING(超时等待) 状态相当于在等待状态的基础上增加 了超时限制，⽐如通过 sleep（long millis） ⽅法或 wait（long millis） ⽅法可以将 Java 线程置于 TIMED WAITING 状态。当超时时间到达后 Java 线程将会返回到 RUNNABLE 状态。当线程调 ⽤同步⽅法时，在没有获取到锁的情况下，线程将会进⼊到 BLOCKED（阻塞） 状态。线程在执⾏ Runnable 的 run() ⽅法之后将会进⼊到 TERMINATED（终⽌） 状态。</p>
 <h1>5. 什么是上下⽂切换?</h1>
@@ -448,7 +448,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<p><figure><img data-width="1222" data-height="844" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e0a354259abb5239c02701be929ec076.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1222" data-height="844" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/e0a354259abb5239c02701be929ec076.jpg" alt="" /></figure></p>
 <p>​       synchronized 同步语句块的实现使⽤的是 <strong>monitorenter</strong> 和 <strong>monitorexit</strong> 指令，其中 <strong>monitorenter</strong> 指令指向同步代码块的开始位置，<strong>monitorexit</strong> 指令则指明同步代码块的结束位置。 当执⾏ monitorenter 指令时，线程试图获取锁也就是获取 monitor(<strong>monitor对象存在于每个Java对象的对象 头中，synchronized 锁便是通过这种⽅式获取锁的，也是为什么Java中任意对象可以作为锁的原因</strong>) 的持有权。当计数器为0则可以成功获取，获取后将锁计数器设为1也就是加1。相应的在执⾏ monitorexit 指令后，将锁计数器设为0，表明锁被释放。如果获取对象锁失败，那当前线程就要阻塞 等待，直到锁被另外⼀个线程释放为⽌。</p>
 <h3>9.2.2 synchronized 修饰⽅法的的情况</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SynchronizedDemo2</span> <span class="p">{</span>
@@ -457,7 +457,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<p><figure><img data-width="1261" data-height="603" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/548761aca53278083f17f974f0dbb89a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1261" data-height="603" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/548761aca53278083f17f974f0dbb89a.jpg" alt="" /></figure></p>
 <p>​       synchronized 修饰的⽅法并没有 monitorenter 指令和 monitorexit 指令，取得代之的确实是 ACC_SYNCHRONIZED 标识，该标识指明了该⽅法是⼀个同步⽅法，<strong>JVM 通过该 ACC_SYNCHRONIZED 访问 标志来辨别⼀个⽅法是否声明为同步⽅法</strong>，从⽽执⾏相应的同步调⽤。</p>
 <h2>9.3 说说 JDK1.6 之后的synchronized 关键字底层做了哪些优化，可以详细介绍⼀下这些优化吗</h2>
 <p>参考</p>
@@ -531,9 +531,9 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 </ul>
 <h2>10.2 Java内存模型与volatile</h2>
 <p>​       在 <strong>JDK1.2</strong> 之前，Java的内存模型实现总是从主存（即共享内存）读取变量，是不需要进⾏特别的注意 的。⽽在当前的 Java 内存模型下，线程可以把变量保存本地内存（⽐如机器的寄存器）中，⽽不是直 接在主存中进⾏读写。<strong>这就可能造成⼀个线程在主存中修改了⼀个变量的值，⽽另外⼀个线程还继续使 ⽤它在寄存器中的变量值的拷⻉，造成数据的不⼀致</strong>。</p>
-<p><figure><img data-width="997" data-height="558" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/c3e4c2a04f78927fdfe7ef69bf5898db.jpg" alt="" /></figure></p>
+<p><figure><img data-width="997" data-height="558" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/c3e4c2a04f78927fdfe7ef69bf5898db.jpg" alt="" /></figure></p>
 <p>要解决这个问题，就需要把变量声明为<strong>volatile</strong>，这就指示 JVM，这个变量是不稳定的，每次使⽤它都 到主存中进⾏读取。 说⽩了， <strong>volatile 关键字的主要作⽤就是保证变量的可⻅性然后还有⼀个作⽤是防⽌指令重排序。</strong></p>
-<p><figure><img data-width="859" data-height="433" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/b5d3cd7d57c47acf0011393afe9e17f0.jpg" alt="" /></figure></p>
+<p><figure><img data-width="859" data-height="433" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/b5d3cd7d57c47acf0011393afe9e17f0.jpg" alt="" /></figure></p>
 <h2>10.3 并发编程的三个重要特性</h2>
 <ol>
 <li><strong>原⼦性 :</strong> ⼀个的操作或者多次操作，要么所有的操作全部都得到执⾏并且不会收到任何因素的 ⼲扰⽽中断，要么所有的操作都执⾏，要么都不执⾏。 <strong>synchronized 可以保证代码⽚段的原⼦性。</strong> </li>
@@ -541,7 +541,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <li><strong>有序性 ：</strong>代码在执⾏的过程中的先后顺序，Java 在编译器以及运⾏期间的优化，代码的执⾏顺序未必就是编写代码时候的顺序。 <strong>volatile 关键字可以禁⽌指令进⾏重排序优化。</strong></li>
 </ol>
 <h2>10.4 内存可见性</h2>
-<p><figure><img data-width="1267" data-height="700" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/ad9b6a6bfaf4df3ba5b9991e6a33b51c.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1267" data-height="700" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/ad9b6a6bfaf4df3ba5b9991e6a33b51c.jpg" alt="" /></figure></p>
 <h1>11. synchronized | volatile 关键字的区别</h1>
 <ul>
 <li>volatile关键字是线程同步的轻量级实现，所以volatile性能肯定⽐synchronized关键字要好。 <strong>但是volatile关键字只能⽤于变量⽽synchronized关键字可以修饰⽅法以及代码块。</strong> synchronized关键字在JavaSE1.6之后进⾏了主要包括为了减少获得锁和释放锁带来的性能消耗 ⽽引⼊的偏向锁和轻量级锁以及其它各种优化之后执⾏效率有了显著提升，实际开发中使⽤ synchronized 关键字的场景还是更多⼀些。 </li>
@@ -569,7 +569,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <li><strong>CachedThreadPool</strong> 和 <strong>ScheduledThreadPool</strong> ： 允许创建的线程数量为 <strong>Integer.MAX_VALUE</strong> ，可能会创建⼤量线程，从⽽导致OOM。</li>
 </ul>
 <h3>12.2.2 第一种方式：ThreadPoolExecutor的方式</h3>
-<p><figure><img data-width="1460" data-height="234" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/7573adf377ef3e0fa016f905973a5f55.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1460" data-height="234" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/7573adf377ef3e0fa016f905973a5f55.jpg" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">ThreadPoolExecutor</span><span class="p">(</span><span class="kt">int</span> <span class="n">corePoolSize</span><span class="p">,</span>
                               <span class="kt">int</span> <span class="n">maximumPoolSize</span><span class="p">,</span>
                               <span class="kt">long</span> <span class="n">keepAliveTime</span><span class="p">,</span>
@@ -646,8 +646,8 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 </li>
 </ul>
 </blockquote>
-<p><figure><img data-width="1318" data-height="465" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/9ab5c33c267c8c4798c49e8c80cc444a.jpg" alt="" /></figure></p>
-<p><figure><img data-width="1481" data-height="565" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/bf725b88075ac76f472e830dad25353a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1318" data-height="465" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/9ab5c33c267c8c4798c49e8c80cc444a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1481" data-height="565" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/bf725b88075ac76f472e830dad25353a.jpg" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">ExecutorService</span> <span class="nf">newFixedThreadPool</span><span class="p">(</span><span class="kt">int</span> <span class="n">nThreads</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">nThreads</span><span class="p">,</span> <span class="n">nThreads</span><span class="p">,</span>
                                       <span class="mi">0</span><span class="n">L</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">,</span>
@@ -662,7 +662,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <li><a href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="422" data-height="506" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/5e9cc6d398397e1adf83b54bd24b3601.webp" alt="" /></figure></p>
+<p><figure><img data-width="422" data-height="506" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/5e9cc6d398397e1adf83b54bd24b3601.webp" alt="" /></figure></p>
 <p>​       当在execute(Runnable)方法中提交新任务并且少于corePoolSize线程正在运行时，即使其他工作线程处于空闲状态，也会创建一个新线程来处理该请求。 如果有多于corePoolSize但小于maximumPoolSize线程正在运行，则仅当队列已满时才会创建新线程。 通过设置corePoolSize和maximumPoolSize相同，您可以创建一个固定大小的线程池。 通过将maximumPoolSize设置为基本上无界的值，例如Integer.MAX_VALUE，您可以允许池容纳任意数量的并发任务。 通常，核心和最大池大小仅在构建时设置，但也可以使用<code>setCorePoolSize</code>和<code>setMaximumPoolSize</code>进行动态更改。</p>
 <h2>12.4 线程池执行流程</h2>
 <h1>13. java.util.concurrent</h1>
@@ -677,13 +677,13 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p><code>java.util.concurrent</code> 是在<code>并发编程</code>中很常用的实用工具类，称为<code>JUC</code>，在<code>JDK5</code>中开始发布</p>
 <p>在java.util下的集合都是发生<code>fail-fast</code>，而在java.util.concurrent下的发生的都是<code>fail-safe</code></p>
 <h2>线程池相关类</h2>
-<p><figure><img data-width="825" data-height="397" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/939c3767c9ee135867fe487afa0aa465.png" alt="" /></figure></p>
+<p><figure><img data-width="825" data-height="397" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/939c3767c9ee135867fe487afa0aa465.png" alt="" /></figure></p>
 <h2>阻塞队列相关类</h2>
-<p><figure><img data-width="1129" data-height="258" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d21a8deda5c6b815005e4a66f56b5225.png" alt="" /></figure></p>
+<p><figure><img data-width="1129" data-height="258" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d21a8deda5c6b815005e4a66f56b5225.png" alt="" /></figure></p>
 <h2>ConcurrentMap类</h2>
-<p><figure><img data-width="458" data-height="275" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/f677f35f3ad461cfef66e51b627ec66c.png" alt="" /></figure></p>
+<p><figure><img data-width="458" data-height="275" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/f677f35f3ad461cfef66e51b627ec66c.png" alt="" /></figure></p>
 <h2>多线程其他类</h2>
-<p><figure><img data-width="1132" data-height="327" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/81654f5803e043e95d873336b7d8f497.png" alt="" /></figure></p>
+<p><figure><img data-width="1132" data-height="327" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/81654f5803e043e95d873336b7d8f497.png" alt="" /></figure></p>
 <h2>CAS</h2>
 <p>参考</p>
 <blockquote><ul>
@@ -706,7 +706,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p>​ 基于旧数据构造新数据；</p>
 <p>}while(!CAS( 内存地址，备份的旧数据，新数据 ))</p>
 </blockquote>
-<p><figure><img data-width="320" data-height="171" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e5a5b640a0f10fc5f4c10d6595df458f.jpg" alt="" /></figure></p>
+<p><figure><img data-width="320" data-height="171" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/e5a5b640a0f10fc5f4c10d6595df458f.jpg" alt="" /></figure></p>
 <p>参考<code>getAndAddInt</code>方法源码</p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getAndAddInt</span><span class="p">(</span><span class="n">Object</span> <span class="n">var1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">var4</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">var5</span><span class="p">;</span>
@@ -798,9 +798,9 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p><code>ThreadLocal</code>是JDK包提供的，它提供线程本地变量，如果创建一个<code>ThreadLocal变量</code>，那么访问这个变量的每个线程都会有这个变量的一个<code>副本</code>，在实际多线程操作的时候，操作的是<code>自己本地内存中的变量</code>，从而规避了线程安全问题，如下图所示</p>
 <p>其实，<code>ThreadLocal</code>并不是一个<code>Thread</code>，而是<code>Thread</code>的<code>局部变量</code>，也许把它命名为<code>ThreadLocalVariable</code>更容易让人理解一些。</p>
 <p>当使用<code>ThreadLocal</code>维护变量时，ThreadLocal为每个使用该变量的线程提供<code>独立的变量副本</code>，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。</p>
-<p><figure><img data-width="667" data-height="305" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/3b2a35b1e3fbaddccb522210af5bb4a3.png" alt="" /></figure></p>
+<p><figure><img data-width="667" data-height="305" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/3b2a35b1e3fbaddccb522210af5bb4a3.png" alt="" /></figure></p>
 <h2>如何使用/原理</h2>
-<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
 <p>threadlocal使用方法很简单</p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sThreadLocal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="n">sThreadLocal</span><span class="p">.</span><span class="na">set</span><span class="p">()</span>
@@ -1036,7 +1036,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
 <p>理解了<code>set</code>方法，<code>get</code>方法也就清楚明了，无非是通过计算出索引直接从数组对应位置读取即可。</p>
 <p>在进行<code>get</code>之前，必须先<code>set</code>，否则会报<code>空指针异常</code>，当然也可以初始化一个，但是必须重写<code>initialValue()</code>方法。</p>
 <h2>内存泄漏问题</h2>
-<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="361" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/df6fc09696ec97bc11916367c884bd6b.jpg" alt="" /></figure></p>
 <p>上面这张图详细的揭示了<code>ThreadLocal</code>和<code>Thread</code>以及<code>ThreadLocalMap</code>三者的关系。</p>
 <blockquote><ul>
 <li>Thread中有一个map，就是ThreadLocalMap</li>
@@ -1129,7 +1129,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -1157,11 +1157,11 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -1172,7 +1172,7 @@ synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

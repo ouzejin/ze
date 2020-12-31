@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -165,9 +165,9 @@
 </blockquote>
 <h3>使用RedisDesktopManager连接</h3>
 <p>下载RedisDesktopManager后直接连接即可</p>
-<p><figure><img data-width="1100" data-height="834" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e4f9debe339cc9955837b4ed6bdce54a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1100" data-height="834" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/e4f9debe339cc9955837b4ed6bdce54a.jpg" alt="" /></figure></p>
 <p>连接后</p>
-<p><figure><img data-width="1100" data-height="834" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/89a1988c8e1404690ff45179e8022d9c.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1100" data-height="834" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/89a1988c8e1404690ff45179e8022d9c.jpg" alt="" /></figure></p>
 <h2>2. Redis性能测试redis-benchmark</h2>
 <p>参考</p>
 <blockquote><ul>
@@ -182,7 +182,7 @@
 </blockquote>
 <div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it containerName/containerid redis-benchmark -h <span class="m">127</span>.0.0.1 -p <span class="m">6379</span> -c <span class="m">100</span> -n <span class="m">100000</span>
 </pre></div>
-<p><figure><img data-width="1224" data-height="352" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/2f2783d1890c98258636c62a3f7073ba.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1224" data-height="352" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/2f2783d1890c98258636c62a3f7073ba.jpg" alt="" /></figure></p>
 <h2>3. Redis基本命令使用</h2>
 <p>参考</p>
 <blockquote><ul>
@@ -547,7 +547,7 @@ OK
 
 <span class="p">}</span>
 </pre></div>
-<p><figure><img data-width="1510" data-height="186" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a7758455462d5d318811b887bed33d25.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1510" data-height="186" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/a7758455462d5d318811b887bed33d25.jpg" alt="" /></figure></p>
 <h3>配置redisConfig类</h3>
 <p><code>redisConfig.java</code></p>
 <p>用于替换在<code>RedisAutoConfiguration</code>默认的<code>RedisTemplate</code></p>
@@ -592,9 +592,9 @@ OK
 <span class="p">}</span>
 </pre></div>
 <p>存储在redis中的是已经序列化的字符串</p>
-<p><figure><img data-width="688" data-height="295" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/72541914599758c3bdc71c7d83484fa0.jpg" alt="存储在Redis中序列化的User" /><figcaption>存储在Redis中序列化的User</figcaption></figure></p>
+<p><figure><img data-width="688" data-height="295" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/72541914599758c3bdc71c7d83484fa0.jpg" alt="存储在Redis中序列化的User" /><figcaption>存储在Redis中序列化的User</figcaption></figure></p>
 <p>取出来后会经过反序列化</p>
-<p><figure><img data-width="1062" data-height="263" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/688406cdb8d9a5ca05687ce0118265c9.jpg" alt="取出User并反序列化" /><figcaption>取出User并反序列化</figcaption></figure></p>
+<p><figure><img data-width="1062" data-height="263" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/688406cdb8d9a5ca05687ce0118265c9.jpg" alt="取出User并反序列化" /><figcaption>取出User并反序列化</figcaption></figure></p>
 <h3>封装常用API到<code>RedisUtil</code></h3>
 <p>::: demo RedisUtil.java</p>
 <div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.lifeisgg.springboot_demo.util</span><span class="p">;</span>
@@ -2692,7 +2692,7 @@ jemalloc-bg-thread yes
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -2720,11 +2720,11 @@ jemalloc-bg-thread yes
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -2735,7 +2735,7 @@ jemalloc-bg-thread yes
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

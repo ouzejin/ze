@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -159,7 +159,7 @@
 <h1>2. IDEA下载插件Lombok</h1>
 <h1>3. 常用注解</h1>
 <p>作用于实体类上</p>
-<p><figure><img data-width="1080" data-height="414" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a6937c965ce755ee6aadd42a460390ae.png" alt="" /></figure></p>
+<p><figure><img data-width="1080" data-height="414" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/a6937c965ce755ee6aadd42a460390ae.png" alt="" /></figure></p>
 <table>
 <thead><tr>
 <th>注解名</th>
@@ -211,7 +211,7 @@
 </table>
 <h2>@Builder</h2>
 <p>自动生成流式 set 值写法，从此之后再也不用写一堆 setter</p>
-<p><figure><img data-width="1080" data-height="448" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/6eaa03e44ca76e3cdc75abbf93336349.png" alt="" /></figure></p>
+<p><figure><img data-width="1080" data-height="448" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/6eaa03e44ca76e3cdc75abbf93336349.png" alt="" /></figure></p>
 <p>注意，虽然只要加上 <code>@Builder</code> 注解，我们就能够用流式写法快速设定对象的值，但是 setter 还是必须要写不能省略的，因为 Spring 或是其他框架有很多地方都会用到对象的 getter/setter 对他们取值/赋值</p>
 <p>所以通常是 @Data 和 @Builder 会一起用在同个类上，既方便我们流式写代码，也方便框架做事</p>
 <p>属性<code>toBuilder=true</code></p>
@@ -229,7 +229,7 @@
 <li>@EqualsAndHashCode</li>
 <li>@RequiredArgsConstructor</li>
 </ul>
-<p><figure><img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /></figure></p>
+<p><figure><img data-width="1080" data-height="865" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/bfa76b809c7841702f24401a9179c134.png" alt="" /></figure></p>
 <p>上面那个 @Data 适合用在 POJO 或 DTO 上，而这个 @Value 注解，则是适合加在值不希望被改变的类上，像是某个类的值当创建后就不希望被更改，只希望我们读它而已，就适合加上 @Value 注解，也就是 @Value for immutable class</p>
 <p>另外注意一下，此 lombok 的注解 @Value 和另一个 Spring 的注解 @Value 撞名，在 import 时不要 import 错了</p>
 </article>
@@ -299,7 +299,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -327,11 +327,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -342,7 +342,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

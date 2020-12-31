@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -155,11 +155,11 @@
 <h1>3. 数据结构</h1>
 <h2>3.1 稀疏数组</h2>
 <p><strong>只适用于大部分元素为相同时，比如五子棋</strong></p>
-<p><figure><img data-width="614" data-height="191" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d5690082f37b5113a6d96b3536cf0128.jpg" alt="" /></figure></p>
+<p><figure><img data-width="614" data-height="191" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d5690082f37b5113a6d96b3536cf0128.jpg" alt="" /></figure></p>
 <p><strong>第一行记录总行和总列数和除0外有多少个非零数据，剩余的行则记录每个数据的位置和值</strong></p>
-<p><figure><img data-width="493" data-height="313" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/7d20b9ad00b5b890d24c7daf4602ca00.jpg" alt="" /></figure></p>
+<p><figure><img data-width="493" data-height="313" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/7d20b9ad00b5b890d24c7daf4602ca00.jpg" alt="" /></figure></p>
 <p><strong>etc:五子棋</strong></p>
-<p><figure><img data-width="762" data-height="374" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/0fe5af1a5b8a6baaedf68d82869beb75.jpg" alt="" /></figure></p>
+<p><figure><img data-width="762" data-height="374" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/0fe5af1a5b8a6baaedf68d82869beb75.jpg" alt="" /></figure></p>
 <p><strong>Java代码</strong></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SparseArray</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -240,7 +240,7 @@
 <span class="p">}</span>
 </pre></div>
 <p><strong>运行结果</strong></p>
-<p><figure><img data-width="405" data-height="841" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/acdb0a44ee125254151e327a630c59bc.jpg" alt="" /></figure></p>
+<p><figure><img data-width="405" data-height="841" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/acdb0a44ee125254151e327a630c59bc.jpg" alt="" /></figure></p>
 <h2>3.2 队列</h2>
 <p>先进先出</p>
 <h3>用数组模拟队列实现</h3>
@@ -250,7 +250,7 @@
 <li><p>因为队列的输出、翰入是分别从前后端来处理,因此需要两个变量 <strong>front</strong> 及<strong>rear</strong>分别记录队列前后端的下标,<strong>front会随着数据输出而改变,而rear则是随着数据输入而改变</strong>,如图所示:</p>
 </li>
 </ul>
-<p><figure><img data-width="550" data-height="200" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/068272fa8b7e0eae1f832885126eb02a.jpg" alt="" /></figure></p>
+<p><figure><img data-width="550" data-height="200" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/068272fa8b7e0eae1f832885126eb02a.jpg" alt="" /></figure></p>
 <ol>
 <li><strong>初始化队列</strong></li>
 </ol>
@@ -523,7 +523,7 @@
 <span class="p">}</span>
 </pre></div>
 <h4>前序遍历</h4>
-<p><figure><img data-width="428" data-height="219" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/3dec01ad6de05fc1ecb4917aaa6bbe19.webp" alt="" /></figure></p>
+<p><figure><img data-width="428" data-height="219" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/3dec01ad6de05fc1ecb4917aaa6bbe19.webp" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arrayList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">tree</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
@@ -534,7 +534,7 @@
 <span class="p">}</span>
 </pre></div>
 <h4>中序遍历</h4>
-<p><figure><img data-width="418" data-height="202" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/59d54ba5ec083b009dcfcd91bb4d8ded.webp" alt="" /></figure></p>
+<p><figure><img data-width="418" data-height="202" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/59d54ba5ec083b009dcfcd91bb4d8ded.webp" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arrayList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
@@ -545,7 +545,7 @@
 <span class="p">}</span>
 </pre></div>
 <h4>后序遍历</h4>
-<p><figure><img data-width="400" data-height="213" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/3c349f7a558c5ffc924098906bb2e294.webp" alt="" /></figure></p>
+<p><figure><img data-width="400" data-height="213" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/3c349f7a558c5ffc924098906bb2e294.webp" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arrayList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
@@ -577,7 +577,7 @@
 </pre></div>
 <h4>BFS(广度优先搜索)</h4>
 <p>一层一层往下访问</p>
-<p><figure><img data-width="523" data-height="216" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/c6e0853324ed1bb7c201b125f31d1661.webp" alt="" /></figure></p>
+<p><figure><img data-width="523" data-height="216" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/c6e0853324ed1bb7c201b125f31d1661.webp" alt="" /></figure></p>
 <ul>
 <li>BFS代码</li>
 </ul>
@@ -652,9 +652,9 @@
 <h1>4. 排序算法</h1>
 <h2>4.1 时间复杂度比较</h2>
 <p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。用一张图概括：</p>
-<p><figure><img data-width="1372" data-height="1090" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/83c8a92bfeb8cc401dfea673d938100e.png" alt="" /></figure></p>
-<p><figure><img data-width="966" data-height="588" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a5dc07f42707eaa575e1813aeba718d8.png" alt="" /></figure></p>
-<p><figure><img data-width="1445" data-height="592" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/aca6989504bf07ac57c500de4fbfc0f1.png" alt="" /></figure></p>
+<p><figure><img data-width="1372" data-height="1090" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/83c8a92bfeb8cc401dfea673d938100e.png" alt="" /></figure></p>
+<p><figure><img data-width="966" data-height="588" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/a5dc07f42707eaa575e1813aeba718d8.png" alt="" /></figure></p>
+<p><figure><img data-width="1445" data-height="592" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/aca6989504bf07ac57c500de4fbfc0f1.png" alt="" /></figure></p>
 <h3>关于时间复杂度</h3>
 <p>平方阶 (O(n2)) 排序 各类简单排序：直接插入、直接选择和冒泡排序。</p>
 <p>线性对数阶 (O(nlog2n)) 排序 快速排序、堆排序和归并排序；</p>
@@ -677,7 +677,7 @@
 <li><a href="https://www.runoob.com/w3cnote/bubble-sort.html">https://www.runoob.com/w3cnote/bubble-sort.html</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="826" data-height="257" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d5b8c37357358cfd09ecd04cfce49bdd.gif" alt="" /></figure></p>
+<p><figure><img data-width="826" data-height="257" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d5b8c37357358cfd09ecd04cfce49bdd.gif" alt="" /></figure></p>
 <h3>4.2.1 步骤</h3>
 <blockquote><ol>
 <li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
@@ -715,7 +715,7 @@
 <span class="p">}</span>
 </pre></div>
 <h2>4.2 快速排序</h2>
-<p><figure><img data-width="811" data-height="252" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/3c103f2b76961983d8ed1e75d2135ff6.gif" alt="" /></figure></p>
+<p><figure><img data-width="811" data-height="252" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/3c103f2b76961983d8ed1e75d2135ff6.gif" alt="" /></figure></p>
 <p>参考</p>
 <blockquote><ul>
 <li><a href="https://www.runoob.com/w3cnote/quick-sort-2.html">https://www.runoob.com/w3cnote/quick-sort-2.html</a></li>
@@ -793,7 +793,7 @@
     <span class="p">}</span>
 </pre></div>
 <h2>4.3 选择排序</h2>
-<p><figure><img data-width="811" data-height="248" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e433e0a677c62594b2f730afed275036.gif" alt="" /></figure></p>
+<p><figure><img data-width="811" data-height="248" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/e433e0a677c62594b2f730afed275036.gif" alt="" /></figure></p>
 <p>选择排序是一种简单直观的排序算法，无论什么数据进去都是 <code>O(n²)</code> 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
 <h3>4.3.1 步骤</h3>
 <blockquote><ul>
@@ -821,7 +821,7 @@
 <li><a href="https://www.cnblogs.com/coding-996/p/12275710.html">https://www.cnblogs.com/coding-996/p/12275710.html</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="811" data-height="505" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/d045ea395aa7005569abf29d8a3699ae.gif" alt="" /></figure></p>
+<p><figure><img data-width="811" data-height="505" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/d045ea395aa7005569abf29d8a3699ae.gif" alt="" /></figure></p>
 <p>插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
 <p>插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。</p>
 <h3>4.4.1 算法步骤</h3>
@@ -950,16 +950,16 @@
 <li><a href="https://www.cnblogs.com/chengxiao/p/6129630.html">https://www.cnblogs.com/chengxiao/p/6129630.html</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="547" data-height="364" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/709e877bb77d0f4978fda0adc1a436be.gif" alt="" /></figure></p>
+<p><figure><img data-width="547" data-height="364" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/709e877bb77d0f4978fda0adc1a436be.gif" alt="" /></figure></p>
 <p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个<code>近似完全二叉树</code>的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：</p>
 <blockquote><ol>
 <li>大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列；</li>
 <li>小顶堆：每个节点的值都小于或等于其子节点的值，在堆排序算法中用于降序排列；</li>
 </ol>
 </blockquote>
-<p><figure><img data-width="1792" data-height="776" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/44cadf7cb8e48518095ee8516acbca0d.png" alt="" /></figure></p>
+<p><figure><img data-width="1792" data-height="776" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/44cadf7cb8e48518095ee8516acbca0d.png" alt="" /></figure></p>
 <p>同时，我们对堆中的结点按层进行编号，将这种逻辑结构映射到数组中就是下面这个样子(<code>大顶堆</code>)</p>
-<p><figure><img data-width="1358" data-height="246" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/88f0c3aa65f84f2a5572e572481b9ed4.png" alt="" /></figure></p>
+<p><figure><img data-width="1358" data-height="246" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/88f0c3aa65f84f2a5572e572481b9ed4.png" alt="" /></figure></p>
 <p>该数组从逻辑上讲就是一个堆结构，我们用简单的公式来描述一下堆的定义就是：</p>
 <blockquote><ul>
 <li>第一个非叶子结点为：<code>arr[arr.length/2-1]</code></li>
@@ -988,10 +988,10 @@
 </ul>
 </blockquote>
 <p>设有一个无序序列 <code>{ 1, 3, 4, 5, 2, 6, 9, 7, 8, 0 }</code>。</p>
-<p><figure><img data-width="935" data-height="710" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/74da511d39a24f9c352a9bf806c3c699.png" alt="" /></figure></p>
+<p><figure><img data-width="935" data-height="710" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/74da511d39a24f9c352a9bf806c3c699.png" alt="" /></figure></p>
 <p>构造了初始堆后，我们来看一下完整的堆排序处理：</p>
 <p>还是针对前面提到的无序序列 { 1, 3, 4, 5, 2, 6, 9, 7, 8, 0 } 来加以说明。</p>
-<p><figure><img data-width="915" data-height="736" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/265122b2105782782661eaff02e95327.png" alt="" /></figure></p>
+<p><figure><img data-width="915" data-height="736" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/265122b2105782782661eaff02e95327.png" alt="" /></figure></p>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">HeapSort</span><span class="p">(</span><span class="kt">int</span> <span class="o">[]</span><span class="n">arr</span><span class="p">){</span>
         <span class="c1">//1.构建大顶堆</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">){</span>
@@ -1036,7 +1036,7 @@
     <span class="p">}</span>
 </pre></div>
 <h2>4.8 计数排序</h2>
-<p><figure><img data-width="1012" data-height="557" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/62c0024c70dd7cf0a1172b37646ad7bb.gif" alt="" /></figure></p>
+<p><figure><img data-width="1012" data-height="557" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/62c0024c70dd7cf0a1172b37646ad7bb.gif" alt="" /></figure></p>
 <p>计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</p>
 <h3>4.8.1 计数排序的特征</h3>
 <p>当输入的元素是 n 个 0 到 k 之间的整数时，它的运行时间是 O(n + k)。计数排序不是比较排序，排序的速度快于任何比较排序算法。</p>
@@ -1080,7 +1080,7 @@
 </ul>
 </blockquote>
 <p><strong>划分多个范围相同的区间，每个子区间自排序，最后合并</strong>。</p>
-<p><figure><img data-width="891" data-height="816" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/8b7be7f96d31cd66a1bb3381628147b9.png" alt="" /></figure></p>
+<p><figure><img data-width="891" data-height="816" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/8b7be7f96d31cd66a1bb3381628147b9.png" alt="" /></figure></p>
 <p>桶排序是<code>计数排序</code>的升级版。计数排序可以看成每个桶只存储相同元素，而桶排序每个桶存储一定范围的元素。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。桶排序需要尽量保证元素分散均匀，否则当所有数据集中在同一个桶中时，桶排序失效。为了使桶排序更加高效，我们需要做到这两点：</p>
 <blockquote><ul>
 <li>在额外空间充足的情况下，尽量增大桶的数量</li>
@@ -1145,8 +1145,8 @@
 <li><a href="https://www.cnblogs.com/yangquanhui/p/4937464.html">https://www.cnblogs.com/yangquanhui/p/4937464.html</a></li>
 </ul>
 </blockquote>
-<p><figure><img data-width="1012" data-height="574" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/84155e7ea7ea388054ce76e0399366ae.gif" alt="" /></figure></p>
-<p><figure><img data-width="682" data-height="399" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/14230d735dba6676e333a6d94e6b1f33.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1012" data-height="574" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/84155e7ea7ea388054ce76e0399366ae.gif" alt="" /></figure></p>
+<p><figure><img data-width="682" data-height="399" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/14230d735dba6676e333a6d94e6b1f33.jpg" alt="" /></figure></p>
 <p>基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。</p>
 <h3>4.10.1 基数排序 vs 计数排序 vs 桶排序</h3>
 <p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
@@ -1318,7 +1318,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -1346,11 +1346,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -1361,7 +1361,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

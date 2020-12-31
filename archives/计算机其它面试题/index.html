@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -183,9 +183,9 @@
 </ul>
 <h2>线程</h2>
 <h3>线程的状态/⽣命周期和状态</h3>
-<p><figure><img data-width="1559" data-height="448" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/874942f0adc9c39907914a315eacc907.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1559" data-height="448" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/874942f0adc9c39907914a315eacc907.jpg" alt="" /></figure></p>
 <p>线程在⽣命周期中并不是固定处于某⼀个状态⽽是随着代码的执⾏在不同状态之间切换。Java 线程状 态变迁如下图所示（图源《Java 并发编程艺术》4.1.4 节）：</p>
-<p><figure><img data-width="1163" data-height="788" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/4f452fdc619de73f632cb9eab90ab27f.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1163" data-height="788" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/4f452fdc619de73f632cb9eab90ab27f.jpg" alt="" /></figure></p>
 <p>由上图可以看出：线程创建之后它将处于 NEW（新建） 状态，调⽤ start() ⽅法后开始运⾏，线程 这时候处于 READY（可运⾏） 状态。可运⾏状态的线程获得了 CPU 时间⽚（timeslice）后就处于 RUNNING（运⾏） 状态。</p>
 <p>​       当线程执⾏ <strong>wait()</strong> ⽅法之后，线程进⼊ <strong>WAITING（等待）</strong> 状态。进⼊等待状态的线程需要依靠其他 线程的通知才能够返回到运⾏状态，⽽ TIME_WAITING(超时等待) 状态相当于在等待状态的基础上增加 了超时限制，⽐如通过 sleep（long millis） ⽅法或 wait（long millis） ⽅法可以将 Java 线程置于 TIMED WAITING 状态。当超时时间到达后 Java 线程将会返回到 RUNNABLE 状态。当线程调 ⽤同步⽅法时，在没有获取到锁的情况下，线程将会进⼊到 BLOCKED（阻塞） 状态。线程在执⾏ Runnable 的 run() ⽅法之后将会进⼊到 TERMINATED（终⽌） 状态。</p>
 <h3>线程等待的两种方法</h3>
@@ -334,7 +334,7 @@
 </tbody>
 </table>
 <p>三次握⼿的⽬的是建⽴可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，⽽三次握⼿最主 要的⽬的就是双⽅确认⾃⼰与对⽅的发送与接收是正常的。发送SYN用来请求连接，发送ACK表示发过来的SYN已接收，从发送SYN端到发送ACK端这边的通信正常</p>
-<p><figure><img data-width="938" data-height="453" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/835402eee3b8e056b66cbbfbeb581a0c.png" alt="" /></figure></p>
+<p><figure><img data-width="938" data-height="453" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/835402eee3b8e056b66cbbfbeb581a0c.png" alt="" /></figure></p>
 <ul>
 <li><p><strong>第一次握手：SYN-SENT</strong></p>
 <p>客户端向服务端发送连接请求报文段和<code>SYN=1</code>请求标志。该报文段中包含自身的数据通讯初始序号<code>seq=x</code>。请求发送后，客户端便进入 <code>SYN-SENT</code> 状态。</p>
@@ -357,7 +357,7 @@
 <h4>传了 SYN,为啥还要传 ACK</h4>
 <p>双⽅通信⽆误必须是两者互相发送信息都⽆误。传了 SYN，证明发送⽅到接收⽅的通道没有问题，但是 接收⽅到发送⽅的通道还需要 ACK 信号来进⾏验证。</p>
 <h3>TCP断开：四次挥手</h3>
-<p><figure><img data-width="553" data-height="454" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/ad4f95d8c370d34408aa4bb680781207.jpeg" alt="" /></figure></p>
+<p><figure><img data-width="553" data-height="454" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/ad4f95d8c370d34408aa4bb680781207.jpeg" alt="" /></figure></p>
 <ul>
 <li>第一次挥手：客户端发出释放FIN=1，自己序列号seq=u，进入<code>FIN-WAIT-1</code>状态</li>
 <li>第二次挥手：服务器收到客户端的后，发出ACK=1确认标志和客户端的确认号ack=u+1，自己的序列号seq=v，进入CLOSE-WAIT状态</li>
@@ -502,7 +502,7 @@
 </ul>
 </blockquote>
 <h2>常见的HTTP状态码以及其代表的含义</h2>
-<p><figure><img data-width="1040" data-height="517" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/e46bf62ca45bce3c9a070291bd5730e8.png" alt="" /></figure></p>
+<p><figure><img data-width="1040" data-height="517" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/e46bf62ca45bce3c9a070291bd5730e8.png" alt="" /></figure></p>
 <p>参考</p>
 <blockquote><ul>
 <li><a href="https://www.cnblogs.com/wpf1913/articles/http-state.html">https://www.cnblogs.com/wpf1913/articles/http-state.html</a></li>
@@ -622,7 +622,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -650,11 +650,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -665,7 +665,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>

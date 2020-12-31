@@ -11,15 +11,15 @@
     <meta name="template" content="Kepler" />
     <link rel="alternate" type="application/rss+xml" title="ze &raquo; RSS 2.0" href="/feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="ze &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-426969802d.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-426969802d.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
+            api: "https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/591f9f7764a8fd2466b8ba7b37e37a9e.json"
         }
     </script>
     <script>
@@ -59,7 +59,7 @@
         <header>
             <div class="container">
                 <section>
-                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/avatar.png">ze</a>
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/avatar.png">ze</a>
                 </section>
                 <section>
                     <nav>
@@ -152,8 +152,8 @@
 <li>运行时数据区</li>
 <li>执行引擎</li>
 </ul>
-<p><figure><img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/4d29555739c58caac26279d8a55c56bb.png" alt="" /></figure></p>
-<p><figure><img data-width="1280" data-height="888" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/9562e7ef222627180ae687a7b6042a60.webp" alt="" /></figure></p>
+<p><figure><img data-width="838" data-height="409" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/4d29555739c58caac26279d8a55c56bb.png" alt="" /></figure></p>
+<p><figure><img data-width="1280" data-height="888" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/9562e7ef222627180ae687a7b6042a60.webp" alt="" /></figure></p>
 <h2>1.1 线程共享</h2>
 <ul>
 <li><strong>方法区：</strong>用于存储虚拟机加载的类信息，常量，静态变量等数据</li>
@@ -187,10 +187,10 @@
 <p>整个永久代有⼀个 JVM 本身设置固定⼤⼩上线，⽆法进⾏调整，⽽元空间使⽤的是直接内存，受本机 可⽤内存的限制，并且永远不会得到<code>java.lang.OutOfMemoryError</code>。你可以使⽤ -XX： MaxMetaspaceSize 标志设置最⼤元空间⼤⼩，默认值为 unlimited，这意味着它只受系统内存的限 制。 -XX：MetaspaceSize 调整标志定义元空间的初始⼤⼩如果未指定此标志，则 Metaspace 将根 据运⾏时的应⽤程序需求动态地重新调整⼤⼩。 当然这只是其中⼀个原因，还有很多底层的原因，这⾥就不提了。</p>
 <h3>1.1.2 堆</h3>
 <p>Java 虚拟机所管理的内存中最⼤的⼀块，Java 堆是所有线程共享的⼀块内存区域，在虚拟机启动时创 建。此内存区域的唯⼀⽬的就是存放对象实例，⼏乎所有的对象实例以及数组都在这⾥分配内存。 Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（<code>Garbage Collected Heap</code>）.从垃圾回收的 ⻆度，由于现在收集器基本都采⽤分代垃圾收集算法，所以Java堆还可以细分为：新⽣代和⽼年代：再 细致⼀点有：Eden空间、From Survivor、To Survivor空间等。进⼀步划分的⽬的是更好地回收内存， 或者更快地分配内存。</p>
-<p><figure><img data-width="1280" data-height="564" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/095b2e2da802911ce77b279791eab695.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1280" data-height="564" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/095b2e2da802911ce77b279791eab695.jpg" alt="" /></figure></p>
 <p>上图所示的 eden区、s0区、s1区都属于新⽣代，tentired 区属于⽼年代。⼤部分情况，对象都会⾸先 在 Eden 区域分配，在⼀次新⽣代垃圾回收后，如果对象还存活，则会进⼊ s0 或者 s1，并且对象的 年龄还会加 1(Eden区i&gt;Survivor 区后对象的初始年龄变为1)，当它的年龄增加到⼀定程度（默认为15 岁），就会被晋升到⽼年代中。对象晋升到⽼年代的年龄阈值，可以通过参数 - XX:MaxTenuringThreshold 来设置。</p>
 <h2>1.2 常量池</h2>
-<p><figure><img data-width="1657" data-height="859" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/2f27957e484984f2dd8d01d3f9352232.png" alt="" /></figure></p>
+<p><figure><img data-width="1657" data-height="859" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/2f27957e484984f2dd8d01d3f9352232.png" alt="" /></figure></p>
 <h2>1.3 线程私有</h2>
 <ul>
 <li><strong>虚拟机栈：</strong>Java方法执行的内存模型，存储局部变量表(包括成员变量，对象地址，即引用类型)，操作数栈，动态链接，方法出口信息。随线程创建和销毁</li>
@@ -236,9 +236,9 @@
 <h2>1.5 对象的访问定位/引用机制(句柄池 | 直接指针)</h2>
 <h3>1.5.1 通过句柄访问</h3>
 <p>使用对象时，通过栈上的 reference 数据来操作堆上的具体对象。Java 堆中会分配一块内存作为句柄池。reference 存储的是句柄地址。详情见图。</p>
-<p><figure><img data-width="1280" data-height="814" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/32c8434e25927d90c513ce4dbd6bce06.webp" alt="" /></figure></p>
+<p><figure><img data-width="1280" data-height="814" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/32c8434e25927d90c513ce4dbd6bce06.webp" alt="" /></figure></p>
 <h3>1.5.2 使用直接指针访问</h3>
-<p><figure><img data-width="1280" data-height="814" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/36983b737aded8946698e01d4a31dc85.webp" alt="" /></figure></p>
+<p><figure><img data-width="1280" data-height="814" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/36983b737aded8946698e01d4a31dc85.webp" alt="" /></figure></p>
 <h3>1.5.3 比较</h3>
 <blockquote><ul>
 <li>使用句柄的最大好处是 <code>reference</code> 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，<code>reference</code> 自身不需要修改。</li>
@@ -324,7 +324,7 @@
 </blockquote>
 <h3>3.2.1 引用计数</h3>
 <p>每个对象有一个引用计数属性，新增一个引用时计数加1，引用释放时计数减1，计数为0时可以回收。此方法简单，无法解决<code>对象相互循环引用</code>的问题，而且计数器需要维护，需要消耗，<strong>所以主流的java虚拟机很少用</strong>。</p>
-<p><figure><img data-width="1138" data-height="769" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/a84f56e2b85a20835828d870dc1a1ce8.webp" alt="" /></figure></p>
+<p><figure><img data-width="1138" data-height="769" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/a84f56e2b85a20835828d870dc1a1ce8.webp" alt="" /></figure></p>
 <p>在这里，obj1中拿着对obj2的引用，obj2中拿着对obj1的引用。如果obj1要被回收，前提是obj2被先回收，这样才能释放对obj1的引用。但是反回过来，obj2要被回收的前提是obj1要被先回收。当build函数退出后，看起来垃圾回收管理似乎就始终无法回收这两个实际已经不再需要的对象。</p>
 <p>垃圾回收机制究竟能否解决循环引用这一困境，带着这个疑问找了一些资料，找到了一个比较满意的解释。在《Java Platform Performance: Strategies and Tactics》这本书的附录A中有一处说明，这本书出自sun公司java团队员工，应该算比较权威的。其中有这样一段</p>
 <blockquote><p>可以简单的理解就是强引用并不能保证对象不被回收。垃圾回收机制除了检查对象是否被引用外，还要看对象是否被至少一个GC roots对象直接或者间接引用</p>
@@ -332,7 +332,7 @@
 <p>所以，上面例子中两个循环引用的对象，虽然都存在一个强引用，但是不被任何<code>GC root</code>对象直接或者间接引用到(<code>可达性分析</code>)，垃圾回收机制能够发现这个问题。</p>
 <h3>3.2.2 可达性分析(主流算法)</h3>
 <p>从GC Roots开始向下搜索，搜索所走过的路径称为<code>引用链</code>。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象。</p>
-<p><figure><img data-width="1248" data-height="873" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/b7e9cba8cf4d9237e3661a999b2dd869.webp" alt="" /></figure></p>
+<p><figure><img data-width="1248" data-height="873" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/b7e9cba8cf4d9237e3661a999b2dd869.webp" alt="" /></figure></p>
 <p>在Java语言中，可作为 GC Roots 的对象：</p>
 <blockquote><ul>
 <li>虚拟机栈中引用的对象。</li>
@@ -383,7 +383,7 @@
 <li><strong>第一阶段标记</strong>：从<code>引用根节点</code>开始标记所有被引用的对象，为每个对象更新标记位，检查对象是否死亡</li>
 <li><strong>第二阶段清除</strong>：该阶段对死亡的对象进行清除，执行 GC 操作。遍历<code>整个堆</code>，把未标记的对象清除。此算法需要暂停整个应用，并且会产生内存碎片。</li>
 </ul>
-<p><figure><img data-width="386" data-height="233" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/1cf7356b9bbdb6acda7cfbe92d079fed.png" alt="" /></figure></p>
+<p><figure><img data-width="386" data-height="233" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/1cf7356b9bbdb6acda7cfbe92d079fed.png" alt="" /></figure></p>
 <h4>优点</h4>
 <p>最大的优点是，标记—清除算法中每个活着的对象的引用只需要找到一个即可，找到一个就可以判断它为活的。此外，更重要的是，这个算法并不移动对象的位置。</p>
 <h4>缺点</h4>
@@ -398,7 +398,7 @@
 <li><strong>第一阶段标记</strong>：该算法也将所有对象从<code>根节点</code>标记为<code>存活</code>和<code>死亡</code>两种状态</li>
 <li><strong>第二阶段</strong>：在第二个阶段，该算法并没有直接对死亡的对象进行清理，而是将<code>所有存活的对象</code>整理一下压缩在一块，放到另一处空间，然后把剩下的所有对象全部清除。</li>
 </ul>
-<p><figure><img data-width="355" data-height="234" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/38f520104df620c175337737e7c6420b.png" alt="" /></figure></p>
+<p><figure><img data-width="355" data-height="234" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/38f520104df620c175337737e7c6420b.png" alt="" /></figure></p>
 <h4>优点</h4>
 <p>该算法不会像<code>标记-清除</code>算法那样产生大量的碎片空间，避免了<code>内存碎片</code>，也避免了<code>复制</code>算法的<code>空间利用不足</code>问题。</p>
 <h4>缺点</h4>
@@ -407,7 +407,7 @@
 <p>该算法将内存平均分成两部分，然后每次只使用其中的一部分，当这部分内存满的时候，将内存中<code>所有存活的对象</code>复制到另一个内存中，然后将之前的内存清空，只使用这部分内存，循环下去。复制算法每次只处理正在使用中的对象，因此复制成本比较小，同时复制过去以后还能进行相应的内存整理，不会出现<code>“碎片”</code>问题。当然，此算法的缺点也是很明显的，就是<code>需要两倍内存空间</code>。</p>
 <blockquote><p>这个算法与<code>标记-整理算法</code>的区别在于，该算法不是在同一个区域复制，而是将所有存活的对象复制到另一个区域内。</p>
 </blockquote>
-<p><figure><img data-width="428" data-height="273" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/4e40b71e96d675abc1c6f293385aa219.png" alt="" /></figure></p>
+<p><figure><img data-width="428" data-height="273" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/4e40b71e96d675abc1c6f293385aa219.png" alt="" /></figure></p>
 <h4>优点</h4>
 <p>不会出现内存碎片问题</p>
 <h4>缺点</h4>
@@ -447,7 +447,7 @@
 </li>
 </ul>
 <p>比例：Eden ：From Survivor：To Survivor = <code>8：1：1</code></p>
-<p><figure><img data-width="1280" data-height="564" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/095b2e2da802911ce77b279791eab695.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1280" data-height="564" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/095b2e2da802911ce77b279791eab695.jpg" alt="" /></figure></p>
 <p>新生代这样划分是为了更好的管理堆内存中的对象，方便GC算法---<code>复制算法</code>来进行垃圾回收。</p>
 <p>JVM每次只会使用eden和其中一块survivor来为对象服务，所以无论什么时候，都会有一块survivor空间，因此新生代实际可用空间只有<code>90%</code>。</p>
 <h4>为什么要有Survivor区</h4>
@@ -480,33 +480,33 @@
 <h4>Minor GC流程</h4>
 <ol>
 <li><p>假设现在Heap内存大小为20M，其中年轻代为10M，老年代为10M，年轻代中Eden区6M，From区2M，To区2M，新创建的对象首先往Eden区分配，当再次分配一个对象，假设大小为1M，此时Eden区已经没有足够空间来给这个对象分配内存，如图所示：</p>
-<p><figure><img data-width="1127" data-height="489" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/716f89075d49a3b5f3b05a1d368b0297.png" alt="" /></figure></p>
+<p><figure><img data-width="1127" data-height="489" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/716f89075d49a3b5f3b05a1d368b0297.png" alt="" /></figure></p>
 </li>
 <li><p>这时候触发一次<code>Minor GC</code>，把<code>Eden</code>区的存活对象转移到<code>From</code>区，<code>非存活对象</code>进行清理，然后给新创建的对象分配空间，存入<code>Eden</code>区</p>
-<p><figure><img data-width="1099" data-height="482" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/57177c3ff754f4ea6e1df99b201ba857.png" alt="" /></figure></p>
+<p><figure><img data-width="1099" data-height="482" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/57177c3ff754f4ea6e1df99b201ba857.png" alt="" /></figure></p>
 </li>
 <li><p>随着分配对象的增多，<code>Eden</code>区的空间又不足了：</p>
-<p><figure><img data-width="1117" data-height="489" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/8c984fbe34c14d6f3d21366ec861957b.png" alt="" /></figure></p>
+<p><figure><img data-width="1117" data-height="489" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/8c984fbe34c14d6f3d21366ec861957b.png" alt="" /></figure></p>
 </li>
 <li><p>这时候再触发一次<code>Minor GC</code>，清理掉<code>Eden</code>区和<code>S1</code>区的死亡对象，把<code>Eden</code>区和<code>S1</code>存活对象转移到<code>S2</code>区，然后再给新对象分配内存：</p>
-<p><figure><img data-width="1111" data-height="479" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/f4adff5ba2184967bec42b9ed9e01a09.png" alt="" /></figure></p>
+<p><figure><img data-width="1111" data-height="479" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/f4adff5ba2184967bec42b9ed9e01a09.png" alt="" /></figure></p>
 </li>
 <li><p><code>From</code>区和<code>To</code>区是相对的关系，哪个区中有对象，哪个区就是<code>From</code>区，比如，再进行一次<code>Minor GC</code>，会把存活对象转移到<code>S1</code>区，再为转移之前，<code>S2</code>区是<code>From</code>区，<code>S1</code>区是<code>To</code>区，转移后，<code>S2</code>区中没有存活对象，变为<code>To</code>区，而<code>S1</code>区变为<code>From</code>区。如果存活的对象是从<code>Eden</code>区到<code>To Survivor</code>，那么将<code>Age</code>设为1，如果是<code>From Survivor</code>中移动过去，则<code>Age++</code>。</p>
-<p><figure><img data-width="1076" data-height="968" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/9c4931d88a02c27f60eeb7e1e8c56ef4.png" alt="" /></figure></p>
+<p><figure><img data-width="1076" data-height="968" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/9c4931d88a02c27f60eeb7e1e8c56ef4.png" alt="" /></figure></p>
 </li>
 </ol>
 <h4>对象进入老年代的4种情况</h4>
 <ol>
 <li><p>假如进行Minor GC时发现，存活的对象在<code>ToSpace</code>区中存不下，那么把存活的对象存入老年代</p>
-<p><figure><img data-width="1100" data-height="961" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/14504f0b89b44b27c299328fb8497324.png" alt="" /></figure></p>
+<p><figure><img data-width="1100" data-height="961" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/14504f0b89b44b27c299328fb8497324.png" alt="" /></figure></p>
 </li>
 <li><p><strong>大对象直接进入老年代</strong>：假设新创建的对象很大，比如为5M(这个值可以通过<code>PretenureSizeThreshold</code>这个参数进行设置，默认3M)，那么即使<code>Eden区</code>有足够的空间来存放，也不会存放在<code>Eden区</code>，而是直接存入<code>老年代</code></p>
-<p><figure><img data-width="965" data-height="561" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/ac7793d9b2351307528eebbe0022f15f.png" alt="" /></figure></p>
+<p><figure><img data-width="965" data-height="561" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/ac7793d9b2351307528eebbe0022f15f.png" alt="" /></figure></p>
 </li>
 <li><p><strong>长期存活的对象将进入老年代</strong>：此外，如果对象在<code>Eden</code>出生并且经过1次<code>Minor GC</code>后仍然存活，并且能被<code>To区</code>容纳，那么将被移动到<code>To区</code>，并且把对象的年龄设置为<code>1</code>，对象没"熬过"一次<code>Minor GC</code>(没有被回收，也没有因为<code>To区</code>没有空间而被移动到<code>老年代</code>中)，年龄就<code>增加一岁</code>，当它的年龄增加到一定程度(默认<code>15岁</code>，也可以配置参数<code>-XX:MaxTenuringThreshold</code>)，就会被晋升到<code>老年代</code>中</p>
 </li>
 <li><p><strong>动态对象年龄判定</strong>：还有一种情况，如果在<code>From空间</code>中，相同年龄所有对象的大小总和大于<code>From</code>和<code>To空间</code>总和的一半，那么年龄大于等于该年龄的对象就会被移动到<code>老年代</code>，而不用等到<code>15岁</code>(默认)：</p>
-<p><figure><img data-width="959" data-height="950" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/1e7829fd90ea234c1a52fa23eeb3ef9a.png" alt="" /></figure></p>
+<p><figure><img data-width="959" data-height="950" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/1e7829fd90ea234c1a52fa23eeb3ef9a.png" alt="" /></figure></p>
 </li>
 </ol>
 <h3>3.5.2 Full GC</h3>
@@ -541,7 +541,7 @@
 </ul>
 </blockquote>
 <p>如果说收集算法是内存回收的方法论，垃圾收集器就是内存回收的具体实现</p>
-<p><figure><img data-width="1229" data-height="365" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/7da16803b3fd83bca551d20cbf56352e.png" alt="" /></figure></p>
+<p><figure><img data-width="1229" data-height="365" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/7da16803b3fd83bca551d20cbf56352e.png" alt="" /></figure></p>
 <h2>4.1 新生代垃圾收集器</h2>
 <table>
 <thead><tr>
@@ -578,7 +578,7 @@
 </table>
 <h3>4.1.1 Serial New串行收集器-复制算法</h3>
 <p>Serial收集器是新生代<code>单线程收集器</code>。这是最早的新生代收集器，也是jdk1.5之前默认的收集器，它是基于复制算法实现</p>
-<p><figure><img data-width="640" data-height="333" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/eb7cfa50150bbced6d9b6f6ff073c0cc.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="333" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/eb7cfa50150bbced6d9b6f6ff073c0cc.jpg" alt="" /></figure></p>
 <p>优缺点</p>
 <blockquote><ul>
 <li><strong>优点</strong>：简单高效，算是最基本、发展历史最悠久的收集器。</li>
@@ -588,7 +588,7 @@
 <p>Serial收集器依然是虚拟机运行在<code>Client模式</code>下默认新生代收集器，对于运行在<code>Client模式下的虚拟机</code>来说是一个很好的选择。</p>
 <h3>4.1.2 ParNew收集器-复制算法</h3>
 <p>ParNew收集器是新生代<code>并行收集器</code>，其实就<strong>是Serial收集器的多线程版本</strong>。</p>
-<p><figure><img data-width="640" data-height="333" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/5541696608ac37fa809819396b148ad8.jpg" alt="" /></figure></p>
+<p><figure><img data-width="640" data-height="333" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/5541696608ac37fa809819396b148ad8.jpg" alt="" /></figure></p>
 <p>除了使用多线程进行垃圾收集之外，其余行为包括Serial收集器可用的所有控制参数、收集算法、Stop The World、对象分配规则、回收策略等都与Serial 收集器完全一样。</p>
 <p>优缺点</p>
 <blockquote><ul>
@@ -675,7 +675,7 @@
 </ul>
 </blockquote>
 <p>其中，<code>初始标记</code>、<code>重新标记</code>这两个步骤仍然需要“<code>Stop The World</code>”。</p>
-<p><figure><img data-width="558" data-height="299" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/15201609fe26abe0db1908b4ee1b4496.jpg" alt="" /></figure></p>
+<p><figure><img data-width="558" data-height="299" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/15201609fe26abe0db1908b4ee1b4496.jpg" alt="" /></figure></p>
 <p>优点：</p>
 <blockquote><ul>
 <li>并发收集：能够全局上与用户线程并发执行。是第一款真正意义上的并发收集器。</li>
@@ -703,7 +703,7 @@
 </ul>
 </blockquote>
 <p>G1收集器的步骤</p>
-<p><figure><img data-width="1014" data-height="252" src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/archives/assets/ae61b7491b714c097feb920e00a4b0ff.jpg" alt="" /></figure></p>
+<p><figure><img data-width="1014" data-height="252" src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/archives/assets/ae61b7491b714c097feb920e00a4b0ff.jpg" alt="" /></figure></p>
 <p>共四个步骤：</p>
 <blockquote><ol>
 <li>初始标记（它标记了从GC Root开始直接可达的对象）：与CMS第一步骤差不多</li>
@@ -789,7 +789,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/kepler-ef161b04d5.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/kepler-ef161b04d5.js"></script>
         <script>
             function ExSearchCall(item){
                 if (item && item.length) {
@@ -817,11 +817,11 @@
         
 
         <!--ExSearch-->
-        <script src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
         
         <!--katex-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/katex.min.js"></script>
         <script>
         mathOpts = {
             delimiters: [
@@ -832,7 +832,7 @@
             ]
         };
         </script>
-        <script defer src="https://cdn.jsdelivr.net/gh/ze/Wiki@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+        <script defer src="https://cdn.jsdelivr.net/gh/ouzejin/ze@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
         
     </body>
