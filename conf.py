@@ -18,7 +18,7 @@ template="Kepler"
 
 enable_jsdelivr = {
     "enabled": True,
-    "repo": "lifealsoisgg/Wiki@gh-pages"
+    "repo": "ze/Wiki@gh-pages"
 }
 
 valine = {
@@ -28,39 +28,39 @@ valine = {
     "appKey": "TGMR5Eo0w2lsuE1wyO7p5cyv",
     "visitor": True,
     "recordIP": True,
-    "placeholder": "还请不吝赐教"
+    "placeholder": "略懂"
 }
 
 
 # 站点设置
-site_name = "LifeAlsoIsGG-Wiki"
+site_name = "ze"
 site_logo = "${static_prefix}avatar.png"
-site_build_date = "2019-12-18T16:51+08:00"
-author = "LifeAlsoIsGG"
-email = "1138312802@qq.com"
-author_homepage = "https://blog.lifeisgg.online"
-description = "Do not go gentle in that good night"
-key_words = ['Maverick', 'LifeAlsoIsGG', 'Galileo', 'wiki']
+site_build_date = "2020-12-31T15:00+00:00"
+author = "ze"
+email = "2826708201@qq.com"
+author_homepage = "https://blog.ze.online"
+description = "The resolution will not change"
+key_words = ['Maverick', 'ZE', 'Galileo', 'wiki']
 language = 'zh-CN'
 external_links = [
     {
         "name": "Blog",
-        "url": "https://blog.lifeisgg.online",
+        "url": "https://blog.ze.online",
         "brief": "🏄‍ Go My Own Way."
     },
     {
         "name": "Photos",
-        "url": "https://photos.lifeisgg.online",
+        "url": "https://photos.ze.online",
         "brief": "相册。"
     },
     {
         "name": "GitHub",
-        "url": "https://github.com/LifeAlsoIsGG",
+        "url": "https://github.com/ouzejin",
         "brief": "GitHub。"
     },
     {
         "name": "Twitter",
-        "url": "https://twitter.com/LifeAlsoIsGG",
+        "url": "https://twitter.com/ouzejin",
         "brief": "Twitter。"
     }
 ]
@@ -90,12 +90,12 @@ nav = [
 social_links = [
     {
         "name": "Twitter",
-        "url": "https://twitter.com/LifeAlsoIsGG",
+        "url": "https://twitter.com/ouzejin",
         "icon": "gi gi-twitter"
     },
     {
         "name": "GitHub",
-        "url": "https://github.com/LifeAlsoIsGG",
+        "url": "https://github.com/ouzejin",
         "icon": "gi gi-github"
     }
    
